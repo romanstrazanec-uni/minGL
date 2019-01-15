@@ -1,5 +1,6 @@
 #include <windows.h>
-#include "Window.h"
+#include <d2d1.h>
+#include "GUI/Window.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
     try {

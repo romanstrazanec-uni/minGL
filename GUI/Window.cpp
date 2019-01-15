@@ -2,6 +2,14 @@
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     switch(msg) {
+        case WM_LBUTTONDOWN: {
+                char szFileName[MAX_PATH];
+                HINSTANCE hInstance = GetModuleHandle(NULL);
+
+                GetModuleFileName(hInstance, szFileName, MAX_PATH);
+                MessageBox(hwnd, szFileName, "This program is:", MB_OK | MB_ICONINFORMATION);
+            }
+            break;
         case WM_CLOSE:
             DestroyWindow(hwnd);
             break;
@@ -18,7 +26,7 @@ Window::Window(HINSTANCE hInstance, char * windowTitle):
         hInstance(hInstance),
         windowTitle(windowTitle) {
     initialize();
-    registerW();
+    registerWindow();
     create();
 }
 
@@ -27,7 +35,7 @@ Window::Window(HINSTANCE hInstance, unsigned int x, unsigned int y, unsigned int
         hInstance(hInstance),
         windowTitle(windowTitle) {
     initialize();
-    registerW();
+    registerWindow();
     create();
 }
 
@@ -58,7 +66,7 @@ void Window::initialize(){
     wc.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
 }
 
-void Window::registerW(){
+void Window::registerWindow(){
     if(!RegisterClassEx(&wc)) throw EXCEPTION_REGISTRATION();
 }
 

@@ -14,7 +14,7 @@ private:
 
 private:
     void initialize();
-    void registerW();
+    void registerWindow();
     bool create();
 public:
     Window(HINSTANCE hInstance, char * windowTitle);
