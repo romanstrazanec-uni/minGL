@@ -1,8 +1,6 @@
 #ifndef POINT_H
 #define	POINT_H
 
-#include <ostream>
-
 struct Point {
     int x, y;
 
@@ -23,7 +21,6 @@ struct Point {
     friend Point operator+(Point, const Point &);
     Point& operator-=(const Point &);
     friend Point operator-(Point, const Point &);
-    friend std::ostream& operator<<(std::ostream &, const Point &);
 };
 
 #endif

@@ -34,8 +34,3 @@ Point& Point::operator-=(const Point& other){
   return *this;
 }
 Point operator-(Point p1, const Point& p2){ return p1 -= p2; }
-
-std::ostream& operator<<(std::ostream& out, const Point& point) {
-  out << "Point(" << point.x << "," << point.y << ")";
-  return out;
-}
