@@ -1,5 +1,5 @@
-#ifndef LINE_H
-#define LINE_H
+#ifndef LIBGRAPHICS_LINE_H
+#define LIBGRAPHICS_LINE_H
 
 #include <cmath>
 #include "Point.h"

@@ -1,5 +1,5 @@
-#ifndef POINT_H
-#define	POINT_H
+#ifndef LIBGRAPHICS_POINT_H
+#define	LIBGRAPHICS_POINT_H
 
 struct Point {
     int x, y;
