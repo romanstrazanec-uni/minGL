@@ -4,8 +4,8 @@
 #include "Point.h"
 
 struct Circle {
-    Point c;
-    unsigned int r;
+    Point c{Point()};
+    unsigned int r{0};
 
     Circle();
     explicit Circle(unsigned int r);
