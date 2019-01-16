@@ -11,6 +11,7 @@ struct Point {
     virtual ~Point();
 
     Point& operator=(const Point &);
+    Point& operator=(Point &&) noexcept;
     bool operator==(const Point &) const;
     bool operator!=(const Point &) const;
 
