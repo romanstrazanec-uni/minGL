@@ -4,7 +4,8 @@ Circle::Circle() = default;
 Circle::Circle(unsigned int r): r(r) {}
 Circle::Circle(const Point &c, unsigned int r): c(c), r(r) {}
 Circle::Circle(int x, int y, unsigned int r): c(Point(x, y)), r(r) {}
+Circle::~Circle() = default;
 
 bool Circle::is_point() { return r == 0; }
-
-Circle::~Circle() = default;
+void Circle::move_to(const Point &point) { c = point; }
+void Circle::move_to(int x, int y) { c = Point(x, y); }

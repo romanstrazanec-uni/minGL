@@ -14,6 +14,8 @@ struct Circle {
     virtual ~Circle();
 
     bool is_point();
+    void move_to(const Point &);
+    void move_to(int x, int y);
 };
 
 #endif
