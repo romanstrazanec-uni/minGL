@@ -4,13 +4,13 @@
 #include <cstdint>
 
 struct RGBColor {
-    uint8_t r{0}, g{0}, b{0};
+    uint8_t red{0}, green{0}, blue{0};
 
-    RGBColor(uint8_t r, uint8_t g, uint8_t b);
+    RGBColor(uint8_t red, uint8_t green, uint8_t blue);
     RGBColor(const RGBColor &);
     virtual ~RGBColor();
 
-    void set_color(uint8_t r, uint8_t g, uint8_t b);
+    void set_color(uint8_t red, uint8_t green, uint8_t blue);
     void inverse();
 
     // assignment operators
