@@ -1,8 +1,9 @@
-#ifndef LIBGRAPHICS_LINE_H
-#define LIBGRAPHICS_LINE_H
+#ifndef LIBGRAPHICS_LINESEGMENT_H
+#define LIBGRAPHICS_LINESEGMENT_H
 
 #include <cmath>
 #include "Point.h"
+#include "Line.h"
 
 struct LineSegment {
     Point start{Point()}, end{Point()};
@@ -23,9 +24,12 @@ struct LineSegment {
     void move_to(const Point &start, const Point &end);
     void move_to(int startx, int starty, int endx, int endy);
 
+    double deltax() const;
+    double deltay() const;
     double length() const;
     bool is_point() const;
     Point center() const;
+    Line line() const;
 
     // comparision operators
     bool operator==(const LineSegment &);

@@ -3,19 +3,21 @@
 
 #include <cmath>
 #include "Point.h"
+#include "LineSegment.h"
 
 struct Line {
     double m{0}, b{0};
 
     Line();
-    explicit Line(int);
-    Line(int, int);
+    explicit Line(double slope);
+    Line(double slope, double b);
     Line(const Line &);
     Line(Line &&) noexcept;
     virtual ~Line();
 
     double y(double x);
     Point point(int x);
+    LineSegment segment(int startx, int endx);
 };
 
 #endif

@@ -20,6 +20,12 @@ void LineSegment::move_to(int startx, int starty, int endx, int endy){
     start = Point(startx, starty), end = Point(endx, endy);
 }
 
+double LineSegment::deltax() const {
+    return fmax(start.x, end.x) - fmin(start.x, end.x);
+}
+double LineSegment::deltay() const {
+    return fmax(start.y, end.y) - fmin(start.y, end.y);
+}
 double LineSegment::length() const {
     if(start.x == end.x) return fabs((double)start.y - end.y);
     if(start.y == end.y) return fabs((double)start.x - end.x);
@@ -28,14 +34,16 @@ double LineSegment::length() const {
 bool LineSegment::is_point() const { return start == end; }
 Point LineSegment::center() const {
     if(is_point()) return start;
-    auto x = (int)round((fmax(start.x, end.x) - fmin(start.x, end.x)) / 2);
-    auto y = (int)round((fmax(start.y, end.y) - fmin(start.y, end.y)) / 2);
+    auto x = (int)deltax() / 2;
+    auto y = (int)deltay() / 2;
     return Point(x, y);
+}
+Line LineSegment::line() const {
+    double m = deltay()/deltax();
+    return Line(m, start.y/(m*start.x));
 }
 
 bool LineSegment::operator==(const LineSegment &l){ return start == l.start && end == l.end; }
 bool LineSegment::operator!=(const LineSegment &l){ return !(*this == l); }
-
-
 
 
