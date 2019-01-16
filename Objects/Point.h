@@ -2,7 +2,7 @@
 #define	LIBGRAPHICS_POINT_H
 
 struct Point {
-    int x, y;
+    int x{0}, y{0};
 
     // constructors
     Point(); // {x,y} = {0,0}

@@ -1,7 +1,7 @@
 #include "Point.h"
 
 // constructors
-Point::Point(): x(0), y(0) {}
+Point::Point() = default;
 Point::Point(int x, int y): x(x), y(y) {}
 Point::Point(const Point &other) = default;
 Point::Point(Point &&other) noexcept = default;
