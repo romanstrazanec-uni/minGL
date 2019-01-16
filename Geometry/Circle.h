@@ -16,6 +16,10 @@ struct Circle {
     bool is_point();
     void move_to(const Point &);
     void move_to(int x, int y);
+
+    // comparision operators
+    bool operator==(const Circle &) const;
+    bool operator!=(const Circle &) const;
 };
 
 #endif
