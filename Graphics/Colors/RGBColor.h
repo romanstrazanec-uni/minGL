@@ -1,7 +1,8 @@
-#ifndef LIBGRAPHICS_COLOR_H
-#define LIBGRAPHICS_COLOR_H
+#ifndef LIBGRAPHICS_RGBCOLOR_H
+#define LIBGRAPHICS_RGBCOLOR_H
 
 #include <cstdint>
+#include "HSLColor.h"
 
 struct RGBColor {
     uint8_t red{0}, green{0}, blue{0};
@@ -12,6 +13,7 @@ struct RGBColor {
 
     void set_color(uint8_t red, uint8_t green, uint8_t blue);
     void inverse();
+    HSLColor to_hsl();
 
     // assignment operators
     RGBColor& operator=(const RGBColor &);

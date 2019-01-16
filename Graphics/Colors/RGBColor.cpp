@@ -12,6 +12,23 @@ void RGBColor::set_color(uint8_t red, uint8_t green, uint8_t blue) {
 void RGBColor::inverse() {
     *this = RGBColor(255, 255, 255) - *this;
 }
+HSLColor RGBColor::to_hsl(){
+    float r = float(red)/256, g = float(green)/256, b = float(blue)/256;
+    float max = fmaxf(fmaxf(r, g), b), min = fminf(fminf(r, g), b);
+    short h = 0;
+    if(max != min){
+        auto fh = [](int n, float a, float b, float mx, float mn){
+            return short(60 * (n + (a-b)/(mx - mn)));
+        };
+        if(max == r) h = fh(0, g, b, max, min);
+        else if(max == g) h = fh(2, b, r, max, min);
+        else h = fh(4, r, g, max, min);
+    }
+    float s = 0;
+    if((max != 0)^(r != g != b != 0) && (min != 1)^(r != g != b != 1))
+        s = (max-min)/(1-fabsf(max+min-1));
+    return HSLColor(h < 0 ? h + short(360) : h, s, (max + min) / 2);
+}
 
 // assignment operators
 RGBColor& RGBColor::operator=(const RGBColor &other) {
