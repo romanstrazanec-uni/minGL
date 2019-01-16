@@ -6,17 +6,14 @@
 struct RGBColor {
     uint8_t r{0}, g{0}, b{0};
 
-    // constructors
     RGBColor(uint8_t r, uint8_t g, uint8_t b);
     RGBColor(const RGBColor &);
-    RGBColor(RGBColor &&) noexcept;
     virtual ~RGBColor();
 
     void set_color(uint8_t r, uint8_t g, uint8_t b);
 
     // assignment operators
-    RGBColor& operator=(const RGBColor &); // copy assignment
-    RGBColor& operator=(RGBColor &&) noexcept; // move assignment
+    RGBColor& operator=(const RGBColor &);
 
     // assignment arithmetic operators
     RGBColor& operator+=(const RGBColor &);

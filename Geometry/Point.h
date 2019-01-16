@@ -4,19 +4,16 @@
 struct Point {
     int x{0}, y{0};
 
-    // constructors
-    Point(); // {x,y} = {0,0}
+    Point();
     Point(int x, int y);
-    Point(const Point&); // copy constructor
-    Point(Point &&) noexcept; // move constructor
-    virtual ~Point(); // destructor
+    Point(const Point&);
+    virtual ~Point();
 
     void move_to(int x, int y);
     void move_to(const Point &);
 
     // assignment operators
-    Point& operator=(const Point &); // copy assignment
-    Point& operator=(Point &&) noexcept; // move assignment
+    Point& operator=(const Point &);
     Point& operator+=(const Point &);
     Point& operator-=(const Point &);
     Point& operator*=(int);

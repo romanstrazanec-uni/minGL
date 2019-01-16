@@ -1,9 +1,7 @@
 #include "RGBColor.h"
 
-// constructors
 RGBColor::RGBColor(uint8_t r, uint8_t g, uint8_t b): r(r), g(g), b(b) {}
 RGBColor::RGBColor(const RGBColor &other) = default;
-RGBColor::RGBColor(RGBColor &&) noexcept = default;
 RGBColor::~RGBColor() = default;
 
 void RGBColor::set_color(uint8_t r, uint8_t g, uint8_t b) {
@@ -14,10 +12,6 @@ void RGBColor::set_color(uint8_t r, uint8_t g, uint8_t b) {
 
 // assignment operators
 RGBColor& RGBColor::operator=(const RGBColor &other) {
-    r = other.r, g = other.g, b = other.b;
-    return *this;
-}
-RGBColor& RGBColor::operator=(RGBColor &&other) noexcept {
     r = other.r, g = other.g, b = other.b;
     return *this;
 }

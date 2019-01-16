@@ -12,7 +12,6 @@ struct Line {
     explicit Line(double slope);
     Line(double slope, double b);
     Line(const Line &);
-    Line(Line &&) noexcept;
     virtual ~Line();
 
     double y(double x);

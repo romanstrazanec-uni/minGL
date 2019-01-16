@@ -1,11 +1,9 @@
 #include "Line.h"
 
-// constructors
 Line::Line() = default;
 Line::Line(double slope): m(slope), b(0) {}
 Line::Line(double slope, double b): m(slope), b(b) {}
 Line::Line(const Line &) = default;
-Line::Line(Line &&) noexcept = default;
 Line::~Line() = default;
 
 double Line::y(double x){ return m*x + b; }

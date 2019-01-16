@@ -1,10 +1,8 @@
 #include "Point.h"
 
-// constructors
 Point::Point() = default;
 Point::Point(int x, int y): x(x), y(y) {}
 Point::Point(const Point &other) = default;
-Point::Point(Point &&other) noexcept = default;
 Point::~Point() = default;
 
 void Point::move_to(int x, int y) { this->x = x, this->y = y; }
@@ -12,10 +10,6 @@ void Point::move_to(const Point &point){ *this = point; }
 
 // assignment operators
 Point& Point::operator=(const Point &other) {
-    x = other.x, y = other.y;
-    return *this;
-}
-Point& Point::operator=(Point &&other) noexcept {
     x = other.x, y = other.y;
     return *this;
 }

@@ -8,15 +8,13 @@
 struct LineSegment {
     Point start{Point()}, end{Point()};
 
-    // constructors
-    LineSegment(); // start and end set to {0,0}
-    explicit LineSegment(const Point &end); // start set to {0,0}
-    LineSegment(const LineSegment &); // copy constructor
-    LineSegment(LineSegment &&) noexcept; // move construcctor
-    LineSegment(int x, int y); // start set to {0,0}
+    LineSegment();
+    explicit LineSegment(const Point &end);
+    LineSegment(const LineSegment &);
+    LineSegment(int x, int y);
     LineSegment(const Point &, const Point &);
     LineSegment(int startx, int starty, int endx, int endy);
-    virtual ~LineSegment(); // destructor
+    virtual ~LineSegment();
 
     void setStart(int x, int y);
     void setEnd(int x, int y);
@@ -28,7 +26,7 @@ struct LineSegment {
     double deltay() const;
     double length() const;
     bool is_point() const;
-    Point center() const;
+    Point middle() const;
     Line line() const;
 
     // comparision operators

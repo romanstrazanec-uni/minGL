@@ -1,10 +1,8 @@
 #include "LineSegment.h"
 
-// constructors
 LineSegment::LineSegment() = default;
 LineSegment::LineSegment(const Point &end): start(Point()), end(end){}
 LineSegment::LineSegment(const LineSegment &other) = default;
-LineSegment::LineSegment(LineSegment &&) noexcept = default;
 LineSegment::LineSegment(int x, int y): start(Point()), end(Point(x, y)){}
 LineSegment::LineSegment(const Point &start, const Point &end): start(start), end(end){}
 LineSegment::LineSegment(int startx, int starty, int endx, int endy): start(Point(startx, starty)), end(Point(endx, endy)){}
@@ -32,7 +30,7 @@ double LineSegment::length() const {
     return sqrt(pow(start.x - end.x, 2) + pow(start.y - end.y, 2));
 }
 bool LineSegment::is_point() const { return start == end; }
-Point LineSegment::center() const {
+Point LineSegment::middle() const {
     if(is_point()) return start;
     auto x = (int)deltax() / 2;
     auto y = (int)deltay() / 2;
@@ -43,6 +41,7 @@ Line LineSegment::line() const {
     return Line(m, start.y/(m*start.x));
 }
 
+// comparision operators
 bool LineSegment::operator==(const LineSegment &l){ return start == l.start && end == l.end; }
 bool LineSegment::operator!=(const LineSegment &l){ return !(*this == l); }
 
