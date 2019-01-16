@@ -9,14 +9,15 @@ void RGBColor::set_color(uint8_t r, uint8_t g, uint8_t b) {
     this->g = g;
     this->r = r;
 }
+void RGBColor::inverse() {
+    *this = RGBColor(255, 255, 255) - *this;
+}
 
 // assignment operators
 RGBColor& RGBColor::operator=(const RGBColor &other) {
     r = other.r, g = other.g, b = other.b;
     return *this;
 }
-
-// arithmetic assignment operators
 RGBColor& RGBColor::operator+=(const RGBColor &other) {
     if(r + other.r < 255) r += other.r;
     else r = 255;
@@ -81,6 +82,39 @@ RGBColor& RGBColor::operator/=(uint8_t n) {
 }
 
 // arithmetic operators
+RGBColor RGBColor::operator+(const RGBColor &other) const {
+    uint8_t nr = r, ng = g, nb = b;
+    if(r + other.r < 255) nr += other.r;
+    else nr = 255;
+    if(g + other.g < 255) ng += other.g;
+    else ng = 255;
+    if(b + other.b < 255) nb += other.b;
+    else nb = 255;
+    return RGBColor(nr, ng, nb);
+}
+RGBColor RGBColor::operator-(const RGBColor &other) const {
+    uint8_t nr = r, ng = g, nb = b;
+    if(r - other.r > 0) nr -= other.r;
+    else nr = 0;
+    if(g - other.g > 0) ng -= other.g;
+    else ng = 0;
+    if(b - other.b > 0) nb -= other.b;
+    else nb = 0;
+    return RGBColor(nr, ng, nb);
+}
+RGBColor RGBColor::operator*(const RGBColor &other) const {
+    uint8_t nr = r, ng = g, nb = b;
+    if(r * other.r <= 255) nr *= other.r;
+    else nr = 255;
+    if(g * other.g <= 255) ng *= other.g;
+    else ng = 255;
+    if(b * other.b <= 255) nb *= other.b;
+    else nb = 255;
+    return RGBColor(nr, ng, nb);
+}
+RGBColor RGBColor::operator/(const RGBColor &other) const {
+    return RGBColor(r / other.r, g / other.g, b / other.b);
+}
 RGBColor operator+(RGBColor rgb, uint8_t n){ return rgb += n; }
 RGBColor operator-(RGBColor rgb, uint8_t n){ return rgb -= n; }
 RGBColor operator*(RGBColor rgb, uint8_t n){ return rgb *= n; }
@@ -89,6 +123,10 @@ RGBColor operator+(uint8_t n, RGBColor rgb){ return rgb += n; }
 RGBColor operator-(uint8_t n, RGBColor rgb){ return rgb -= n; }
 RGBColor operator*(uint8_t n, RGBColor rgb){ return rgb *= n; }
 RGBColor operator/(uint8_t n, RGBColor rgb){ return rgb /= n; }
+
+RGBColor RGBColor::operator-() const {
+    return RGBColor(255, 255, 255) - *this;
+}
 
 // in/decrement operators
 RGBColor& RGBColor::operator++(){
@@ -123,4 +161,3 @@ bool RGBColor::operator==(const RGBColor &other) {
 bool RGBColor::operator!=(const RGBColor &other) {
     return !(*this == other);
 }
-

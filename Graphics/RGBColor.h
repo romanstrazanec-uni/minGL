@@ -11,11 +11,10 @@ struct RGBColor {
     virtual ~RGBColor();
 
     void set_color(uint8_t r, uint8_t g, uint8_t b);
+    void inverse();
 
     // assignment operators
     RGBColor& operator=(const RGBColor &);
-
-    // assignment arithmetic operators
     RGBColor& operator+=(const RGBColor &);
     RGBColor& operator-=(const RGBColor &);
     RGBColor& operator*=(const RGBColor &);
@@ -26,6 +25,10 @@ struct RGBColor {
     RGBColor& operator/=(uint8_t);
 
     // arithmetic operators
+    RGBColor operator+(const RGBColor &) const;
+    RGBColor operator-(const RGBColor &) const;
+    RGBColor operator*(const RGBColor &) const;
+    RGBColor operator/(const RGBColor &) const;
     friend RGBColor operator+(RGBColor, uint8_t);
     friend RGBColor operator-(RGBColor, uint8_t);
     friend RGBColor operator*(RGBColor, uint8_t);
@@ -34,6 +37,8 @@ struct RGBColor {
     friend RGBColor operator-(uint8_t, RGBColor);
     friend RGBColor operator*(uint8_t, RGBColor);
     friend RGBColor operator/(uint8_t, RGBColor);
+
+    RGBColor operator-() const;
 
     // in/decrement operators
     RGBColor& operator++();
