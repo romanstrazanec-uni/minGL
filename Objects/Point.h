@@ -29,10 +29,10 @@ struct Point {
     // arithmetic operators
     friend Point operator+(Point, const Point &);
     friend Point operator-(Point, const Point &);
-    friend Point& operator*(const Point &, int);
-    friend Point& operator*(int, const Point &);
-    friend Point& operator/(const Point &, int);
-    friend Point& operator/(int, const Point &);
+    friend Point operator*(Point, int);
+    friend Point operator*(int, Point);
+    friend Point operator/(Point, int);
+    friend Point operator/(int, Point);
 };
 
 #endif
