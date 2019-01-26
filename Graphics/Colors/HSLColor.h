@@ -2,7 +2,7 @@
 #define LIBGRAPHICS_HSLCOLOR_H
 
 #include <cmath>
-#include "RGBColor.h"
+#include "colors.h"
 
 struct HSLColor {
     short hue{-1};

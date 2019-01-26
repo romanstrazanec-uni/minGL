@@ -8,6 +8,6 @@ Line::~Line() = default;
 
 double Line::y(double x){ return m*x + b; }
 Point Line::point(int x) { return Point(x, (int)round(y(x))); }
-LineSegment Line::segment(int startx, int endx) {
-    return LineSegment(point(startx), point(endx));
+Edge Line::segment(int startx, int endx) {
+    return Edge(point(startx), point(endx));
 }

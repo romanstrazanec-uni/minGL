@@ -2,8 +2,7 @@
 #define LIBGRAPHICS_LINE_H
 
 #include <cmath>
-#include "Point.h"
-#include "LineSegment.h"
+#include "geometry.h"
 
 struct Line {
     double m{0}, b{0};
@@ -16,7 +15,7 @@ struct Line {
 
     double y(double x);
     Point point(int x);
-    LineSegment segment(int startx, int endx);
+    Edge segment(int startx, int endx);
 };
 
 #endif

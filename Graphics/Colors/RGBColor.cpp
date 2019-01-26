@@ -76,11 +76,11 @@ RGBColor& RGBColor::operator+=(uint8_t n) {
     return *this;
 }
 RGBColor& RGBColor::operator-=(uint8_t n) {
-    if(red - n > 0) red += n;
+    if(red - n > 0) red -= n;
     else red = 0;
-    if(green - n > 0) green += n;
+    if(green - n > 0) green -= n;
     else green = 0;
-    if(blue - n > 0) blue += n;
+    if(blue - n > 0) blue -= n;
     else blue = 0;
     return *this;
 }

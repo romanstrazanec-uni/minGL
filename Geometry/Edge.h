@@ -2,19 +2,18 @@
 #define LIBGRAPHICS_LINESEGMENT_H
 
 #include <cmath>
-#include "Point.h"
-#include "Line.h"
+#include "geometry.h"
 
-struct LineSegment {
+struct Edge {
     Point start{Point()}, end{Point()};
 
-    LineSegment();
-    explicit LineSegment(const Point &end);
-    LineSegment(const LineSegment &);
-    LineSegment(int x, int y);
-    LineSegment(const Point &, const Point &);
-    LineSegment(int startx, int starty, int endx, int endy);
-    virtual ~LineSegment();
+    Edge();
+    explicit Edge(const Point &end);
+    Edge(const Edge &);
+    Edge(int x, int y);
+    Edge(const Point &, const Point &);
+    Edge(int startx, int starty, int endx, int endy);
+    virtual ~Edge();
 
     void setStart(int x, int y);
     void setEnd(int x, int y);
@@ -27,11 +26,11 @@ struct LineSegment {
     double length() const;
     bool is_point() const;
     Point middle() const;
-    Line line() const;
+    Line line();
 
     // comparision operators
-    bool operator==(const LineSegment &);
-    bool operator!=(const LineSegment &);
+    bool operator==(const Edge &);
+    bool operator!=(const Edge &);
 };
 
 #endif

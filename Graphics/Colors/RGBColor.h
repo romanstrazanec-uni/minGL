@@ -2,7 +2,7 @@
 #define LIBGRAPHICS_RGBCOLOR_H
 
 #include <cstdint>
-#include "HSLColor.h"
+#include "colors.h"
 
 struct RGBColor {
     uint8_t red{0}, green{0}, blue{0};
