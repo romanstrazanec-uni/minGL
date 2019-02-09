@@ -8,19 +8,22 @@ private:
     WNDCLASSEX wc;
     HINSTANCE hInstance;
     HWND hwnd;
-    int x{CW_USEDEFAULT}, y{CW_USEDEFAULT}, width{100}, height{100};
-    char * windowTitle;
-    const char szClassName[14] = "myWindowClass";
+    int x, y, width, height;
+    char *wndTitle;
+    char wndClass[8];
+    static BYTE wndCount;
 
 private:
-    void initialize();
-    void registerWindow();
+    int initialize();
     bool create();
+
 public:
-    Window(HINSTANCE hInstance, char * windowTitle);
-    Window(HINSTANCE hInstance, unsigned int x, unsigned int y, unsigned int width, unsigned int height, char * windowTitle);
+    Window(HINSTANCE hInstance, char *wndTitle);
+
+    Window(HINSTANCE hInstance, int x, int y, int width, int height, char *wndTitle);
+
+    virtual ~Window();
     WPARAM show(int nCmdShow);
 };
 
-
-#endif //WINDOWSGUI_WINDOW_H
+#endif

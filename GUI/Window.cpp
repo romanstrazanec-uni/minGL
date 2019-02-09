@@ -1,13 +1,14 @@
 #include "Window.h"
 
+BYTE Window::wndCount = 0;
+
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     switch(msg) {
-        case WM_LBUTTONDOWN: {
-                char szFileName[MAX_PATH];
-                HINSTANCE hInstance = GetModuleHandle(NULL);
-
-                GetModuleFileName(hInstance, szFileName, MAX_PATH);
-                MessageBox(hwnd, szFileName, "This program is:", MB_OK | MB_ICONINFORMATION);
+        case WM_PAINT: {
+            PAINTSTRUCT ps;
+            HDC hdc = BeginPaint(hwnd, &ps);
+            FillRect(hdc, &ps.rcPaint, (HBRUSH) (COLOR_WINDOW + 1));
+            EndPaint(hwnd, &ps);
             }
             break;
         case WM_CLOSE:
@@ -22,60 +23,59 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     return 0;
 }
 
-Window::Window(HINSTANCE hInstance, char * windowTitle):
+Window::Window(HINSTANCE hInstance, char *wndTitle) {
+    *this = Window(hInstance, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, wndTitle);
+}
+
+Window::Window(HINSTANCE hInstance, int x, int y, int width, int height, char *wndTitle) :
+        x(x), y(y), width(width), height(height),
         hInstance(hInstance),
-        windowTitle(windowTitle) {
+        wndTitle(wndTitle) {
+    char strwndCount[3];
+    wsprintf(strwndCount, "%d", ++wndCount);
+    lstrcpy(wndClass, "_WND_");
+    lstrcat(wndClass, strwndCount);
     initialize();
-    registerWindow();
     create();
 }
 
-Window::Window(HINSTANCE hInstance, unsigned int x, unsigned int y, unsigned int width, unsigned int height, char * windowTitle):
-        x(x), y(y), width(width), height(height),
-        hInstance(hInstance),
-        windowTitle(windowTitle) {
-    initialize();
-    registerWindow();
-    create();
-}
+Window::~Window() { --wndCount; }
 
 WPARAM Window::show(int nCmdShow){
     MSG msg;
     ShowWindow(hwnd, nCmdShow);
     UpdateWindow(hwnd);
 
-    while(GetMessage(&msg, NULL, 0, 0) > 0) {
+    while (GetMessage(&msg, nullptr, 0, 0) > 0) {
         TranslateMessage(&msg);
         DispatchMessage(&msg);
     }
     return msg.wParam;
 }
 
-void Window::initialize(){
+int Window::initialize() {
     wc.cbSize = sizeof(WNDCLASSEX);
     wc.style = 0;
     wc.lpfnWndProc = WndProc;
     wc.cbClsExtra = 0;
     wc.cbWndExtra = 0;
     wc.hInstance = hInstance;
-    wc.hIcon = LoadIcon(NULL, IDI_APPLICATION);
-    wc.hCursor = LoadCursor(NULL, IDC_ARROW);
+    wc.hIcon = LoadIcon(nullptr, IDI_APPLICATION);
+    wc.hCursor = LoadCursor(nullptr, IDC_ARROW);
     wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
-    wc.lpszMenuName = NULL;
-    wc.lpszClassName = szClassName;
-    wc.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
-}
-
-void Window::registerWindow(){
-    if(!RegisterClassEx(&wc)) throw EXCEPTION_REGISTRATION();
+    wc.lpszMenuName = nullptr;
+    wc.lpszClassName = wndClass;
+    wc.hIconSm = LoadIcon(nullptr, IDI_APPLICATION);
+    return RegisterClassEx(&wc);
 }
 
 bool Window::create(){
     hwnd = CreateWindowEx(
             WS_EX_CLIENTEDGE,
-            szClassName, windowTitle,
+            wndClass,
+            wndTitle,
             WS_OVERLAPPEDWINDOW,
             x, y, width, height,
-            NULL, NULL, hInstance, NULL);
-    return hwnd != NULL;
+            nullptr, nullptr, hInstance, nullptr);
+    return hwnd != nullptr;
 }

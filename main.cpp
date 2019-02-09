@@ -1,15 +1,15 @@
-//#define showwindow
-
+#define showwindow
+#ifndef UNICODE
+#define UNICODE
+#endif
 
 #ifdef showwindow
 #include <windows.h>
-#include <d2d1.h>
 #include "GUI/Window.h"
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
-    try {
-        Window window(hInstance, 0, 0, 1024, 768, (char *) ("The title of my window"));
-        return (int)(window.show(nCmdShow));
-    } catch (EXCEPTION_REGISTRATION exception_registration) { return 0; }
+
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR lpCmdLine, int nCmdShow) {
+    Window window(hInstance, (char *) ("The title of my window"));
+    return (int) (window.show(nCmdShow));
 }
 #else
 #include <iostream>
