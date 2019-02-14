@@ -21,23 +21,14 @@ public:
     WPARAM show(int nCmdShow);
 
     static WNDCLASSEX getDefaultClass();
-
     static void setWindowProcedure(WNDCLASSEX &, LRESULT CALLBACK (*wndProc)(HWND, UINT, WPARAM, LPARAM));
-
     static void setIcon(WNDCLASSEX &, HINSTANCE, LPCSTR);
-
     static void setSmallIcon(WNDCLASSEX &, HINSTANCE, LPCSTR);
-
     static void setCursor(WNDCLASSEX &, HINSTANCE, LPCSTR);
-
     static void setMenuName(WNDCLASSEX &, LPCSTR);
-
     static void setBackground(WNDCLASSEX &, HBRUSH);
-
     static void setStyle(WNDCLASSEX &, UINT);
-
     static void setWindowExtraBytes(WNDCLASSEX &, int);
-
     static void setClassExtraBytes(WNDCLASSEX &, int);
 };
 
