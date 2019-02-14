@@ -5,11 +5,14 @@
 
 class Window {
 private:
+    WNDCLASSEX wc;
     HWND hwnd;
     int x, y, width, height;
     char *title;
     char CLASS_NAME[16];
     static UINT32 wndCount;
+
+    void setClassName();
 
 public:
     explicit Window(char *title);
@@ -17,19 +20,19 @@ public:
     Window(int x, int y, int width, int height, char *title);
     virtual ~Window();
 
-    bool create(WNDCLASSEX &);
+    bool create();
     WPARAM show(int nCmdShow);
 
-    static WNDCLASSEX getDefaultClass();
-    static void setWindowProcedure(WNDCLASSEX &, LRESULT CALLBACK (*wndProc)(HWND, UINT, WPARAM, LPARAM));
-    static void setIcon(WNDCLASSEX &, HINSTANCE, LPCSTR);
-    static void setSmallIcon(WNDCLASSEX &, HINSTANCE, LPCSTR);
-    static void setCursor(WNDCLASSEX &, HINSTANCE, LPCSTR);
-    static void setMenuName(WNDCLASSEX &, LPCSTR);
-    static void setBackground(WNDCLASSEX &, HBRUSH);
-    static void setStyle(WNDCLASSEX &, UINT);
-    static void setWindowExtraBytes(WNDCLASSEX &, int);
-    static void setClassExtraBytes(WNDCLASSEX &, int);
+    void initialize();
+    void setWindowProcedure(LRESULT CALLBACK (*wndProc)(HWND, UINT, WPARAM, LPARAM));
+    void setIcon(HINSTANCE, LPCSTR);
+    void setSmallIcon(HINSTANCE, LPCSTR);
+    void setCursor(HINSTANCE, LPCSTR);
+    void setMenuName(LPCSTR);
+    void setBackground(HBRUSH);
+    void setStyle(UINT);
+    void setWindowExtraBytes(int);
+    void setClassExtraBytes(int);
 };
 
 #endif

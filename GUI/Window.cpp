@@ -21,25 +21,30 @@ LRESULT CALLBACK defaultWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPara
 
 UINT32 Window::wndCount = 0;
 
-Window::Window(char *title) {
+Window::Window(char *title){
     *this = Window(CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, title);
 }
 
-Window::Window(int x, int y, int width, int height, char *title) :
+Window::Window(int x, int y, int width, int height, char *title):
         x(x), y(y), width(width), height(height),
-        title(title) {
+        title(title){
+    setClassName();
+    initialize();
 }
 
-Window::~Window() {
+Window::~Window(){
     --wndCount;
 }
 
-bool Window::create(WNDCLASSEX &wc) {
-    wc.cbSize = sizeof(WNDCLASSEX);
+void Window::setClassName(){
     char strwndCount[10];
     wsprintf(strwndCount, "%d", ++wndCount);
     lstrcpy(CLASS_NAME, "_WND_");
     lstrcat(CLASS_NAME, strwndCount);
+}
+
+bool Window::create(){
+    wc.cbSize = sizeof(WNDCLASSEX);
     wc.lpszClassName = CLASS_NAME;
     RegisterClassEx(&wc);
     hwnd = CreateWindowEx(
@@ -67,52 +72,53 @@ WPARAM Window::show(int nCmdShow) {
     return msg.wParam;
 }
 
-WNDCLASSEX Window::getDefaultClass() {
-    WNDCLASSEX wc = {};
-    setIcon(wc, nullptr, IDI_APPLICATION);
-    setSmallIcon(wc, nullptr, IDI_APPLICATION);
-    setCursor(wc, nullptr, IDI_APPLICATION);
-    setBackground(wc, (HBRUSH) (COLOR_WINDOW + 1));
-    setMenuName(wc, nullptr);
-    setStyle(wc, 0);
-    setWindowExtraBytes(wc, 0);
-    setClassExtraBytes(wc, 0);
-    setWindowProcedure(wc, defaultWndProc);
-    return wc;
+void Window::initialize(){
+    wc = {};
+    wc.cbSize = sizeof(WNDCLASSEX);
+    wc.lpszClassName = CLASS_NAME;
+    setIcon(nullptr, IDI_APPLICATION);
+    setSmallIcon(nullptr, IDI_APPLICATION);
+    setCursor(nullptr, IDI_APPLICATION);
+    setBackground((HBRUSH) (COLOR_WINDOW + 1));
+    setMenuName(nullptr);
+    setStyle(0);
+    setWindowExtraBytes(0);
+    setClassExtraBytes(0);
+    setWindowProcedure(defaultWndProc);
 }
 
-void Window::setWindowProcedure(WNDCLASSEX &wc, LRESULT CALLBACK (*wndProc)(HWND, UINT, WPARAM, LPARAM)) {
+void Window::setWindowProcedure(LRESULT CALLBACK (*wndProc)(HWND, UINT, WPARAM, LPARAM)) {
     wc.lpfnWndProc = wndProc;
 }
 
-void Window::setIcon(WNDCLASSEX &wc, HINSTANCE hinstance, LPCSTR icon_name) {
+void Window::setIcon(HINSTANCE hinstance, LPCSTR icon_name) {
     wc.hIcon = LoadIcon(hinstance, icon_name);
 }
 
-void Window::setSmallIcon(WNDCLASSEX &wc, HINSTANCE hinstance, LPCSTR icon_name) {
+void Window::setSmallIcon(HINSTANCE hinstance, LPCSTR icon_name) {
     wc.hIconSm = LoadIcon(hinstance, icon_name);
 }
 
-void Window::setCursor(WNDCLASSEX &wc, HINSTANCE hinstance, LPCSTR cursor_name) {
+void Window::setCursor(HINSTANCE hinstance, LPCSTR cursor_name) {
     wc.hCursor = LoadCursor(hinstance, cursor_name);
 }
 
-void Window::setMenuName(WNDCLASSEX &wc, LPCSTR menu_name) {
+void Window::setMenuName(LPCSTR menu_name) {
     wc.lpszMenuName = menu_name;
 }
 
-void Window::setBackground(WNDCLASSEX &wc, HBRUSH color) {
+void Window::setBackground(HBRUSH color) {
     wc.hbrBackground = color;
 }
 
-void Window::setStyle(WNDCLASSEX &wc, UINT style) {
+void Window::setStyle(UINT style) {
     wc.style = style;
 }
 
-void Window::setWindowExtraBytes(WNDCLASSEX &wc, int n_bytes) {
+void Window::setWindowExtraBytes(int n_bytes) {
     wc.cbWndExtra = n_bytes;
 }
 
-void Window::setClassExtraBytes(WNDCLASSEX &wc, int n_bytes) {
+void Window::setClassExtraBytes(int n_bytes) {
     wc.cbClsExtra = n_bytes;
 }
