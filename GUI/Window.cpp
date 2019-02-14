@@ -1,6 +1,6 @@
 #include "Window.h"
 
-LRESULT CALLBACK callback(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
+LRESULT CALLBACK defaultWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     switch (msg) {
         case WM_PAINT: {
             PAINTSTRUCT ps;
@@ -21,43 +21,32 @@ LRESULT CALLBACK callback(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     return 0;
 }
 
-BYTE Window::wndCount = 0;
+UINT32 Window::wndCount = 0;
 
-Window::Window(HINSTANCE hInstance, char *title) {
-    *this = Window(hInstance, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, title);
+Window::Window(char *title) {
+    *this = Window(CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, title);
 }
 
-Window::Window(HINSTANCE hInstance, int x, int y, int width, int height, char *title) :
+Window::Window(int x, int y, int width, int height, char *title) :
         x(x), y(y), width(width), height(height),
         title(title) {
-    wc.cbSize = sizeof(WNDCLASSEX);
-    wc.hInstance = hInstance;
-    wc.lpfnWndProc = callback;
-    wc.style = 0;
-    wc.cbClsExtra = 0;
-    wc.cbWndExtra = 0;
-    wc.hIcon = LoadIcon(nullptr, IDI_APPLICATION);
-    wc.hCursor = LoadCursor(nullptr, IDC_ARROW);
-    wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
-    wc.lpszMenuName = nullptr;
-    wc.hIconSm = LoadIcon(nullptr, IDI_APPLICATION);
-
-    char strwndCount[3];
-    wsprintf(strwndCount, "%d", ++wndCount);
-    lstrcpy(wndClass, "WND_");
-    lstrcat(wndClass, strwndCount);
-    wc.lpszClassName = wndClass;
 }
 
 Window::~Window() {
     --wndCount;
 }
 
-bool Window::create(){
+bool Window::create(WNDCLASSEX &wc) {
+    wc.cbSize = sizeof(WNDCLASSEX);
+    char strwndCount[10];
+    wsprintf(strwndCount, "%d", ++wndCount);
+    lstrcpy(CLASS_NAME, "_WND_");
+    lstrcat(CLASS_NAME, strwndCount);
+    wc.lpszClassName = CLASS_NAME;
     RegisterClassEx(&wc);
     hwnd = CreateWindowEx(
             WS_EX_CLIENTEDGE, // optional window styles
-            wndClass, // window class
+            CLASS_NAME, // window class
             title, // window title
             WS_OVERLAPPEDWINDOW, // window style
             x, y, width, height, // coordinates
@@ -73,7 +62,6 @@ WPARAM Window::show(int nCmdShow) {
     MSG msg;
     ShowWindow(hwnd, nCmdShow);
     UpdateWindow(hwnd);
-
     while (GetMessage(&msg, nullptr, 0, 0) > 0) {
         TranslateMessage(&msg);
         DispatchMessage(&msg);
@@ -81,6 +69,52 @@ WPARAM Window::show(int nCmdShow) {
     return msg.wParam;
 }
 
-void Window::setWindowProcedure(LRESULT CALLBACK (*wndProc)(HWND, UINT, WPARAM, LPARAM)) {
+WNDCLASSEX Window::getDefaultClass() {
+    WNDCLASSEX wc = {};
+    setIcon(wc, nullptr, IDI_APPLICATION);
+    setSmallIcon(wc, nullptr, IDI_APPLICATION);
+    setCursor(wc, nullptr, IDI_APPLICATION);
+    setBackground(wc, (HBRUSH) (COLOR_WINDOW + 1));
+    setMenuName(wc, nullptr);
+    setStyle(wc, 0);
+    setWindowExtraBytes(wc, 0);
+    setClassExtraBytes(wc, 0);
+    setWindowProcedure(wc, defaultWndProc);
+    return wc;
+}
+
+void Window::setWindowProcedure(WNDCLASSEX &wc, LRESULT CALLBACK (*wndProc)(HWND, UINT, WPARAM, LPARAM)) {
     wc.lpfnWndProc = wndProc;
+}
+
+void Window::setIcon(WNDCLASSEX &wc, HINSTANCE hinstance, LPCSTR icon_name) {
+    wc.hIcon = LoadIcon(hinstance, icon_name);
+}
+
+void Window::setSmallIcon(WNDCLASSEX &wc, HINSTANCE hinstance, LPCSTR icon_name) {
+    wc.hIconSm = LoadIcon(hinstance, icon_name);
+}
+
+void Window::setCursor(WNDCLASSEX &wc, HINSTANCE hinstance, LPCSTR cursor_name) {
+    wc.hCursor = LoadCursor(hinstance, cursor_name);
+}
+
+void Window::setMenuName(WNDCLASSEX &wc, LPCSTR menu_name) {
+    wc.lpszMenuName = menu_name;
+}
+
+void Window::setBackground(WNDCLASSEX &wc, HBRUSH color) {
+    wc.hbrBackground = color;
+}
+
+void Window::setStyle(WNDCLASSEX &wc, UINT style) {
+    wc.style = style;
+}
+
+void Window::setWindowExtraBytes(WNDCLASSEX &wc, int n_bytes) {
+    wc.cbWndExtra = n_bytes;
+}
+
+void Window::setClassExtraBytes(WNDCLASSEX &wc, int n_bytes) {
+    wc.cbClsExtra = n_bytes;
 }
