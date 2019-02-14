@@ -43,6 +43,21 @@ void Window::setClassName(){
     lstrcat(CLASS_NAME, strwndCount);
 }
 
+void Window::initialize(){
+    wc = {};
+    wc.cbSize = sizeof(WNDCLASSEX);
+    wc.lpszClassName = CLASS_NAME;
+    setIcon(nullptr, IDI_APPLICATION);
+    setSmallIcon(nullptr, IDI_APPLICATION);
+    setCursor(nullptr, IDI_APPLICATION);
+    setBackground((HBRUSH) (COLOR_WINDOW + 1));
+    setMenuName(nullptr);
+    setStyle(0);
+    setWindowExtraBytes(0);
+    setClassExtraBytes(0);
+    setWindowProcedure(defaultWndProc);
+}
+
 bool Window::create(){
     wc.cbSize = sizeof(WNDCLASSEX);
     wc.lpszClassName = CLASS_NAME;
@@ -70,21 +85,6 @@ WPARAM Window::show(int nCmdShow) {
         DispatchMessage(&msg);
     }
     return msg.wParam;
-}
-
-void Window::initialize(){
-    wc = {};
-    wc.cbSize = sizeof(WNDCLASSEX);
-    wc.lpszClassName = CLASS_NAME;
-    setIcon(nullptr, IDI_APPLICATION);
-    setSmallIcon(nullptr, IDI_APPLICATION);
-    setCursor(nullptr, IDI_APPLICATION);
-    setBackground((HBRUSH) (COLOR_WINDOW + 1));
-    setMenuName(nullptr);
-    setStyle(0);
-    setWindowExtraBytes(0);
-    setClassExtraBytes(0);
-    setWindowProcedure(defaultWndProc);
 }
 
 void Window::setWindowProcedure(LRESULT CALLBACK (*wndProc)(HWND, UINT, WPARAM, LPARAM)) {
