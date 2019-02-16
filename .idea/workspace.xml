@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="libgraphics" targetName="libgraphics" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ba3364df-f578-47d6-bf06-47c3b74d73df" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>registerW</find>
+      <find>&amp;</find>
+      <find>// constructors</find>
+      <find>\Wr\W</find>
+      <find>\Wg\W</find>
+      <find>\Wb\W</find>
+      <find>HSBColor</find>
+      <find>NULL</find>
+      <find>windowTitle</find>
+      <find>szClassName</find>
+      <find>wc\.</find>
+      <find>wc-&gt;</find>
+      <find>wndClass</find>
+      <find>set</find>
+      <find>wc</find>
+      <find>WNDCLASSEX &amp;,</find>
+      <find>WNDCLASSEX &amp;wc,</find>
+      <find>wc,</find>
+      <find>\.(cpp|h)</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>nullptr</replace>
+      <replace>wndTitle</replace>
+      <replace>wndClass</replace>
+      <replace>wc-&gt;</replace>
+      <replace>wc.</replace>
+      <replace>CLASS_NAME</replace>
+      <replace>wcex</replace>
+      <replace>wc</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\Users\romanstrazanec\CLionProjects\libgraphics\Geometry</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="derivativewindow" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Window.cpp" />
+        <option value="$PROJECT_DIR$/Window.h" />
+        <option value="$PROJECT_DIR$/Objects/geometry.h" />
+        <option value="$PROJECT_DIR$/Objects/Point.cpp" />
+        <option value="$PROJECT_DIR$/Objects/Point.h" />
+        <option value="$PROJECT_DIR$/Objects/LineSegment.h" />
+        <option value="$PROJECT_DIR$/Objects/LineSegment.cpp" />
+        <option value="$PROJECT_DIR$/Objects/Line.cpp" />
+        <option value="$PROJECT_DIR$/Objects/Line.h" />
+        <option value="$PROJECT_DIR$/Objects/Circle.h" />
+        <option value="$PROJECT_DIR$/Objects/Circle.cpp" />
+        <option value="$PROJECT_DIR$/Graphics/Color.cpp" />
+        <option value="$PROJECT_DIR$/Graphics/Color.h" />
+        <option value="$PROJECT_DIR$/Geometry/Point.cpp" />
+        <option value="$PROJECT_DIR$/Geometry/Point.h" />
+        <option value="$PROJECT_DIR$/Geometry/LineSegment.h" />
+        <option value="$PROJECT_DIR$/Geometry/LineSegment.cpp" />
+        <option value="$PROJECT_DIR$/Geometry/Circle.h" />
+        <option value="$PROJECT_DIR$/Geometry/Circle.cpp" />
+        <option value="$PROJECT_DIR$/Graphics/Colors/HSVColor.cpp" />
+        <option value="$PROJECT_DIR$/Graphics/Colors/HSVColor.h" />
+        <option value="$PROJECT_DIR$/Graphics/Colors/HSBColor.h" />
+        <option value="$PROJECT_DIR$/Graphics/Colors/HSBColor.cpp" />
+        <option value="$PROJECT_DIR$/Geometry/Rect.cpp" />
+        <option value="$PROJECT_DIR$/Geometry/Rect.h" />
+        <option value="$PROJECT_DIR$/Graphics/Colors/HSLColor.cpp" />
+        <option value="$PROJECT_DIR$/Graphics/RGBColor.cpp" />
+        <option value="$PROJECT_DIR$/Graphics/RGBColor.h" />
+        <option value="$PROJECT_DIR$/Geometry/Line.h" />
+        <option value="$PROJECT_DIR$/Geometry/structs.h" />
+        <option value="$PROJECT_DIR$/Geometry/Edge.cpp" />
+        <option value="$PROJECT_DIR$/Geometry/Edge.h" />
+        <option value="$PROJECT_DIR$/Graphics/Colors/HSLColor.h" />
+        <option value="$PROJECT_DIR$/Graphics/Colors/RGBColor.h" />
+        <option value="$PROJECT_DIR$/Graphics/Colors/colors.h" />
+        <option value="$PROJECT_DIR$/Graphics/Colors/RGBColor.cpp" />
+        <option value="$PROJECT_DIR$/Geometry/Line.cpp" />
+        <option value="$PROJECT_DIR$/Graphics/Pixel.cpp" />
+        <option value="$PROJECT_DIR$/GUI/include.h" />
+        <option value="$PROJECT_DIR$/GUI/WindowProcedure.h" />
+        <option value="$PROJECT_DIR$/GUI/WindowProcedure.cpp" />
+        <option value="$PROJECT_DIR$/Graphics/Canvas.cpp" />
+        <option value="$PROJECT_DIR$/Graphics/Canvas.h" />
+        <option value="$PROJECT_DIR$/Graphics/Pixel.h" />
+        <option value="$PROJECT_DIR$/MessageHandlers/Handler.h" />
+        <option value="$PROJECT_DIR$/GUI/Window.cpp" />
+        <option value="$PROJECT_DIR$/include.h" />
+        <option value="$PROJECT_DIR$/GUI/Window.h" />
+        <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+      </list>
+    </option>
+  </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="39" />
+    <option name="y" value="165" />
+    <option name="width" value="1890" />
+    <option name="height" value="930" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="libgraphics" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libgraphics" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\romanstrazanec\CLionProjects\libgraphics" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\romanstrazanec\CLionProjects\libgraphics\Graphics" />
+      <recent name="C:\Users\romanstrazanec\CLionProjects\libgraphics\Graphics\Colors" />
+      <recent name="C:\Users\romanstrazanec\CLionProjects\windowsgui\gui" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.libgraphics">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="libgraphics" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="libgraphics" TARGET_NAME="libgraphics" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="libgraphics" RUN_TARGET_NAME="libgraphics">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Build All" />
+      <item itemvalue="Application.libgraphics" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ba3364df-f578-47d6-bf06-47c3b74d73df" name="Default Changelist" comment="" />
+      <created>1540147108926</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1540147108926</updated>
+      <workItem from="1540147118305" duration="3087000" />
+      <workItem from="1540216607790" duration="2585000" />
+      <workItem from="1540231343019" duration="73000" />
+      <workItem from="1540232379805" duration="6471000" />
+      <workItem from="1540274746116" duration="264000" />
+      <workItem from="1540281309228" duration="3540000" />
+      <workItem from="1540306023856" duration="146000" />
+      <workItem from="1542899069795" duration="1847000" />
+      <workItem from="1543146247150" duration="203000" />
+      <workItem from="1546680962557" duration="2856000" />
+      <workItem from="1546881459062" duration="562000" />
+      <workItem from="1546889688256" duration="1037000" />
+      <workItem from="1546958731418" duration="613000" />
+      <workItem from="1547557731708" duration="1065000" />
+      <workItem from="1547564895588" duration="23864000" />
+      <workItem from="1547647242100" duration="6908000" />
+      <workItem from="1547667589444" duration="12776000" />
+      <workItem from="1547743293308" duration="127000" />
+      <workItem from="1547744063281" duration="2663000" />
+      <workItem from="1547914749503" duration="95000" />
+      <workItem from="1548493232458" duration="10149000" />
+      <workItem from="1548684833026" duration="115000" />
+      <workItem from="1549550091874" duration="1904000" />
+      <workItem from="1549651834047" duration="1508000" />
+      <workItem from="1549718596988" duration="25457000" />
+      <workItem from="1550005912531" duration="308000" />
+      <workItem from="1550056674078" duration="422000" />
+      <workItem from="1550141202081" duration="244000" />
+      <workItem from="1550142513375" duration="4942000" />
+      <workItem from="1550158157874" duration="11673000" />
+      <workItem from="1550228992956" duration="1489000" />
+      <workItem from="1550244501282" duration="1819000" />
+      <workItem from="1550270601725" duration="12670000" />
+    </task>
+    <task id="LOCAL-00001" summary="Window class">
+      <created>1540283397661</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1540283397661</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add main.cpp">
+      <created>1540283640499</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1540283640499</updated>
+    </task>
+    <task id="LOCAL-00003" summary="GUI">
+      <created>1547564536417</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1547564536418</updated>
+    </task>
+    <task id="LOCAL-00004" summary="point">
+      <created>1547571258613</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1547571258613</updated>
+    </task>
+    <task id="LOCAL-00005" summary="line">
+      <created>1547572486500</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1547572486501</updated>
+    </task>
+    <task id="LOCAL-00006" summary="line">
+      <created>1547575318070</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1547575318077</updated>
+    </task>
+    <task id="LOCAL-00007" summary="point testing and adding move assignment">
+      <created>1547619680159</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1547619680159</updated>
+    </task>
+    <task id="LOCAL-00008" summary="point testing and adding move assignment">
+      <created>1547623113048</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1547623113048</updated>
+    </task>
+    <task id="LOCAL-00009" summary="change a to start, b to end,center">
+      <created>1547625574182</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1547625574183</updated>
+    </task>
+    <task id="LOCAL-00010" summary="direct initialization">
+      <created>1547626224427</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1547626224427</updated>
+    </task>
+    <task id="LOCAL-00011" summary="create Line and LineSegment">
+      <created>1547626277175</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1547626277175</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix method blueprints">
+      <created>1547626825109</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1547626825109</updated>
+    </task>
+    <task id="LOCAL-00013" summary="get point and y value">
+      <created>1547626859920</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1547626859920</updated>
+    </task>
+    <task id="LOCAL-00014" summary="line and linesegments conversions">
+      <created>1547628220407</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1547628220407</updated>
+    </task>
+    <task id="LOCAL-00015" summary="initialization">
+      <created>1547628898963</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1547628898964</updated>
+    </task>
+    <task id="LOCAL-00016" summary="circle movement">
+      <created>1547648822645</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1547648822645</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Geometry folder">
+      <created>1547649035393</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1547649035393</updated>
+    </task>
+    <task id="LOCAL-00018" summary="RGB color">
+      <created>1547654095005</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1547654095005</updated>
+    </task>
+    <task id="LOCAL-00019" summary="get rid of the move assignments and move constructors">
+      <created>1547671324895</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1547671324952</updated>
+    </task>
+    <task id="LOCAL-00020" summary="circle cmp">
+      <created>1547671658501</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1547671658501</updated>
+    </task>
+    <task id="LOCAL-00021" summary="RGB color inversionn">
+      <created>1547674401344</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1547674401346</updated>
+    </task>
+    <task id="LOCAL-00022" summary="hsb color">
+      <created>1547676578435</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1547676578436</updated>
+    </task>
+    <task id="LOCAL-00023" summary="rgb to redgreenblue">
+      <created>1547676877376</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1547676877376</updated>
+    </task>
+    <task id="LOCAL-00024" summary="hsl color and conversions">
+      <created>1547681929529</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1547681929532</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Rename LineSegment to Edge fix errors">
+      <created>1548509435694</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1548509435694</updated>
+    </task>
+    <task id="LOCAL-00026" summary="group geometry into graphics, create canvas and pixel">
+      <created>1548510082791</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1548510082791</updated>
+    </task>
+    <task id="LOCAL-00027" summary="group geometry into graphics, create canvas and pixel">
+      <created>1549726097283</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1549726097283</updated>
+    </task>
+    <task id="LOCAL-00028" summary="reconstruct window">
+      <created>1549746512447</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1549746512447</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Window working with WNDCLASSEX using static methods">
+      <created>1550163967859</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1550163967859</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Window working with WNDCLASSEX using static methods">
+      <created>1550164359660</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1550164359660</updated>
+    </task>
+    <task id="LOCAL-00031" summary="remove WM_CLOSE from default window procedure">
+      <created>1550165380784</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1550165380784</updated>
+    </task>
+    <task id="LOCAL-00032" summary="remove static methods and WNDCLASSEX handling, go back to OOP style">
+      <created>1550168247986</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1550168247986</updated>
+    </task>
+    <task id="LOCAL-00033" summary="initialize before create">
+      <created>1550168357479</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1550168357479</updated>
+    </task>
+    <task id="LOCAL-00034" summary="implement approach by inheritance">
+      <created>1550317113459</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1550317113461</updated>
+    </task>
+    <task id="LOCAL-00035" summary="add CMakeLists">
+      <created>1550317830474</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1550317830474</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="143482000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25991902" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3285968" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3285968" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.3285968" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3285968" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.3285968" />
+      <window_info anchor="bottom" id="CMake" order="12" visible="true" weight="0.3285968" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="change a to start, b to end,center" />
+    <MESSAGE value="direct initialization" />
+    <MESSAGE value="create Line and LineSegment" />
+    <MESSAGE value="fix method blueprints" />
+    <MESSAGE value="get point and y value" />
+    <MESSAGE value="line and linesegments conversions" />
+    <MESSAGE value="initialization" />
+    <MESSAGE value="circle movement" />
+    <MESSAGE value="Geometry folder" />
+    <MESSAGE value="RGB color" />
+    <MESSAGE value="get rid of the move assignments and move constructors" />
+    <MESSAGE value="circle cmp" />
+    <MESSAGE value="RGB color inversionn" />
+    <MESSAGE value="hsb color" />
+    <MESSAGE value="rgb to redgreenblue" />
+    <MESSAGE value="hsl color and conversions" />
+    <MESSAGE value="Rename LineSegment to Edge fix errors" />
+    <MESSAGE value="group geometry into graphics, create canvas and pixel" />
+    <MESSAGE value="reconstruct window" />
+    <MESSAGE value="Window working with WNDCLASSEX using static methods" />
+    <MESSAGE value="remove WM_CLOSE from default window procedure" />
+    <MESSAGE value="remove static methods and WNDCLASSEX handling, go back to OOP style" />
+    <MESSAGE value="initialize before create" />
+    <MESSAGE value="implement approach by inheritance" />
+    <MESSAGE value="add CMakeLists" />
+    <option name="LAST_COMMIT_MESSAGE" value="add CMakeLists" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/bits/stringfwd.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-208">
+          <caret line="73" column="32" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/cygwin64/usr/include/w32api/_mingw_unicode.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EventHandler.h" />
+    <entry file="file://$PROJECT_DIR$/EventHandler.cpp" />
+    <entry file="file://C:/cygwin64/usr/include/w32api/d2d1.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12385" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Objects/geometry.h" />
+    <entry file="file://$PROJECT_DIR$/Graphics/Geometry/Point.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/Colors/HSBColor.h" />
+    <entry file="file://$PROJECT_DIR$/Graphics/Colors/HSBColor.cpp" />
+    <entry file="file://$PROJECT_DIR$/Geometry/Rect.cpp" />
+    <entry file="file://$PROJECT_DIR$/Geometry/Rect.h" />
+    <entry file="file://$PROJECT_DIR$/Graphics/Colors/HSLColor.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/RGBColor.h" />
+    <entry file="file://$PROJECT_DIR$/Graphics/RGBColor.cpp" />
+    <entry file="file://$PROJECT_DIR$/Graphics/Geometry/Circle.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="53" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/Geometry/Point.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/Geometry/geometry.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+          <folding>
+            <element signature="e#117#136#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/Geometry/Edge.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/Colors/RGBColor.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-288">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#63#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/Colors/HSLColor.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/Geometry/Edge.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+          <folding>
+            <element signature="e#69#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/Geometry/Circle.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/Geometry/Line.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/Geometry/Line.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding>
+            <element signature="e#55#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/Colors/RGBColor.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="82" column="27" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/cygwin64/usr/include/w32api/winnt.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2034">
+          <caret line="328" column="23" selection-start-line="328" selection-start-column="23" selection-end-line="328" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/Colors/colors.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding>
+            <element signature="e#59#80#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/include.h" />
+    <entry file="file://$PROJECT_DIR$/GUI/WindowProcedure.h" />
+    <entry file="file://$PROJECT_DIR$/GUI/WindowProcedure.cpp" />
+    <entry file="file://$PROJECT_DIR$/Graphics/Pixel.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/Pixel.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
+          <folding>
+            <element signature="e#57#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/Canvas.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/Canvas.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://C:/cygwin64/usr/include/w32api/_mingw.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-561" />
+      </provider>
+    </entry>
+    <entry file="file://C:/cygwin64/usr/include/w32api/winuser.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="4175" column="8" selection-start-line="4175" selection-start-column="8" selection-end-line="4175" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/7.3.0/include/stddef.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="215" column="22" selection-start-line="215" selection-start-column="22" selection-end-line="215" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MessageHandlers/Handler.cpp" />
+    <entry file="file://$PROJECT_DIR$/MessageHandlers/Handler.h" />
+    <entry file="file://C:/cygwin64/usr/include/w32api/shobjidl.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="35524" column="106" selection-start-line="35524" selection-start-column="106" selection-end-line="35524" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/x86_64-pc-cygwin/bits/c++config.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="597" column="7" selection-start-line="597" selection-start-column="7" selection-end-line="597" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/cygwin64/usr/include/w32api/minwindef.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="158" column="23" selection-start-line="158" selection-start-column="23" selection-end-line="158" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/cygwin64/usr/include/w32api/ntgdi.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="179" column="203" selection-start-line="179" selection-start-column="203" selection-end-line="179" selection-end-column="203" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/cygwin64/usr/include/w32api/windef.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/Window.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="68" column="43" selection-start-line="68" selection-start-column="43" selection-end-line="68" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/Window.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="35" column="2" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/windowsgui.dir/main.cpp.o CMakeFiles/windowsgui.dir/GUI/Window.cpp.o CMakeFiles/windowsgui.dir/Objects/Point.cpp.o CMakeFiles/windowsgui.dir/Objects/Line.cpp.o  -o windowsgui.exe -Wl,--out-implib,libwindowsgui.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

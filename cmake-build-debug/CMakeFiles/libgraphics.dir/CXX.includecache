@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Window.cpp
+Window.h
+/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Window.h
+
+/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Window.h
+windows.h
+-
+

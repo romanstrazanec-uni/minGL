@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/Objects/Point.cpp
+Point.h
+/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/Objects/Point.h
+
+/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/Objects/Point.h
+ostream
+-
+
