@@ -6,7 +6,7 @@ template<class DerivedWindow>
 class Window {
 private:
     WNDCLASSEX wc{};
-    HWND hwnd{nullptr};
+    HWND hwnd{};
     int x{CW_USEDEFAULT}, y{CW_USEDEFAULT}, width{CW_USEDEFAULT}, height{CW_USEDEFAULT};
     std::string title{};
     char CLASS_NAME[16]{};
@@ -23,20 +23,23 @@ private:
         DerivedWindow *pThis = nullptr;
 
         if(msg == WM_NCCREATE) {
-            auto pCreate = reinterpret_cast<CREATESTRUCT *>(lParam);
+            auto pCreate = (CREATESTRUCT *)lParam;
             pThis = (DerivedWindow *)pCreate->lpCreateParams;
             SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)pThis);
 
             pThis->hwnd = hwnd;
         } else pThis = (DerivedWindow *)GetWindowLongPtr(hwnd, GWLP_USERDATA);
-        if(msg == WM_DESTROY) PostQuitMessage(0);
+        if(msg == WM_DESTROY) {
+            PostQuitMessage(0);
+            return 0;
+        }
 
         if(pThis) return pThis->handleMessage(msg, wParam, lParam);
         else return DefWindowProc(hwnd, msg, wParam, lParam);
     }
 
 protected:
-    virtual LRESULT handleMessage(UINT, WPARAM, LPARAM) = 0;
+    virtual LRESULT handleMessage(UINT msg, WPARAM, LPARAM) = 0;
 
 public:
     Window(){
@@ -84,7 +87,7 @@ public:
                 nullptr, // parent window
                 nullptr, // menu
                 wc.hInstance, // instance handle
-                nullptr // additional application data
+                this // additional application data
         );
         return hwnd != nullptr;
     }

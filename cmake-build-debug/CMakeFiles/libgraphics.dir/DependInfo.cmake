@@ -4,7 +4,6 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Window.cpp" "/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles/libgraphics.dir/GUI/Window.cpp.o"
   "/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/Graphics/Canvas.cpp" "/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.o"
   "/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/Graphics/Colors/HSLColor.cpp" "/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles/libgraphics.dir/Graphics/Colors/HSLColor.cpp.o"
   "/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/Graphics/Colors/RGBColor.cpp" "/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles/libgraphics.dir/Graphics/Colors/RGBColor.cpp.o"

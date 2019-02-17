@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/libgraphics.dir/main.cpp.o"
-  "CMakeFiles/libgraphics.dir/GUI/Window.cpp.o"
   "CMakeFiles/libgraphics.dir/Graphics/Geometry/Point.cpp.o"
   "CMakeFiles/libgraphics.dir/Graphics/Geometry/Edge.cpp.o"
   "CMakeFiles/libgraphics.dir/Graphics/Geometry/Circle.cpp.o"
