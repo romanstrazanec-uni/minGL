@@ -24,8 +24,8 @@ public:
 
 using namespace std;
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR lpCmdLine, int nCmdShow) {
-    MainWindow window{};
+    MainWindow window;
     window.setTitle("title");
-    if(!window.create(hInstance)) return 1;
+    if(!window.create()) return 1;
     return (int) (window.show(nCmdShow));
 }

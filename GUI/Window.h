@@ -45,13 +45,6 @@ public:
     Window(){
         initialize();
     }
-    explicit Window(std::string title): title(std::move(title)) {
-        *this = DerivedWindow();
-    }
-    Window(int x, int y, int width, int height, std::string title):
-        x(x), y(y), width(width), height(height), title(std::move(title)){
-        *this = DerivedWindow();
-    }
     virtual ~Window(){
         --wndCount;
     }
@@ -73,10 +66,10 @@ public:
         setWindowExtraBytes(0);
         setClassExtraBytes(0);
     }
-    virtual bool create(HINSTANCE hInstance) final {
+    virtual bool create(HINSTANCE hInstance=nullptr) final {
         wc.cbSize = sizeof(WNDCLASSEX);
         wc.lpszClassName = CLASS_NAME;
-        wc.hInstance = hInstance;
+        wc.hInstance = GetModuleHandle(nullptr);
         RegisterClassEx(&wc);
         hwnd = CreateWindowEx(
                 WS_EX_CLIENTEDGE, // optional window styles
