@@ -66,7 +66,7 @@ public:
         setWindowExtraBytes(0);
         setClassExtraBytes(0);
     }
-    virtual bool create(HINSTANCE hInstance=nullptr) final {
+    virtual bool create() final {
         wc.cbSize = sizeof(WNDCLASSEX);
         wc.lpszClassName = CLASS_NAME;
         wc.hInstance = GetModuleHandle(nullptr);
