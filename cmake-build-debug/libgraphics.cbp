@@ -80,9 +80,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/MessageHandlers/MessageHandler.cpp">
-			<Option target="libgraphics"/>
-		</Unit>
 		<Unit filename="/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/MessageHandlers/MessageHandler.h">
 			<Option target="libgraphics"/>
 		</Unit>

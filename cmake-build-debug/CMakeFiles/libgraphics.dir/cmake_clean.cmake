@@ -9,7 +9,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/libgraphics.dir/Graphics/Pixel.cpp.o"
   "CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.o"
   "CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.o"
-  "CMakeFiles/libgraphics.dir/GUI/MessageHandlers/MessageHandler.cpp.o"
   "libgraphics.pdb"
   "libgraphics.exe"
   "liblibgraphics.dll.a"

@@ -123,33 +123,6 @@ libgraphics/fast:
 	$(MAKE) -f CMakeFiles/libgraphics.dir/build.make CMakeFiles/libgraphics.dir/build
 .PHONY : libgraphics/fast
 
-GUI/MessageHandlers/MessageHandler.o: GUI/MessageHandlers/MessageHandler.cpp.o
-
-.PHONY : GUI/MessageHandlers/MessageHandler.o
-
-# target to build an object file
-GUI/MessageHandlers/MessageHandler.cpp.o:
-	$(MAKE) -f CMakeFiles/libgraphics.dir/build.make CMakeFiles/libgraphics.dir/GUI/MessageHandlers/MessageHandler.cpp.o
-.PHONY : GUI/MessageHandlers/MessageHandler.cpp.o
-
-GUI/MessageHandlers/MessageHandler.i: GUI/MessageHandlers/MessageHandler.cpp.i
-
-.PHONY : GUI/MessageHandlers/MessageHandler.i
-
-# target to preprocess a source file
-GUI/MessageHandlers/MessageHandler.cpp.i:
-	$(MAKE) -f CMakeFiles/libgraphics.dir/build.make CMakeFiles/libgraphics.dir/GUI/MessageHandlers/MessageHandler.cpp.i
-.PHONY : GUI/MessageHandlers/MessageHandler.cpp.i
-
-GUI/MessageHandlers/MessageHandler.s: GUI/MessageHandlers/MessageHandler.cpp.s
-
-.PHONY : GUI/MessageHandlers/MessageHandler.s
-
-# target to generate assembly for a file
-GUI/MessageHandlers/MessageHandler.cpp.s:
-	$(MAKE) -f CMakeFiles/libgraphics.dir/build.make CMakeFiles/libgraphics.dir/GUI/MessageHandlers/MessageHandler.cpp.s
-.PHONY : GUI/MessageHandlers/MessageHandler.cpp.s
-
 GUI/Windows/Window.o: GUI/Windows/Window.cpp.o
 
 .PHONY : GUI/Windows/Window.o
@@ -429,9 +402,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... libgraphics"
 	@echo "... edit_cache"
-	@echo "... GUI/MessageHandlers/MessageHandler.o"
-	@echo "... GUI/MessageHandlers/MessageHandler.i"
-	@echo "... GUI/MessageHandlers/MessageHandler.s"
 	@echo "... GUI/Windows/Window.o"
 	@echo "... GUI/Windows/Window.i"
 	@echo "... GUI/Windows/Window.s"

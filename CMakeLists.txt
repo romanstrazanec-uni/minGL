@@ -24,4 +24,4 @@ add_executable(libgraphics
         Graphics/Pixel.cpp
         Graphics/Pixel.h
         Graphics/Canvas.cpp
-        Graphics/Canvas.h GUI/Windows/Window.cpp GUI/Windows/Window.h GUI/MessageHandlers/MessageHandler.cpp GUI/MessageHandlers/MessageHandler.h)
+        Graphics/Canvas.h GUI/Windows/Window.cpp GUI/Windows/Window.h GUI/MessageHandlers/MessageHandler.h)

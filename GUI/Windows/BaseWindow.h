@@ -1,6 +1,5 @@
 #pragma once
-
-#include "../../include.h"
+#include <windows.h>
 
 template<class DerivedWindow>
 class BaseWindow {
