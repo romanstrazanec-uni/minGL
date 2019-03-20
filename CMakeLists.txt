@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(libgraphics
         main.cpp
-        GUI/BaseWindow.h
+        GUI/Windows/BaseWindow.h
         Graphics/Geometry/Point.cpp
         Graphics/Geometry/Point.h
         Graphics/Geometry/Edge.cpp
@@ -24,4 +24,4 @@ add_executable(libgraphics
         Graphics/Pixel.cpp
         Graphics/Pixel.h
         Graphics/Canvas.cpp
-        Graphics/Canvas.h GUI/Window.cpp GUI/Window.h)
+        Graphics/Canvas.h GUI/Windows/Window.cpp GUI/Windows/Window.h GUI/MessageHandlers/MessageHandler.cpp GUI/MessageHandlers/MessageHandler.h)

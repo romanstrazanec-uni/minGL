@@ -174,18 +174,31 @@ CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.s"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/Graphics/Canvas.cpp -o CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.s
 
-CMakeFiles/libgraphics.dir/GUI/Window.cpp.o: CMakeFiles/libgraphics.dir/flags.make
-CMakeFiles/libgraphics.dir/GUI/Window.cpp.o: ../GUI/Window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/libgraphics.dir/GUI/Window.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libgraphics.dir/GUI/Window.cpp.o -c /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Window.cpp
+CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.o: CMakeFiles/libgraphics.dir/flags.make
+CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.o: ../GUI/Windows/Window.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.o -c /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Windows/Window.cpp
 
-CMakeFiles/libgraphics.dir/GUI/Window.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libgraphics.dir/GUI/Window.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Window.cpp > CMakeFiles/libgraphics.dir/GUI/Window.cpp.i
+CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Windows/Window.cpp > CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.i
 
-CMakeFiles/libgraphics.dir/GUI/Window.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libgraphics.dir/GUI/Window.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Window.cpp -o CMakeFiles/libgraphics.dir/GUI/Window.cpp.s
+CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Windows/Window.cpp -o CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.s
+
+CMakeFiles/libgraphics.dir/GUI/MessageHandlers/MessageHandler.cpp.o: CMakeFiles/libgraphics.dir/flags.make
+CMakeFiles/libgraphics.dir/GUI/MessageHandlers/MessageHandler.cpp.o: ../GUI/MessageHandlers/MessageHandler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/libgraphics.dir/GUI/MessageHandlers/MessageHandler.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libgraphics.dir/GUI/MessageHandlers/MessageHandler.cpp.o -c /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/MessageHandlers/MessageHandler.cpp
+
+CMakeFiles/libgraphics.dir/GUI/MessageHandlers/MessageHandler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libgraphics.dir/GUI/MessageHandlers/MessageHandler.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/MessageHandlers/MessageHandler.cpp > CMakeFiles/libgraphics.dir/GUI/MessageHandlers/MessageHandler.cpp.i
+
+CMakeFiles/libgraphics.dir/GUI/MessageHandlers/MessageHandler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libgraphics.dir/GUI/MessageHandlers/MessageHandler.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/MessageHandlers/MessageHandler.cpp -o CMakeFiles/libgraphics.dir/GUI/MessageHandlers/MessageHandler.cpp.s
 
 # Object files for target libgraphics
 libgraphics_OBJECTS = \
@@ -198,7 +211,8 @@ libgraphics_OBJECTS = \
 "CMakeFiles/libgraphics.dir/Graphics/Colors/HSLColor.cpp.o" \
 "CMakeFiles/libgraphics.dir/Graphics/Pixel.cpp.o" \
 "CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.o" \
-"CMakeFiles/libgraphics.dir/GUI/Window.cpp.o"
+"CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.o" \
+"CMakeFiles/libgraphics.dir/GUI/MessageHandlers/MessageHandler.cpp.o"
 
 # External object files for target libgraphics
 libgraphics_EXTERNAL_OBJECTS =
@@ -212,10 +226,11 @@ libgraphics.exe: CMakeFiles/libgraphics.dir/Graphics/Colors/RGBColor.cpp.o
 libgraphics.exe: CMakeFiles/libgraphics.dir/Graphics/Colors/HSLColor.cpp.o
 libgraphics.exe: CMakeFiles/libgraphics.dir/Graphics/Pixel.cpp.o
 libgraphics.exe: CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.o
-libgraphics.exe: CMakeFiles/libgraphics.dir/GUI/Window.cpp.o
+libgraphics.exe: CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.o
+libgraphics.exe: CMakeFiles/libgraphics.dir/GUI/MessageHandlers/MessageHandler.cpp.o
 libgraphics.exe: CMakeFiles/libgraphics.dir/build.make
 libgraphics.exe: CMakeFiles/libgraphics.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable libgraphics.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable libgraphics.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/libgraphics.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
