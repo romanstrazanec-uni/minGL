@@ -123,6 +123,33 @@ libgraphics/fast:
 	$(MAKE) -f CMakeFiles/libgraphics.dir/build.make CMakeFiles/libgraphics.dir/build
 .PHONY : libgraphics/fast
 
+GUI/Window.o: GUI/Window.cpp.o
+
+.PHONY : GUI/Window.o
+
+# target to build an object file
+GUI/Window.cpp.o:
+	$(MAKE) -f CMakeFiles/libgraphics.dir/build.make CMakeFiles/libgraphics.dir/GUI/Window.cpp.o
+.PHONY : GUI/Window.cpp.o
+
+GUI/Window.i: GUI/Window.cpp.i
+
+.PHONY : GUI/Window.i
+
+# target to preprocess a source file
+GUI/Window.cpp.i:
+	$(MAKE) -f CMakeFiles/libgraphics.dir/build.make CMakeFiles/libgraphics.dir/GUI/Window.cpp.i
+.PHONY : GUI/Window.cpp.i
+
+GUI/Window.s: GUI/Window.cpp.s
+
+.PHONY : GUI/Window.s
+
+# target to generate assembly for a file
+GUI/Window.cpp.s:
+	$(MAKE) -f CMakeFiles/libgraphics.dir/build.make CMakeFiles/libgraphics.dir/GUI/Window.cpp.s
+.PHONY : GUI/Window.cpp.s
+
 Graphics/Canvas.o: Graphics/Canvas.cpp.o
 
 .PHONY : Graphics/Canvas.o
@@ -375,6 +402,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... libgraphics"
 	@echo "... edit_cache"
+	@echo "... GUI/Window.o"
+	@echo "... GUI/Window.i"
+	@echo "... GUI/Window.s"
 	@echo "... Graphics/Canvas.o"
 	@echo "... Graphics/Canvas.i"
 	@echo "... Graphics/Canvas.s"

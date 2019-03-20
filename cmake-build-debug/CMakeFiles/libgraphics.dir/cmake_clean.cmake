@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/libgraphics.dir/Graphics/Colors/HSLColor.cpp.o"
   "CMakeFiles/libgraphics.dir/Graphics/Pixel.cpp.o"
   "CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.o"
+  "CMakeFiles/libgraphics.dir/GUI/Window.cpp.o"
   "libgraphics.pdb"
   "libgraphics.exe"
   "liblibgraphics.dll.a"
