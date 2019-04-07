@@ -11,8 +11,20 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba3364df-f578-47d6-bf06-47c3b74d73df" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+    <list default="true" id="98472b71-d141-4fa6-a14c-32a7b98c3a84" name="Default Changelist" comment="define main and HWND for better understanding">
+      <change afterPath="$PROJECT_DIR$/GUI/MessageHandlers/MessageHandler.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/Windows/BaseWindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/Windows/BaseWindow.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/libgraphics.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/libgraphics.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/libgraphics.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/libgraphics.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/libgraphics.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/libgraphics.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/libgraphics.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/libgraphics.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/libgraphics.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/libgraphics.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/libgraphics.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/libgraphics.cbp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,128 +33,83 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI/MessageHandlers/MessageHandler.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI/Windows/Window.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" column="64" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="144">
+              <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>registerW</find>
-      <find>&amp;</find>
-      <find>// constructors</find>
-      <find>\Wr\W</find>
-      <find>\Wg\W</find>
-      <find>\Wb\W</find>
-      <find>HSBColor</find>
-      <find>NULL</find>
-      <find>windowTitle</find>
-      <find>szClassName</find>
-      <find>wc\.</find>
-      <find>wc-&gt;</find>
-      <find>wndClass</find>
-      <find>set</find>
-      <find>wc</find>
-      <find>WNDCLASSEX &amp;,</find>
-      <find>WNDCLASSEX &amp;wc,</find>
-      <find>wc,</find>
-      <find>\.(cpp|h)</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>nullptr</replace>
-      <replace>wndTitle</replace>
-      <replace>wndClass</replace>
-      <replace>wc-&gt;</replace>
-      <replace>wc.</replace>
-      <replace>CLASS_NAME</replace>
-      <replace>wcex</replace>
-      <replace>wc</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>C:\Users\romanstrazanec\CLionProjects\libgraphics\Geometry</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="derivativewindow" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Window.cpp" />
-        <option value="$PROJECT_DIR$/Window.h" />
-        <option value="$PROJECT_DIR$/Objects/geometry.h" />
-        <option value="$PROJECT_DIR$/Objects/Point.cpp" />
-        <option value="$PROJECT_DIR$/Objects/Point.h" />
-        <option value="$PROJECT_DIR$/Objects/LineSegment.h" />
-        <option value="$PROJECT_DIR$/Objects/LineSegment.cpp" />
-        <option value="$PROJECT_DIR$/Objects/Line.cpp" />
-        <option value="$PROJECT_DIR$/Objects/Line.h" />
-        <option value="$PROJECT_DIR$/Objects/Circle.h" />
-        <option value="$PROJECT_DIR$/Objects/Circle.cpp" />
-        <option value="$PROJECT_DIR$/Graphics/Color.cpp" />
-        <option value="$PROJECT_DIR$/Graphics/Color.h" />
-        <option value="$PROJECT_DIR$/Geometry/Point.cpp" />
-        <option value="$PROJECT_DIR$/Geometry/Point.h" />
-        <option value="$PROJECT_DIR$/Geometry/LineSegment.h" />
-        <option value="$PROJECT_DIR$/Geometry/LineSegment.cpp" />
-        <option value="$PROJECT_DIR$/Geometry/Circle.h" />
-        <option value="$PROJECT_DIR$/Geometry/Circle.cpp" />
-        <option value="$PROJECT_DIR$/Graphics/Colors/HSVColor.cpp" />
-        <option value="$PROJECT_DIR$/Graphics/Colors/HSVColor.h" />
-        <option value="$PROJECT_DIR$/Graphics/Colors/HSBColor.h" />
-        <option value="$PROJECT_DIR$/Graphics/Colors/HSBColor.cpp" />
-        <option value="$PROJECT_DIR$/Geometry/Rect.cpp" />
-        <option value="$PROJECT_DIR$/Geometry/Rect.h" />
-        <option value="$PROJECT_DIR$/Graphics/Colors/HSLColor.cpp" />
-        <option value="$PROJECT_DIR$/Graphics/RGBColor.cpp" />
-        <option value="$PROJECT_DIR$/Graphics/RGBColor.h" />
-        <option value="$PROJECT_DIR$/Geometry/Line.h" />
-        <option value="$PROJECT_DIR$/Geometry/structs.h" />
-        <option value="$PROJECT_DIR$/Geometry/Edge.cpp" />
-        <option value="$PROJECT_DIR$/Geometry/Edge.h" />
-        <option value="$PROJECT_DIR$/Graphics/Colors/HSLColor.h" />
-        <option value="$PROJECT_DIR$/Graphics/Colors/RGBColor.h" />
-        <option value="$PROJECT_DIR$/Graphics/Colors/colors.h" />
-        <option value="$PROJECT_DIR$/Graphics/Colors/RGBColor.cpp" />
-        <option value="$PROJECT_DIR$/Geometry/Line.cpp" />
-        <option value="$PROJECT_DIR$/Graphics/Pixel.cpp" />
-        <option value="$PROJECT_DIR$/GUI/include.h" />
-        <option value="$PROJECT_DIR$/GUI/WindowProcedure.h" />
-        <option value="$PROJECT_DIR$/GUI/WindowProcedure.cpp" />
-        <option value="$PROJECT_DIR$/Graphics/Canvas.cpp" />
-        <option value="$PROJECT_DIR$/Graphics/Canvas.h" />
-        <option value="$PROJECT_DIR$/Graphics/Pixel.h" />
-        <option value="$PROJECT_DIR$/MessageHandlers/Handler.h" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/GUI/BaseWindow.h" />
+        <option value="$PROJECT_DIR$/GUI/Window.h" />
         <option value="$PROJECT_DIR$/GUI/Window.cpp" />
         <option value="$PROJECT_DIR$/include.h" />
-        <option value="$PROJECT_DIR$/GUI/Window.h" />
+        <option value="$PROJECT_DIR$/GUI/MessageHandlers/MessageHandler.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/GUI/Windows/BaseWindow.h" />
+        <option value="$PROJECT_DIR$/GUI/MessageHandlers/MessageHandler.h" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
-  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="39" />
-    <option name="y" value="165" />
-    <option name="width" value="1890" />
-    <option name="height" value="930" />
+    <option name="x" value="189" />
+    <option name="y" value="189" />
+    <option name="width" value="1617" />
+    <option name="height" value="717" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -155,6 +122,23 @@
               <item name="libgraphics" type="b2602c69:ProjectViewProjectNode" />
               <item name="libgraphics" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="libgraphics" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libgraphics" type="462c0819:PsiDirectoryNode" />
+              <item name="GUI" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libgraphics" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libgraphics" type="462c0819:PsiDirectoryNode" />
+              <item name="GUI" type="462c0819:PsiDirectoryNode" />
+              <item name="MessageHandlers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libgraphics" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libgraphics" type="462c0819:PsiDirectoryNode" />
+              <item name="GUI" type="462c0819:PsiDirectoryNode" />
+              <item name="Windows" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -164,19 +148,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\romanstrazanec\CLionProjects\libgraphics" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\romanstrazanec\CLionProjects\libgraphics\Graphics" />
-      <recent name="C:\Users\romanstrazanec\CLionProjects\libgraphics\Graphics\Colors" />
-      <recent name="C:\Users\romanstrazanec\CLionProjects\windowsgui\gui" />
+      <recent name="C:\Users\romanstrazanec\CLionProjects\libgraphics\GUI\Windows" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -202,6 +177,56 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="windowsgui" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="windowsgui" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="windowsgui" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.Build All" />
       <item itemvalue="Application.libgraphics" />
@@ -212,7 +237,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ba3364df-f578-47d6-bf06-47c3b74d73df" name="Default Changelist" comment="" />
+      <changelist id="98472b71-d141-4fa6-a14c-32a7b98c3a84" name="Default Changelist" comment="" />
       <created>1540147108926</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -249,28 +274,32 @@
       <workItem from="1550158157874" duration="11673000" />
       <workItem from="1550228992956" duration="1489000" />
       <workItem from="1550244501282" duration="1819000" />
-      <workItem from="1550270601725" duration="12670000" />
+      <workItem from="1550270601725" duration="13407000" />
+      <workItem from="1550343223220" duration="1050000" />
+      <workItem from="1550358070620" duration="2459000" />
+      <workItem from="1553110989938" duration="495000" />
+      <workItem from="1553114848082" duration="2119000" />
     </task>
-    <task id="LOCAL-00001" summary="Window class">
-      <created>1540283397661</created>
+    <task id="LOCAL-00001" summary="divide into BaseWindow and Basic window">
+      <created>1553115748750</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1540283397661</updated>
+      <updated>1553115748750</updated>
     </task>
-    <task id="LOCAL-00002" summary="add main.cpp">
-      <created>1540283640499</created>
+    <task id="LOCAL-00002" summary="define main and HWND for better understanding">
+      <created>1553116264249</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1540283640499</updated>
+      <updated>1553116264249</updated>
     </task>
-    <task id="LOCAL-00003" summary="GUI">
-      <created>1547564536417</created>
+    <task id="LOCAL-00003" summary="move windows to windows folder">
+      <created>1553116617367</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1547564536418</updated>
+      <updated>1553116617367</updated>
     </task>
     <task id="LOCAL-00004" summary="point">
       <created>1547571258613</created>
@@ -496,32 +525,39 @@
       <option name="project" value="LOCAL" />
       <updated>1550317830474</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="delete .gitignore">
+      <created>1550318205560</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1550318205561</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143482000" />
+    <option name="totallyTimeSpent" value="10545000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25991902" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17732793" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3285968" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3285968" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5346359" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39964476" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.3285968" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3285968" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3285968" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.3285968" />
-      <window_info anchor="bottom" id="CMake" order="12" visible="true" weight="0.3285968" />
+      <window_info anchor="bottom" id="CMake" order="12" weight="0.3285968" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -542,10 +578,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="change a to start, b to end,center" />
-    <MESSAGE value="direct initialization" />
-    <MESSAGE value="create Line and LineSegment" />
-    <MESSAGE value="fix method blueprints" />
     <MESSAGE value="get point and y value" />
     <MESSAGE value="line and linesegments conversions" />
     <MESSAGE value="initialization" />
@@ -567,290 +599,80 @@
     <MESSAGE value="initialize before create" />
     <MESSAGE value="implement approach by inheritance" />
     <MESSAGE value="add CMakeLists" />
-    <option name="LAST_COMMIT_MESSAGE" value="add CMakeLists" />
+    <MESSAGE value="delete .gitignore" />
+    <MESSAGE value="divide into BaseWindow and Basic window" />
+    <MESSAGE value="define main and HWND for better understanding" />
+    <MESSAGE value="move windows to windows folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="move windows to windows folder" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/bits/stringfwd.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-208">
-          <caret line="73" column="32" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/cygwin64/usr/include/w32api/_mingw_unicode.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EventHandler.h" />
-    <entry file="file://$PROJECT_DIR$/EventHandler.cpp" />
-    <entry file="file://C:/cygwin64/usr/include/w32api/d2d1.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12385" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Objects/geometry.h" />
-    <entry file="file://$PROJECT_DIR$/Graphics/Geometry/Point.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/Colors/HSBColor.h" />
-    <entry file="file://$PROJECT_DIR$/Graphics/Colors/HSBColor.cpp" />
-    <entry file="file://$PROJECT_DIR$/Geometry/Rect.cpp" />
-    <entry file="file://$PROJECT_DIR$/Geometry/Rect.h" />
-    <entry file="file://$PROJECT_DIR$/Graphics/Colors/HSLColor.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/RGBColor.h" />
-    <entry file="file://$PROJECT_DIR$/Graphics/RGBColor.cpp" />
-    <entry file="file://$PROJECT_DIR$/Graphics/Geometry/Circle.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="53" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/Geometry/Point.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/Geometry/geometry.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-          <folding>
-            <element signature="e#117#136#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/Geometry/Edge.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/Colors/RGBColor.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-288">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#63#81#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/Colors/HSLColor.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/Geometry/Edge.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
-          <folding>
-            <element signature="e#69#85#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/Geometry/Circle.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/Geometry/Line.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/Geometry/Line.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding>
-            <element signature="e#55#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/Colors/RGBColor.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="82" column="27" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/cygwin64/usr/include/w32api/winnt.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2034">
-          <caret line="328" column="23" selection-start-line="328" selection-start-column="23" selection-end-line="328" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/Colors/colors.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding>
-            <element signature="e#59#80#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/include.h" />
-    <entry file="file://$PROJECT_DIR$/GUI/WindowProcedure.h" />
-    <entry file="file://$PROJECT_DIR$/GUI/WindowProcedure.cpp" />
-    <entry file="file://$PROJECT_DIR$/Graphics/Pixel.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/Pixel.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
-          <folding>
-            <element signature="e#57#83#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/Canvas.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/Canvas.cpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://C:/cygwin64/usr/include/w32api/_mingw.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-561" />
-      </provider>
-    </entry>
-    <entry file="file://C:/cygwin64/usr/include/w32api/winuser.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="4175" column="8" selection-start-line="4175" selection-start-column="8" selection-end-line="4175" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/7.3.0/include/stddef.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="215" column="22" selection-start-line="215" selection-start-column="22" selection-end-line="215" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MessageHandlers/Handler.cpp" />
-    <entry file="file://$PROJECT_DIR$/MessageHandlers/Handler.h" />
-    <entry file="file://C:/cygwin64/usr/include/w32api/shobjidl.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="35524" column="106" selection-start-line="35524" selection-start-column="106" selection-end-line="35524" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/x86_64-pc-cygwin/bits/c++config.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="597" column="7" selection-start-line="597" selection-start-column="7" selection-end-line="597" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/cygwin64/usr/include/w32api/minwindef.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="158" column="23" selection-start-line="158" selection-start-column="23" selection-end-line="158" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/cygwin64/usr/include/w32api/ntgdi.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="179" column="203" selection-start-line="179" selection-start-column="203" selection-end-line="179" selection-end-column="203" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/cygwin64/usr/include/w32api/windef.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/Window.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="68" column="43" selection-start-line="68" selection-start-column="43" selection-end-line="68" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/Window.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="35" column="2" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" selection-end-column="8" />
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="144">
+          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding>
+            <element signature="e#67#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/Windows/Window.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/Windows/Window.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="64" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/Windows/BaseWindow.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-468">
+          <caret line="4" column="18" lean-forward="true" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/MessageHandlers/MessageHandler.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/MessageHandlers/MessageHandler.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
         </state>
       </provider>
     </entry>

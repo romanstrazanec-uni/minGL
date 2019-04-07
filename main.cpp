@@ -1,7 +1,10 @@
-#include "GUI/Window.h"
+#include <iostream>
+#include "include.h"
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR lpCmdLine, int nCmdShow) {
-    Window window((char *) "Title");
-    if (!window.create()) return 1;
+using namespace std;
+int main(HINSTANCE hInstance, HINSTANCE, LPSTR lpCmdLine, int nCmdShow) {
+    Window window;
+    window.setTitle("title");
+    if(!window.create()) return 1;
     return (int) (window.show(nCmdShow));
 }

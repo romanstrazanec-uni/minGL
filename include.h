@@ -1,7 +1,9 @@
-#ifndef LIBGRAPHICS_INCLUDE_H
-#define LIBGRAPHICS_INCLUDE_H
+#pragma once
 
-#include "Geometry/geometry.h"
-#include "Graphics/Colors/colors.h"
+#define main WinMain
+#define HWND WindowHandle
 
-#endif
+#include <windows.h>
+#include <string>
+
+#include "GUI/Windows/Window.h"

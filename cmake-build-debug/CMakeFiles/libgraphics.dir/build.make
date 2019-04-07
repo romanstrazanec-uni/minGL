@@ -70,22 +70,9 @@ CMakeFiles/libgraphics.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libgraphics.dir/main.cpp.s"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/main.cpp -o CMakeFiles/libgraphics.dir/main.cpp.s
 
-CMakeFiles/libgraphics.dir/GUI/Window.cpp.o: CMakeFiles/libgraphics.dir/flags.make
-CMakeFiles/libgraphics.dir/GUI/Window.cpp.o: ../GUI/Window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/libgraphics.dir/GUI/Window.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libgraphics.dir/GUI/Window.cpp.o -c /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Window.cpp
-
-CMakeFiles/libgraphics.dir/GUI/Window.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libgraphics.dir/GUI/Window.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Window.cpp > CMakeFiles/libgraphics.dir/GUI/Window.cpp.i
-
-CMakeFiles/libgraphics.dir/GUI/Window.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libgraphics.dir/GUI/Window.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Window.cpp -o CMakeFiles/libgraphics.dir/GUI/Window.cpp.s
-
 CMakeFiles/libgraphics.dir/Graphics/Geometry/Point.cpp.o: CMakeFiles/libgraphics.dir/flags.make
 CMakeFiles/libgraphics.dir/Graphics/Geometry/Point.cpp.o: ../Graphics/Geometry/Point.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/libgraphics.dir/Graphics/Geometry/Point.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/libgraphics.dir/Graphics/Geometry/Point.cpp.o"
 	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libgraphics.dir/Graphics/Geometry/Point.cpp.o -c /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/Graphics/Geometry/Point.cpp
 
 CMakeFiles/libgraphics.dir/Graphics/Geometry/Point.cpp.i: cmake_force
@@ -98,7 +85,7 @@ CMakeFiles/libgraphics.dir/Graphics/Geometry/Point.cpp.s: cmake_force
 
 CMakeFiles/libgraphics.dir/Graphics/Geometry/Edge.cpp.o: CMakeFiles/libgraphics.dir/flags.make
 CMakeFiles/libgraphics.dir/Graphics/Geometry/Edge.cpp.o: ../Graphics/Geometry/Edge.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/libgraphics.dir/Graphics/Geometry/Edge.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/libgraphics.dir/Graphics/Geometry/Edge.cpp.o"
 	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libgraphics.dir/Graphics/Geometry/Edge.cpp.o -c /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/Graphics/Geometry/Edge.cpp
 
 CMakeFiles/libgraphics.dir/Graphics/Geometry/Edge.cpp.i: cmake_force
@@ -111,7 +98,7 @@ CMakeFiles/libgraphics.dir/Graphics/Geometry/Edge.cpp.s: cmake_force
 
 CMakeFiles/libgraphics.dir/Graphics/Geometry/Circle.cpp.o: CMakeFiles/libgraphics.dir/flags.make
 CMakeFiles/libgraphics.dir/Graphics/Geometry/Circle.cpp.o: ../Graphics/Geometry/Circle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/libgraphics.dir/Graphics/Geometry/Circle.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/libgraphics.dir/Graphics/Geometry/Circle.cpp.o"
 	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libgraphics.dir/Graphics/Geometry/Circle.cpp.o -c /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/Graphics/Geometry/Circle.cpp
 
 CMakeFiles/libgraphics.dir/Graphics/Geometry/Circle.cpp.i: cmake_force
@@ -124,7 +111,7 @@ CMakeFiles/libgraphics.dir/Graphics/Geometry/Circle.cpp.s: cmake_force
 
 CMakeFiles/libgraphics.dir/Graphics/Geometry/Line.cpp.o: CMakeFiles/libgraphics.dir/flags.make
 CMakeFiles/libgraphics.dir/Graphics/Geometry/Line.cpp.o: ../Graphics/Geometry/Line.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/libgraphics.dir/Graphics/Geometry/Line.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/libgraphics.dir/Graphics/Geometry/Line.cpp.o"
 	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libgraphics.dir/Graphics/Geometry/Line.cpp.o -c /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/Graphics/Geometry/Line.cpp
 
 CMakeFiles/libgraphics.dir/Graphics/Geometry/Line.cpp.i: cmake_force
@@ -137,7 +124,7 @@ CMakeFiles/libgraphics.dir/Graphics/Geometry/Line.cpp.s: cmake_force
 
 CMakeFiles/libgraphics.dir/Graphics/Colors/RGBColor.cpp.o: CMakeFiles/libgraphics.dir/flags.make
 CMakeFiles/libgraphics.dir/Graphics/Colors/RGBColor.cpp.o: ../Graphics/Colors/RGBColor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/libgraphics.dir/Graphics/Colors/RGBColor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/libgraphics.dir/Graphics/Colors/RGBColor.cpp.o"
 	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libgraphics.dir/Graphics/Colors/RGBColor.cpp.o -c /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/Graphics/Colors/RGBColor.cpp
 
 CMakeFiles/libgraphics.dir/Graphics/Colors/RGBColor.cpp.i: cmake_force
@@ -150,7 +137,7 @@ CMakeFiles/libgraphics.dir/Graphics/Colors/RGBColor.cpp.s: cmake_force
 
 CMakeFiles/libgraphics.dir/Graphics/Colors/HSLColor.cpp.o: CMakeFiles/libgraphics.dir/flags.make
 CMakeFiles/libgraphics.dir/Graphics/Colors/HSLColor.cpp.o: ../Graphics/Colors/HSLColor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/libgraphics.dir/Graphics/Colors/HSLColor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/libgraphics.dir/Graphics/Colors/HSLColor.cpp.o"
 	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libgraphics.dir/Graphics/Colors/HSLColor.cpp.o -c /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/Graphics/Colors/HSLColor.cpp
 
 CMakeFiles/libgraphics.dir/Graphics/Colors/HSLColor.cpp.i: cmake_force
@@ -163,7 +150,7 @@ CMakeFiles/libgraphics.dir/Graphics/Colors/HSLColor.cpp.s: cmake_force
 
 CMakeFiles/libgraphics.dir/Graphics/Pixel.cpp.o: CMakeFiles/libgraphics.dir/flags.make
 CMakeFiles/libgraphics.dir/Graphics/Pixel.cpp.o: ../Graphics/Pixel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/libgraphics.dir/Graphics/Pixel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/libgraphics.dir/Graphics/Pixel.cpp.o"
 	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libgraphics.dir/Graphics/Pixel.cpp.o -c /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/Graphics/Pixel.cpp
 
 CMakeFiles/libgraphics.dir/Graphics/Pixel.cpp.i: cmake_force
@@ -176,7 +163,7 @@ CMakeFiles/libgraphics.dir/Graphics/Pixel.cpp.s: cmake_force
 
 CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.o: CMakeFiles/libgraphics.dir/flags.make
 CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.o: ../Graphics/Canvas.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.o"
 	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.o -c /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/Graphics/Canvas.cpp
 
 CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.i: cmake_force
@@ -187,10 +174,22 @@ CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.s"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/Graphics/Canvas.cpp -o CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.s
 
+CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.o: CMakeFiles/libgraphics.dir/flags.make
+CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.o: ../GUI/Windows/Window.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.o -c /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Windows/Window.cpp
+
+CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Windows/Window.cpp > CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.i
+
+CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Windows/Window.cpp -o CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.s
+
 # Object files for target libgraphics
 libgraphics_OBJECTS = \
 "CMakeFiles/libgraphics.dir/main.cpp.o" \
-"CMakeFiles/libgraphics.dir/GUI/Window.cpp.o" \
 "CMakeFiles/libgraphics.dir/Graphics/Geometry/Point.cpp.o" \
 "CMakeFiles/libgraphics.dir/Graphics/Geometry/Edge.cpp.o" \
 "CMakeFiles/libgraphics.dir/Graphics/Geometry/Circle.cpp.o" \
@@ -198,13 +197,13 @@ libgraphics_OBJECTS = \
 "CMakeFiles/libgraphics.dir/Graphics/Colors/RGBColor.cpp.o" \
 "CMakeFiles/libgraphics.dir/Graphics/Colors/HSLColor.cpp.o" \
 "CMakeFiles/libgraphics.dir/Graphics/Pixel.cpp.o" \
-"CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.o"
+"CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.o" \
+"CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.o"
 
 # External object files for target libgraphics
 libgraphics_EXTERNAL_OBJECTS =
 
 libgraphics.exe: CMakeFiles/libgraphics.dir/main.cpp.o
-libgraphics.exe: CMakeFiles/libgraphics.dir/GUI/Window.cpp.o
 libgraphics.exe: CMakeFiles/libgraphics.dir/Graphics/Geometry/Point.cpp.o
 libgraphics.exe: CMakeFiles/libgraphics.dir/Graphics/Geometry/Edge.cpp.o
 libgraphics.exe: CMakeFiles/libgraphics.dir/Graphics/Geometry/Circle.cpp.o
@@ -213,6 +212,7 @@ libgraphics.exe: CMakeFiles/libgraphics.dir/Graphics/Colors/RGBColor.cpp.o
 libgraphics.exe: CMakeFiles/libgraphics.dir/Graphics/Colors/HSLColor.cpp.o
 libgraphics.exe: CMakeFiles/libgraphics.dir/Graphics/Pixel.cpp.o
 libgraphics.exe: CMakeFiles/libgraphics.dir/Graphics/Canvas.cpp.o
+libgraphics.exe: CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.o
 libgraphics.exe: CMakeFiles/libgraphics.dir/build.make
 libgraphics.exe: CMakeFiles/libgraphics.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable libgraphics.exe"

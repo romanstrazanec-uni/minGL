@@ -80,10 +80,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Window.cpp">
+		<Unit filename="/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/MessageHandlers/MessageHandler.h">
 			<Option target="libgraphics"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Window.h">
+		<Unit filename="/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Windows/BaseWindow.h">
+			<Option target="libgraphics"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Windows/Window.cpp">
+			<Option target="libgraphics"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/GUI/Windows/Window.h">
 			<Option target="libgraphics"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/Graphics/Canvas.cpp">

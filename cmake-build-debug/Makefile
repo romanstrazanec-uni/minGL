@@ -123,32 +123,32 @@ libgraphics/fast:
 	$(MAKE) -f CMakeFiles/libgraphics.dir/build.make CMakeFiles/libgraphics.dir/build
 .PHONY : libgraphics/fast
 
-GUI/Window.o: GUI/Window.cpp.o
+GUI/Windows/Window.o: GUI/Windows/Window.cpp.o
 
-.PHONY : GUI/Window.o
+.PHONY : GUI/Windows/Window.o
 
 # target to build an object file
-GUI/Window.cpp.o:
-	$(MAKE) -f CMakeFiles/libgraphics.dir/build.make CMakeFiles/libgraphics.dir/GUI/Window.cpp.o
-.PHONY : GUI/Window.cpp.o
+GUI/Windows/Window.cpp.o:
+	$(MAKE) -f CMakeFiles/libgraphics.dir/build.make CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.o
+.PHONY : GUI/Windows/Window.cpp.o
 
-GUI/Window.i: GUI/Window.cpp.i
+GUI/Windows/Window.i: GUI/Windows/Window.cpp.i
 
-.PHONY : GUI/Window.i
+.PHONY : GUI/Windows/Window.i
 
 # target to preprocess a source file
-GUI/Window.cpp.i:
-	$(MAKE) -f CMakeFiles/libgraphics.dir/build.make CMakeFiles/libgraphics.dir/GUI/Window.cpp.i
-.PHONY : GUI/Window.cpp.i
+GUI/Windows/Window.cpp.i:
+	$(MAKE) -f CMakeFiles/libgraphics.dir/build.make CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.i
+.PHONY : GUI/Windows/Window.cpp.i
 
-GUI/Window.s: GUI/Window.cpp.s
+GUI/Windows/Window.s: GUI/Windows/Window.cpp.s
 
-.PHONY : GUI/Window.s
+.PHONY : GUI/Windows/Window.s
 
 # target to generate assembly for a file
-GUI/Window.cpp.s:
-	$(MAKE) -f CMakeFiles/libgraphics.dir/build.make CMakeFiles/libgraphics.dir/GUI/Window.cpp.s
-.PHONY : GUI/Window.cpp.s
+GUI/Windows/Window.cpp.s:
+	$(MAKE) -f CMakeFiles/libgraphics.dir/build.make CMakeFiles/libgraphics.dir/GUI/Windows/Window.cpp.s
+.PHONY : GUI/Windows/Window.cpp.s
 
 Graphics/Canvas.o: Graphics/Canvas.cpp.o
 
@@ -402,9 +402,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... libgraphics"
 	@echo "... edit_cache"
-	@echo "... GUI/Window.o"
-	@echo "... GUI/Window.i"
-	@echo "... GUI/Window.s"
+	@echo "... GUI/Windows/Window.o"
+	@echo "... GUI/Windows/Window.i"
+	@echo "... GUI/Windows/Window.s"
 	@echo "... Graphics/Canvas.o"
 	@echo "... Graphics/Canvas.i"
 	@echo "... Graphics/Canvas.s"
