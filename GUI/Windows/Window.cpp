@@ -1,6 +1,7 @@
 #include "Window.h"
 
 LRESULT Window::handleMessage(UINT msg, WPARAM wparam, LPARAM lparam) {
+    for(MessageHandler *msghandler : messageHandlers) msghandler->handleMessage(msg, wparam, lparam);
     switch (msg) {
         case WM_PAINT: {
             PAINTSTRUCT ps;
