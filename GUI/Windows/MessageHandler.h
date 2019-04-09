@@ -9,9 +9,11 @@ class MessageHandler {
 public:
     MessageHandler(UINT msg, void (*handle)(HWND, UINT, WPARAM, LPARAM)) : messageCode(msg), handle(handle) {}
 
-    bool handleMessage(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam) {
-        if (msg != messageCode) return false;
+    void handleMessage(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam) {
         handle(hwnd, msg, wparam, lparam);
-        return true;
-    };
+    }
+
+    UINT getMessageCode() {
+        return messageCode;
+    }
 };
