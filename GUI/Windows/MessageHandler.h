@@ -4,9 +4,10 @@
 
 class MessageHandler {
     UINT messageCode{0};
-    void (*handle)(HWND, UINT, WPARAM, LPARAM);
+    void (*handle)(HWND, UINT, WPARAM, LPARAM){};
 
 public:
+    MessageHandler() = default;
     MessageHandler(UINT msg, void (*handle)(HWND, UINT, WPARAM, LPARAM)) : messageCode(msg), handle(handle) {}
 
     void handleMessage(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam) {
