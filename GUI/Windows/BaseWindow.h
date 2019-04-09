@@ -1,5 +1,6 @@
 #pragma once
 #include <windows.h>
+#include "Message.h"
 
 template<class DerivedWindow>
 class BaseWindow {
@@ -33,12 +34,12 @@ private:
             return 0;
         }
 
-        if(pThis) return pThis->handleMessage(msg, wParam, lParam);
+        if(pThis) return pThis->handleMessage(Message(msg, wParam, lParam));
         else return DefWindowProc(hwnd, msg, wParam, lParam);
     }
 
 protected:
-    virtual LRESULT handleMessage(UINT msg, WPARAM, LPARAM) = 0;
+    virtual LRESULT handleMessage(Message) = 0;
 
 public:
     BaseWindow(){

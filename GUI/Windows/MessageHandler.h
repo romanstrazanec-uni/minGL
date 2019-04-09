@@ -1,20 +1,21 @@
 #pragma once
 
-#include <windows.h>
+#include "Message.h"
 
 class MessageHandler {
-    UINT messageCode{0};
-    void (*handle)(HWND, UINT, WPARAM, LPARAM){};
+    Message message{};
+    void (*handle)(HWND, Message){};
 
 public:
     MessageHandler() = default;
-    MessageHandler(UINT msg, void (*handle)(HWND, UINT, WPARAM, LPARAM)) : messageCode(msg), handle(handle) {}
+    MessageHandler(Message msg, void (*handle)(HWND, Message)) : message(msg), handle(handle) {}
 
-    void handleMessage(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam) {
-        handle(hwnd, msg, wparam, lparam);
+    void handleMessage(HWND hwnd, Message msg) {
+        message = Message(message.getMsg(), msg.getWparam(), msg.getLparam());
+        handle(hwnd, message);
     }
 
-    UINT getMessageCode() {
-        return messageCode;
+    Message getMessage(){
+        return message;
     }
 };
