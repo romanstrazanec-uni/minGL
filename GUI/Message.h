@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LIBGRAPHICS_MESSAGE_H
+#define LIBGRAPHICS_MESSAGE_H
 
 #include <windows.h>
 
@@ -9,7 +10,9 @@ class Message {
 
 public:
     Message() = default;
+
     Message(UINT code) : messageCode(code) {}
+
     Message(UINT code, WPARAM wparam, LPARAM lparam) : messageCode(code), wparam(wparam), lparam(lparam) {}
 
     WPARAM getWparam() {
@@ -56,3 +59,5 @@ public:
         return {WM_CLOSE};
     }
 };
+
+#endif

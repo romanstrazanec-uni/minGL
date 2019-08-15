@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LIBGRAPHICS_WINDOW_H
+#define LIBGRAPHICS_WINDOW_H
 
 #include <map>
 #include "BaseWindow.h"
@@ -8,7 +9,7 @@ class Window : public BaseWindow<Window> {
     std::map<UINT, MessageHandler> messageHandlers;
 public:
     LRESULT handleMessage(Message msg) override {
-        if(messageHandlers.count(msg.getMsg()) == 0)
+        if (messageHandlers.count(msg.getMsg()) == 0)
             return DefWindowProc(getWindowHandle(), msg.getMsg(), msg.getWparam(), msg.getLparam());
         messageHandlers[msg.getMsg()].handleMessage(getWindowHandle(), msg);
         return 0;
@@ -18,3 +19,5 @@ public:
         messageHandlers[msgHandler.getMessage().getMsg()] = msgHandler;
     }
 };
+
+#endif

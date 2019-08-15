@@ -5,4 +5,4 @@
 #include <windows.h>
 #include <string>
 
-#include "GUI/Windows/Window.h"
+#include "GUI/Window.h"
