@@ -2,6 +2,7 @@
 #define LIBGRAPHICS_BASE_WINDOW_H
 
 #include <windows.h>
+#include <string>
 #include "Message.h"
 
 template<class DerivedWindow>
@@ -34,6 +35,7 @@ private:
 
             pThis->hwnd = hwnd;
         } else pThis = (DerivedWindow *) GetWindowLongPtr(hwnd, GWLP_USERDATA);
+
         if (msg == WM_DESTROY) {
             PostQuitMessage(0);
             return 0;
@@ -49,10 +51,6 @@ protected:
 public:
     BaseWindow() {
         initialize();
-    }
-
-    virtual ~BaseWindow() {
-        --wndCount;
     }
 
     virtual void initialize() final {
