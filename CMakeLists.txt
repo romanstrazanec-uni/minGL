@@ -3,30 +3,24 @@ project(libgraphics)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_library(libgdiplus main.cpp)
+add_executable(libgraphics main.cpp include.h)
+target_include_directories(libgraphics PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/gdiplus>
+        $<INSTALL_INTERFACE:include/gdiplus>)
+target_link_libraries(libgraphics gdiplus)
 
-add_executable(libgraphics
-        main.cpp
-        include.h
-        GUI/BaseWindow.h
-        GUI/Window.h
-        GUI/Message.h
-        GUI/MessageHandler.h
-        Graphics/Geometry/Point.cpp
-        Graphics/Geometry/Point.h
-        Graphics/Geometry/Edge.cpp
-        Graphics/Geometry/Edge.h
-        Graphics/Geometry/Circle.cpp
-        Graphics/Geometry/Circle.h
-        Graphics/Geometry/Line.cpp
-        Graphics/Geometry/Line.h
-        Graphics/Geometry/geometry.h
-        Graphics/Colors/RGBColor.cpp
-        Graphics/Colors/RGBColor.h
-        Graphics/Colors/HSLColor.cpp
-        Graphics/Colors/HSLColor.h
-        Graphics/Colors/colors.h
-        Graphics/Pixel.cpp
-        Graphics/Pixel.h
-        Graphics/Canvas.cpp
-        Graphics/Canvas.h)
+#target_link_libraries(libgraphics PUBLIC )
+#target_include_directories(libgraphics PUBLIC "C:\\cygwin64\\usr\\include\\w32api\\gdiplus")
+#target_link_libraries(libgraphics kernel32.lib)
+#target_link_libraries(libgraphics user32.lib)
+#target_link_libraries(libgraphics gdi32.lib)
+#target_link_libraries(libgraphics winspool.lib)
+#target_link_libraries(libgraphics comdlg32.lib)
+#target_link_libraries(libgraphics advapi32.lib)
+#target_link_libraries(libgraphics shell32.lib)
+#target_link_libraries(libgraphics ole32.lib)
+#target_link_libraries(libgraphics oleaut32.lib)
+#target_link_libraries(libgraphics uuid.lib)
+#target_link_libraries(libgraphics odbc32.lib)
+#target_link_libraries(libgraphics odbccp32.lib)
+
