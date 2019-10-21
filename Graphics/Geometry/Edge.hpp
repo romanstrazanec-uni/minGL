@@ -1,8 +1,8 @@
-#ifndef LIBGRAPHICS_LINESEGMENT_H
-#define LIBGRAPHICS_LINESEGMENT_H
+#ifndef MINGL_EDGE_HPP_INCLUDED
+#define MINGL_EDGE_HPP_INCLUDED
 
 #include <cmath>
-#include "geometry.h"
+#include "geometry.hpp"
 
 struct Edge {
     Point start{Point()}, end{Point()};

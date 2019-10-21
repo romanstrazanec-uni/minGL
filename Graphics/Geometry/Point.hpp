@@ -1,5 +1,5 @@
-#ifndef LIBGRAPHICS_POINT_H
-#define	LIBGRAPHICS_POINT_H
+#ifndef MINGL_POINT_HPP_INCLUDED
+#define MINGL_POINT_HPP_INCLUDED
 
 struct Point {
     int x{0}, y{0};

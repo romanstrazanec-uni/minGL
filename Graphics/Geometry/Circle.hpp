@@ -1,7 +1,7 @@
-#ifndef LIBGRAPHICS_CIRCLE_H
-#define LIBGRAPHICS_CIRCLE_H
+#ifndef MINGL_CIRCLE_HPP_INCLUDED
+#define MINGL_CIRCLE_HPP_INCLUDED
 
-#include "Point.h"
+#include "Point.hpp"
 
 struct Circle {
     Point c{Point()};

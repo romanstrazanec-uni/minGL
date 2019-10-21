@@ -1,8 +1,8 @@
-#ifndef LIBGRAPHICS_LINE_H
-#define LIBGRAPHICS_LINE_H
+#ifndef MINGL_LINE_HPP_INCLUDED
+#define MINGL_LINE_HPP_INCLUDED
 
 #include <cmath>
-#include "geometry.h"
+#include "geometry.hpp"
 
 struct Line {
     double m{0}, b{0};

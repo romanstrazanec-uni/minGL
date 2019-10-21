@@ -1,4 +1,4 @@
-#include "Edge.h"
+#include "Edge.hpp"
 
 Edge::Edge() = default;
 Edge::Edge(const Point &end): start(Point()), end(end){}
