@@ -1,4 +1,4 @@
-#include "HSLColor.h"
+#include "HSLColor.hpp"
 
 HSLColor::HSLColor() = default;
 HSLColor::HSLColor(short hue, float saturation, float lightness) {

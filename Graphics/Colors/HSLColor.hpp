@@ -1,8 +1,8 @@
-#ifndef LIBGRAPHICS_HSLCOLOR_H
-#define LIBGRAPHICS_HSLCOLOR_H
+#ifndef MINGL_HSLCOLOR_HPP_INCLUDED
+#define MINGL_HSLCOLOR_HPP_INCLUDED
 
 #include <cmath>
-#include "colors.h"
+#include "colors.hpp"
 
 struct HSLColor {
     short hue{-1};

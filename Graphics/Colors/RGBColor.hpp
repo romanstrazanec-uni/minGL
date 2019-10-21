@@ -1,8 +1,8 @@
-#ifndef LIBGRAPHICS_RGBCOLOR_H
-#define LIBGRAPHICS_RGBCOLOR_H
+#ifndef MINGL_RGBCOLOR_HPP_INCLUDED
+#define MINGL_RGBCOLOR_HPP_INCLUDED
 
 #include <cstdint>
-#include "colors.h"
+#include "colors.hpp"
 
 struct RGBColor {
     uint8_t red{0}, green{0}, blue{0};
