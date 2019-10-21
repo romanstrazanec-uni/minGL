@@ -4,6 +4,9 @@ project(minGL)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(libgraphics main.cpp include.h)
+
+add_subdirectory(Graphics)
+
 target_include_directories(libgraphics PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/gdiplus>
         $<INSTALL_INTERFACE:include/gdiplus>)
