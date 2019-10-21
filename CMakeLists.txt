@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(libgraphics main.cpp include.h)
 
 add_subdirectory(Graphics)
+add_subdirectory(GUI)
 
 target_include_directories(libgraphics PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/gdiplus>

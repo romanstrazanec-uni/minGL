@@ -1,5 +1,5 @@
-#ifndef LIBGRAPHICS_MESSAGE_H
-#define LIBGRAPHICS_MESSAGE_H
+#ifndef MINGL_MESSAGE_HPP_INCLUDED
+#define MINGL_MESSAGE_HPP_INCLUDED
 
 #include <windows.h>
 

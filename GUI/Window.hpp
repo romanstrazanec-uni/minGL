@@ -1,9 +1,9 @@
-#ifndef LIBGRAPHICS_WINDOW_H
-#define LIBGRAPHICS_WINDOW_H
+#ifndef MINGL_WINDOW_HPP_INCLUDED
+#define MINGL_WINDOW_HPP_INCLUDED
 
 #include <map>
-#include "BaseWindow.h"
-#include "MessageHandler.h"
+#include "BaseWindow.hpp"
+#include "MessageHandler.hpp"
 
 class Window : public BaseWindow<Window> {
     std::map<UINT, MessageHandler> messageHandlers;

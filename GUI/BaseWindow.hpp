@@ -1,9 +1,9 @@
-#ifndef LIBGRAPHICS_BASE_WINDOW_H
-#define LIBGRAPHICS_BASE_WINDOW_H
+#ifndef MINGL_BASE_WINDOW_HPP_INCLUDED
+#define MINGL_BASE_WINDOW_HPP_INCLUDED
 
 #include <windows.h>
 #include <string>
-#include "Message.h"
+#include "Message.hpp"
 
 template<class DerivedWindow>
 class BaseWindow {

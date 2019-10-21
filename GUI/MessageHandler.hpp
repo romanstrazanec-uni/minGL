@@ -1,7 +1,7 @@
-#ifndef LIBGRAPHICS_MESSAGE_HANDLER_H
-#define LIBGRAPHICS_MESSAGE_HANDLER_H
+#ifndef MINGL_MESSAGE_HANDLER_HPP_INCLUDED
+#define MINGL_MESSAGE_HANDLER_HPP_INCLUDED
 
-#include "Message.h"
+#include "Message.hpp"
 
 class MessageHandler {
     Message message{};
