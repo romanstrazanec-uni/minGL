@@ -1,3 +1,3 @@
-# Graphics library
+# MinGL
 
-Simple C++ graphics library for Windows.
+Simple minimalistic C++ graphics library for Windows.
