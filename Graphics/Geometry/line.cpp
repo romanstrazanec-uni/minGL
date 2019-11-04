@@ -1,4 +1,4 @@
-#include "Line.hpp"
+#include "line.hpp"
 
 Line::Line() = default;
 Line::Line(double slope): m(slope), b(0) {}

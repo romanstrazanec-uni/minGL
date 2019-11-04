@@ -1,4 +1,4 @@
-add_library(minGLgui BaseWindow.hpp Message.hpp MessageHandler.hpp Window.hpp)
+add_library(minGLgui basewindow.hpp message.hpp messagehandler.hpp window.hpp)
 
 target_link_libraries(minGLgui PRIVATE gdiplus)
 

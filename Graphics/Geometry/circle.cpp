@@ -1,4 +1,4 @@
-#include "Circle.hpp"
+#include "circle.hpp"
 
 Circle::Circle() = default;
 Circle::Circle(unsigned int r): r(r) {}

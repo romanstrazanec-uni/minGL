@@ -6,9 +6,9 @@ struct Edge;
 struct Line;
 struct Point;
 
-#include "Circle.hpp"
-#include "Edge.hpp"
-#include "Line.hpp"
-#include "Point.hpp"
+#include "circle.hpp"
+#include "edge.hpp"
+#include "line.hpp"
+#include "point.hpp"
 
 #endif

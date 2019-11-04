@@ -1,7 +1,7 @@
 #ifndef MINGL_CIRCLE_HPP_INCLUDED
 #define MINGL_CIRCLE_HPP_INCLUDED
 
-#include "Point.hpp"
+#include "point.hpp"
 
 struct Circle {
     Point c{Point()};

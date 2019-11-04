@@ -3,7 +3,7 @@
 
 #include <windows.h>
 #include <string>
-#include "Message.hpp"
+#include "message.hpp"
 
 template<class DerivedWindow>
 class BaseWindow {

@@ -1,4 +1,4 @@
-#include "RGBColor.hpp"
+#include "rgbcolor.hpp"
 
 RGBColor::RGBColor(uint8_t red, uint8_t green, uint8_t blue): red(red), green(green), blue(blue) {}
 RGBColor::RGBColor(const RGBColor &other) = default;
