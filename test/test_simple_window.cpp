@@ -2,7 +2,8 @@
 #include "include.h"
 
 using namespace std;
-int main(HINSTANCE hInstance, HINSTANCE, LPSTR lpCmdLine, int nCmdShow) {
+
+int main() {
     Window window;
     window.setTitle("title");
     window.addHandler(MessageHandler(Message::onPaint(), [](HWND h, Message m){

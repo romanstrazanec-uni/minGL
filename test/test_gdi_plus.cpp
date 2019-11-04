@@ -1,5 +1,5 @@
 #include <windows.h>
-#include <gdiplus.h>
+#include <gdiplus/gdiplus.h>
 
 LRESULT CALLBACK WindowProcessMessages(HWND, UINT, WPARAM, LPARAM);
 
