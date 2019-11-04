@@ -1,4 +1,4 @@
-#include "mingl.h"
+#include <mingl/mingl.h>
 
 using namespace std;
 

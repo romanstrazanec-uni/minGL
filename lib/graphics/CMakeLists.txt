@@ -1,5 +1,5 @@
-add_subdirectory(Colors)
-add_subdirectory(Geometry)
+add_subdirectory(colors)
+add_subdirectory(geometry)
 
 add_library(minGLgraphics canvas.hpp canvas.cpp pixel.hpp pixel.cpp)
 target_link_libraries(minGLgraphics PUBLIC minGLcolors)
