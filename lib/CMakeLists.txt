@@ -1,9 +1,24 @@
-file(GLOB Dmingl "${CMAKE_CURRENT_SOURCE_DIR}/mingl/*.*")
-file(GLOB Dgraphics "${CMAKE_CURRENT_SOURCE_DIR}/mingl/graphics/*.*")
-file(GLOB Dgeometry "${CMAKE_CURRENT_SOURCE_DIR}/mingl/graphics/geometry/*.*")
-file(GLOB Dcolors "${CMAKE_CURRENT_SOURCE_DIR}/mingl/graphics/colors/*.*")
+# lib/CMakeLists.txt
 
-add_library(minGL ${Dmingl} ${Dgraphics} ${Dgeometry} ${Dcolors})
+set(fileglob *.*)
+set(Dmingl "${CMAKE_CURRENT_SOURCE_DIR}/mingl")
+set(Dgraphics "${Dmingl}/graphics")
 
+# get all source files
+file(GLOB DCmingl "${Dmingl}/${fileglob}")
+file(GLOB DCgraphics "${Dgraphics}/${fileglob}")
+file(GLOB DCgeometry "${Dgraphics}/geometry/${fileglob}")
+file(GLOB DCcolors "${Dgraphics}/colors/${fileglob}")
+
+# add minGL library
+add_library(minGL ${DCmingl} ${DCgraphics} ${DCgeometry} ${DCcolors})
 target_link_libraries(minGL PRIVATE gdiplus)
 target_include_directories(minGL PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
+
+# remove unused variables
+unset(Dmingl)
+unset(Dgraphics)
+unset(DCmingl)
+unset(DCgraphics)
+unset(DCgeometry)
+unset(DCcolors)
