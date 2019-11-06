@@ -3,6 +3,8 @@
 
 LRESULT CALLBACK WindowProcessMessages(HWND, UINT, WPARAM, LPARAM);
 
+void draw(HDC hdc);
+
 int WINAPI WinMain(HINSTANCE currentInstance, HINSTANCE previousInstance, PSTR cmdLine, INT cmdCount) {
     Gdiplus::GdiplusStartupInput gdiplusStartupInput;
     ULONG_PTR gdiplusToken;
@@ -31,11 +33,28 @@ int WINAPI WinMain(HINSTANCE currentInstance, HINSTANCE previousInstance, PSTR c
 }
 
 LRESULT CALLBACK WindowProcessMessages(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam) {
+    HDC hdc;
+    PAINTSTRUCT ps;
     switch (msg) {
+        case WM_PAINT:
+            hdc = BeginPaint(hwnd, &ps);
+            draw(hdc);
+            EndPaint(hwnd, &ps);
+            return 0;
         case WM_DESTROY:
             PostQuitMessage(0);
             return 0;
         default:
             return DefWindowProc(hwnd, msg, wparam, lparam);
     }
+}
+
+void draw(HDC hdc) {
+    Gdiplus::Graphics gf(hdc);
+    Gdiplus::Pen pen(Gdiplus::Color(255, 255, 0, 0));
+    Gdiplus::SolidBrush brush(Gdiplus::Color(255, 0, 255, 0));
+
+    gf.DrawLine(&pen, 0, 0, 500, 500);
+    gf.FillRectangle(&brush, 400, 200, 100, 100);
+    gf.DrawRectangle(&pen, 450, 400, 100, 150);
 }
