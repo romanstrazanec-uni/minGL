@@ -18,6 +18,10 @@ public:
     void addHandler(MessageHandler msgHandler) {
         messageHandlers[msgHandler.getMessage().getMsg()] = msgHandler;
     }
+
+    void addHandler(Message msg, void (*handle)(HWND, Message)) {
+        addHandler(MessageHandler(msg, handle));
+    }
 };
 
 #endif
