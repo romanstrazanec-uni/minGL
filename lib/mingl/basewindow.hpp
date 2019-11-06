@@ -4,6 +4,7 @@
 #include <windows.h>
 #include <gdiplus/gdiplus.h>
 #include <string>
+#include <iomanip>
 #include <mingl/message.hpp>
 
 template<class DerivedWindow>
@@ -13,17 +14,18 @@ private:
     HWND hwnd{};
     int x{CW_USEDEFAULT}, y{CW_USEDEFAULT}, width{CW_USEDEFAULT}, height{CW_USEDEFAULT};
     std::string title{};
-    char CLASS_NAME[16]{};
-    static UINT32 wndCount;
+    char CLASS_NAME[8]{};
 
     Gdiplus::GdiplusStartupInput gdiplusStartupInput{};
     ULONG_PTR gdiplusToken{};
 
     void setClassName() {
-        char strwndCount[10];
-        wsprintf(strwndCount, "%d", ++wndCount);
-        lstrcpy(CLASS_NAME, "_WND_");
-        lstrcat(CLASS_NAME, strwndCount);
+        srand(time(nullptr));
+        int r = rand();
+        std::stringstream stream;
+        stream << std::setfill('0') << std::setw(sizeof(r) * 2) << std::hex << r;
+        const std::string &tmpstr = stream.str();
+        lstrcpy(CLASS_NAME, tmpstr.c_str());
     }
 
     static LRESULT CALLBACK wndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
@@ -161,8 +163,5 @@ public:
         wc.cbClsExtra = n_bytes;
     }
 };
-
-template<class DC>
-UINT32 BaseWindow<DC>::wndCount = 0;
 
 #endif
