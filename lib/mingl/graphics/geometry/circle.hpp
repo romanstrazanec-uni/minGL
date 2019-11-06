@@ -1,5 +1,5 @@
-#ifndef MINGL_CIRCLE_HPP_INCLUDED
-#define MINGL_CIRCLE_HPP_INCLUDED
+#ifndef MINGL_CIRCLE_INCLUDED
+#define MINGL_CIRCLE_INCLUDED
 
 #include "point.hpp"
 

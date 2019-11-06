@@ -1,5 +1,5 @@
-#ifndef MINGL_HSLCOLOR_HPP_INCLUDED
-#define MINGL_HSLCOLOR_HPP_INCLUDED
+#ifndef MINGL_HSLCOLOR_INCLUDED
+#define MINGL_HSLCOLOR_INCLUDED
 
 #include <cmath>
 #include "colors.hpp"

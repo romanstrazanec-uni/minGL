@@ -1,5 +1,5 @@
-#ifndef MINGL_BASE_WINDOW_HPP_INCLUDED
-#define MINGL_BASE_WINDOW_HPP_INCLUDED
+#ifndef MINGL_BASE_WINDOW_INCLUDED
+#define MINGL_BASE_WINDOW_INCLUDED
 
 #include <windows.h>
 #include <string>

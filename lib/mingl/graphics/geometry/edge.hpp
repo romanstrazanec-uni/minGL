@@ -1,5 +1,5 @@
-#ifndef MINGL_EDGE_HPP_INCLUDED
-#define MINGL_EDGE_HPP_INCLUDED
+#ifndef MINGL_EDGE_INCLUDED
+#define MINGL_EDGE_INCLUDED
 
 #include <cmath>
 #include "geometry.hpp"

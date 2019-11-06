@@ -1,5 +1,5 @@
-#ifndef MINGL_LINE_HPP_INCLUDED
-#define MINGL_LINE_HPP_INCLUDED
+#ifndef MINGL_LINE_INCLUDED
+#define MINGL_LINE_INCLUDED
 
 #include <cmath>
 #include "geometry.hpp"

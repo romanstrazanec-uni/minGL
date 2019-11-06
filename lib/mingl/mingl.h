@@ -1,5 +1,5 @@
-#ifndef MINGL_H_INCLUDED
-#define MINGL_H_INCLUDED
+#ifndef MINGL_INCLUDED
+#define MINGL_INCLUDED
 
 #define main() WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR lpCmdLine, int nCmdShow)
 

@@ -1,5 +1,5 @@
-#ifndef MINGL_WINDOW_HPP_INCLUDED
-#define MINGL_WINDOW_HPP_INCLUDED
+#ifndef MINGL_WINDOW_INCLUDED
+#define MINGL_WINDOW_INCLUDED
 
 #include <map>
 #include "basewindow.hpp"

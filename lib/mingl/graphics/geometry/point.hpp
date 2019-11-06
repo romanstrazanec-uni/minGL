@@ -1,5 +1,5 @@
-#ifndef MINGL_POINT_HPP_INCLUDED
-#define MINGL_POINT_HPP_INCLUDED
+#ifndef MINGL_POINT_INCLUDED
+#define MINGL_POINT_INCLUDED
 
 struct Point {
     int x{0}, y{0};

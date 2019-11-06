@@ -1,5 +1,5 @@
-#ifndef MINGL_RGBCOLOR_HPP_INCLUDED
-#define MINGL_RGBCOLOR_HPP_INCLUDED
+#ifndef MINGL_RGBCOLOR_INCLUDED
+#define MINGL_RGBCOLOR_INCLUDED
 
 #include <cstdint>
 #include "colors.hpp"

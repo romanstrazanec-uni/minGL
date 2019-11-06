@@ -1,5 +1,5 @@
-#ifndef MINGL_PIXEL_HPP_INCLUDED
-#define MINGL_PIXEL_HPP_INCLUDED
+#ifndef MINGL_PIXEL_INCLUDED
+#define MINGL_PIXEL_INCLUDED
 
 #include "Colors/colors.hpp"
 #include "Geometry/geometry.hpp"
