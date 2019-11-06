@@ -2,6 +2,7 @@
 #define MINGL_BASE_WINDOW_INCLUDED
 
 #include <windows.h>
+#include <gdiplus/gdiplus.h>
 #include <string>
 #include <mingl/message.hpp>
 
@@ -15,8 +16,8 @@ private:
     char CLASS_NAME[16]{};
     static UINT32 wndCount;
 
-    // Gdiplus::GdiplusStartupInput gdiplusStartupInput{};
-    // ULONG_PTR gdiplusToken{};
+    Gdiplus::GdiplusStartupInput gdiplusStartupInput{};
+    ULONG_PTR gdiplusToken{};
 
     void setClassName() {
         char strwndCount[10];
@@ -54,7 +55,7 @@ public:
     }
 
     virtual void initialize() final {
-        // Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, nullptr);
+        Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, nullptr);
         setClassName();
         wc.cbSize = sizeof(WNDCLASSEX);
         wc.lpszClassName = CLASS_NAME;
@@ -100,7 +101,7 @@ public:
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
-        // Gdiplus::GdiplusShutdown(gdiplusToken);
+        Gdiplus::GdiplusShutdown(gdiplusToken);
         return msg.wParam;
     }
 
