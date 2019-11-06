@@ -2,7 +2,7 @@
 #define MINGL_EDGE_INCLUDED
 
 #include <cmath>
-#include "geometry.hpp"
+#include <mingl/graphics/geometry/geometry.hpp>
 
 struct Edge {
     Point start{Point()}, end{Point()};

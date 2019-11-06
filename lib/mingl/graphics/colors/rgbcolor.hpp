@@ -2,7 +2,7 @@
 #define MINGL_RGBCOLOR_INCLUDED
 
 #include <cstdint>
-#include "colors.hpp"
+#include <mingl/graphics/colors/colors.hpp>
 
 struct RGBColor {
     uint8_t red{0}, green{0}, blue{0};

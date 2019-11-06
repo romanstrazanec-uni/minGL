@@ -6,9 +6,9 @@ struct Edge;
 struct Line;
 struct Point;
 
-#include "circle.hpp"
-#include "edge.hpp"
-#include "line.hpp"
-#include "point.hpp"
+#include <mingl/graphics/geometry/circle.hpp>
+#include <mingl/graphics/geometry/edge.hpp>
+#include <mingl/graphics/geometry/line.hpp>
+#include <mingl/graphics/geometry/point.hpp>
 
 #endif

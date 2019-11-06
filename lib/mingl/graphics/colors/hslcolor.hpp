@@ -2,7 +2,7 @@
 #define MINGL_HSLCOLOR_INCLUDED
 
 #include <cmath>
-#include "colors.hpp"
+#include <mingl/graphics/colors/colors.hpp>
 
 struct HSLColor {
     short hue{-1};

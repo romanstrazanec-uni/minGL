@@ -4,7 +4,7 @@
 struct HSLColor;
 struct RGBColor;
 
-#include "hslcolor.hpp"
-#include "rgbcolor.hpp"
+#include <mingl/graphics/colors/hslcolor.hpp>
+#include <mingl/graphics/colors/rgbcolor.hpp>
 
 #endif

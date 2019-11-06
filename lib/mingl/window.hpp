@@ -2,8 +2,8 @@
 #define MINGL_WINDOW_INCLUDED
 
 #include <map>
-#include "basewindow.hpp"
-#include "messagehandler.hpp"
+#include <mingl/basewindow.hpp>
+#include <mingl/messagehandler.hpp>
 
 class Window : public BaseWindow<Window> {
     std::map<UINT, MessageHandler> messageHandlers;

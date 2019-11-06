@@ -2,7 +2,7 @@
 #define MINGL_LINE_INCLUDED
 
 #include <cmath>
-#include "geometry.hpp"
+#include <mingl/graphics/geometry/geometry.hpp>
 
 struct Line {
     double m{0}, b{0};

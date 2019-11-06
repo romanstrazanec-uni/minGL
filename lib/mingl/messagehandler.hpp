@@ -1,7 +1,7 @@
 #ifndef MINGL_MESSAGE_HANDLER_INCLUDED
 #define MINGL_MESSAGE_HANDLER_INCLUDED
 
-#include "message.hpp"
+#include <mingl/message.hpp>
 
 class MessageHandler {
     Message message{};

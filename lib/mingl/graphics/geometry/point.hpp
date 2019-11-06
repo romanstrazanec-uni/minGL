@@ -1,6 +1,8 @@
 #ifndef MINGL_POINT_INCLUDED
 #define MINGL_POINT_INCLUDED
 
+#include <mingl/graphics/geometry/geometry.hpp>
+
 struct Point {
     int x{0}, y{0};
 
