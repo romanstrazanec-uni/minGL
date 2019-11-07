@@ -15,13 +15,19 @@
 
 #include <mingl/message.hpp>
 
-/*
+/**
+ * Base window template to be derived. Creates window by following the process:
+ * <ol>
+ * <li>declare derived window object.</li>
+ * <li>use create() method to register window class.</li>
+ * <li>use show() to show the window.</li>
+ * </ol>
+ *
  * Define USE_WNDCLASSEX macro to allow BaseWindow class to store WNDCLASSEX instead of WNDCLASS.
  * WNDCLASSEX (extended window class) has extra variable hIconSm and cbSize which needs to be 'size(WNDCLASSEX)'.
  * To create WNDCLASSEX use method CreateWindowEx instead of CreateWindow,
  * which needs optional window styles argument passed.
  */
-
 template<class DerivedWindow>
 class BaseWindow {
 private:
@@ -31,7 +37,7 @@ private:
     WNDCLASS
 #endif
             wc{};
-    HWND hwnd{};
+    HWND hwnd{nullptr};
     int x{CW_USEDEFAULT}, y{CW_USEDEFAULT}, width{CW_USEDEFAULT}, height{CW_USEDEFAULT};
     std::string title{};
     char *wndClassName{nullptr};
@@ -54,6 +60,7 @@ private:
             stream << std::setfill('0') << std::setw(8) << std::hex << r;
             const std::string &tmpstr = stream.str();
             lstrcpy(wndClassName, tmpstr.c_str());
+            wc.lpszClassName = wndClassName;
         }
     }
 
@@ -116,7 +123,6 @@ public:
         wc.cbSize = sizeof(WNDCLASSEX);
 #endif
         setClassName();
-        wc.lpszClassName = wndClassName;
         setWindowProcedure(DerivedWindow::wndProc);
         setDefaultSettings();
     }
@@ -144,16 +150,16 @@ public:
      * @returns true if window was properly created.
      */
     virtual bool create() final {
+        if (hwnd != nullptr) return false;
         setClassName();
-        wc.lpszClassName = wndClassName;
         wc.hInstance = GetModuleHandle(nullptr);
 #ifdef USE_WNDCLASSEX
         wc.cbSize = sizeof(WNDCLASSEX);
-        RegisterClassEx(&wc);
+        if(!RegisterClassEx(&wc)) return false;
         hwnd = CreateWindowEx(
                 WS_EX_CLIENTEDGE, // optional window styles
 #else
-        RegisterClass(&wc);
+        if (!RegisterClass(&wc)) return false;
         hwnd = CreateWindow(
 #endif
                 wndClassName, // window class
@@ -175,6 +181,7 @@ this // additional application data
      * @return
      */
     virtual WPARAM show(int nCmdShow) final {
+        if (hwnd == nullptr) return -1;
         MSG msg{};
         ShowWindow(hwnd, nCmdShow);
         UpdateWindow(hwnd);
@@ -190,9 +197,7 @@ this // additional application data
 
     /* GETTERS */
 
-    /**
-     * @returns window class of type either WNDCLASS or WNDCLASSEX if USE_WNDCLASSEX defined.
-     */
+    /** @returns window class of type either WNDCLASS or WNDCLASSEX if USE_WNDCLASSEX defined. */
     virtual
 #ifdef USE_WNDCLASSEX
     WNDCLASSEX
