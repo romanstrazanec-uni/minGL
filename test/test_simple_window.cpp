@@ -12,6 +12,7 @@ int main() {
     window.addHandler(Message::onClose(), [](HWND h, Message m) {
         if (MessageBox(h, "Really quit?", "My application", MB_OKCANCEL) == IDOK) DestroyWindow(h);
     });
-    if(!window.create()) return 1;
-    return (int) (window.show(nCmdShow));
+    if (!window.create()) return 1;
+    window.show();
+    return 0;
 }

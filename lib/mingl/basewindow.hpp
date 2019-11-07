@@ -164,7 +164,7 @@ public:
 #endif
                 wndClassName, // window class
 title.c_str(), // window title
-WS_OVERLAPPEDWINDOW, // window style
+WS_OVERLAPPEDWINDOW | WS_VISIBLE, // window style
 x, y, width, height, // coordinates
 nullptr, // parent window
 nullptr, // menu
@@ -177,14 +177,11 @@ this // additional application data
     /**
      * Shows the window and creates a loop to fetch messages. After window destruction, shuts down gdiplus if enabled.
      *
-     * @param nCmdShow
-     * @return
+     * @returns false when not created otherwise true after the window was destroyed.
      */
-    virtual WPARAM show(int nCmdShow) final {
-        if (hwnd == nullptr) return -1;
+    virtual bool show() final {
+        if (hwnd == nullptr) return false;
         MSG msg{};
-        ShowWindow(hwnd, nCmdShow);
-        UpdateWindow(hwnd);
         while (GetMessage(&msg, nullptr, 0, 0) > 0) {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
@@ -192,7 +189,7 @@ this // additional application data
 #ifndef NO_GDIPLUS
         Gdiplus::GdiplusShutdown(gdiplusToken);
 #endif
-        return msg.wParam;
+        return true;
     }
 
     /* GETTERS */
