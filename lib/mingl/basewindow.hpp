@@ -124,25 +124,11 @@ public:
 #endif
         setClassName();
         setWindowProcedure(DerivedWindow::wndProc);
-        setDefaultSettings();
+        setDefaultWindowAttributes();
     }
 
-    /**
-     * Sets icon, small icon, cursor, background, menu name, style, windows extra bytes and class extra bytes.
-     * This method can be overridden.
-     */
-    virtual void setDefaultSettings() {
-        setIcon(nullptr, IDI_APPLICATION);
-#ifdef USE_WNDCLASSEX
-        setSmallIcon(nullptr, IDI_APPLICATION);
-#endif
-        setCursor(nullptr, IDI_APPLICATION);
-        setBackground((HBRUSH) (COLOR_WINDOW + 1));
-        setMenuName(nullptr);
-        setStyle(0);
-        setWindowExtraBytes(0);
-        setClassExtraBytes(0);
-    }
+    /** Behavior declared in derived window. */
+    virtual void setDefaultWindowAttributes() = 0;
 
     /**
      * Sets class name if not already, registers window class and creates window.
@@ -213,11 +199,11 @@ this // additional application data
         return hwnd;
     }
 
-    /* SETTERS */
-
     virtual std::string getTitle() const final {
         return title;
     }
+
+    /* SETTERS */
 
     virtual void setTitle(std::string str) final {
         title = str;

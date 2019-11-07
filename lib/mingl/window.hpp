@@ -15,6 +15,22 @@ public:
         return 0;
     }
 
+    /**
+     * Sets icon, small icon, cursor, background, menu name, style, windows extra bytes and class extra bytes.
+     */
+    virtual void setDefaultWindowAttributes() override {
+        setIcon(nullptr, IDI_APPLICATION);
+#ifdef USE_WNDCLASSEX
+        setSmallIcon(nullptr, IDI_APPLICATION);
+#endif
+        setCursor(nullptr, IDI_APPLICATION);
+        setBackground((HBRUSH) (COLOR_WINDOW + 1));
+        setMenuName(nullptr);
+        setStyle(0);
+        setWindowExtraBytes(0);
+        setClassExtraBytes(0);
+    }
+
     void addHandler(MessageHandler msgHandler) {
         messageHandlers[msgHandler.getMessage().getMsg()] = msgHandler;
     }
