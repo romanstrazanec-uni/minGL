@@ -41,6 +41,10 @@ private:
     ULONG_PTR gdiplusToken{};
 #endif
 
+    /**
+     * Checks if not already set and if not, then randomly sets window class name
+     * as a hexadecimal value between "00000000" and "ffffffff".
+     */
     void setClassName() {
         if (wndClassName == nullptr) {
             wndClassName = new char[8];
@@ -53,6 +57,16 @@ private:
         }
     }
 
+    /**
+     * Window procedure. Windows OS callback function. Windows OS sends messages to be handled by
+     * DerivedWindow::handleMessage(Message).
+     *
+     * @param hwnd
+     * @param msg
+     * @param wParam
+     * @param lParam
+     * @returns result of handled message.
+     */
     static LRESULT CALLBACK wndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
         DerivedWindow *pThis = nullptr;
 
@@ -74,9 +88,13 @@ private:
     }
 
 protected:
+    /**
+     * This method needs to be derived by
+     */
     virtual LRESULT handleMessage(Message) = 0;
 
 public:
+    /** Constructor initializes the window class with BaseWindow::initialize() method. */
     BaseWindow() {
         initialize();
     }
@@ -85,6 +103,11 @@ public:
         if (wndClassName != nullptr) delete[] wndClassName;
     }
 
+    /**
+     * Window class initialization. Creates new random class name for the window with BaseWindow::setClassName(),
+     * sets the window procedure, cbSize if USE_WNDCLASSEX is defined and sets other attributes
+     * with BaseWindow::setDefaultSettings(). Also starts up gdiplus, unless NO_GDIPLUS is defined.
+     */
     virtual void initialize() final {
 #ifndef NO_GDIPLUS
         Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, nullptr);
@@ -98,6 +121,10 @@ public:
         setDefaultSettings();
     }
 
+    /**
+     * Sets icon, small icon, cursor, background, menu name, style, windows extra bytes and class extra bytes.
+     * This method can be overridden.
+     */
     virtual void setDefaultSettings() {
         setIcon(nullptr, IDI_APPLICATION);
 #ifdef USE_WNDCLASSEX
@@ -111,8 +138,13 @@ public:
         setClassExtraBytes(0);
     }
 
+    /**
+     * Sets class name if not already, registers window class and creates window.
+     *
+     * @returns true if window was properly created.
+     */
     virtual bool create() final {
-        if (wndClassName == nullptr) setClassName();
+        setClassName();
         wc.lpszClassName = wndClassName;
         wc.hInstance = GetModuleHandle(nullptr);
 #ifdef USE_WNDCLASSEX
@@ -136,6 +168,12 @@ this // additional application data
         return hwnd != nullptr;
     }
 
+    /**
+     * Shows the window and creates a loop to fetch messages. After window destruction, shuts down gdiplus if enabled.
+     *
+     * @param nCmdShow
+     * @return
+     */
     virtual WPARAM show(int nCmdShow) final {
         MSG msg{};
         ShowWindow(hwnd, nCmdShow);
@@ -150,6 +188,11 @@ this // additional application data
         return msg.wParam;
     }
 
+    /* GETTERS */
+
+    /**
+     * @returns window class of type either WNDCLASS or WNDCLASSEX if USE_WNDCLASSEX defined.
+     */
     virtual
 #ifdef USE_WNDCLASSEX
     WNDCLASSEX
@@ -167,6 +210,8 @@ this // additional application data
     virtual HWND getWindowHandle() const final {
         return hwnd;
     }
+
+    /* SETTERS */
 
     virtual std::string getTitle() const final {
         return title;
