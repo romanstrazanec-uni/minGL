@@ -7,10 +7,22 @@
 #include <iomanip>
 #include <mingl/message.hpp>
 
+/*
+Define USE_WNDCLASSEX macro to allow BaseWindow class to store WNDCLASSEX instead of WNDCLASS.
+WNDCLASSEX (extended window class) has extra variable hIconSm and cbSize which needs to be 'size(WNDCLASSEX)'.
+To create WNDCLASSEX use method CreateWindowEx instead of CreateWindow,
+which needs optional window styles argument passed.
+*/
+
 template<class DerivedWindow>
 class BaseWindow {
 private:
-    WNDCLASSEX wc{};
+#ifdef USE_WNDCLASSEX
+    WNDCLASSEX
+#else
+    WNDCLASS
+#endif
+            wc{};
     HWND hwnd{};
     int x{CW_USEDEFAULT}, y{CW_USEDEFAULT}, width{CW_USEDEFAULT}, height{CW_USEDEFAULT};
     std::string title{};
@@ -59,7 +71,9 @@ public:
     virtual void initialize() final {
         Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, nullptr);
         setClassName();
+#ifdef USE_WNDCLASSEX
         wc.cbSize = sizeof(WNDCLASSEX);
+#endif
         wc.lpszClassName = CLASS_NAME;
         setWindowProcedure(DerivedWindow::wndProc);
         setDefaultSettings();
@@ -67,7 +81,9 @@ public:
 
     virtual void setDefaultSettings() {
         setIcon(nullptr, IDI_APPLICATION);
+#ifdef USE_WNDCLASSEX
         setSmallIcon(nullptr, IDI_APPLICATION);
+#endif
         setCursor(nullptr, IDI_APPLICATION);
         setBackground((HBRUSH) (COLOR_WINDOW + 1));
         setMenuName(nullptr);
@@ -77,20 +93,25 @@ public:
     }
 
     virtual bool create() final {
-        wc.cbSize = sizeof(WNDCLASSEX);
         wc.lpszClassName = CLASS_NAME;
         wc.hInstance = GetModuleHandle(nullptr);
+#ifdef USE_WNDCLASSEX
+        wc.cbSize = sizeof(WNDCLASSEX);
         RegisterClassEx(&wc);
         hwnd = CreateWindowEx(
                 WS_EX_CLIENTEDGE, // optional window styles
+#else
+        RegisterClass(&wc);
+        hwnd = CreateWindow(
+#endif
                 CLASS_NAME, // window class
-                title.c_str(), // window title
-                WS_OVERLAPPEDWINDOW, // window style
-                x, y, width, height, // coordinates
-                nullptr, // parent window
-                nullptr, // menu
-                wc.hInstance, // instance handle
-                this // additional application data
+title.c_str(), // window title
+WS_OVERLAPPEDWINDOW, // window style
+x, y, width, height, // coordinates
+nullptr, // parent window
+nullptr, // menu
+wc.hInstance, // instance handle
+this // additional application data
         );
         return hwnd != nullptr;
     }
@@ -107,7 +128,13 @@ public:
         return msg.wParam;
     }
 
-    virtual WNDCLASSEX getWindowClass() const final {
+    virtual
+#ifdef USE_WNDCLASSEX
+    WNDCLASSEX
+#else
+    WNDCLASS
+#endif
+    getWindowClass() const final {
         return wc;
     }
 
@@ -135,9 +162,11 @@ public:
         wc.hIcon = LoadIcon(hinstance, icon_name);
     }
 
+#ifdef USE_WNDCLASSEX
     virtual void setSmallIcon(HINSTANCE hinstance, LPCSTR icon_name) final {
         wc.hIconSm = LoadIcon(hinstance, icon_name);
     }
+#endif
 
     virtual void setCursor(HINSTANCE hinstance, LPCSTR cursor_name) final {
         wc.hCursor = LoadCursor(hinstance, cursor_name);
