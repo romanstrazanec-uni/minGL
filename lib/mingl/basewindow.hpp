@@ -5,15 +5,22 @@
 #include <iomanip>
 
 #include <windows.h>
+
+/* If no graphics needed, define NO_GDIPLUS to disable gdiplus library. */
+#ifndef NO_GDIPLUS
+
 #include <gdiplus/gdiplus.h>
+
+#endif
+
 #include <mingl/message.hpp>
 
 /*
-Define USE_WNDCLASSEX macro to allow BaseWindow class to store WNDCLASSEX instead of WNDCLASS.
-WNDCLASSEX (extended window class) has extra variable hIconSm and cbSize which needs to be 'size(WNDCLASSEX)'.
-To create WNDCLASSEX use method CreateWindowEx instead of CreateWindow,
-which needs optional window styles argument passed.
-*/
+ * Define USE_WNDCLASSEX macro to allow BaseWindow class to store WNDCLASSEX instead of WNDCLASS.
+ * WNDCLASSEX (extended window class) has extra variable hIconSm and cbSize which needs to be 'size(WNDCLASSEX)'.
+ * To create WNDCLASSEX use method CreateWindowEx instead of CreateWindow,
+ * which needs optional window styles argument passed.
+ */
 
 template<class DerivedWindow>
 class BaseWindow {
@@ -29,8 +36,10 @@ private:
     std::string title{};
     char *wndClassName{nullptr};
 
+#ifndef NO_GDIPLUS
     Gdiplus::GdiplusStartupInput gdiplusStartupInput{};
     ULONG_PTR gdiplusToken{};
+#endif
 
     void setClassName() {
         if (wndClassName == nullptr) {
@@ -77,11 +86,13 @@ public:
     }
 
     virtual void initialize() final {
+#ifndef NO_GDIPLUS
         Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, nullptr);
-        setClassName();
+#endif
 #ifdef USE_WNDCLASSEX
         wc.cbSize = sizeof(WNDCLASSEX);
 #endif
+        setClassName();
         wc.lpszClassName = wndClassName;
         setWindowProcedure(DerivedWindow::wndProc);
         setDefaultSettings();
@@ -133,7 +144,9 @@ this // additional application data
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
+#ifndef NO_GDIPLUS
         Gdiplus::GdiplusShutdown(gdiplusToken);
+#endif
         return msg.wParam;
     }
 
