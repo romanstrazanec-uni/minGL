@@ -1,10 +1,11 @@
 #ifndef MINGL_BASE_WINDOW_INCLUDED
 #define MINGL_BASE_WINDOW_INCLUDED
 
-#include <windows.h>
-#include <gdiplus/gdiplus.h>
 #include <string>
 #include <iomanip>
+
+#include <windows.h>
+#include <gdiplus/gdiplus.h>
 #include <mingl/message.hpp>
 
 /*
@@ -26,18 +27,21 @@ private:
     HWND hwnd{};
     int x{CW_USEDEFAULT}, y{CW_USEDEFAULT}, width{CW_USEDEFAULT}, height{CW_USEDEFAULT};
     std::string title{};
-    char CLASS_NAME[8]{};
+    char *wndClassName{nullptr};
 
     Gdiplus::GdiplusStartupInput gdiplusStartupInput{};
     ULONG_PTR gdiplusToken{};
 
     void setClassName() {
-        srand(time(nullptr));
-        int r = rand();
-        std::stringstream stream;
-        stream << std::setfill('0') << std::setw(sizeof(r) * 2) << std::hex << r;
-        const std::string &tmpstr = stream.str();
-        lstrcpy(CLASS_NAME, tmpstr.c_str());
+        if (wndClassName == nullptr) {
+            wndClassName = new char[8];
+            srand(time(nullptr));
+            int r = std::rand();
+            std::stringstream stream;
+            stream << std::setfill('0') << std::setw(8) << std::hex << r;
+            const std::string &tmpstr = stream.str();
+            lstrcpy(wndClassName, tmpstr.c_str());
+        }
     }
 
     static LRESULT CALLBACK wndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
@@ -68,13 +72,17 @@ public:
         initialize();
     }
 
+    virtual ~BaseWindow() {
+        if (wndClassName != nullptr) delete[] wndClassName;
+    }
+
     virtual void initialize() final {
         Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, nullptr);
         setClassName();
 #ifdef USE_WNDCLASSEX
         wc.cbSize = sizeof(WNDCLASSEX);
 #endif
-        wc.lpszClassName = CLASS_NAME;
+        wc.lpszClassName = wndClassName;
         setWindowProcedure(DerivedWindow::wndProc);
         setDefaultSettings();
     }
@@ -93,7 +101,8 @@ public:
     }
 
     virtual bool create() final {
-        wc.lpszClassName = CLASS_NAME;
+        if (wndClassName == nullptr) setClassName();
+        wc.lpszClassName = wndClassName;
         wc.hInstance = GetModuleHandle(nullptr);
 #ifdef USE_WNDCLASSEX
         wc.cbSize = sizeof(WNDCLASSEX);
@@ -104,7 +113,7 @@ public:
         RegisterClass(&wc);
         hwnd = CreateWindow(
 #endif
-                CLASS_NAME, // window class
+                wndClassName, // window class
 title.c_str(), // window title
 WS_OVERLAPPEDWINDOW, // window style
 x, y, width, height, // coordinates
@@ -139,7 +148,7 @@ this // additional application data
     }
 
     virtual const char *getWindowClassName() const final {
-        return CLASS_NAME;
+        return wndClassName;
     }
 
     virtual HWND getWindowHandle() const final {
