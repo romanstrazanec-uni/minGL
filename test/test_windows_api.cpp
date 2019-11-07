@@ -91,4 +91,6 @@ void addControls(HWND hwnd) {
     hEdit = CreateWindowW(L"edit", L"...",
                           WS_VISIBLE | WS_CHILD | WS_BORDER | ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL,
                           200, 152, 100, 50, hwnd, nullptr, nullptr, nullptr);
+    CreateWindowW(L"button", L"Change title", WS_VISIBLE | WS_CHILD,
+                  200, 204, 100, 50, hwnd, (HMENU) CHANGE_TITLE, nullptr, nullptr);
 }
