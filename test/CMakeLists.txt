@@ -10,3 +10,4 @@ add_executable(test test_cli.cpp)
 target_link_libraries(test PRIVATE minGL)
 
 add_executable(test_windows_api test_windows_api.cpp)
+add_executable(test_windows_api_app test_windows_api_app.cpp)
