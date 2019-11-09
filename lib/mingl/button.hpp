@@ -1,15 +1,14 @@
 #ifndef MINGL_BUTTON_INCLUDED
 #define MINGL_BUTTON_INCLUDED
 
-#include <windows.h>
+#include <mingl/guiobject.hpp>
 
 class Window;
 
-class Button {
+class Button : public GUIObject {
     Window *window;
     const char *title;
     long id;
-    int x, y, width, height;
     UINT style{WS_VISIBLE | WS_CHILD};
 #ifdef USE_WNDCLASSEX
     DWORD extendedStyle;
@@ -35,14 +34,6 @@ public:
     long getId() const;
 
     const char *getTitle() const;
-
-    int getX() const;
-
-    int getY() const;
-
-    int getWidth() const;
-
-    int getHeight() const;
 };
 
 #endif
