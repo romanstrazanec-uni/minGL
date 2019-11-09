@@ -3,19 +3,21 @@
 
 #include <mingl/message.hpp>
 
+class Window;
+
 class MessageHandler {
     Message message{};
 
-    void (*handle)(HWND, Message){};
+    void (*handle)(Window *, Message){};
 
 public:
     MessageHandler() = default;
 
-    MessageHandler(Message msg, void (*handle)(HWND, Message)) : message(msg), handle(handle) {}
+    MessageHandler(Message msg, void (*handle)(Window *, Message)) : message(msg), handle(handle) {}
 
-    void handleMessage(HWND hwnd, Message msg) {
+    void handleMessage(Window *window, Message msg) {
         message = Message(message.getMsg(), msg.getWparam(), msg.getLparam());
-        handle(hwnd, message);
+        handle(window, message);
     }
 
     Message getMessage() {

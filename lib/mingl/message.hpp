@@ -51,6 +51,10 @@ public:
         return messageCode;
     }
 
+    static Message onCreate() {
+        return {WM_CREATE};
+    }
+
     static Message onPaint() {
         return {WM_PAINT};
     }

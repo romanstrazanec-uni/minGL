@@ -4,40 +4,49 @@
 #include <map>
 #include <mingl/basewindow.hpp>
 #include <mingl/messagehandler.hpp>
+#include <mingl/button.hpp>
 
+/**
+ * Derived main Window to create and show window.
+ */
 class Window : public BaseWindow<Window> {
     std::map<UINT, MessageHandler> messageHandlers;
+    std::map<long, Button> buttons;
 public:
-    LRESULT handleMessage(Message msg) override {
-        if (messageHandlers.count(msg.getMsg()) == 0)
-            return DefWindowProc(getWindowHandle(), msg.getMsg(), msg.getWparam(), msg.getLparam());
-        messageHandlers[msg.getMsg()].handleMessage(getWindowHandle(), msg);
-        return 0;
-    }
+    Window();
+
+    LRESULT handleMessage(Message) override;
+
+    /** Adds a message handler to respond to window messages. */
+    void addHandler(MessageHandler);
+
+    /** Adds a message handler to respond to specified message with handle function. */
+    void addHandler(Message, void (*handle)(Window *, Message));
+
+    /** Assigns crreated button to the window. */
+    void addButton(Button *btn);
 
     /**
-     * Sets icon, small icon, cursor, background, menu name, style, windows extra bytes and class extra bytes.
+     * Adds a button with specified title at certain position relative to the window.
+     * Assign id to the button to respond with later assigned onClick method.
+     *
+     * @returns pointer to the newly created button.
      */
-    virtual void setDefaultWindowAttributes() override {
-        setIcon(nullptr, IDI_APPLICATION);
-#ifdef USE_WNDCLASSEX
-        setSmallIcon(nullptr, IDI_APPLICATION);
-#endif
-        setCursor(nullptr, IDI_APPLICATION);
-        setBackground((HBRUSH) (COLOR_WINDOW + 1));
-        setMenuName(nullptr);
-        setStyle(0);
-        setWindowExtraBytes(0);
-        setClassExtraBytes(0);
-    }
+    Button *addButton(const char *title, long id, int x, int y, int width, int height);
 
-    void addHandler(MessageHandler msgHandler) {
-        messageHandlers[msgHandler.getMessage().getMsg()] = msgHandler;
-    }
+    /**
+     * Adds a button with specified title at certain position relative to the window.
+     * Assign id to the button to respond with assigned onClick method.
+     *
+     * @returns pointer to the newly created button.
+     */
+    Button *addButton(const char *title, long id, int x, int y, int width, int height, void (*onClick)());
 
-    void addHandler(Message msg, void (*handle)(HWND, Message)) {
-        addHandler(MessageHandler(msg, handle));
-    }
+    /** Creates windows for all assigned buttons when window is created. */
+    void createButtons();
+
+    /** Performs click on a button found by id. If not found, nothing happens. */
+    void performClick(long id);
 };
 
 #endif
