@@ -16,6 +16,6 @@ int main() {
     });
     window.addButton("ahoj", 1, 50, 50, 100, 100);
     if (!window.create()) return 1;
-    window.show();
+    window.run();
     return 0;
 }

@@ -26,6 +26,10 @@ id != 0L ? (HMENU) id : nullptr, hinstance, additionalData);
     return isCreated();
 }
 
+void GUIObject::show() {
+    shown = true;
+}
+
 void GUIObject::addStyle(UINT s) {
     style |= s;
 }
@@ -72,6 +76,10 @@ HWND GUIObject::getWindowHandle() const {
 
 bool GUIObject::isCreated() const {
     return hwnd != nullptr;
+}
+
+bool GUIObject::isShown() const {
+    return shown;
 }
 
 void GUIObject::setWindowHandle(HWND h) {

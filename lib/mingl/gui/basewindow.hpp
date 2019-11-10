@@ -22,7 +22,7 @@
  * <li>declare</li>
  * <li>initialize()</li>
  * <li>create()</li>
- * <li>show()</li>
+ * <li>run()</li>
  * </ol>
  *
  * Define USE_WNDCLASSEX macro to allow BaseWindow class to store WNDCLASSEX instead of WNDCLASS.
@@ -129,7 +129,7 @@ public:
      *
      * @returns false when not created otherwise true after the window was destroyed.
      */
-    virtual bool show() final {
+    virtual bool run() final { // todo: rename
         if (!isCreated()) return false;
         MSG msg{};
         while (GetMessage(&msg, nullptr, 0, 0) > 0) {
