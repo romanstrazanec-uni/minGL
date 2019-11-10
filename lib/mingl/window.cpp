@@ -17,8 +17,8 @@ void Window::addHandler(MessageHandler msgHandler) {
     messageHandlers[msgHandler.getMessage().getMsg()] = msgHandler;
 }
 
-void Window::addHandler(Message msg, void (*handle)(Window *, Message)) {
-    addHandler(MessageHandler(msg, handle));
+void Window::addHandler(Message msg, void (*handler)(Window *, Message)) {
+    addHandler(MessageHandler(msg, handler));
 }
 
 void Window::addButton(Button *btn) {
@@ -36,7 +36,7 @@ Button *Window::addButton(const char *title, long id, int x, int y, int width, i
 }
 
 void Window::createButtons() {
-    for (auto const &i : buttons) i.second.create();
+    for (auto &i : buttons) i.second.create();
 }
 
 void Window::performClick(long id) {

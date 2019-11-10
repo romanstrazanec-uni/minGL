@@ -21,9 +21,9 @@ public:
     void addHandler(MessageHandler);
 
     /** Adds a message handler to respond to specified message with handle function. */
-    void addHandler(Message, void (*handle)(Window *, Message));
+    void addHandler(Message, void (*handler)(Window *, Message));
 
-    /** Assigns crreated button to the window. */
+    /** Assigns created button to the window. */
     void addButton(Button *btn);
 
     /**
