@@ -16,5 +16,5 @@ void Button::performClick() {
 }
 
 const char *Button::getTitle() const {
-    return name;
+    return getName();
 }

@@ -26,6 +26,26 @@ id != 0L ? (HMENU) id : nullptr, hinstance, additionalData);
     return isCreated();
 }
 
+void GUIObject::addStyle(UINT s) {
+    style |= s;
+}
+
+const char *GUIObject::getClassName() const {
+    return className;
+}
+
+const char *GUIObject::getName() const {
+    return name;
+}
+
+HINSTANCE GUIObject::getHinstance() const {
+    return hinstance;
+}
+
+LPVOID GUIObject::getAdditionalData() const {
+    return additionalData;
+}
+
 int GUIObject::getX() const {
     return x;
 }
@@ -52,4 +72,12 @@ HWND GUIObject::getWindowHandle() const {
 
 bool GUIObject::isCreated() const {
     return hwnd != nullptr;
+}
+
+void GUIObject::setWindowHandle(HWND h) {
+    hwnd = h;
+}
+
+void GUIObject::setName(const char *n) {
+    name = n;
 }

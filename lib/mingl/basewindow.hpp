@@ -65,7 +65,7 @@ private:
             pThis = (DerivedWindow *) pCreate->lpCreateParams;
             SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR) pThis);
 
-            pThis->hwnd = hwnd;
+            pThis->setWindowHandle(hwnd);
         } else pThis = (DerivedWindow *) GetWindowLongPtr(hwnd, GWLP_USERDATA);
 
         if (msg == WM_DESTROY) {
@@ -89,8 +89,8 @@ public:
     BaseWindow(int x, int y, int width, int height) : BaseWindow("", x, y, width, height) {}
 
     BaseWindow(const char *title, int x, int y, int width, int height)
-            : GUIObject("CustomWindowClass", title, x, y, width, height, nullptr, this) {
-        style |= WS_OVERLAPPEDWINDOW;
+            : GUIObject("CustomWindowClass", title, x, y, width, height, GetModuleHandle(nullptr), this) {
+        addStyle(WS_OVERLAPPEDWINDOW);
     }
 
     virtual void initialize() final {
@@ -98,9 +98,8 @@ public:
 #ifndef NO_GDIPLUS
         Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, nullptr);
 #endif
-        wc.lpszClassName = className;
-        wc.hInstance = GetModuleHandle(nullptr);
-        hinstance = wc.hInstance;
+        wc.lpszClassName = getClassName();
+        wc.hInstance = getHinstance();
         wc.lpfnWndProc = DerivedWindow::wndProc;
         setDefaultWindowAttributes();
 #ifdef USE_WNDCLASSEX
@@ -157,13 +156,13 @@ public:
     }
 
     virtual const char *getTitle() const final {
-        return name;
+        return getName();
     }
 
     /* SETTERS */
 
     virtual void setTitle(char const *title) final {
-        name = title;
+        setName(title);
     }
 
     virtual void setIcon(HINSTANCE hinstance, LPCSTR icon_name) final {
