@@ -14,7 +14,7 @@
 #endif
 
 #include <mingl/message.hpp>
-#include <mingl/guiobject.hpp>
+#include <mingl/gui/guiobject.hpp>
 
 /**
  * Base window template to be derived. Creates window by following the process:

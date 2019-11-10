@@ -1,7 +1,7 @@
 #ifndef MINGL_LABEL_INCLUDED
 #define MINGL_LABEL_INCLUDED
 
-#include <mingl/guiobject.hpp>
+#include <mingl/gui/guiobject.hpp>
 
 class Label : public GUIObject {
 public:

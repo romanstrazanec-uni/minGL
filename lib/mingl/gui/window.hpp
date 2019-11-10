@@ -2,9 +2,10 @@
 #define MINGL_WINDOW_INCLUDED
 
 #include <map>
-#include <mingl/basewindow.hpp>
+
+#include <mingl/gui/basewindow.hpp>
+#include <mingl/gui/button.hpp>
 #include <mingl/messagehandler.hpp>
-#include <mingl/button.hpp>
 
 /**
  * Derived main Window to create and show window.

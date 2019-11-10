@@ -1,7 +1,7 @@
 #ifndef MINGL_BUTTON_INCLUDED
 #define MINGL_BUTTON_INCLUDED
 
-#include <mingl/guiobject.hpp>
+#include <mingl/gui/guiobject.hpp>
 
 class Button : public GUIObject {
     void (*onClick)();

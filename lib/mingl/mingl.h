@@ -6,6 +6,6 @@
 #include <windows.h>
 #include <string>
 
-#include <mingl/window.hpp>
+#include <mingl/gui/window.hpp>
 
 #endif
