@@ -10,40 +10,44 @@ class Window;
  */
 class GUIObject {
 protected:
-    HWND hwnd{nullptr};
-    Window *parentWindow;
-    const char *className;
-    const char *name;
-    UINT style;
-    int x, y, width, height;
-    long id;
 #ifdef USE_WNDCLASSEX
     DWORD extendedStyle;
 #endif
+    const char *className;
+    const char *name;
+    UINT style{WS_VISIBLE};
+    int x, y, width, height;
+    long id{0};
+    HINSTANCE hinstance{nullptr};
+    LPVOID additionalData{nullptr};
+
+    Window *parent{nullptr};
+    HWND hwnd{nullptr};
 
     GUIObject() = default;
 
     /** Constructor for GUIObject with no parent window. */
-    GUIObject(const char *className, long id, const char *name, int x, int y, int width, int height);
+    GUIObject(const char *className, const char *name, int x, int y, int width, int height, HINSTANCE, LPVOID);
 
     /** Constructor for child GUIObject. */
-    GUIObject(Window *parentWindow, const char *className, long id, const char *name, int x, int y, int width,
-              int height);
+    GUIObject(Window *parent, const char *className, long id, const char *name, int x, int y, int width, int height);
 
 public:
-    bool create();
+    virtual bool create() final;
 
-    int getX() const;
+    virtual int getX() const final;
 
-    int getY() const;
+    virtual int getY() const final;
 
-    int getWidth() const;
+    virtual int getWidth() const final;
 
-    int getHeight() const;
+    virtual int getHeight() const final;
 
-    long getId() const;
+    virtual long getId() const final;
 
-    bool isCreated() const;
+    virtual HWND getWindowHandle() const final;
+
+    virtual bool isCreated() const final;
 };
 
 #endif

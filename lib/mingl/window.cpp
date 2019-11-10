@@ -4,6 +4,8 @@
 Window::Window() {
     addHandler(Message::onCreate(), [](Window *window, Message msg) { window->createButtons(); });
     addHandler(Message(WM_COMMAND), [](Window *window, Message msg) { window->performClick(msg.getWparam()); });
+
+    initialize();
 }
 
 LRESULT Window::handleMessage(Message msg) {

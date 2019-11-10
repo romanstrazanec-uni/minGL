@@ -1,14 +1,15 @@
 #include "guiobject.hpp"
 #include "window.hpp"
 
-GUIObject::GUIObject(const char *className, long id, const char *name, int x, int y, int width, int height)
-        : GUIObject(nullptr, className, id, name, x, y, width, height) {}
+GUIObject::GUIObject(const char *className, const char *name, int x, int y, int width, int height,
+                     HINSTANCE hinstance, LPVOID additionalData)
+        : className(className), name(name), x(x), y(y), width(width), height(height), hinstance(hinstance),
+          additionalData(additionalData) {}
 
-GUIObject::GUIObject(Window *parentWindow, const char *className, long id, const char *name, int x, int y,
-                     int width, int height)
-        : parentWindow(parentWindow), className(className), id(id), name(name), style(WS_VISIBLE), x(x), y(y),
-          width(width), height(height) {
-    if (parentWindow != nullptr) style |= WS_CHILD;
+GUIObject::GUIObject(Window *parent, const char *className, long id, const char *name, int x, int y, int width,
+                     int height)
+        : parent(parent), className(className), id(id), name(name), x(x), y(y), width(width), height(height) {
+    if (parent != nullptr) style |= WS_CHILD;
 }
 
 bool GUIObject::create() {
@@ -20,7 +21,8 @@ bool GUIObject::create() {
             CreateWindow(
 #endif
                     className, name, style,
-x, y, width, height, parentWindow->getWindowHandle(), (HMENU) id, nullptr, nullptr);
+x, y, width, height, parent != nullptr ? parent->getWindowHandle() : nullptr,
+id != 0L ? (HMENU) id : nullptr, hinstance, additionalData);
     return isCreated();
 }
 
@@ -42,6 +44,10 @@ int GUIObject::getHeight() const {
 
 long GUIObject::getId() const {
     return id;
+}
+
+HWND GUIObject::getWindowHandle() const {
+    return hwnd;
 }
 
 bool GUIObject::isCreated() const {
