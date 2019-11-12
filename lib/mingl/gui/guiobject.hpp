@@ -9,10 +9,6 @@ class Window;
  * GUI object represents a base class for all components of GUI objects that have a position and size.
  */
 class GUIObject {
-    bool shown{false};
-
-    /* Attributes */
-
     const char *className;
     const char *name;
     UINT style{WS_VISIBLE};
@@ -38,8 +34,6 @@ protected:
 
     /** Constructor for child GUIObject. */
     GUIObject(Window *parent, const char *className, long id, const char *name, int x, int y, int width, int height);
-
-    virtual void show() final;
 
     virtual const char *getClassName() const final;
 
@@ -69,14 +63,11 @@ public:
     virtual HWND getWindowHandle() const final;
 
     /**
-     * @returns true after create() method returned true. Window handle is not nullptr.
+     * @returns true after create() method returned true (Window handle is not nullptr).
      */
     virtual bool isCreated() const final;
 
-    /**
-     * @returns true after show() method was used on the object.
-     */
-    virtual bool isShown() const final;
+    virtual void setParent(Window *) final;
 
     virtual void setName(const char *) final;
 };

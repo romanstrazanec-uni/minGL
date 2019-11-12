@@ -5,6 +5,12 @@
 
 class EditText : public GUIObject {
 public:
+    EditText(int x, int y, int width, int height);
+
+    EditText(const char *text, int x, int y, int width, int height);
+
+    EditText(Window *parent, int x, int y, int width, int height);
+
     EditText(Window *parent, const char *text, int x, int y, int width, int height);
 };
 

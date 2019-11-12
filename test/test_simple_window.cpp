@@ -14,8 +14,9 @@ int main() {
         HWND h = w->getWindowHandle();
         if (MessageBox(h, "Really quit?", "My application", MB_OKCANCEL) == IDOK) DestroyWindow(h);
     });
-    window.addButton("ahoj", 1, 50, 50, 100, 100);
+    Button btn(1, "hello", 50, 50, 100, 100);
+    window.addButton(&btn);
     if (!window.create()) return 1;
-    window.run();
+    window.show();
     return 0;
 }

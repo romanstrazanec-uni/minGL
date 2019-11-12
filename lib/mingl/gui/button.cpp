@@ -1,6 +1,12 @@
 #include "button.hpp"
 #include "window.hpp"
 
+Button::Button(long id, const char *title, int x, int y, int width, int height)
+        : Button(nullptr, id, title, x, y, width, height) {}
+
+Button::Button(long id, const char *title, int x, int y, int width, int height, void (*onClick)())
+        : Button(nullptr, id, title, x, y, width, height, onClick) {}
+
 Button::Button(Window *window, long id, const char *title, int x, int y, int width, int height)
         : Button(window, id, title, x, y, width, height, nullptr) {}
 
@@ -11,8 +17,12 @@ void Button::addOnClickListener(void (*onClickListener)()) {
     onClick = onClickListener;
 }
 
+void Button::removeOnClickListener() {
+    addOnClickListener(nullptr);
+}
+
 void Button::performClick() {
-    if (onClick != nullptr) onClick();
+    if (isCreated() && onClick != nullptr) onClick();
 }
 
 const char *Button::getTitle() const {

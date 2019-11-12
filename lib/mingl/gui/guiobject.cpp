@@ -9,7 +9,7 @@ GUIObject::GUIObject(const char *className, const char *name, int x, int y, int 
 GUIObject::GUIObject(Window *parent, const char *className, long id, const char *name, int x, int y, int width,
                      int height)
         : parent(parent), className(className), id(id), name(name), x(x), y(y), width(width), height(height) {
-    if (parent != nullptr) style |= WS_CHILD;
+    if (parent != nullptr) addStyle(WS_CHILD);
 }
 
 bool GUIObject::create() {
@@ -24,10 +24,6 @@ bool GUIObject::create() {
 x, y, width, height, parent != nullptr ? parent->getWindowHandle() : nullptr,
 id != 0L ? (HMENU) id : nullptr, hinstance, additionalData);
     return isCreated();
-}
-
-void GUIObject::show() {
-    shown = true;
 }
 
 void GUIObject::addStyle(UINT s) {
@@ -78,12 +74,17 @@ bool GUIObject::isCreated() const {
     return hwnd != nullptr;
 }
 
-bool GUIObject::isShown() const {
-    return shown;
-}
-
 void GUIObject::setWindowHandle(HWND h) {
     hwnd = h;
+}
+
+#include <iostream>
+
+void GUIObject::setParent(Window *window) {
+    std::cout << "sets new parent" << std::endl;
+    if (parent != nullptr) parent->remove(this);
+    parent = window;
+    if (parent != nullptr) addStyle(WS_CHILD);
 }
 
 void GUIObject::setName(const char *n) {
