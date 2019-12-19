@@ -1,23 +1,26 @@
 #ifndef MINGL_BUTTON_INCLUDED
 #define MINGL_BUTTON_INCLUDED
 
+#include <functional>
+
 #include <mingl/gui/guiobject.hpp>
 
 class Button : public GUIObject {
-    void (*onClick)(Window *);
+    std::function<void()> onClick{[] {}};
 
 public:
     Button() = default;
 
     Button(long id, const char *title, int x, int y, int width, int height);
 
-    Button(long id, const char *title, int x, int y, int width, int height, void (*onClick)(Window *));
+    Button(long id, const char *title, int x, int y, int width, int height, std::function<void()> onClick);
 
     Button(Window *window, long id, const char *title, int x, int y, int width, int height);
 
-    Button(Window *window, long id, const char *title, int x, int y, int width, int height, void (*onClick)(Window *));
+    Button(Window *window, long id, const char *title, int x, int y, int width, int height,
+           std::function<void()> onClick);
 
-    void addOnClickListener(void (*)(Window *));
+    void addOnClickListener(std::function<void()>);
 
     void removeOnClickListener();
 

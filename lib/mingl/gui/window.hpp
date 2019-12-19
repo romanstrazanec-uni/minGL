@@ -14,11 +14,8 @@
  * Derived main Window to create and show window.
  */
 class Window : public BaseWindow<Window> {
-    std::map<UINT, MessageHandler> messageHandlers;
-    std::map<long, Button *> buttons;
-    // todo: consider storing guiobject pointers
-    std::list<Label *> labels;
-    std::list<EditText *> editTexts;
+    std::map<UINT, MessageHandler> messageHandlers{};
+    std::map<long, GUIObject *> objects{};
 
 public:
     Window();
@@ -45,7 +42,7 @@ public:
 
     Label *addLabel(Label &&);
 
-    Label *addLabel(const char *text, int x, int y, int width, int height);
+    Label *addLabel(long id, const char *text, int x, int y, int width, int height);
 
     /* EditText additions. */
 
@@ -53,9 +50,9 @@ public:
 
     EditText *addEditText(EditText &&);
 
-    EditText *addEditText(int x, int y, int width, int height);
+    EditText *addEditText(long id, int x, int y, int width, int height);
 
-    EditText *addEditText(const char *text, int x, int y, int width, int height);
+    EditText *addEditText(long id, const char *text, int x, int y, int width, int height);
 
     /* Button additions. */
 
@@ -69,7 +66,7 @@ public:
      *
      * @returns pointer to the newly created button.
      */
-    Button *addButton(const char *title, long id, int x, int y, int width, int height);
+    Button *addButton(long id, const char *title, int x, int y, int width, int height);
 
     /**
      * Adds a button with specified title at certain position relative to the window.
@@ -77,7 +74,7 @@ public:
      *
      * @returns pointer to the newly created button.
      */
-    Button *addButton(const char *title, long id, int x, int y, int width, int height, void (*onClick)(Window *));
+    Button *addButton(long id, const char *title, int x, int y, int width, int height, std::function<void()> onClick);
 
     /**
      * Removes object from window. @returns true if found and removed.
@@ -89,6 +86,8 @@ public:
     bool remove(EditText *);
 
     bool remove(Button *);
+
+    GUIObject *find(long id);
 
     /** Creates objects when window is created. */
     void createObjects();

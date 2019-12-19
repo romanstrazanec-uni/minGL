@@ -5,13 +5,13 @@
 
 class EditText : public GUIObject {
 public:
-    EditText(int x, int y, int width, int height);
+    EditText(long id, int x, int y, int width, int height);
 
-    EditText(const char *text, int x, int y, int width, int height);
+    EditText(long id, const char *text, int x, int y, int width, int height);
 
-    EditText(Window *parent, int x, int y, int width, int height);
+    EditText(Window *parent, long id, int x, int y, int width, int height);
 
-    EditText(Window *parent, const char *text, int x, int y, int width, int height);
+    EditText(Window *parent, long id, const char *text, int x, int y, int width, int height);
 };
 
 #endif

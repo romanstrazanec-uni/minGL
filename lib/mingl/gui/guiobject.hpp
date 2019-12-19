@@ -2,7 +2,6 @@
 #define MINGL_GUIOBJECT_HPP
 
 #include <windows.h>
-#include <set> // todo: decide if there should be a set of ids for object to be found in window while running
 
 class Window;
 
@@ -23,7 +22,7 @@ class GUIObject {
     HWND hwnd{nullptr};
 
 protected:
-
+    HMENU hMenu{nullptr};
     Window *parent{nullptr};
 
     /* Constructors for GUIObjects are hidden from public. */
