@@ -2,6 +2,7 @@
 #define MINGL_GUIOBJECT_HPP
 
 #include <windows.h>
+#include <set> // todo: decide if there should be a set of ids for object to be found in window while running
 
 class Window;
 
@@ -19,11 +20,11 @@ class GUIObject {
     long id{0};
     HINSTANCE hinstance{nullptr};
     LPVOID additionalData{nullptr};
-
-    Window *parent{nullptr};
     HWND hwnd{nullptr};
 
 protected:
+
+    Window *parent{nullptr};
 
     /* Constructors for GUIObjects are hidden from public. */
 
@@ -44,6 +45,12 @@ protected:
     virtual void setWindowHandle(HWND) final;
 
 public:
+    /**
+     * Uses windows CreateWindow function to create a window. If creation successful, the result
+     * of the CreateWindow function is a window handle and is stored as a property of the class.
+     *
+     * @returns true if creation was successful.
+     */
     virtual bool create() final;
 
     virtual void addStyle(UINT style) final;

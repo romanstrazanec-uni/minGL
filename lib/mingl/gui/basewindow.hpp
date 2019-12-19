@@ -21,7 +21,6 @@
  * <ol>
  * <li>declare</li>
  * <li>initialize()</li>
- * <li>create()</li>
  * <li>show()</li>
  * </ol>
  *
@@ -33,6 +32,7 @@
 template<class DerivedWindow>
 class BaseWindow : public GUIObject {
 private:
+    /** Backing property for initializing window. */
     bool initialized{false};
 
 #ifdef USE_WNDCLASSEX
@@ -82,12 +82,6 @@ protected:
     virtual LRESULT handleMessage(Message) = 0;
 
 public:
-    BaseWindow() : BaseWindow("") {}
-
-    BaseWindow(const char *title) : BaseWindow(title, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT) {}
-
-    BaseWindow(int x, int y, int width, int height) : BaseWindow("", x, y, width, height) {}
-
     BaseWindow(const char *title, int x, int y, int width, int height)
             : GUIObject("CustomWindowClass", title, x, y, width, height, GetModuleHandle(nullptr), this) {
         addStyle(WS_OVERLAPPEDWINDOW);
@@ -111,6 +105,9 @@ public:
             initialized = true;
     }
 
+    /**
+     * Override this method to manage window attributes.
+     */
     virtual void setDefaultWindowAttributes() {
         setIcon(nullptr, IDI_APPLICATION);
 #ifdef USE_WNDCLASSEX
@@ -130,7 +127,7 @@ public:
      * @returns false when not created otherwise true after the window was destroyed.
      */
     virtual bool show() final {
-        if (!isCreated()) return false;
+        if (!create()) return false;
         MSG msg{};
         while (GetMessage(&msg, nullptr, 0, 0) > 0) {
             TranslateMessage(&msg);

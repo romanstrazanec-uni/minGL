@@ -13,7 +13,7 @@ GUIObject::GUIObject(Window *parent, const char *className, long id, const char 
 }
 
 bool GUIObject::create() {
-    if (isCreated()) return false;
+    if (isCreated()) return true;
     hwnd =
 #ifdef USE_WNDCLASSEX
             CreateWindowEx(extendedStyle,
@@ -78,10 +78,7 @@ void GUIObject::setWindowHandle(HWND h) {
     hwnd = h;
 }
 
-#include <iostream>
-
 void GUIObject::setParent(Window *window) {
-    std::cout << "sets new parent" << std::endl;
     if (parent != nullptr) parent->remove(this);
     parent = window;
     if (parent != nullptr) addStyle(WS_CHILD);

@@ -1,10 +1,22 @@
 #include "window.hpp"
 
-Window::Window() {
+Window::Window() : Window("") {}
+
+Window::Window(const char *title) : Window(title, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT) {}
+
+Window::Window(int x, int y, int width, int height) : Window("", x, y, width, height) {}
+
+Window::Window(const char *title, int x, int y, int width, int height) : BaseWindow(title, x, y, width, height) {
     addHandler(Message::onCreate(), [](Window *window, Message msg) { window->createObjects(); });
     addHandler(Message(WM_COMMAND), [](Window *window, Message msg) { window->performClick(msg.getWparam()); });
 
     initialize();
+}
+
+Window::~Window() {
+    for (auto button : buttons) button.second->~Button();
+    for (auto label : labels) label->~Label();
+    for (auto editText : editTexts) editText->~EditText();
 }
 
 LRESULT Window::handleMessage(Message msg) {
@@ -26,13 +38,13 @@ void Window::addHandler(Message msg, void (*handler)(Window *, Message)) {
 
 void Window::addLabel(Label *label) {
     label->setParent(this);
-    labels.push_front(*label);
+    labels.push_front(label);
 }
 
 Label *Window::addLabel(Label &&label) {
     label.setParent(this);
-    labels.push_front(label);
-    return &*labels.begin();
+    labels.push_front(&label);
+    return *labels.begin();
 }
 
 Label *Window::addLabel(const char *text, int x, int y, int width, int height) {
@@ -43,13 +55,13 @@ Label *Window::addLabel(const char *text, int x, int y, int width, int height) {
 
 void Window::addEditText(EditText *editText) {
     editText->setParent(this);
-    editTexts.push_front(*editText);
+    editTexts.push_front(editText);
 }
 
 EditText *Window::addEditText(EditText &&editText) {
     editText.setParent(this);
-    editTexts.push_front(editText);
-    return &*editTexts.begin();
+    editTexts.push_front(&editText);
+    return *editTexts.begin();
 }
 
 EditText *Window::addEditText(int x, int y, int width, int height) {
@@ -65,40 +77,43 @@ EditText *Window::addEditText(const char *text, int x, int y, int width, int hei
 void Window::addButton(Button *button) {
     if (button->getId() == 0L) return;
     button->setParent(this);
-    buttons[button->getId()] = *button;
+    buttons[button->getId()] = button;
 }
 
 Button *Window::addButton(Button &&button) {
     if (button.getId() == 0L) return nullptr;
-    buttons[button.getId()] = button;
-    return &buttons[button.getId()];
+    button.setParent(this);
+    buttons[button.getId()] = &button;
+    return buttons[button.getId()];
 }
 
 Button *Window::addButton(const char *title, long id, int x, int y, int width, int height) {
     if (id == 0L) return nullptr;
-    buttons[id] = Button(this, id, title, x, y, width, height);
-    return &buttons[id];
+    Button *button = new Button(this, id, title, x, y, width, height);
+    buttons[id] = button;
+    return button;
 }
 
-Button *Window::addButton(const char *title, long id, int x, int y, int width, int height, void (*onClick)()) {
+Button *Window::addButton(const char *title, long id, int x, int y, int width, int height, void (*onClick)(Window *)) {
     if (id == 0L) return nullptr;
-    buttons[id] = Button(this, id, title, x, y, width, height, onClick);
-    return &buttons[id];
+    Button *button = new Button(this, id, title, x, y, width, height, onClick);
+    buttons[id] = button;
+    return button;
 }
 
 bool Window::remove(GUIObject *object) {
-    for (std::map<long, Button>::const_iterator it = buttons.begin(); it != buttons.end(); it++)
-        if (&(*it).second == object) {
+    for (std::map<long, Button *>::const_iterator it = buttons.begin(); it != buttons.end(); it++)
+        if ((*it).second == object) {
             buttons.erase(it);
             return true;
         }
-    for (std::list<Label>::const_iterator it = labels.begin(); it != labels.end(); it++)
-        if (&*it == object) {
+    for (std::list<Label *>::const_iterator it = labels.begin(); it != labels.end(); it++)
+        if (*it == object) {
             labels.erase(it);
             return true;
         }
-    for (std::list<EditText>::const_iterator it = editTexts.begin(); it != editTexts.end(); it++)
-        if (&*it == object) {
+    for (std::list<EditText *>::const_iterator it = editTexts.begin(); it != editTexts.end(); it++)
+        if (*it == object) {
             editTexts.erase(it);
             return true;
         }
@@ -106,8 +121,8 @@ bool Window::remove(GUIObject *object) {
 }
 
 bool Window::remove(Label *label) {
-    for (std::list<Label>::const_iterator it = labels.begin(); it != labels.end(); it++)
-        if (&*it == label) {
+    for (std::list<Label *>::const_iterator it = labels.begin(); it != labels.end(); it++)
+        if (*it == label) {
             labels.erase(it);
             return true;
         }
@@ -115,8 +130,8 @@ bool Window::remove(Label *label) {
 }
 
 bool Window::remove(EditText *editText) {
-    for (std::list<EditText>::const_iterator it = editTexts.begin(); it != editTexts.end(); it++)
-        if (&*it == editText) {
+    for (std::list<EditText *>::const_iterator it = editTexts.begin(); it != editTexts.end(); it++)
+        if (*it == editText) {
             editTexts.erase(it);
             return true;
         }
@@ -124,8 +139,8 @@ bool Window::remove(EditText *editText) {
 }
 
 bool Window::remove(Button *button) {
-    for (std::map<long, Button>::const_iterator it = buttons.begin(); it != buttons.end(); it++)
-        if (&(*it).second == button) {
+    for (std::map<long, Button *>::const_iterator it = buttons.begin(); it != buttons.end(); it++)
+        if ((*it).second == button) {
             buttons.erase(it);
             return true;
         }
@@ -134,11 +149,11 @@ bool Window::remove(Button *button) {
 
 void Window::createObjects() {
     if (!isCreated()) return;
-    for (auto &buttonKVP : buttons) buttonKVP.second.create();
-    for (auto &label : labels) label.create();
-    for (auto &editText : editTexts) editText.create();
+    for (auto buttonKVP : buttons) buttonKVP.second->create();
+    for (auto label : labels) label->create();
+    for (auto editText : editTexts) editText->create();
 }
 
 void Window::performClick(long id) {
-    if (isCreated()) buttons[id].performClick();
+    if (isCreated()) buttons[id]->performClick();
 }

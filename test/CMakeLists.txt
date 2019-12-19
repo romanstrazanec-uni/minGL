@@ -11,3 +11,5 @@ target_link_libraries(test PRIVATE minGL)
 
 add_executable(test_windows_api test_windows_api.cpp)
 add_executable(test_windows_api_app test_windows_api_app.cpp)
+add_executable(test_windows_api_app_with_mingl test_windows_api_app_with_mingl.cpp)
+target_link_libraries(test_windows_api_app_with_mingl PRIVATE minGL)

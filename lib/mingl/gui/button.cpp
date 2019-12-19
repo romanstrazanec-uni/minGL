@@ -4,16 +4,17 @@
 Button::Button(long id, const char *title, int x, int y, int width, int height)
         : Button(nullptr, id, title, x, y, width, height) {}
 
-Button::Button(long id, const char *title, int x, int y, int width, int height, void (*onClick)())
+Button::Button(long id, const char *title, int x, int y, int width, int height, void (*onClick)(Window *))
         : Button(nullptr, id, title, x, y, width, height, onClick) {}
 
 Button::Button(Window *window, long id, const char *title, int x, int y, int width, int height)
         : Button(window, id, title, x, y, width, height, nullptr) {}
 
-Button::Button(Window *window, long id, const char *title, int x, int y, int width, int height, void (*onClick)())
+Button::Button(Window *window, long id, const char *title, int x, int y, int width, int height,
+               void (*onClick)(Window *))
         : onClick(onClick), GUIObject(window, "Button", id, title, x, y, width, height) {}
 
-void Button::addOnClickListener(void (*onClickListener)()) {
+void Button::addOnClickListener(void (*onClickListener)(Window *)) {
     onClick = onClickListener;
 }
 
@@ -22,7 +23,7 @@ void Button::removeOnClickListener() {
 }
 
 void Button::performClick() {
-    if (isCreated() && onClick != nullptr) onClick();
+    if (isCreated() && onClick != nullptr) onClick(parent);
 }
 
 const char *Button::getTitle() const {

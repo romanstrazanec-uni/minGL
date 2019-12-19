@@ -15,12 +15,21 @@
  */
 class Window : public BaseWindow<Window> {
     std::map<UINT, MessageHandler> messageHandlers;
-    std::map<long, Button> buttons; // lubim ta
-    std::list<Label> labels;
-    std::list<EditText> editTexts;
+    std::map<long, Button *> buttons;
+    // todo: consider storing guiobject pointers
+    std::list<Label *> labels;
+    std::list<EditText *> editTexts;
 
 public:
     Window();
+
+    Window(const char *title);
+
+    Window(int x, int y, int width, int height);
+
+    Window(const char *title, int x, int y, int width, int height);
+
+    virtual ~Window();
 
     LRESULT handleMessage(Message) override;
 
@@ -29,12 +38,6 @@ public:
 
     /** Adds a message handler to respond to specified message with handle function. */
     void addHandler(Message, void (*handler)(Window *, Message));
-
-    /*
-     * Addition of objects is only allowed via pointer or rValue reference.
-     * No const lValue reference, since it's parent could not set to this window internally.
-     * A non-const lValue reference is meaningless.
-     */
 
     /* Label additions. */
 
@@ -74,7 +77,7 @@ public:
      *
      * @returns pointer to the newly created button.
      */
-    Button *addButton(const char *title, long id, int x, int y, int width, int height, void (*onClick)());
+    Button *addButton(const char *title, long id, int x, int y, int width, int height, void (*onClick)(Window *));
 
     /**
      * Removes object from window. @returns true if found and removed.
