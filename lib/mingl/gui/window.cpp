@@ -14,9 +14,9 @@ Window::Window(const char *title, int x, int y, int width, int height) : BaseWin
 }
 
 Window::~Window() {
-    for (auto button : buttons) button.second->~Button();
-    for (auto label : labels) label->~Label();
-    for (auto editText : editTexts) editText->~EditText();
+    for (auto button : buttons) delete button.second;
+    for (auto label : labels) delete label;
+    for (auto editText : editTexts) delete editText;
 }
 
 LRESULT Window::handleMessage(Message msg) {
@@ -94,7 +94,8 @@ Button *Window::addButton(const char *title, long id, int x, int y, int width, i
     return button;
 }
 
-Button *Window::addButton(const char *title, long id, int x, int y, int width, int height, void (*onClick)(Window *)) {
+Button *
+Window::addButton(const char *title, long id, int x, int y, int width, int height, std::function<void()> onClick) {
     if (id == 0L) return nullptr;
     Button *button = new Button(this, id, title, x, y, width, height, onClick);
     buttons[id] = button;

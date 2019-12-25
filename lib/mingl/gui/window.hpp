@@ -77,7 +77,7 @@ public:
      *
      * @returns pointer to the newly created button.
      */
-    Button *addButton(const char *title, long id, int x, int y, int width, int height, void (*onClick)(Window *));
+    Button *addButton(const char *title, long id, int x, int y, int width, int height, std::function<void()> onClick);
 
     /**
      * Removes object from window. @returns true if found and removed.
