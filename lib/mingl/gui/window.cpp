@@ -156,5 +156,8 @@ void Window::createObjects() {
 }
 
 void Window::performClick(long id) {
-    if (isCreated()) buttons[id]->performClick();
+    if (isCreated()) {
+        std::map<long, Button *>::const_iterator it = buttons.find(id);
+        if (it != buttons.end()) (*it).second->performClick();
+    }
 }
