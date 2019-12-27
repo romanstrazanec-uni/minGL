@@ -2,6 +2,7 @@
 #define MINGL_BUTTON_INCLUDED
 
 #include <functional>
+
 #include <mingl/gui/guiobject.hpp>
 
 class Button : public GUIObject {

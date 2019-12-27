@@ -22,7 +22,7 @@ bool GUIObject::create() {
 #endif
                     className, name, style,
 x, y, width, height, parent != nullptr ? parent->getWindowHandle() : nullptr,
-id != 0L ? (HMENU) id : nullptr, hinstance, additionalData);
+hMenu, hinstance, additionalData);
     return isCreated();
 }
 

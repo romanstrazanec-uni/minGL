@@ -14,9 +14,7 @@ Window::Window(const char *title, int x, int y, int width, int height) : BaseWin
 }
 
 Window::~Window() {
-    for (auto button : buttons) delete button.second;
-    for (auto label : labels) delete label;
-    for (auto editText : editTexts) delete editText;
+    for (auto objectKVP : objects) delete objectKVP.second;
 }
 
 LRESULT Window::handleMessage(Message msg) {
@@ -38,126 +36,104 @@ void Window::addHandler(Message msg, void (*handler)(Window *, Message)) {
 
 void Window::addLabel(Label *label) {
     label->setParent(this);
-    labels.push_front(label);
+    objects[label->getId()] = label;
 }
 
 Label *Window::addLabel(Label &&label) {
     label.setParent(this);
-    labels.push_front(&label);
-    return *labels.begin();
+    objects[label.getId()] = &label;
+    return &label;
 }
 
-Label *Window::addLabel(const char *text, int x, int y, int width, int height) {
-    return addLabel(Label(this, text, x, y, width, height));
+Label *Window::addLabel(long id, const char *text, int x, int y, int width, int height) {
+    return addLabel(Label(this, id, text, x, y, width, height));
 }
 
 /* EditText additions. */
 
 void Window::addEditText(EditText *editText) {
     editText->setParent(this);
-    editTexts.push_front(editText);
+    objects[editText->getId()] = editText;
 }
 
 EditText *Window::addEditText(EditText &&editText) {
     editText.setParent(this);
-    editTexts.push_front(&editText);
-    return *editTexts.begin();
+    objects[editText.getId()] = &editText;
+    return &editText;
 }
 
-EditText *Window::addEditText(int x, int y, int width, int height) {
-    return addEditText(EditText(this, x, y, width, height));
+EditText *Window::addEditText(long id, int x, int y, int width, int height) {
+    return addEditText(EditText(this, id, x, y, width, height));
 }
 
-EditText *Window::addEditText(const char *text, int x, int y, int width, int height) {
-    return addEditText(EditText(this, text, x, y, width, height));
+EditText *Window::addEditText(long id, const char *text, int x, int y, int width, int height) {
+    return addEditText(EditText(this, id, text, x, y, width, height));
 }
 
 /* Button additions. */
 
 void Window::addButton(Button *button) {
-    if (button->getId() == 0L) return;
     button->setParent(this);
-    buttons[button->getId()] = button;
+    objects[button->getId()] = button;
 }
 
 Button *Window::addButton(Button &&button) {
-    if (button.getId() == 0L) return nullptr;
     button.setParent(this);
-    buttons[button.getId()] = &button;
-    return buttons[button.getId()];
+    objects[button.getId()] = &button;
+    return &button;
 }
 
-Button *Window::addButton(const char *title, long id, int x, int y, int width, int height) {
-    if (id == 0L) return nullptr;
+Button *Window::addButton(long id, const char *title, int x, int y, int width, int height) {
     Button *button = new Button(this, id, title, x, y, width, height);
-    buttons[id] = button;
+    objects[id] = button;
     return button;
 }
 
-Button *
-Window::addButton(const char *title, long id, int x, int y, int width, int height, std::function<void()> onClick) {
-    if (id == 0L) return nullptr;
+Button *Window::addButton(long id, const char *title, int x, int y, int width, int height,
+                          std::function<void()> onClick) {
     Button *button = new Button(this, id, title, x, y, width, height, onClick);
-    buttons[id] = button;
+    objects[id] = button;
     return button;
 }
 
 bool Window::remove(GUIObject *object) {
-    for (std::map<long, Button *>::const_iterator it = buttons.begin(); it != buttons.end(); it++)
+    for (std::map<long, GUIObject *>::const_iterator it = objects.begin(); it != objects.end(); it++)
         if ((*it).second == object) {
-            buttons.erase(it);
-            return true;
-        }
-    for (std::list<Label *>::const_iterator it = labels.begin(); it != labels.end(); it++)
-        if (*it == object) {
-            labels.erase(it);
-            return true;
-        }
-    for (std::list<EditText *>::const_iterator it = editTexts.begin(); it != editTexts.end(); it++)
-        if (*it == object) {
-            editTexts.erase(it);
+            objects.erase(it);
             return true;
         }
     return false;
 }
 
 bool Window::remove(Label *label) {
-    for (std::list<Label *>::const_iterator it = labels.begin(); it != labels.end(); it++)
-        if (*it == label) {
-            labels.erase(it);
-            return true;
-        }
-    return false;
+    return remove((GUIObject *) label);
 }
 
 bool Window::remove(EditText *editText) {
-    for (std::list<EditText *>::const_iterator it = editTexts.begin(); it != editTexts.end(); it++)
-        if (*it == editText) {
-            editTexts.erase(it);
-            return true;
-        }
-    return false;
+    return remove((GUIObject *) editText);
 }
 
 bool Window::remove(Button *button) {
-    for (std::map<long, Button *>::const_iterator it = buttons.begin(); it != buttons.end(); it++)
-        if ((*it).second == button) {
-            buttons.erase(it);
-            return true;
-        }
-    return false;
+    return remove((GUIObject *) button);
+}
+
+GUIObject *Window::find(long id) {
+    for (auto objectKVP : objects)
+        if (objectKVP.second->getId() == id) return objectKVP.second;
+    return nullptr;
 }
 
 void Window::createObjects() {
     if (!isCreated()) return;
-    for (auto buttonKVP : buttons) buttonKVP.second->create();
-    for (auto label : labels) label->create();
-    for (auto editText : editTexts) editText->create();
+    for (auto objectKVP : objects) objectKVP.second->create();
 }
 
 void Window::performClick(long id) {
     if (isCreated()) {
-        std::map<long, Button *>::const_iterator it = buttons.find(id);
-        if (it != buttons.end()) (*it).second->performClick();
+        std::map<long, GUIObject *>::const_iterator it = objects.find(id);
+        if (it != objects.end()) {
+            Button *button = dynamic_cast<Button *>((*it).second);
+            if (button != nullptr) button->performClick();
+        }
     }
 }

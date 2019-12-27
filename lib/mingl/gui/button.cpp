@@ -12,7 +12,9 @@ Button::Button(Window *window, long id, const char *title, int x, int y, int wid
 
 Button::Button(Window *window, long id, const char *title, int x, int y, int width, int height,
                std::function<void()> onClick)
-        : onClick(onClick), GUIObject(window, "Button", id, title, x, y, width, height) {}
+        : onClick(onClick), GUIObject(window, "Button", id, title, x, y, width, height) {
+    hMenu = (HMENU) id;
+}
 
 void Button::addOnClickListener(std::function<void()> onClickListener) {
     onClick = onClickListener;
