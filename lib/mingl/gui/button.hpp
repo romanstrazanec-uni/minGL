@@ -5,7 +5,7 @@
 #include <mingl/gui/guiobject.hpp>
 
 class Button : public GUIObject {
-    std::function<void()> onClick{[] {}};
+    std::function<void()> onClick{nullptr};
 
 public:
     Button() = default;
