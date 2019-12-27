@@ -40,10 +40,12 @@ void Window::addObject(GUIObject *object) {
     objects[object->getId()] = object;
 }
 
-GUIObject *Window::addObject(GUIObject &&object) {
+template<class Object>
+Object *Window::addObject(Object &&object) {
     object.setParent(this);
-    objects[object.getId()] = &object;
-    return &object;
+    Object *newObject = new Object(object);
+    objects[object.getId()] = newObject;
+    return newObject;
 }
 
 /* Label additions. */

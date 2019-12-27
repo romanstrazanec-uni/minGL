@@ -25,10 +25,6 @@ protected:
     HMENU hMenu{nullptr};
     Window *parent{nullptr};
 
-    /* Constructors for GUIObjects are hidden from public. */
-
-    GUIObject() = default;
-
     /** Constructor for GUIObject with no parent window. */
     GUIObject(const char *className, const char *name, int x, int y, int width, int height, HINSTANCE, LPVOID);
 
@@ -44,6 +40,8 @@ protected:
     virtual void setWindowHandle(HWND) final;
 
 public:
+    GUIObject() = default;
+
     virtual ~GUIObject();
 
     /**

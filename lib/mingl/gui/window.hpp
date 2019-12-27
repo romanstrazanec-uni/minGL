@@ -17,6 +17,15 @@ class Window : public BaseWindow<Window> {
     std::map<UINT, MessageHandler> messageHandlers{};
     std::map<long, GUIObject *> objects{};
 
+    /**
+     * Allows addition of GUIObjects passed as rvalue. Template class Object should be subclass of GUIObject.
+     *
+     * @tparam Object
+     * @returns a pointer allocated for the passed object stored in the window
+     */
+    template<class Object>
+    Object *addObject(Object &&);
+
 public:
     Window();
 
@@ -37,8 +46,6 @@ public:
     void addHandler(Message, void (*handler)(Window *, Message));
 
     void addObject(GUIObject *);
-
-    GUIObject *addObject(GUIObject &&);
 
     /* Label additions. */
 
