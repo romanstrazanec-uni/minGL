@@ -36,6 +36,8 @@ public:
     /** Adds a message handler to respond to specified message with handle function. */
     void addHandler(Message, void (*handler)(Window *, Message));
 
+    // todo: disallow adding by a pointer or figure out how to deal with already deleted objects
+
     /* Label additions. */
 
     void addLabel(Label *);

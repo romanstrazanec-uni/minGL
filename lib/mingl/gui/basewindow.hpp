@@ -82,6 +82,7 @@ protected:
     virtual LRESULT handleMessage(Message) = 0;
 
 public:
+    // todo: will need an id
     BaseWindow(const char *title, int x, int y, int width, int height)
             : GUIObject("CustomWindowClass", title, x, y, width, height, GetModuleHandle(nullptr), this) {
         addStyle(WS_OVERLAPPEDWINDOW);

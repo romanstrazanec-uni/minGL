@@ -98,6 +98,7 @@ Button *Window::addButton(long id, const char *title, int x, int y, int width, i
 
 bool Window::remove(GUIObject *object) {
     for (std::map<long, GUIObject *>::const_iterator it = objects.begin(); it != objects.end(); it++)
+        // todo: maybe delete?
         if ((*it).second == object) {
             objects.erase(it);
             return true;
@@ -118,6 +119,7 @@ bool Window::remove(Button *button) {
 }
 
 GUIObject *Window::find(long id) {
+    // todo: map has find method
     for (auto objectKVP : objects)
         if (objectKVP.second->getId() == id) return objectKVP.second;
     return nullptr;
@@ -130,6 +132,7 @@ void Window::createObjects() {
 
 void Window::performClick(long id) {
     if (isCreated()) {
+        // todo: maybe use window find method?
         std::map<long, GUIObject *>::const_iterator it = objects.find(id);
         if (it != objects.end()) {
             Button *button = dynamic_cast<Button *>((*it).second);

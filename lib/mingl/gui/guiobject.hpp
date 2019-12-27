@@ -3,6 +3,9 @@
 
 #include <windows.h>
 
+// todo: remove
+#include <iostream>
+
 class Window;
 
 /**
@@ -16,7 +19,7 @@ class GUIObject {
     DWORD extendedStyle;
 #endif
     int x, y, width, height;
-    long id{0};
+    long id{0}; // todo: don't initialize
     HINSTANCE hinstance{nullptr};
     LPVOID additionalData{nullptr};
     HWND hwnd{nullptr};
@@ -29,6 +32,7 @@ protected:
 
     GUIObject() = default;
 
+    // todo: add long id
     /** Constructor for GUIObject with no parent window. */
     GUIObject(const char *className, const char *name, int x, int y, int width, int height, HINSTANCE, LPVOID);
 
@@ -44,6 +48,9 @@ protected:
     virtual void setWindowHandle(HWND) final;
 
 public:
+    // todo: remove
+    ~GUIObject() { std::cout << "guiobject" << id << " deleted" << std::endl; }
+
     /**
      * Uses windows CreateWindow function to create a window. If creation successful, the result
      * of the CreateWindow function is a window handle and is stored as a property of the class.

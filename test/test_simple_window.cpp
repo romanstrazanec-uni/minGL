@@ -1,5 +1,7 @@
 #include <mingl/mingl.h>
 
+#include <iostream>
+
 int main() {
     Window window;
     window.setTitle("title");
@@ -14,8 +16,20 @@ int main() {
         HWND h = w->getWindowHandle();
         if (MessageBox(h, "Really quit?", "My application", MB_OKCANCEL) == IDOK) DestroyWindow(h);
     });
-    Button btn(1, "hello", 50, 50, 100, 100);
-    window.addButton(&btn);
+    Button btn1(1, "hello", 50, 50, 50, 50, [] {
+        std::cout << "hello" << std::endl;
+    });
+    Button btn2(0, "hi", 100, 50, 50, 50, [] {
+        std::cout << "hi" << std::endl;
+    });
+    // todo: this is not deleted
+    Button *btn3 = new Button(2, "new", 150, 50, 50, 50, [] {
+        std::cout << "new" << std::endl;
+    });
+    std::cout << sizeof(btn3) << std::endl;
+    window.addButton(&btn1);
+    window.addButton(&btn2);
+    window.addButton(btn3);
     if (!window.create()) return 1;
     window.show();
     return 0;
