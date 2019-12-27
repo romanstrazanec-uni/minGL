@@ -3,8 +3,6 @@
 
 #include <functional>
 
-#include <iostream>
-
 #include <mingl/gui/guiobject.hpp>
 
 class Button : public GUIObject {
@@ -12,8 +10,6 @@ class Button : public GUIObject {
 
 public:
     Button() = default;
-
-    ~Button() { std::cout << "button" << getId() << " deleted" << std::endl; }
 
     Button(long id, const char *title, int x, int y, int width, int height);
 

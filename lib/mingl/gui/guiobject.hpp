@@ -44,6 +44,8 @@ protected:
     virtual void setWindowHandle(HWND) final;
 
 public:
+    virtual ~GUIObject();
+
     /**
      * Uses windows CreateWindow function to create a window. If creation successful, the result
      * of the CreateWindow function is a window handle and is stored as a property of the class.

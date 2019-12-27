@@ -22,11 +22,9 @@ int main() {
     Button btn2(0, "hi", 100, 50, 50, 50, [] {
         std::cout << "hi" << std::endl;
     });
-    // todo: this is not deleted
     Button *btn3 = new Button(2, "new", 150, 50, 50, 50, [] {
         std::cout << "new" << std::endl;
     });
-    std::cout << sizeof(btn3) << std::endl;
     window.addButton(&btn1);
     window.addButton(&btn2);
     window.addButton(btn3);

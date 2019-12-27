@@ -14,6 +14,10 @@ GUIObject::GUIObject(Window *parent, const char *className, long id, const char 
     }
 }
 
+GUIObject::~GUIObject() {
+    if (parent != nullptr) parent->remove(this);
+}
+
 bool GUIObject::create() {
     if (isCreated()) return true;
     hwnd =

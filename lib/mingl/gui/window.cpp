@@ -14,7 +14,10 @@ Window::Window(const char *title, int x, int y, int width, int height) : BaseWin
 }
 
 Window::~Window() {
-    for (auto objectKVP : objects) delete objectKVP.second;
+    for (auto objectKVP : objects) {
+        objectKVP.second->setParent(nullptr);
+        delete objectKVP.second;
+    }
 }
 
 LRESULT Window::handleMessage(Message msg) {
@@ -96,7 +99,6 @@ Button *Window::addButton(long id, const char *title, int x, int y, int width, i
 
 bool Window::remove(GUIObject *object) {
     for (std::map<long, GUIObject *>::const_iterator it = objects.begin(); it != objects.end(); it++)
-        // todo: maybe delete?
         if ((*it).second == object) {
             objects.erase(it);
             return true;
