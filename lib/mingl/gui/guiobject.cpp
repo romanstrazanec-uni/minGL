@@ -7,10 +7,11 @@ GUIObject::GUIObject(const char *className, const char *name, int x, int y, int 
           additionalData(additionalData) {}
 
 GUIObject::GUIObject(Window *parent, const char *className, long id, const char *name, int x, int y, int width,
-                     int height)
-        : parent(parent), className(className), id(id), name(name), x(x), y(y), width(width), height(height) {
-    // todo: add this object to window
-    if (parent != nullptr) addStyle(WS_CHILD);
+                     int height) : className(className), id(id), name(name), x(x), y(y), width(width), height(height) {
+    if (parent != nullptr) {
+        addStyle(WS_CHILD);
+        parent->addObject(this);
+    }
 }
 
 bool GUIObject::create() {

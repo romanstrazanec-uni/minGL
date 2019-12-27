@@ -38,6 +38,10 @@ public:
 
     // todo: disallow adding by a pointer or figure out how to deal with already deleted objects
 
+    void addObject(GUIObject *);
+
+    GUIObject *addObject(GUIObject &&);
+
     /* Label additions. */
 
     void addLabel(Label *);

@@ -32,17 +32,25 @@ void Window::addHandler(Message msg, void (*handler)(Window *, Message)) {
     addHandler(MessageHandler(msg, handler));
 }
 
+void Window::addObject(GUIObject *object) {
+    object->setParent(this);
+    objects[object->getId()] = object;
+}
+
+GUIObject *Window::addObject(GUIObject &&object) {
+    object.setParent(this);
+    objects[object.getId()] = &object;
+    return &object;
+}
+
 /* Label additions. */
 
 void Window::addLabel(Label *label) {
-    label->setParent(this);
-    objects[label->getId()] = label;
+    addObject(label);
 }
 
 Label *Window::addLabel(Label &&label) {
-    label.setParent(this);
-    objects[label.getId()] = &label;
-    return &label;
+    return (Label *) addObject(std::move(label));
 }
 
 Label *Window::addLabel(long id, const char *text, int x, int y, int width, int height) {
@@ -52,14 +60,11 @@ Label *Window::addLabel(long id, const char *text, int x, int y, int width, int 
 /* EditText additions. */
 
 void Window::addEditText(EditText *editText) {
-    editText->setParent(this);
-    objects[editText->getId()] = editText;
+    addObject(editText);
 }
 
 EditText *Window::addEditText(EditText &&editText) {
-    editText.setParent(this);
-    objects[editText.getId()] = &editText;
-    return &editText;
+    return (EditText *) addObject(std::move(editText));
 }
 
 EditText *Window::addEditText(long id, int x, int y, int width, int height) {
@@ -73,27 +78,20 @@ EditText *Window::addEditText(long id, const char *text, int x, int y, int width
 /* Button additions. */
 
 void Window::addButton(Button *button) {
-    button->setParent(this);
-    objects[button->getId()] = button;
+    addObject(button);
 }
 
 Button *Window::addButton(Button &&button) {
-    button.setParent(this);
-    objects[button.getId()] = &button;
-    return &button;
+    return (Button *) addObject(std::move(button));
 }
 
 Button *Window::addButton(long id, const char *title, int x, int y, int width, int height) {
-    Button *button = new Button(this, id, title, x, y, width, height);
-    objects[id] = button;
-    return button;
+    return addButton(Button(this, id, title, x, y, width, height));
 }
 
 Button *Window::addButton(long id, const char *title, int x, int y, int width, int height,
                           std::function<void()> onClick) {
-    Button *button = new Button(this, id, title, x, y, width, height, onClick);
-    objects[id] = button;
-    return button;
+    return addButton(Button(this, id, title, x, y, width, height, onClick));
 }
 
 bool Window::remove(GUIObject *object) {
