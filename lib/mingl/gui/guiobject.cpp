@@ -85,7 +85,7 @@ void GUIObject::setWindowHandle(HWND h) {
 }
 
 void GUIObject::setParent(Window *window) {
-    if (parent != nullptr) parent->remove(this);
+    if (parent != nullptr) parent->remove(this); // todo: when window destruction recursion?
     parent = window;
     if (parent != nullptr) addStyle(WS_CHILD);
 }

@@ -12,11 +12,11 @@ Window::Window(const char *title, int x, int y, int width, int height) : BaseWin
 
     initialize();
 }
-
 Window::~Window() {
-    for (auto objectKVP : objects) {
-        objectKVP.second->setParent(nullptr);
-        delete objectKVP.second;
+    for (auto it = objects.begin(); it != objects.end(); it = objects.begin()) {
+        GUIObject *o = it->second;
+        objects.erase(it);
+        delete o;
     }
 }
 
@@ -59,7 +59,7 @@ Label *Window::addLabel(Label &&label) {
 }
 
 Label *Window::addLabel(long id, const char *text, int x, int y, int width, int height) {
-    return addLabel(Label(this, id, text, x, y, width, height));
+    return new Label(this, id, text, x, y, width, height);
 }
 
 /* EditText additions. */
@@ -73,11 +73,11 @@ EditText *Window::addEditText(EditText &&editText) {
 }
 
 EditText *Window::addEditText(long id, int x, int y, int width, int height) {
-    return addEditText(EditText(this, id, x, y, width, height));
+    return new EditText(this, id, x, y, width, height);
 }
 
 EditText *Window::addEditText(long id, const char *text, int x, int y, int width, int height) {
-    return addEditText(EditText(this, id, text, x, y, width, height));
+    return new EditText(this, id, text, x, y, width, height);
 }
 
 /* Button additions. */
@@ -91,17 +91,17 @@ Button *Window::addButton(Button &&button) {
 }
 
 Button *Window::addButton(long id, const char *title, int x, int y, int width, int height) {
-    return addButton(Button(this, id, title, x, y, width, height));
+    return new Button(this, id, title, x, y, width, height);
 }
 
 Button *Window::addButton(long id, const char *title, int x, int y, int width, int height,
                           std::function<void()> onClick) {
-    return addButton(Button(this, id, title, x, y, width, height, onClick));
+    return new Button(this, id, title, x, y, width, height, onClick);
 }
 
 bool Window::remove(GUIObject *object) {
     for (std::map<long, GUIObject *>::const_iterator it = objects.begin(); it != objects.end(); it++)
-        if ((*it).second == object) {
+        if (it->second == object) {
             objects.erase(it);
             return true;
         }
@@ -122,7 +122,7 @@ bool Window::remove(Button *button) {
 
 GUIObject *Window::find(long id) {
     std::map<long, GUIObject *>::const_iterator it = objects.find(id);
-    return it != objects.end() ? (*it).second : nullptr;
+    return it != objects.end() ? it->second : nullptr;
 }
 
 void Window::createObjects() {
