@@ -46,5 +46,6 @@ int main() {
 
     if (!window.create()) return 1;
     window.show();
+    // todo: delete &window; fails
     return 0;
 }

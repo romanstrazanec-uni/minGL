@@ -100,6 +100,7 @@ Button *Window::addButton(long id, const char *title, int x, int y, int width, i
 }
 
 bool Window::remove(GUIObject *object) {
+    // todo: map.erase(id)?
     for (std::map<long, GUIObject *>::const_iterator it = objects.begin(); it != objects.end(); it++)
         if (it->second == object) {
             objects.erase(it);
