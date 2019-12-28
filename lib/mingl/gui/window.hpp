@@ -90,14 +90,17 @@ public:
     /**
      * Removes object from window. @returns true if found and removed.
      */
-    // todo: template function?
-    bool remove(GUIObject *);
-
-    bool remove(Label *);
-
-    bool remove(EditText *);
-
-    bool remove(Button *);
+    template<class Object, typename = std::enable_if<std::is_base_of<GUIObject, Object>::value>>
+    bool remove(Object *object) {
+        // todo: map.erase(id)?
+        for (std::map<long, GUIObject *>::const_iterator it = objects.begin(); it != objects.end(); it++)
+            if (it->second == object) {
+                objects.erase(it);
+                object->setParent(nullptr);
+                return true;
+            }
+        return false;
+    }
 
     GUIObject *find(long id);
 
