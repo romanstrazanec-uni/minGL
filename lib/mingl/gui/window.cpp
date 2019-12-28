@@ -99,7 +99,8 @@ Button *Window::addButton(long id, const char *title, int x, int y, int width, i
     return new Button(this, id, title, x, y, width, height, onClick);
 }
 
-bool Window::remove(GUIObject *object) {
+template<class Object>
+bool Window::remove(Object *object) {
     // todo: map.erase(id)?
     for (std::map<long, GUIObject *>::const_iterator it = objects.begin(); it != objects.end(); it++)
         if (it->second == object) {
@@ -108,18 +109,6 @@ bool Window::remove(GUIObject *object) {
             return true;
         }
     return false;
-}
-
-bool Window::remove(Label *label) {
-    return remove((GUIObject *) label);
-}
-
-bool Window::remove(EditText *editText) {
-    return remove((GUIObject *) editText);
-}
-
-bool Window::remove(Button *button) {
-    return remove((GUIObject *) button);
 }
 
 GUIObject *Window::find(long id) {

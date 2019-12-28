@@ -90,14 +90,8 @@ public:
     /**
      * Removes object from window. @returns true if found and removed.
      */
-    // todo: template function?
-    bool remove(GUIObject *);
-
-    bool remove(Label *);
-
-    bool remove(EditText *);
-
-    bool remove(Button *);
+    template<class Object>
+    bool remove(Object *);
 
     GUIObject *find(long id);
 
