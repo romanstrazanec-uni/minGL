@@ -1,6 +1,6 @@
-#define MINGL_DEBUG
-
 #include <mingl/mingl.h>
+
+#include <iostream>
 
 int main() {
     Window window;
@@ -9,7 +9,7 @@ int main() {
         HWND h = w->getWindowHandle();
         PAINTSTRUCT ps;
         HDC hdc = BeginPaint(h, &ps);
-        FillRect(hdc, &ps.rcPaint, (HBRUSH) (COLOR_WINDOW + 1));
+        FillRect(hdc, &ps.rcPaint, (HBRUSH)(COLOR_WINDOW + 1));
         EndPaint(h, &ps);
     }));
     window.addHandler(Message::onClose(), [](Window *w, Message) {
@@ -46,6 +46,6 @@ int main() {
 
     if (!window.create()) return 1;
     window.show();
-    // todo: delete &window; fails
+    // todo: delete &window; // fails
     return 0;
 }

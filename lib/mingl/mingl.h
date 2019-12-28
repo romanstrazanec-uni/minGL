@@ -5,10 +5,6 @@
 
 #include <windows.h>
 
-#ifdef MINGL_DEBUG
-#include <iostream>
-#endif
-
 #include <mingl/gui/window.hpp>
 
 #endif
