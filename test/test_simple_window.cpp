@@ -1,6 +1,6 @@
-#include <mingl/mingl.h>
+#define MINGL_DEBUG
 
-#include <iostream>
+#include <mingl/mingl.h>
 
 int main() {
     Window window;

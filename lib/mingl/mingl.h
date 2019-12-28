@@ -4,7 +4,10 @@
 #define main() WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR lpCmdLine, int nCmdShow)
 
 #include <windows.h>
-#include <string>
+
+#ifdef MINGL_DEBUG
+#include <iostream>
+#endif
 
 #include <mingl/gui/window.hpp>
 
