@@ -12,6 +12,7 @@ Window::Window(const char *title, int x, int y, int width, int height) : BaseWin
 
     initialize();
 }
+
 Window::~Window() {
     for (auto it = objects.begin(); it != objects.end(); it = objects.begin()) {
         GUIObject *o = it->second;
@@ -37,14 +38,13 @@ void Window::addHandler(Message msg, void (*handler)(Window *, Message)) {
 
 void Window::addObject(GUIObject *object) {
     object->setParent(this);
-    objects[object->getId()] = object;
+    objects.insert(std::make_pair(object->getId(), object));
 }
 
 template<class Object>
 Object *Window::addObject(Object &&object) {
-    object.setParent(this);
     Object *newObject = new Object(object);
-    objects[object.getId()] = newObject;
+    addObject(newObject);
     return newObject;
 }
 
@@ -94,8 +94,8 @@ Button *Window::addButton(long id, const char *title, int x, int y, int width, i
     return new Button(this, id, title, x, y, width, height);
 }
 
-Button *Window::addButton(long id, const char *title, int x, int y, int width, int height,
-                          std::function<void()> onClick) {
+Button *
+Window::addButton(long id, const char *title, int x, int y, int width, int height, std::function<void()> onClick) {
     return new Button(this, id, title, x, y, width, height, onClick);
 }
 
