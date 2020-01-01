@@ -73,7 +73,23 @@ public:
      */
     virtual bool isCreated() const final;
 
-    virtual void setParent(Window *) final;
+    /**
+     * Sets the parent of this object.
+     *
+     * @param onlySet: default = false => removes from the parent first,
+     *          sets the given Window parameter as parent and adds to the parent.
+     */
+    virtual void setParent(Window *, bool onlySet = false) final;
+
+    /**
+     * If parent is not nullptr, adds this object to the Window parent.
+     */
+    virtual void addToParent() final;
+
+    /**
+     * If parent is not nullptr, removes this object from the Window parent.
+     */
+    virtual void removeFromParent() final;
 
     virtual void setName(const char *) final;
 

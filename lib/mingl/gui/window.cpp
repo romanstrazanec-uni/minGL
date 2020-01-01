@@ -16,7 +16,7 @@ Window::Window(const char *title, int x, int y, int width, int height) : BaseWin
 Window::~Window() {
     for (auto it = objects.begin(); it != objects.end(); it = objects.begin()) {
         GUIObject *o = it->second;
-        objects.erase(it);
+        o->setParent(nullptr, true);
         delete o;
     }
 }
@@ -36,8 +36,8 @@ void Window::addHandler(Message msg, void (*handler)(Window *, Message)) {
     addHandler(MessageHandler(msg, handler));
 }
 
-void Window::addObject(GUIObject *object) {
-    object->setParent(this);
+void Window::addObject(GUIObject *object, bool onlyAdd) {
+    if (!onlyAdd) object->setParent(this);
     objects.insert(std::make_pair(object->getId(), object));
 }
 

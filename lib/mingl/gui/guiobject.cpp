@@ -7,15 +7,13 @@ GUIObject::GUIObject(const char *className, const char *name, int x, int y, int 
           additionalData(additionalData) {}
 
 GUIObject::GUIObject(Window *parent, const char *className, long id, const char *name, int x, int y, int width,
-                     int height) : className(className), id(id), name(name), x(x), y(y), width(width), height(height) {
-    if (parent != nullptr) {
-        addStyle(WS_CHILD);
-        parent->addObject(this);
-    }
+                     int height)
+        : parent(parent), className(className), id(id), name(name), x(x), y(y), width(width), height(height) {
+    addToParent();
 }
 
 GUIObject::~GUIObject() {
-    if (parent != nullptr) parent->remove(this);
+    removeFromParent();
 }
 
 bool GUIObject::create() {
@@ -84,10 +82,21 @@ void GUIObject::setWindowHandle(HWND h) {
     hwnd = h;
 }
 
-void GUIObject::setParent(Window *window) {
-    if (parent != nullptr) parent->remove(this); // todo: when window destruction recursion?
+void GUIObject::setParent(Window *window, bool onlySet) {
+    if (!onlySet) removeFromParent();
     parent = window;
-    if (parent != nullptr) addStyle(WS_CHILD);
+    if (!onlySet) addToParent();
+}
+
+void GUIObject::addToParent() {
+    if (parent != nullptr) {
+        addStyle(WS_CHILD);
+        parent->addObject(this, true);
+    }
+}
+
+void GUIObject::removeFromParent() {
+    if (parent != nullptr) parent->remove(this);
 }
 
 void GUIObject::setName(const char *n) {

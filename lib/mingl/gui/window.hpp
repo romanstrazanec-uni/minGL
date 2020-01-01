@@ -45,7 +45,12 @@ public:
     /** Adds a message handler to respond to specified message with handle function. */
     void addHandler(Message, void (*handler)(Window *, Message));
 
-    void addObject(GUIObject *);
+    /**
+     * Adds an created object to window.
+     *
+     * @param onlyAdd: default = false => firstly sets the parent of the object to this window.
+     */
+    void addObject(GUIObject *, bool onlyAdd = false);
 
     /* Label additions. */
 
@@ -96,7 +101,7 @@ public:
         for (std::map<long, GUIObject *>::const_iterator it = objects.begin(); it != objects.end(); it++)
             if (it->second == object) {
                 objects.erase(it);
-                object->setParent(nullptr);
+                object->setParent(nullptr, true);
                 return true;
             }
         return false;
