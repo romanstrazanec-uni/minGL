@@ -76,6 +76,21 @@ public:
     virtual void setParent(Window *) final;
 
     virtual void setName(const char *) final;
+
+    /* Comparision operators */
+
+    /** Objects are equal if they have the same id. */
+    virtual bool operator==(const GUIObject &) const final;
+
+    virtual bool operator!=(const GUIObject &) const final;
+
+    virtual bool operator<(const GUIObject &) const final;
+
+    virtual bool operator>(const GUIObject &) const final;
+
+    virtual bool operator<=(const GUIObject &) const final;
+
+    virtual bool operator>=(const GUIObject &) const final;
 };
 
 #endif

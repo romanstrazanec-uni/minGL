@@ -93,3 +93,29 @@ void GUIObject::setParent(Window *window) {
 void GUIObject::setName(const char *n) {
     name = n;
 }
+
+/* Comparision operators */
+
+bool GUIObject::operator==(const GUIObject &o) const {
+    return this->id == o.id;
+}
+
+bool GUIObject::operator!=(const GUIObject &o) const {
+    return !(*this == o);
+}
+
+bool GUIObject::operator<(const GUIObject &o) const {
+    return this->id < o.id;
+}
+
+bool GUIObject::operator>(const GUIObject &o) const {
+    return o < *this;
+}
+
+bool GUIObject::operator<=(const GUIObject &o) const {
+    return !(*this > o);
+}
+
+bool GUIObject::operator>=(const GUIObject &o) const {
+    return !(*this < o);
+}
