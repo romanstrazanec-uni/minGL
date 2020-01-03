@@ -1,3 +1,0 @@
-/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles/libgraphics.dir
-/cygdrive/c/Users/romanstrazanec/CLionProjects/libgraphics/cmake-build-debug/CMakeFiles/edit_cache.dir
