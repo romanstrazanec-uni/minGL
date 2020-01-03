@@ -7,7 +7,7 @@
 #include <mingl/gui/button.hpp>
 #include <mingl/gui/edittext.hpp>
 #include <mingl/gui/label.hpp>
-#include <mingl/messagehandler.hpp>
+#include <mingl/messaging/messagehandler.hpp>
 
 /**
  * Derived main Window to create and show window.
@@ -28,21 +28,21 @@ class Window : public BaseWindow<Window> {
 public:
     Window();
 
-    Window(const char *title);
+    explicit Window(const char *title);
 
     Window(int x, int y, int width, int height);
 
     Window(const char *title, int x, int y, int width, int height);
 
-    virtual ~Window();
+    ~Window() override;
 
-    LRESULT handleMessage(Message) override;
+    LRESULT handleMessage(WindowMessage) override;
 
     /** Adds a message handler to respond to window messages. */
     void addHandler(MessageHandler);
 
     /** Adds a message handler to respond to specified message with handle function. */
-    void addHandler(Message, void (*handler)(Window *, Message));
+    void addHandler(WindowMessage, void (*handler)(Window *, WindowMessage));
 
     /**
      * Adds an created object to window.

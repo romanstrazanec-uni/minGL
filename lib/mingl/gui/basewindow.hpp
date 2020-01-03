@@ -13,7 +13,7 @@
 
 #endif
 
-#include <mingl/message.hpp>
+#include <mingl/messaging/windowmessage.hpp>
 #include <mingl/gui/guiobject.hpp>
 
 /**
@@ -49,7 +49,7 @@ private:
 
     /**
      * Window procedure. Windows OS callback function. Windows OS sends messages to be handled by
-     * DerivedWindow::handleMessage(Message).
+     * DerivedWindow::handleMessage(WindowMessage).
      *
      * @param hwnd
      * @param msg
@@ -73,13 +73,13 @@ private:
             return 0;
         }
 
-        if (pThis) return pThis->handleMessage(Message(msg, wParam, lParam));
+        if (pThis) return pThis->handleMessage(WindowMessage(msg, wParam, lParam));
         else return DefWindowProc(hwnd, msg, wParam, lParam);
     }
 
 protected:
     /** This method needs to be derived by subclass window. */
-    virtual LRESULT handleMessage(Message) = 0;
+    virtual LRESULT handleMessage(WindowMessage) = 0;
 
 public:
     BaseWindow(const char *title, int x, int y, int width, int height)

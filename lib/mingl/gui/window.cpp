@@ -7,8 +7,9 @@ Window::Window(const char *title) : Window(title, CW_USEDEFAULT, CW_USEDEFAULT, 
 Window::Window(int x, int y, int width, int height) : Window("", x, y, width, height) {}
 
 Window::Window(const char *title, int x, int y, int width, int height) : BaseWindow(title, x, y, width, height) {
-    addHandler(Message::onCreate(), [](Window *window, Message msg) { window->createObjects(); });
-    addHandler(Message(WM_COMMAND), [](Window *window, Message msg) { window->performClick(msg.getWparam()); });
+    addHandler(WindowMessage::onCreate(), [](Window *window, WindowMessage msg) { window->createObjects(); });
+    addHandler(WindowMessage(WM_COMMAND),
+               [](Window *window, WindowMessage msg) { window->performClick(msg.getWparam()); });
 
     initialize();
 }
@@ -22,8 +23,9 @@ Window::~Window() {
     }
 }
 
-LRESULT Window::handleMessage(Message msg) {
-    if (messageHandlers.count(msg.getMsg()) == 0)
+LRESULT Window::handleMessage(WindowMessage msg) {
+    auto mh = messageHandlers.find(msg.getMsg());
+    if (mh == messageHandlers.end())
         return DefWindowProc(getWindowHandle(), msg.getMsg(), msg.getWparam(), msg.getLparam());
     messageHandlers[msg.getMsg()].handleMessage(this, msg);
     return 0;
@@ -33,7 +35,7 @@ void Window::addHandler(MessageHandler msgHandler) {
     messageHandlers[msgHandler.getMessage().getMsg()] = msgHandler;
 }
 
-void Window::addHandler(Message msg, void (*handler)(Window *, Message)) {
+void Window::addHandler(WindowMessage msg, void (*handler)(Window *, WindowMessage)) {
     addHandler(MessageHandler(msg, handler));
 }
 
@@ -44,7 +46,7 @@ void Window::addObject(GUIObject *object, bool onlyAdd) {
 
 template<class Object>
 Object *Window::addObject(Object &&object) {
-    Object *newObject = new Object(object);
+    auto newObject = new Object(object);
     addObject(newObject);
     return newObject;
 }
@@ -107,7 +109,7 @@ void Window::createObjects() {
 
 void Window::performClick(long id) {
     if (isCreated()) {
-        Button *button = find<Button>(id);
+        auto button = find<Button>(id);
         if (button != nullptr) button->performClick();
     }
 }

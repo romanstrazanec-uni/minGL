@@ -5,14 +5,14 @@
 int main() {
     Window window;
     window.setTitle("title");
-    window.addHandler(MessageHandler(Message::onPaint(), [](Window *w, Message) {
+    window.addHandler(MessageHandler(WindowMessage::onPaint(), [](Window *w, WindowMessage) {
         HWND h = w->getWindowHandle();
         PAINTSTRUCT ps;
         HDC hdc = BeginPaint(h, &ps);
-        FillRect(hdc, &ps.rcPaint, (HBRUSH)(COLOR_WINDOW + 1));
+        FillRect(hdc, &ps.rcPaint, (HBRUSH) (COLOR_WINDOW + 1));
         EndPaint(h, &ps);
     }));
-    window.addHandler(Message::onClose(), [](Window *w, Message) {
+    window.addHandler(WindowMessage::onClose(), [](Window *w, WindowMessage) {
         HWND h = w->getWindowHandle();
         if (MessageBox(h, "Really quit?", "My application", MB_OKCANCEL) == IDOK) DestroyWindow(h);
     });
@@ -29,7 +29,7 @@ int main() {
     });
 
     // allocating memory for button and assigning it to window
-    Button *btn3 = new Button(2, "heap button", 50, 150, 100, 50, [](Window *) {
+    auto btn3 = new Button(2, "heap button", 50, 150, 100, 50, [](Window *) {
         std::cout << "heap button" << std::endl;
     });
     window.addButton(btn3);
