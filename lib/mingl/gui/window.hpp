@@ -2,7 +2,6 @@
 #define MINGL_WINDOW_INCLUDED
 
 #include <map>
-#include <list>
 
 #include <mingl/gui/basewindow.hpp>
 #include <mingl/gui/button.hpp>
@@ -90,11 +89,9 @@ public:
      *
      * @returns pointer to the newly created button.
      */
-    Button *addButton(long id, const char *title, int x, int y, int width, int height, std::function<void()> onClick);
+    Button *addButton(long id, const char *title, int x, int y, int width, int height, void (*onClick)(Window *));
 
-    /**
-     * Removes object from window. @returns true if found and removed.
-     */
+    /** Removes object from window. @returns true if found and removed. */
     template<class Object, typename = std::enable_if<std::is_base_of<GUIObject, Object>::value>>
     bool remove(Object *object) {
         // todo: map.erase(id)?
@@ -107,7 +104,11 @@ public:
         return false;
     }
 
-    GUIObject *find(long id);
+    template<class Object>
+    Object *find(long id) {
+        std::map<long, GUIObject *>::const_iterator it = objects.find(id);
+        return it != objects.end() ? dynamic_cast<Object *>(it->second) : nullptr;
+    }
 
     /** Creates objects when window is created. */
     void createObjects();

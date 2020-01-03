@@ -17,6 +17,7 @@ Window::~Window() {
     for (auto it = objects.begin(); it != objects.end(); it = objects.begin()) {
         GUIObject *o = it->second;
         o->setParent(nullptr, true);
+        objects.erase(it);
         delete o;
     }
 }
@@ -95,13 +96,8 @@ Button *Window::addButton(long id, const char *title, int x, int y, int width, i
 }
 
 Button *
-Window::addButton(long id, const char *title, int x, int y, int width, int height, std::function<void()> onClick) {
+Window::addButton(long id, const char *title, int x, int y, int width, int height, void (*onClick)(Window *)) {
     return new Button(this, id, title, x, y, width, height, onClick);
-}
-
-GUIObject *Window::find(long id) {
-    std::map<long, GUIObject *>::const_iterator it = objects.find(id);
-    return it != objects.end() ? it->second : nullptr;
 }
 
 void Window::createObjects() {
@@ -111,10 +107,7 @@ void Window::createObjects() {
 
 void Window::performClick(long id) {
     if (isCreated()) {
-        GUIObject *obj = find(id);
-        if (obj != nullptr) {
-            Button *button = dynamic_cast<Button *>(obj);
-            if (button != nullptr) button->performClick();
-        }
+        Button *button = find<Button>(id);
+        if (button != nullptr) button->performClick();
     }
 }

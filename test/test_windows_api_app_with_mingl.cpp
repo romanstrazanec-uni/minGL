@@ -16,20 +16,24 @@ int main() {
     eAge.addStyle(WS_BORDER);
     eOut.addStyle(WS_BORDER);
 
-    Button b(6, "Generate", 150, 140, 98, 38, [&eName, &eAge, &eOut]() {
+    Button b(6, "Generate", 150, 140, 98, 38, [](Window *w) {
         cout << "Click" << endl;
         char name[30], age[10], out[50];
 
-        HWND hName = eName.getWindowHandle();
+        EditText *eName = w->find<EditText>(1);
+        EditText *eAge = w->find<EditText>(2);
+        EditText *eOut = w->find<EditText>(3);
+
+        /*HWND hName = eName->getWindowHandle();
         cout << "hName gets a handle" << endl;
 
-        if (eName.isCreated()) cout << "hName is created" << endl;
+        if (eName->isCreated()) cout << "hName is created" << endl;
         else cout << "hName is not created" << endl;
 
         cout << "get hName window text" << endl;
         GetWindowText(hName, name, 30);
         cout << "get hAge window text" << endl;
-        GetWindowText(eAge.getWindowHandle(), age, 30);
+        GetWindowText(eAge->getWindowHandle(), age, 30);
 
         cout << "str copy" << endl;
         strcpy(out, name);
@@ -38,11 +42,11 @@ int main() {
         strcat(out, " yo.");
 
         cout << "set hOut window text" << endl;
-        SetWindowText(eOut.getWindowHandle(), out);
-
+        SetWindowText(eOut->getWindowHandle(), out);
+*/
         cout << "end of onClick" << endl;
     });
-    // w.addButton(&b);
+    w.addButton(&b);
 
     Label lAge(5, "Age: ", 100, 90, 98, 38);
     w.addLabel(4, "Name: ", 100, 50, 98, 38);
