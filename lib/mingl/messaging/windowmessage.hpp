@@ -1,5 +1,5 @@
-#ifndef MINGL_MESSAGE_INCLUDED
-#define MINGL_MESSAGE_INCLUDED
+#ifndef MINGL_WINDOW_MESSAGE_INCLUDED
+#define MINGL_WINDOW_MESSAGE_INCLUDED
 
 #include <windows.h>
 
@@ -9,6 +9,8 @@ class WindowMessage {
     LPARAM lparam{0};
 
 public:
+    /* Constructors */
+
     WindowMessage() = default;
 
     WindowMessage(const WindowMessage &) = default;
@@ -17,80 +19,88 @@ public:
 
     WindowMessage(UINT code, WPARAM wparam, LPARAM lparam) : messageCode(code), wparam(wparam), lparam(lparam) {}
 
-    inline WPARAM getWparam() const {
+    /* Getters */
+
+    WPARAM getWparam() const {
         return wparam;
     }
 
-    inline LPARAM getLparam() const {
+    LPARAM getLparam() const {
         return lparam;
     }
 
-    inline friend bool operator==(const WindowMessage &msg, UINT code) {
-        return msg.messageCode == code;
-    }
-
-    inline friend bool operator!=(const WindowMessage &msg, UINT code) {
-        return !(msg == code);
-    }
-
-    inline friend bool operator==(UINT code, const WindowMessage &msg) {
-        return msg == code;
-    }
-
-    inline friend bool operator!=(UINT code, const WindowMessage &msg) {
-        return msg != code;
-    }
-
-    inline friend bool operator==(const WindowMessage &msg1, const WindowMessage &msg2) {
-        return msg1.messageCode == msg2.messageCode;
-    }
-
-    inline friend bool operator!=(const WindowMessage &msg1, const WindowMessage &msg2) {
-        return !(msg1 == msg2);
-    }
-
-    inline UINT getMsg() const {
+    UINT getMsg() const {
         return messageCode;
     }
 
-    inline static WindowMessage onCreate() {
+    /* UINT code comparators */
+
+    friend bool operator==(const WindowMessage &msg, UINT code) {
+        return msg.messageCode == code;
+    }
+
+    friend bool operator!=(const WindowMessage &msg, UINT code) {
+        return !(msg == code);
+    }
+
+    friend bool operator==(UINT code, const WindowMessage &msg) {
+        return msg == code;
+    }
+
+    friend bool operator!=(UINT code, const WindowMessage &msg) {
+        return msg != code;
+    }
+
+    /* WindowMessage comparators */
+
+    friend bool operator==(const WindowMessage &msg1, const WindowMessage &msg2) {
+        return msg1.messageCode == msg2.messageCode;
+    }
+
+    friend bool operator!=(const WindowMessage &msg1, const WindowMessage &msg2) {
+        return !(msg1 == msg2);
+    }
+
+    /* Static Constructors */
+
+    static WindowMessage onCreate() {
         return {WM_CREATE};
     }
 
-    inline static WindowMessage onPaint() {
+    static WindowMessage onPaint() {
         return {WM_PAINT};
     }
 
-    inline static WindowMessage onClose() {
+    static WindowMessage onClose() {
         return {WM_CLOSE};
     }
 
-    inline static WindowMessage onMouseMove() {
+    static WindowMessage onMouseMove() {
         return {WM_MOUSEMOVE};
     }
 
-    inline static WindowMessage onLeftMouseButtonDown() {
+    static WindowMessage onLeftMouseButtonDown() {
         return {WM_LBUTTONDOWN};
     }
 
-    inline static WindowMessage onLeftMouseButtonUp() {
-        return {WM_LBUTTONDOWN};
+    static WindowMessage onLeftMouseButtonUp() {
+        return {WM_LBUTTONUP};
     }
 
-    inline static WindowMessage onMiddleMouseButtonDown() {
-        return {WM_LBUTTONDOWN};
+    static WindowMessage onMiddleMouseButtonDown() {
+        return {WM_MBUTTONDOWN};
     }
 
-    inline static WindowMessage onMiddleMouseButtonUp() {
-        return {WM_LBUTTONDOWN};
+    static WindowMessage onMiddleMouseButtonUp() {
+        return {WM_MBUTTONUP};
     }
 
-    inline static WindowMessage onRightMouseButtonDown() {
-        return {WM_LBUTTONDOWN};
+    static WindowMessage onRightMouseButtonDown() {
+        return {WM_RBUTTONDOWN};
     }
 
-    inline static WindowMessage onRightMouseButtonUp() {
-        return {WM_LBUTTONDOWN};
+    static WindowMessage onRightMouseButtonUp() {
+        return {WM_RBUTTONUP};
     }
 };
 

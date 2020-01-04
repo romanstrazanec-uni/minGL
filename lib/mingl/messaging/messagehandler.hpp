@@ -22,7 +22,7 @@ public:
         }
     }
 
-    inline const WindowMessage &getMessage() const {
+    const WindowMessage &getMessage() const {
         return message;
     }
 };
