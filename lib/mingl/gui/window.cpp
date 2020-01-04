@@ -7,7 +7,7 @@ Window::Window(const char *title) : Window(title, CW_USEDEFAULT, CW_USEDEFAULT, 
 Window::Window(int x, int y, int width, int height) : Window("", x, y, width, height) {}
 
 Window::Window(const char *title, int x, int y, int width, int height) : BaseWindow(title, x, y, width, height) {
-    addHandler(WindowMessage::onCreate(), [](Window *window, WindowMessage msg) { window->createObjects(); });
+    addHandler(MessageHandler::onCreate([](Window *window, WindowMessage msg) { window->createObjects(); }));
     addHandler(WindowMessage(WM_COMMAND),
                [](Window *window, WindowMessage msg) { window->performClick(msg.getWparam()); });
 
