@@ -4,7 +4,7 @@
 #include <mingl/gui/guiobject.hpp>
 
 class Button : public GUIObject {
-    void (*onClick)(Window *);
+    void (*onClick)(Window *){};
 
 public:
     Button() = default;
