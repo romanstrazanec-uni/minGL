@@ -26,6 +26,8 @@ class Window : public BaseWindow<Window> {
     Object *addObject(Object &&);
 
 public:
+    /* Constructors */
+
     Window();
 
     explicit Window(const char *title);
@@ -36,13 +38,19 @@ public:
 
     ~Window() override;
 
-    LRESULT handleMessage(WindowMessage) override;
+    /* Message handling */
+
+    LRESULT handleMessage(WindowMessage) override; // todo: rvalue
 
     /** Adds a message handler to respond to window messages. */
-    void addHandler(MessageHandler);
+    void addHandler(MessageHandler); // todo: rvalue
 
     /** Adds a message handler to respond to specified message with handle function. */
-    void addHandler(WindowMessage, void (*handler)(Window *, WindowMessage));
+    void addHandler(WindowMessage, void (*handler)(Window *, WindowMessage)); // todo: rvalue
+
+    void addOnMouseMoveHandler(void (*onMouseMove)(Window *, POINT p));
+
+    /* Object manipulation */
 
     /**
      * Adds an created object to window.

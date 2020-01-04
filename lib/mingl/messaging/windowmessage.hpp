@@ -1,7 +1,9 @@
 #ifndef MINGL_WINDOW_MESSAGE_INCLUDED
 #define MINGL_WINDOW_MESSAGE_INCLUDED
 
-#include <windows.h>
+#include <minwindef.h>
+#include <winuser.h>
+#include <w32api/windowsx.h>
 
 class WindowMessage {
     UINT messageCode{0};
@@ -33,7 +35,13 @@ public:
         return messageCode;
     }
 
+    POINT getMousePosition() const {
+        if (messageCode == WM_MOUSEMOVE) return {GET_X_LPARAM(lparam), GET_Y_LPARAM(lparam)};
+    }
+
     /* UINT code comparators */
+
+    // todo: operator in
 
     friend bool operator==(const WindowMessage &msg, UINT code) {
         return msg.messageCode == code;

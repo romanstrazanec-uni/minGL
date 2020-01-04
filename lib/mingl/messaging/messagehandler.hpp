@@ -1,19 +1,23 @@
 #ifndef MINGL_MESSAGE_HANDLER_INCLUDED
 #define MINGL_MESSAGE_HANDLER_INCLUDED
 
+#include <functional>
+#include <utility>
+
 #include <mingl/messaging/windowmessage.hpp>
 
 class Window;
 
 class MessageHandler {
     WindowMessage message{};
-
-    void (*handle)(Window *, WindowMessage){};
+    std::function<void(Window *, WindowMessage)> handle{};
 
 public:
     MessageHandler() = default;
 
-    MessageHandler(WindowMessage msg, void (*handle)(Window *, WindowMessage)) : message(msg), handle(handle) {}
+    MessageHandler(WindowMessage msg, std::function<void(Window *, WindowMessage)> handle) : message(msg),
+                                                                                             handle(std::move(
+                                                                                                     handle)) {}
 
     void handleMessage(Window *window, WindowMessage msg) {
         if (message == msg) {
@@ -28,44 +32,44 @@ public:
 
     /* Static constructors */
 
-    static MessageHandler onCreate(void (*handle)(Window *, WindowMessage)) {
-        return {WindowMessage::onCreate(), handle};
+    static MessageHandler onCreate(std::function<void(Window *, WindowMessage)> handle) {
+        return {WindowMessage::onCreate(), std::move(handle)};
     }
 
-    static MessageHandler onPaint(void (*handle)(Window *, WindowMessage)) {
-        return {WindowMessage::onPaint(), handle};
+    static MessageHandler onPaint(std::function<void(Window *, WindowMessage)> handle) {
+        return {WindowMessage::onPaint(), std::move(handle)};
     }
 
-    static MessageHandler onClose(void (*handle)(Window *, WindowMessage)) {
-        return {WindowMessage::onClose(), handle};
+    static MessageHandler onClose(std::function<void(Window *, WindowMessage)> handle) {
+        return {WindowMessage::onClose(), std::move(handle)};
     }
 
-    static MessageHandler onMouseMove(void (*handle)(Window *, WindowMessage)) {
-        return {WindowMessage::onMouseMove(), handle};
+    static MessageHandler onMouseMove(std::function<void(Window *, WindowMessage)> handle) {
+        return {WindowMessage::onMouseMove(), std::move(handle)};
     }
 
-    static MessageHandler onLeftMouseButtonDown(void (*handle)(Window *, WindowMessage)) {
-        return {WindowMessage::onLeftMouseButtonDown(), handle};
+    static MessageHandler onLeftMouseButtonDown(std::function<void(Window *, WindowMessage)> handle) {
+        return {WindowMessage::onLeftMouseButtonDown(), std::move(handle)};
     }
 
-    static MessageHandler onLeftMouseButtonUp(void (*handle)(Window *, WindowMessage)) {
-        return {WindowMessage::onLeftMouseButtonUp(), handle};
+    static MessageHandler onLeftMouseButtonUp(std::function<void(Window *, WindowMessage)> handle) {
+        return {WindowMessage::onLeftMouseButtonUp(), std::move(handle)};
     }
 
-    static MessageHandler onMiddleMouseButtonDown(void (*handle)(Window *, WindowMessage)) {
-        return {WindowMessage::onMiddleMouseButtonDown(), handle};
+    static MessageHandler onMiddleMouseButtonDown(std::function<void(Window *, WindowMessage)> handle) {
+        return {WindowMessage::onMiddleMouseButtonDown(), std::move(handle)};
     }
 
-    static MessageHandler onMiddleMouseButtonUp(void (*handle)(Window *, WindowMessage)) {
-        return {WindowMessage::onMiddleMouseButtonUp(), handle};
+    static MessageHandler onMiddleMouseButtonUp(std::function<void(Window *, WindowMessage)> handle) {
+        return {WindowMessage::onMiddleMouseButtonUp(), std::move(handle)};
     }
 
-    static MessageHandler onRightMouseButtonDown(void (*handle)(Window *, WindowMessage)) {
-        return {WindowMessage::onRightMouseButtonDown(), handle};
+    static MessageHandler onRightMouseButtonDown(std::function<void(Window *, WindowMessage)> handle) {
+        return {WindowMessage::onRightMouseButtonDown(), std::move(handle)};
     }
 
-    static MessageHandler onRightMouseButtonUp(void (*handle)(Window *, WindowMessage)) {
-        return {WindowMessage::onRightMouseButtonUp(), handle};
+    static MessageHandler onRightMouseButtonUp(std::function<void(Window *, WindowMessage)> handle) {
+        return {WindowMessage::onRightMouseButtonUp(), std::move(handle)};
     }
 };
 

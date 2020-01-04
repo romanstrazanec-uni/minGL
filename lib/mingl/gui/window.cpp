@@ -23,6 +23,8 @@ Window::~Window() {
     }
 }
 
+/* Message handling */
+
 LRESULT Window::handleMessage(WindowMessage msg) {
     auto mh = messageHandlers.find(msg.getMsg());
     if (mh == messageHandlers.end())
@@ -38,6 +40,14 @@ void Window::addHandler(MessageHandler msgHandler) {
 void Window::addHandler(WindowMessage msg, void (*handler)(Window *, WindowMessage)) {
     addHandler(MessageHandler(msg, handler));
 }
+
+void Window::addOnMouseMoveHandler(void (*onMouseMove)(Window *, POINT)) {
+    addHandler(MessageHandler::onMouseMove([&onMouseMove](Window *w, WindowMessage wm) {
+        onMouseMove(w, wm.getMousePosition());
+    }));
+}
+
+/* Object manipulation */
 
 void Window::addObject(GUIObject *object, bool onlyAdd) {
     if (!onlyAdd) object->setParent(this);
