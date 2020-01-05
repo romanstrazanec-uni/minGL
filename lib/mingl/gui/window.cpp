@@ -25,7 +25,7 @@ Window::~Window() {
 
 /* Message handling */
 
-LRESULT Window::handleMessage(WindowMessage msg) {
+LRESULT Window::handleMessage(WindowMessage &&msg) {
     auto mh = messageHandlers.find(msg.getMsg());
     if (mh == messageHandlers.end())
         return DefWindowProc(getWindowHandle(), msg.getMsg(), msg.getWparam(), msg.getLparam());
@@ -33,12 +33,12 @@ LRESULT Window::handleMessage(WindowMessage msg) {
     return 0;
 }
 
-void Window::addHandler(MessageHandler msgHandler) {
+void Window::addHandler(MessageHandler &&msgHandler) {
     messageHandlers[msgHandler.getMessage().getMsg()] = msgHandler;
 }
 
-void Window::addHandler(WindowMessage msg, std::function<void(Window *, WindowMessage)> &&handler) {
-    addHandler(MessageHandler(msg, handler));
+void Window::addHandler(WindowMessage &&msg, std::function<void(Window *, WindowMessage)> &&handler) {
+    addHandler(MessageHandler(std::move(msg), handler));
 }
 
 void Window::addOnMouseMoveHandler(std::function<void(Window *, POINT)> &&onMouseMove) {

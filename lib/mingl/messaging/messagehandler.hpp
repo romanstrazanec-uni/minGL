@@ -15,11 +15,10 @@ class MessageHandler {
 public:
     MessageHandler() = default;
 
-    MessageHandler(WindowMessage msg, std::function<void(Window *, WindowMessage)> handle) : message(msg),
-                                                                                             handle(std::move(
-                                                                                                     handle)) {}
+    MessageHandler(WindowMessage &&msg, std::function<void(Window *, WindowMessage)> handle) // todo: rvalue handle?
+            : message(msg), handle(std::move(handle)) {}
 
-    void handleMessage(Window *window, WindowMessage msg) {
+    void handleMessage(Window *window, const WindowMessage &msg) { // todo: should have perfect forwarding on msg
         if (message == msg) {
             message = msg;
             handle(window, message);
@@ -30,7 +29,7 @@ public:
         return message;
     }
 
-    /* Static constructors */
+    /* Static constructors */ // todo: rvalue refs?
 
     static MessageHandler onCreate(std::function<void(Window *, WindowMessage)> handle) {
         return {WindowMessage::onCreate(), std::move(handle)};

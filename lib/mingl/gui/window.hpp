@@ -41,13 +41,13 @@ public:
 
     /* Message handling */
 
-    LRESULT handleMessage(WindowMessage) override; // todo: rvalue
+    LRESULT handleMessage(WindowMessage &&) override;
 
     /** Adds a message handler to respond to window messages. */
-    void addHandler(MessageHandler); // todo: rvalue
+    void addHandler(MessageHandler &&);
 
     /** Adds a message handler to respond to specified message with handle function. */
-    void addHandler(WindowMessage, std::function<void(Window *, WindowMessage)> &&); // todo: rvalue
+    void addHandler(WindowMessage &&, std::function<void(Window *, WindowMessage)> &&);
 
     void addOnMouseMoveHandler(std::function<void(Window *, POINT)> &&);
 

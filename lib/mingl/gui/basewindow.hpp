@@ -79,7 +79,7 @@ private:
 
 protected:
     /** This method needs to be derived by subclass window. */
-    virtual LRESULT handleMessage(WindowMessage) = 0;
+    virtual LRESULT handleMessage(WindowMessage &&) = 0;
 
 public:
     BaseWindow(const char *title, int x, int y, int width, int height)
