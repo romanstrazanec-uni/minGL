@@ -37,7 +37,7 @@ void Window::addHandler(MessageHandler &&msgHandler) {
     messageHandlers[msgHandler.getMessage().getMsg()] = msgHandler;
 }
 
-void Window::addHandler(WindowMessage &&msg, std::function<void(Window *, WindowMessage)> &&handler) {
+void Window::addHandler(WindowMessage &&msg, std::function<void(Window *, const WindowMessage &)> &&handler) {
     addHandler(MessageHandler(std::move(msg), handler));
 }
 

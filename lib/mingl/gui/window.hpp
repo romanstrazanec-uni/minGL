@@ -47,7 +47,7 @@ public:
     void addHandler(MessageHandler &&);
 
     /** Adds a message handler to respond to specified message with handle function. */
-    void addHandler(WindowMessage &&, std::function<void(Window *, WindowMessage)> &&);
+    void addHandler(WindowMessage &&, std::function<void(Window *, const WindowMessage &)> &&);
 
     void addOnMouseMoveHandler(std::function<void(Window *, POINT)> &&);
 
