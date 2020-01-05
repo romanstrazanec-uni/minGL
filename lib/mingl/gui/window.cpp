@@ -37,11 +37,11 @@ void Window::addHandler(MessageHandler msgHandler) {
     messageHandlers[msgHandler.getMessage().getMsg()] = msgHandler;
 }
 
-void Window::addHandler(WindowMessage msg, void (*handler)(Window *, WindowMessage)) {
+void Window::addHandler(WindowMessage msg, std::function<void(Window *, WindowMessage)> &&handler) {
     addHandler(MessageHandler(msg, handler));
 }
 
-void Window::addOnMouseMoveHandler(void (*onMouseMove)(Window *, POINT)) {
+void Window::addOnMouseMoveHandler(std::function<void(Window *, POINT)> &&onMouseMove) {
     addHandler(MessageHandler::onMouseMove([&onMouseMove](Window *w, WindowMessage wm) {
         onMouseMove(w, wm.getMousePosition());
     }));

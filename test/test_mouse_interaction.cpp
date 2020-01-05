@@ -1,7 +1,6 @@
 #include <mingl/mingl.h>
 
 #include <iostream>
-#include <w32api/windowsx.h>
 
 using namespace std;
 

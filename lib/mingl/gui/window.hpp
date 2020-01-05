@@ -2,6 +2,7 @@
 #define MINGL_WINDOW_INCLUDED
 
 #include <map>
+#include <functional>
 
 #include <mingl/gui/basewindow.hpp>
 #include <mingl/gui/button.hpp>
@@ -46,9 +47,9 @@ public:
     void addHandler(MessageHandler); // todo: rvalue
 
     /** Adds a message handler to respond to specified message with handle function. */
-    void addHandler(WindowMessage, void (*handler)(Window *, WindowMessage)); // todo: rvalue
+    void addHandler(WindowMessage, std::function<void(Window *, WindowMessage)> &&); // todo: rvalue
 
-    void addOnMouseMoveHandler(void (*onMouseMove)(Window *, POINT p));
+    void addOnMouseMoveHandler(std::function<void(Window *, POINT)> &&);
 
     /* Object manipulation */
 
