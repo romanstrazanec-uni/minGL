@@ -1,7 +1,7 @@
 #include "window.hpp"
 
 Window::Window() : Window("") {}
-Window::Window(const char *title) : Window(title, 10, 10, 100, 100) {}
+Window::Window(const char *title) : Window(title, 100, 100, 400, 400) {}
 Window::Window(UINT16 x, UINT16 y, UINT16 width, UINT16 height) : Window("", x, y, width, height) {}
 Window::Window(const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height)
         : BaseWindow(title, x, y, width, height), canvas(this) {

@@ -23,6 +23,8 @@ public:
     Canvas(Window *);
 
     void setPixel(UINT16 x, UINT16 y, UINT8 red, UINT8 green, UINT8 blue);
+
+    void forEachPixel(std::function<void(UINT)> &&);
 };
 
 #endif

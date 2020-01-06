@@ -101,7 +101,7 @@ public:
         setSmallIcon(nullptr, IDI_APPLICATION);
 #endif
         setCursor(nullptr, IDI_APPLICATION);
-        setBackground((HBRUSH) (COLOR_WINDOW + 1));
+        setBackground((HBRUSH) COLOR_WINDOW);
         setMenuName(nullptr);
         setStyle(0);
         setWindowExtraBytes(0);
