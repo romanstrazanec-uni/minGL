@@ -1,8 +1,7 @@
 #ifndef MINGL_GUIOBJECT_INCLUDED
 #define MINGL_GUIOBJECT_INCLUDED
 
-#include <windef.h>
-#include <winuser.h>
+#include <windows.h>
 
 class Window;
 

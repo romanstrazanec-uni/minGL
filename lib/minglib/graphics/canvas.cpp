@@ -1,4 +1,7 @@
 #include "canvas.hpp"
+#include "../gui/window.hpp"
+
+#include <gdiplus.h>
 
 Canvas::Canvas(Window *w) : pixelsSize(w->getWidth() * w->getHeight() * 3), pixels(new UINT8[pixelsSize]{}) {
     w->addHandler(MessageHandler::onPaint([this](Window *w, WindowMessage) {

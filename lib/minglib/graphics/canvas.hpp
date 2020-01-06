@@ -1,14 +1,12 @@
 #ifndef MINGL_CANVAS_INCLUDED
 #define MINGL_CANVAS_INCLUDED
 
-#include "../gui/window.hpp"
-
-#include <windef.h>
-#include <winuser.h>
-#include <gdiplus.h>
+#include <windows.h>
 
 #include <functional>
 #include <memory>
+
+class Window;
 
 class Canvas {
     HDC deviceContext{};

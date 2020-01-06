@@ -7,6 +7,7 @@
 #include "label.hpp"
 
 #include "../messaging/messagehandler.hpp"
+#include "../graphics/canvas.hpp"
 
 #include <map>
 
@@ -14,6 +15,7 @@
 class Window : public BaseWindow<Window> {
     std::map<UINT, MessageHandler> messageHandlers{};
     std::map<long, GUIObject *> objects{};
+    Canvas canvas;
 
     /**
      * Allows addition of GUIObjects passed as rvalue. Template class Object should be subclass of GUIObject.

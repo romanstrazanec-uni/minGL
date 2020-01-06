@@ -4,8 +4,7 @@
 #include "guiobject.hpp"
 #include "../messaging/windowmessage.hpp"
 
-#include <wtypes.h>
-#include <gdiplus/gdiplus.h>
+#include <gdiplus.h>
 
 /**
  * Base window template to be derived. Creates window by following the process:
