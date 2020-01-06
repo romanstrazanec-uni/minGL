@@ -1,6 +1,6 @@
 #define NO_GDIPLUS
 
-#include <mingl/mingl.h>
+#include <mingl>
 #include <iostream>
 
 using namespace std;

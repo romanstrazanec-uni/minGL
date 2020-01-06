@@ -6,6 +6,7 @@ LRESULT CALLBACK WindowProcessMessages(HWND, UINT, WPARAM, LPARAM);
 void draw(HDC hdc);
 
 int WINAPI WinMain(HINSTANCE currentInstance, HINSTANCE previousInstance, PSTR cmdLine, INT cmdCount) {
+    PROPID p;
     Gdiplus::GdiplusStartupInput gdiplusStartupInput;
     ULONG_PTR gdiplusToken;
     Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, nullptr);

@@ -1,0 +1,10 @@
+#ifndef MINGL_INCLUDED
+#define MINGL_INCLUDED
+
+#include "minglib/gui/window.hpp"
+
+#include <winbase.h>
+
+#define main() WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR lpCmdLine, int nCmdShow)
+
+#endif

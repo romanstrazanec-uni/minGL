@@ -1,4 +1,4 @@
-#include <mingl/mingl.h>
+#include <mingl>
 
 #undef main
 
