@@ -71,7 +71,7 @@ protected:
     virtual LRESULT handleMessage(WindowMessage &&) = 0;
 
 public:
-    BaseWindow(const char *title, int x, int y, int width, int height)
+    BaseWindow(const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height)
             : GUIObject("CustomWindowClass", title, x, y, width, height, GetModuleHandle(nullptr), this) {
         addStyle(WS_OVERLAPPEDWINDOW);
     }

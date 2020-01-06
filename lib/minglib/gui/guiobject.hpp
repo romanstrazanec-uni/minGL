@@ -16,7 +16,7 @@ class GUIObject {
 #ifdef USE_WNDCLASSEX
     DWORD extendedStyle;
 #endif
-    int x{}, y{}, width{}, height{};
+    UINT16 x{}, y{}, width{}, height{}; // todo: #include <cstdint> uint16_t
     long id{0x00FFFFFFL};
     HINSTANCE hinstance{nullptr};
     LPVOID additionalData{nullptr};
@@ -27,10 +27,12 @@ protected:
     Window *parent{nullptr};
 
     /** Constructor for GUIObject with no parent window. */
-    GUIObject(const char *className, const char *name, int x, int y, int width, int height, HINSTANCE, LPVOID);
+    GUIObject(const char *className, const char *name, UINT16 x, UINT16 y, UINT16 width, UINT16 height, HINSTANCE,
+              LPVOID);
 
     /** Constructor for child GUIObject. */
-    GUIObject(Window *parent, const char *className, long id, const char *name, int x, int y, int width, int height);
+    GUIObject(Window *parent, const char *className, long id, const char *name, UINT16 x, UINT16 y, UINT16 width,
+              UINT16 height);
 
     virtual const char *getClassName() const final;
     virtual HINSTANCE getHinstance() const final;
@@ -54,11 +56,11 @@ public:
 
     virtual const char *getName() const final;
 
-    virtual int getX() const final;
-    virtual int getY() const final;
+    virtual UINT16 getX() const final;
+    virtual UINT16 getY() const final;
 
-    virtual int getWidth() const final;
-    virtual int getHeight() const final;
+    virtual UINT16 getWidth() const final;
+    virtual UINT16 getHeight() const final;
 
     virtual long getId() const final;
 

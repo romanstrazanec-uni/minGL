@@ -1,13 +1,14 @@
 #include "guiobject.hpp"
 #include "window.hpp"
 
-GUIObject::GUIObject(const char *className, const char *name, int x, int y, int width, int height,
+GUIObject::GUIObject(const char *className, const char *name, UINT16 x, UINT16 y, UINT16 width, UINT16 height,
                      HINSTANCE hinstance, LPVOID additionalData) : className(className), name(name), x(x), y(y),
                                                                    width(width), height(height), hinstance(hinstance),
                                                                    additionalData(additionalData) {}
-GUIObject::GUIObject(Window *parent, const char *className, long id, const char *name, int x, int y, int width,
-                     int height) : parent(parent), className(className), id(id), name(name), x(x), y(y), width(width),
-                                   height(height) { addToParent(); }
+GUIObject::GUIObject(Window *parent, const char *className, long id, const char *name, UINT16 x, UINT16 y, UINT16 width,
+                     UINT16 height) : parent(parent), className(className), id(id), name(name), x(x), y(y),
+                                      width(width),
+                                      height(height) { addToParent(); }
 GUIObject::~GUIObject() { removeFromParent(); }
 
 bool GUIObject::create() {
@@ -27,29 +28,21 @@ hMenu, hinstance, additionalData);
 void GUIObject::addStyle(UINT s) { style |= s; }
 
 const char *GUIObject::getClassName() const { return className; }
-
 const char *GUIObject::getName() const { return name; }
-
 HINSTANCE GUIObject::getHinstance() const { return hinstance; }
-
 LPVOID GUIObject::getAdditionalData() const { return additionalData; }
 
-int GUIObject::getX() const { return x; }
-
-int GUIObject::getY() const { return y; }
-
-int GUIObject::getWidth() const { return width; }
-
-int GUIObject::getHeight() const { return height; }
+UINT16 GUIObject::getX() const { return x; }
+UINT16 GUIObject::getY() const { return y; }
+UINT16 GUIObject::getWidth() const { return width; }
+UINT16 GUIObject::getHeight() const { return height; }
 
 long GUIObject::getId() const { return id; }
-
 HWND GUIObject::getWindowHandle() const { return hwnd; }
 
 bool GUIObject::isCreated() const { return hwnd != nullptr; }
 
 void GUIObject::setWindowHandle(HWND h) { hwnd = h; }
-
 void GUIObject::setParent(Window *window, bool onlySet) {
     if (!onlySet) removeFromParent();
     parent = window;

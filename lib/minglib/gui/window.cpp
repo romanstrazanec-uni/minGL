@@ -1,9 +1,10 @@
 #include "window.hpp"
 
 Window::Window() : Window("") {}
-Window::Window(const char *title) : Window(title, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT) {}
-Window::Window(int x, int y, int width, int height) : Window("", x, y, width, height) {}
-Window::Window(const char *title, int x, int y, int width, int height) : BaseWindow(title, x, y, width, height) {
+Window::Window(const char *title) : Window(title, 10, 10, 100, 100) {}
+Window::Window(UINT16 x, UINT16 y, UINT16 width, UINT16 height) : Window("", x, y, width, height) {}
+Window::Window(const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height)
+        : BaseWindow(title, x, y, width, height) {
     addHandler(MessageHandler::onCreate([](Window *window, WindowMessage msg) { window->createObjects(); }));
     addHandler(WindowMessage(WM_COMMAND),
                [](Window *window, WindowMessage msg) { window->performClick(msg.getWparam()); });
@@ -35,7 +36,7 @@ void Window::addHandler(MessageHandler &&msgHandler) {
 }
 
 void Window::addHandler(WindowMessage &&msg, Handle &&handler) {
-    addHandler(MessageHandler(std::move(msg), handler));
+    addHandler(MessageHandler(std::move(msg), handler)); // todo: trivially copyable
 }
 
 void Window::addOnMouseMoveHandler(std::function<void(Window *, POINT)> &&onMouseMove) {

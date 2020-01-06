@@ -8,10 +8,10 @@ class Button : public GUIObject {
 
 public:
     Button() = default;
-    Button(long id, const char *title, int x, int y, int width, int height);
-    Button(long id, const char *title, int x, int y, int width, int height, void (*onClick)(Window *));
-    Button(Window *window, long id, const char *title, int x, int y, int width, int height);
-    Button(Window *window, long id, const char *title, int x, int y, int width, int height,
+    Button(long id, const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
+    Button(long id, const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height, void (*onClick)(Window *));
+    Button(Window *window, long id, const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
+    Button(Window *window, long id, const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height,
            void (*onClick)(Window *));
 
     void addOnClickListener(void (*)(Window *));

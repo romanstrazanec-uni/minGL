@@ -31,9 +31,9 @@ public:
 
     explicit Window(const char *title);
 
-    Window(int x, int y, int width, int height);
+    Window(UINT16 x, UINT16 y, UINT16 width, UINT16 height);
 
-    Window(const char *title, int x, int y, int width, int height);
+    Window(const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
 
     ~Window() override;
 
