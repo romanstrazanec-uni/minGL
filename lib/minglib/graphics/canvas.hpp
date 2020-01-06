@@ -9,6 +9,8 @@
 class Window;
 
 class Canvas {
+    Window *window;
+
     HDC deviceContext{};
     PAINTSTRUCT paintStruct{};
 
@@ -19,6 +21,8 @@ class Canvas {
 
 public:
     Canvas(Window *);
+
+    void setPixel(UINT16 x, UINT16 y, UINT8 red, UINT8 green, UINT8 blue);
 };
 
 #endif
