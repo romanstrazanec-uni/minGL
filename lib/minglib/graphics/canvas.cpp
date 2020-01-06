@@ -1,1 +1,21 @@
+#include "canvas.hpp"
 
+Canvas::Canvas(Window *w) : pixelsSize(w->getWidth() * w->getHeight() * 3), pixels(new UINT8[pixelsSize]{}) {
+    w->addHandler(MessageHandler::onPaint([this](Window *w, WindowMessage) {
+        HWND windowHandle = w->getWindowHandle();
+        deviceContext = BeginPaint(windowHandle, &paintStruct);
+
+        Gdiplus::Graphics graphics(deviceContext);
+
+        UINT8 *pPixel = pixels.get();
+        if (updated)
+            for (UINT iPixel = 0; iPixel < pixelsSize; iPixel += 3) {
+                Gdiplus::SolidBrush brush(Gdiplus::Color(255, pPixel[iPixel], pPixel[iPixel + 1], pPixel[iPixel + 2]));
+                UINT pos = iPixel / 3;
+                graphics.FillRectangle(&brush, pos % w->getWidth(), pos / w->getWidth(), 1, 1);
+            }
+        updated = false;
+
+        EndPaint(windowHandle, &paintStruct);
+    }));
+}
