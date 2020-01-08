@@ -1,20 +1,20 @@
 #ifndef MINGL_RGBCOLOR_INCLUDED
 #define MINGL_RGBCOLOR_INCLUDED
 
+#include <windef.h>
+
 #include "colors.hpp"
 
-#include <cstdint>
-
 struct RGBColor {
-    uint8_t red{0}, green{0}, blue{0};
+    UINT8 red{0}, green{0}, blue{0};
 
-    RGBColor(uint8_t red, uint8_t green, uint8_t blue);
+    RGBColor(UINT8 red, UINT8 green, UINT8 blue);
     RGBColor(const RGBColor &);
     virtual ~RGBColor();
 
-    void set_color(uint8_t red, uint8_t green, uint8_t blue);
+    void setColor(UINT8 red, UINT8 green, UINT8 blue);
     void inverse();
-    HSLColor to_hsl();
+    HSLColor toHSL();
 
     /* Assignment operators */
     RGBColor &operator=(const RGBColor &);
@@ -22,32 +22,32 @@ struct RGBColor {
     RGBColor &operator-=(const RGBColor &);
     RGBColor &operator*=(const RGBColor &);
     RGBColor &operator/=(const RGBColor &);
-    RGBColor &operator+=(uint8_t);
-    RGBColor &operator-=(uint8_t);
-    RGBColor &operator*=(uint8_t);
-    RGBColor &operator/=(uint8_t);
+    RGBColor &operator+=(UINT8);
+    RGBColor &operator-=(UINT8);
+    RGBColor &operator*=(UINT8);
+    RGBColor &operator/=(UINT8);
 
     /* Arithmetic operators */
     RGBColor operator+(const RGBColor &) const;
     RGBColor operator-(const RGBColor &) const;
     RGBColor operator*(const RGBColor &) const;
     RGBColor operator/(const RGBColor &) const;
-    friend RGBColor operator+(RGBColor, uint8_t);
-    friend RGBColor operator-(RGBColor, uint8_t);
-    friend RGBColor operator*(RGBColor, uint8_t);
-    friend RGBColor operator/(RGBColor, uint8_t);
-    friend RGBColor operator+(uint8_t, RGBColor);
-    friend RGBColor operator-(uint8_t, RGBColor);
-    friend RGBColor operator*(uint8_t, RGBColor);
-    friend RGBColor operator/(uint8_t, RGBColor);
+    friend RGBColor operator+(RGBColor, UINT8);
+    friend RGBColor operator-(RGBColor, UINT8);
+    friend RGBColor operator*(RGBColor, UINT8);
+    friend RGBColor operator/(RGBColor, UINT8);
+    friend RGBColor operator+(UINT8, RGBColor);
+    friend RGBColor operator-(UINT8, RGBColor);
+    friend RGBColor operator*(UINT8, RGBColor);
+    friend RGBColor operator/(UINT8, RGBColor);
 
     RGBColor operator-() const;
 
     /* In/decrement operators */
     RGBColor &operator++();
     RGBColor &operator--();
-    const RGBColor operator++(int);
-    const RGBColor operator--(int);
+    const RGBColor &operator++(int);
+    const RGBColor &operator--(int);
 
     /* Comparision operators */
     bool operator==(const RGBColor &);

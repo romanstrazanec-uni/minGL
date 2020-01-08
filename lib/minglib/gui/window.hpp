@@ -11,6 +11,8 @@
 
 #include <map>
 
+typedef std::function<void(Window *, POINT)> &&MouseHandle;
+
 /** Derived main Window to create and show window. */
 class Window : public BaseWindow<Window> {
     std::map<UINT, MessageHandler> messageHandlers{};
@@ -26,17 +28,13 @@ class Window : public BaseWindow<Window> {
     template<class Object>
     Object *addObject(Object &&);
 
+    void addOnMouseEventHandler(WindowMessage &&wm, MouseHandle);
+
 public:
-    /* Constructors */
-
     Window();
-
     explicit Window(const char *title);
-
     Window(UINT16 x, UINT16 y, UINT16 width, UINT16 height);
-
     Window(const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
-
     ~Window() override;
 
     /* Message handling */
@@ -49,7 +47,13 @@ public:
     /** Adds a message handler to respond to specified message with handle function. */
     void addHandler(WindowMessage &&, Handle &&);
 
-    void addOnMouseMoveHandler(std::function<void(Window *, POINT)> &&);
+    void addOnMouseMoveHandler(MouseHandle);
+    void addOnLeftMouseButtonDownHandler(MouseHandle);
+    void addOnLeftMouseButtonUpHandler(MouseHandle);
+    void addOnMiddleMouseButtonDownHandler(MouseHandle);
+    void addOnMiddleMouseButtonUpHandler(MouseHandle);
+    void addOnRightMouseButtonDownHandler(MouseHandle);
+    void addOnRightMouseButtonUpHandler(MouseHandle);
 
     /* Object manipulation */
 
@@ -98,7 +102,7 @@ public:
      *
      * @returns pointer to the newly created button.
      */
-    Button *addButton(long id, const char *title, int x, int y, int width, int height, void (*onClick)(Window *));
+    Button *addButton(long id, const char *title, int x, int y, int width, int height, OnClickHandle);
 
     /** Removes object from window. @returns true if found and removed. */
     template<class Object, typename = std::enable_if<std::is_base_of<GUIObject, Object>::value>>
@@ -124,6 +128,14 @@ public:
 
     /** Performs click on a button found by id. If not found, nothing happens. */
     void performClick(long id);
+
+    /* Canvas */
+
+    const Canvas &getCanvas() const;
+
+    void addOnDrawHandler(std::function<void(Gdiplus::Graphics *)> &&);
+
+    void redraw();
 };
 
 #endif

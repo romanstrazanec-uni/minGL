@@ -21,12 +21,17 @@ public:
     UINT getMsg() const { return messageCode; }
 
     POINT getMousePosition() const {
-        if (messageCode == WM_MOUSEMOVE) return {GET_X_LPARAM(lparam), GET_Y_LPARAM(lparam)};
+        UINT msgs[] = {WM_MOUSEMOVE, WM_LBUTTONDOWN, WM_LBUTTONUP, WM_MBUTTONDOWN, WM_MBUTTONUP, WM_RBUTTONDOWN,
+                       WM_RBUTTONUP};
+        if (in(msgs, 7)) return {GET_X_LPARAM(lparam), GET_Y_LPARAM(lparam)};
     }
 
     /* UINT code comparators */
 
-    // todo: operator in
+    bool in(UINT *msgs, UINT size) const {
+        for (UINT i = 0; i < size; ++i) if (messageCode == msgs[i]) return true;
+        return false;
+    }
 
     friend bool operator==(const WindowMessage &msg, UINT code) { return msg.messageCode == code; }
     friend bool operator!=(const WindowMessage &msg, UINT code) { return !(msg == code); }

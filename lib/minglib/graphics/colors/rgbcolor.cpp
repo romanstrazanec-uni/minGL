@@ -1,10 +1,10 @@
 #include "rgbcolor.hpp"
 
-RGBColor::RGBColor(uint8_t red, uint8_t green, uint8_t blue) : red(red), green(green), blue(blue) {}
+RGBColor::RGBColor(UINT8 red, UINT8 green, UINT8 blue) : red(red), green(green), blue(blue) {}
 RGBColor::RGBColor(const RGBColor &other) = default;
 RGBColor::~RGBColor() = default;
 
-void RGBColor::set_color(uint8_t r, uint8_t g, uint8_t b) {
+void RGBColor::setColor(UINT8 r, UINT8 g, UINT8 b) {
     red = r, green = g, blue = b;
 }
 
@@ -12,7 +12,7 @@ void RGBColor::inverse() {
     *this = RGBColor(255, 255, 255) - *this;
 }
 
-HSLColor RGBColor::to_hsl() {
+HSLColor RGBColor::toHSL() {
     float r = float(red) / 256, g = float(green) / 256, b = float(blue) / 256;
     float max = fmaxf(fmaxf(r, g), b), min = fminf(fminf(r, g), b);
     short h = 0;
@@ -71,7 +71,7 @@ RGBColor &RGBColor::operator/=(const RGBColor &other) {
     return *this;
 }
 
-RGBColor &RGBColor::operator+=(uint8_t n) {
+RGBColor &RGBColor::operator+=(UINT8 n) {
     if (red + n < 255) red += n;
     else red = 255;
     if (green + n < 255) green += n;
@@ -81,7 +81,7 @@ RGBColor &RGBColor::operator+=(uint8_t n) {
     return *this;
 }
 
-RGBColor &RGBColor::operator-=(uint8_t n) {
+RGBColor &RGBColor::operator-=(UINT8 n) {
     if (red - n > 0) red -= n;
     else red = 0;
     if (green - n > 0) green -= n;
@@ -91,7 +91,7 @@ RGBColor &RGBColor::operator-=(uint8_t n) {
     return *this;
 }
 
-RGBColor &RGBColor::operator*=(uint8_t n) {
+RGBColor &RGBColor::operator*=(UINT8 n) {
     if (red * n < 255) red *= n;
     else red = 255;
     if (green * n < 255) green *= n;
@@ -101,14 +101,14 @@ RGBColor &RGBColor::operator*=(uint8_t n) {
     return *this;
 }
 
-RGBColor &RGBColor::operator/=(uint8_t n) {
+RGBColor &RGBColor::operator/=(UINT8 n) {
     red /= n, green /= n, blue /= n;
     return *this;
 }
 
 /* Arithmetic operators */
 RGBColor RGBColor::operator+(const RGBColor &other) const {
-    uint8_t nr = red, ng = green, nb = blue;
+    UINT8 nr = red, ng = green, nb = blue;
     if (red + other.red < 255) nr += other.red;
     else nr = 255;
     if (green + other.green < 255) ng += other.green;
@@ -119,7 +119,7 @@ RGBColor RGBColor::operator+(const RGBColor &other) const {
 }
 
 RGBColor RGBColor::operator-(const RGBColor &other) const {
-    uint8_t nr = red, ng = green, nb = blue;
+    UINT8 nr = red, ng = green, nb = blue;
     if (red - other.red > 0) nr -= other.red;
     else nr = 0;
     if (green - other.green > 0) ng -= other.green;
@@ -130,7 +130,7 @@ RGBColor RGBColor::operator-(const RGBColor &other) const {
 }
 
 RGBColor RGBColor::operator*(const RGBColor &other) const {
-    uint8_t nr = red, ng = green, nb = blue;
+    UINT8 nr = red, ng = green, nb = blue;
     if (red * other.red <= 255) nr *= other.red;
     else nr = 255;
     if (green * other.green <= 255) ng *= other.green;
@@ -144,21 +144,14 @@ RGBColor RGBColor::operator/(const RGBColor &other) const {
     return RGBColor(red / other.red, green / other.green, blue / other.blue);
 }
 
-RGBColor operator+(RGBColor rgb, uint8_t n) { return rgb += n; }
-
-RGBColor operator-(RGBColor rgb, uint8_t n) { return rgb -= n; }
-
-RGBColor operator*(RGBColor rgb, uint8_t n) { return rgb *= n; }
-
-RGBColor operator/(RGBColor rgb, uint8_t n) { return rgb /= n; }
-
-RGBColor operator+(uint8_t n, RGBColor rgb) { return rgb += n; }
-
-RGBColor operator-(uint8_t n, RGBColor rgb) { return rgb -= n; }
-
-RGBColor operator*(uint8_t n, RGBColor rgb) { return rgb *= n; }
-
-RGBColor operator/(uint8_t n, RGBColor rgb) { return rgb /= n; }
+RGBColor operator+(RGBColor rgb, UINT8 n) { return rgb += n; }
+RGBColor operator-(RGBColor rgb, UINT8 n) { return rgb -= n; }
+RGBColor operator*(RGBColor rgb, UINT8 n) { return rgb *= n; }
+RGBColor operator/(RGBColor rgb, UINT8 n) { return rgb /= n; }
+RGBColor operator+(UINT8 n, RGBColor rgb) { return rgb += n; }
+RGBColor operator-(UINT8 n, RGBColor rgb) { return rgb -= n; }
+RGBColor operator*(UINT8 n, RGBColor rgb) { return rgb *= n; }
+RGBColor operator/(UINT8 n, RGBColor rgb) { return rgb /= n; }
 
 RGBColor RGBColor::operator-() const {
     return RGBColor(255, 255, 255) - *this;
@@ -179,14 +172,14 @@ RGBColor &RGBColor::operator--() {
     return *this;
 }
 
-const RGBColor RGBColor::operator++(int) {
+const RGBColor &RGBColor::operator++(int) {
     if (red < 255) red++;
     if (green < 255) green++;
     if (blue < 255) blue++;
     return *this;
 }
 
-const RGBColor RGBColor::operator--(int) {
+const RGBColor &RGBColor::operator--(int) {
     if (red > 0) red--;
     if (green > 0) green--;
     if (blue > 0) blue--;

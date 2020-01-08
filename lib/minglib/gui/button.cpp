@@ -3,13 +3,13 @@
 
 Button::Button(long id, const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height)
         : Button(nullptr, id, title, x, y, width, height) {}
-Button::Button(long id, const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height, void (*onClick)(Window *))
-        : Button(nullptr, id, title, x, y, width, height, onClick) {}
+Button::Button(long id, const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height, OnClickHandle onClick)
+        : Button(nullptr, id, title, x, y, width, height, std::move(onClick)) {}
 Button::Button(Window *window, long id, const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height)
         : Button(window, id, title, x, y, width, height, nullptr) {}
 Button::Button(Window *window, long id, const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height,
-               void (*onClick)(Window *))
-        : onClick(onClick), GUIObject(window, "Button", id, title, x, y, width, height) {
+               OnClickHandle onClick)
+        : onClick(std::move(onClick)), GUIObject(window, "Button", id, title, x, y, width, height) {
     hMenu = (HMENU) id;
 }
 

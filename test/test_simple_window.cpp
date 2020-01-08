@@ -5,7 +5,7 @@
 int main() {
     Window window;
     window.setTitle("title");
-    window.addHandler(MessageHandler(WindowMessage::onPaint(), [](Window *w, WindowMessage) {
+    window.addHandler(MessageHandler(WindowMessage::onDraw(), [](Window *w, WindowMessage) {
         HWND h = w->getWindowHandle();
         PAINTSTRUCT ps;
         HDC hdc = BeginPaint(h, &ps);

@@ -39,10 +39,32 @@ void Window::addHandler(WindowMessage &&msg, Handle &&handler) {
     addHandler(MessageHandler(std::move(msg), handler)); // todo: trivially copyable
 }
 
-void Window::addOnMouseMoveHandler(std::function<void(Window *, POINT)> &&onMouseMove) {
-    addHandler(MessageHandler::onMouseMove([&onMouseMove](Window *w, WindowMessage wm) {
-        onMouseMove(w, wm.getMousePosition());
-    }));
+void Window::addOnMouseEventHandler(WindowMessage &&wm, MouseHandle onMouseEvent) {
+    addHandler(std::move(wm), [&onMouseEvent](Window *w, WindowMessage wm) {
+        onMouseEvent(w, wm.getMousePosition());
+    });
+}
+
+void Window::addOnMouseMoveHandler(MouseHandle handle) {
+    addOnMouseEventHandler(WindowMessage::onMouseMove(), std::move(handle));
+}
+void Window::addOnLeftMouseButtonDownHandler(MouseHandle handle) {
+    addOnMouseEventHandler(WindowMessage::onLeftMouseButtonDown(), std::move(handle));
+}
+void Window::addOnLeftMouseButtonUpHandler(MouseHandle handle) {
+    addOnMouseEventHandler(WindowMessage::onLeftMouseButtonUp(), std::move(handle));
+}
+void Window::addOnMiddleMouseButtonDownHandler(MouseHandle handle) {
+    addOnMouseEventHandler(WindowMessage::onMiddleMouseButtonDown(), std::move(handle));
+}
+void Window::addOnMiddleMouseButtonUpHandler(MouseHandle handle) {
+    addOnMouseEventHandler(WindowMessage::onMiddleMouseButtonUp(), std::move(handle));
+}
+void Window::addOnRightMouseButtonDownHandler(MouseHandle handle) {
+    addOnMouseEventHandler(WindowMessage::onRightMouseButtonDown(), std::move(handle));
+}
+void Window::addOnRightMouseButtonUpHandler(MouseHandle handle) {
+    addOnMouseEventHandler(WindowMessage::onRightMouseButtonUp(), std::move(handle));
 }
 
 /* Object manipulation */
@@ -61,52 +83,32 @@ Object *Window::addObject(Object &&object) {
 
 /* Label additions. */
 
-void Window::addLabel(Label *label) {
-    addObject(label);
-}
-
-Label *Window::addLabel(Label &&label) {
-    return (Label *) addObject(std::move(label));
-}
-
+void Window::addLabel(Label *label) { addObject(label); }
+Label *Window::addLabel(Label &&label) { return (Label *) addObject(std::move(label)); }
 Label *Window::addLabel(long id, const char *text, int x, int y, int width, int height) {
     return new Label(this, id, text, x, y, width, height);
 }
 
 /* EditText additions. */
 
-void Window::addEditText(EditText *editText) {
-    addObject(editText);
-}
-
-EditText *Window::addEditText(EditText &&editText) {
-    return (EditText *) addObject(std::move(editText));
-}
-
+void Window::addEditText(EditText *editText) { addObject(editText); }
+EditText *Window::addEditText(EditText &&editText) { return (EditText *) addObject(std::move(editText)); }
 EditText *Window::addEditText(long id, int x, int y, int width, int height) {
     return new EditText(this, id, x, y, width, height);
 }
-
 EditText *Window::addEditText(long id, const char *text, int x, int y, int width, int height) {
     return new EditText(this, id, text, x, y, width, height);
 }
 
-/* Button additions. */
+/* Button additions */
 
-void Window::addButton(Button *button) {
-    addObject(button);
-}
-
-Button *Window::addButton(Button &&button) {
-    return (Button *) addObject(std::move(button));
-}
-
+void Window::addButton(Button *button) { addObject(button); }
+Button *Window::addButton(Button &&button) { return (Button *) addObject(std::move(button)); }
 Button *Window::addButton(long id, const char *title, int x, int y, int width, int height) {
     return new Button(this, id, title, x, y, width, height);
 }
-
 Button *
-Window::addButton(long id, const char *title, int x, int y, int width, int height, void (*onClick)(Window *)) {
+Window::addButton(long id, const char *title, int x, int y, int width, int height, OnClickHandle onClick) {
     return new Button(this, id, title, x, y, width, height, onClick);
 }
 
@@ -120,4 +122,16 @@ void Window::performClick(long id) {
         auto button = find<Button>(id);
         if (button != nullptr) button->performClick();
     }
+}
+
+/* Canvas */
+
+const Canvas &Window::getCanvas() const { return canvas; }
+
+void Window::addOnDrawHandler(std::function<void(Gdiplus::Graphics *)> &&onDraw) {
+    canvas.addOnDrawListener(std::move(onDraw));
+}
+
+void Window::redraw() {
+    if (isCreated()) RedrawWindow(getWindowHandle(), nullptr, nullptr, RDW_INVALIDATE | RDW_UPDATENOW | RDW_ERASE);
 }

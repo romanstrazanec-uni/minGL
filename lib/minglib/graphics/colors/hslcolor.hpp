@@ -15,7 +15,7 @@ struct HSLColor {
     virtual ~HSLColor();
 
     float chroma() const;
-    RGBColor to_rgb();
+    RGBColor toRGB();
 };
 
 #endif
