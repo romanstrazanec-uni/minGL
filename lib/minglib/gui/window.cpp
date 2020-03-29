@@ -5,6 +5,7 @@ Window::Window(const char *title) : Window(title, 100, 100, 400, 400) {}
 Window::Window(UINT16 x, UINT16 y, UINT16 width, UINT16 height) : Window("", x, y, width, height) {}
 Window::Window(const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height)
         : BaseWindow(title, x, y, width, height), canvas(this) {
+    // todo: create methods that accept handles
     addHandler(MessageHandler::onCreate([](Window *window, WindowMessage msg) { window->createObjects(); }));
     addHandler(WindowMessage(WM_COMMAND),
                [](Window *window, WindowMessage msg) { window->performClick(msg.getWparam()); });
@@ -109,7 +110,7 @@ Button *Window::addButton(long id, const char *title, int x, int y, int width, i
 }
 Button *
 Window::addButton(long id, const char *title, int x, int y, int width, int height, OnClickHandle onClick) {
-    return new Button(this, id, title, x, y, width, height, onClick);
+    return new Button(this, id, title, x, y, width, height, std::move(onClick));
 }
 
 void Window::createObjects() {
