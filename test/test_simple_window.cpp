@@ -5,13 +5,6 @@
 int main() {
     Window window;
     window.setTitle("title");
-    window.addHandler(MessageHandler(WindowMessage::onDraw(), [](Window *w, WindowMessage) {
-        HWND h = w->getWindowHandle();
-        PAINTSTRUCT ps;
-        HDC hdc = BeginPaint(h, &ps);
-        FillRect(hdc, &ps.rcPaint, (HBRUSH) (COLOR_WINDOW + 1));
-        EndPaint(h, &ps);
-    }));
     window.addHandler(WindowMessage::onClose(), [](Window *w, WindowMessage) {
         HWND h = w->getWindowHandle();
         if (MessageBox(h, "Really quit?", "My application", MB_OKCANCEL) == IDOK) DestroyWindow(h);
