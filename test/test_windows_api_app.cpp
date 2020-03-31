@@ -1,5 +1,5 @@
 #include <windows.h>
-#include <stdlib.h>
+#include <cstdlib>
 
 #define FILE_MENU_NEW 1
 #define FILE_MENU_EXIT 3
