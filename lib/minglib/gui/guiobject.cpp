@@ -60,6 +60,34 @@ void GUIObject::removeFromParent() { if (parent != nullptr) parent->remove(this)
 
 void GUIObject::setName(const char *n) { name = n; }
 
+std::string GUIObject::getText() {
+    if (!isCreated()) return "";
+
+    UINT16 length = 1;
+    char *text;
+    while (true) {
+        text = new char[length];
+        GetWindowText(hwnd, text, length + 1);
+
+        if (text[length - 1] == '\0') {
+            std::string finalText = text;
+            delete[] text;
+            return finalText;
+        }
+        delete[] text;
+        ++length;
+    }
+}
+
+std::string GUIObject::getText(UINT length) {
+    if (!isCreated()) return "";
+
+    char text[length];
+    GetWindowText(hwnd, text, ++length);
+    std::string finalText = text;
+    return finalText;
+}
+
 /* Comparision operators */
 bool GUIObject::operator==(const GUIObject &o) const { return id == o.id; }
 bool GUIObject::operator!=(const GUIObject &o) const { return !(*this == o); }

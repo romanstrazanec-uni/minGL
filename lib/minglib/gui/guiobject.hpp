@@ -2,6 +2,7 @@
 #define MINGL_GUIOBJECT_INCLUDED
 
 #include <windows.h>
+#include <string>
 
 class Window;
 
@@ -89,6 +90,16 @@ public:
     virtual void removeFromParent() final;
 
     virtual void setName(const char *) final;
+
+    /**
+     * Get text from created object by GetWindowText(HWND, LPSTR, UINT).
+     */
+    virtual std::string getText() final;
+
+    /**
+     * Get text from created object by GetWindowText(HWND, LPSTR, UINT) with specified length.
+     */
+    virtual std::string getText(UINT length) final;
 
     /* Comparision operators */
 
