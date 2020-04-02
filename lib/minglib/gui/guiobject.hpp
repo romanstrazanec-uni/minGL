@@ -16,7 +16,7 @@ class GUIObject {
 #ifdef USE_WNDCLASSEX
     DWORD extendedStyle;
 #endif
-    UINT16 x{}, y{}, width{}, height{}; // todo: #include <cstdint> uint16_t
+    UINT16 x{}, y{}, width{0}, height{0}; // todo: #include <cstdint> uint16_t
     long id{0x00FFFFFFL};
     HINSTANCE hinstance{nullptr};
     LPVOID additionalData{nullptr};
@@ -40,6 +40,9 @@ protected:
 
     virtual void setWindowHandle(HWND) final;
 
+    virtual void setWidth(UINT16) final;
+    virtual void setHeight(UINT16) final;
+
 public:
     GUIObject() = default;
     virtual ~GUIObject();
@@ -55,6 +58,9 @@ public:
     virtual void addStyle(UINT style) final;
 
     virtual const char *getName() const final;
+
+    /** Override this method to compute size before creating object. */
+    virtual void computeSize() = 0;
 
     virtual UINT16 getX() const final;
     virtual UINT16 getY() const final;
@@ -92,14 +98,10 @@ public:
     virtual void setName(const char *) final;
 
     /**
-     * Get text from created object by GetWindowText(HWND, LPSTR, UINT).
-     */
-    virtual std::string getText() final;
-
-    /**
      * Get text from created object by GetWindowText(HWND, LPSTR, UINT) with specified length.
+     * If length is 0, whole text is returned.
      */
-    virtual std::string getText(UINT length) final;
+    virtual std::string getText(UINT16 length = 0) final;
 
     /* Comparision operators */
 

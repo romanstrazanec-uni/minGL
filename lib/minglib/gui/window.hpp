@@ -31,9 +31,10 @@ class Window : public BaseWindow<Window> {
     void addOnMouseEventHandler(WindowMessage &&wm, MouseHandle);
 
 public:
-    Window();
-    explicit Window(const char *title);
+    explicit Window(const char *title = "");
+    Window(UINT16 x, UINT16 y);
     Window(UINT16 x, UINT16 y, UINT16 width, UINT16 height);
+    Window(const char *title, UINT16 x, UINT16 y);
     Window(const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
     ~Window() override;
 
@@ -67,42 +68,26 @@ public:
     /* Label additions. */
 
     void addLabel(Label *);
-
     Label *addLabel(Label &&);
-
-    Label *addLabel(long id, const char *text, int x, int y, int width, int height);
+    Label *addLabel(long id, const char *text, UINT16 x, UINT16 y);
+    Label *addLabel(long id, const char *text, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
 
     /* EditText additions. */
 
     void addEditText(EditText *);
-
     EditText *addEditText(EditText &&);
-
-    EditText *addEditText(long id, int x, int y, int width, int height);
-
-    EditText *addEditText(long id, const char *text, int x, int y, int width, int height);
+    EditText *addEditText(long id, UINT16 x, UINT16 y);
+    EditText *addEditText(long id, const char *text, UINT16 x, UINT16 y);
+    EditText *addEditText(long id, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
+    EditText *addEditText(long id, const char *text, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
 
     /* Button additions. */
 
     void addButton(Button *);
-
     Button *addButton(Button &&);
-
-    /**
-     * Adds a button with specified title at certain position relative to the window.
-     * Assign id to the button to respond with later assigned onClick method.
-     *
-     * @returns pointer to the newly created button.
-     */
-    Button *addButton(long id, const char *title, int x, int y, int width, int height);
-
-    /**
-     * Adds a button with specified title at certain position relative to the window.
-     * Assign id to the button to respond with assigned onClick method.
-     *
-     * @returns pointer to the newly created button.
-     */
-    Button *addButton(long id, const char *title, int x, int y, int width, int height, OnClickHandle);
+    Button *addButton(long id, const char *title, UINT16 x, UINT16 y, OnClickHandle && = nullptr);
+    Button *
+    addButton(long id, const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height, OnClickHandle && = nullptr);
 
     /** Removes object from window. @returns true if found and removed. */
     template<class Object, typename = std::enable_if<std::is_base_of<GUIObject, Object>::value>>
@@ -126,8 +111,12 @@ public:
     /** Creates objects when window is created. */
     void createObjects();
 
+    void computeSize() override;
+
     /** Performs click on a button found by id. If not found, nothing happens. */
     void performClick(long id);
+
+    bool showMessageDialog(const char *title, const char *message) const;
 
     /* Canvas */
 

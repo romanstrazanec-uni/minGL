@@ -1,0 +1,7 @@
+#ifndef MINGL_FONT_INCLUDED
+#define MINGL_FONT_INCLUDED
+
+#define FONT_WIDTH 8
+#define FONT_HEIGHT 20
+
+#endif

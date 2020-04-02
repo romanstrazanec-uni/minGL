@@ -114,6 +114,7 @@ public:
      * @returns false when not created otherwise true after the window was destroyed.
      */
     virtual bool show() final {
+        if (!isCreated()) computeSize();
         if (!create()) return false;
         MSG msg{};
         while (GetMessage(&msg, nullptr, 0, 0) > 0) {

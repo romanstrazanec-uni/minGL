@@ -43,6 +43,15 @@ HWND GUIObject::getWindowHandle() const { return hwnd; }
 bool GUIObject::isCreated() const { return hwnd != nullptr; }
 
 void GUIObject::setWindowHandle(HWND h) { hwnd = h; }
+
+void GUIObject::setWidth(UINT16 w) {
+    width = w;
+}
+
+void GUIObject::setHeight(UINT16 h) {
+    height = h;
+}
+
 void GUIObject::setParent(Window *window, bool onlySet) {
     if (!onlySet) removeFromParent();
     parent = window;
@@ -60,27 +69,25 @@ void GUIObject::removeFromParent() { if (parent != nullptr) parent->remove(this)
 
 void GUIObject::setName(const char *n) { name = n; }
 
-std::string GUIObject::getText() {
-    if (!isCreated()) return "";
+std::string GUIObject::getText(UINT16 length) {
+    if (!isCreated()) return name;
 
-    UINT16 length = 1;
-    char *text;
-    while (true) {
-        text = new char[length];
-        GetWindowText(hwnd, text, length + 1);
+    if (length == 0) {
+        length = 1;
+        char *text;
+        while (true) {
+            text = new char[length];
+            GetWindowText(hwnd, text, length + 1);
 
-        if (text[length - 1] == '\0') {
-            std::string finalText = text;
+            if (text[length - 1] == '\0') {
+                std::string finalText = text;
+                delete[] text;
+                return finalText;
+            }
             delete[] text;
-            return finalText;
+            ++length;
         }
-        delete[] text;
-        ++length;
     }
-}
-
-std::string GUIObject::getText(UINT length) {
-    if (!isCreated()) return "";
 
     char text[length];
     GetWindowText(hwnd, text, ++length);

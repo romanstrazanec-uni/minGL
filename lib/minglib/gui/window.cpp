@@ -1,8 +1,9 @@
 #include "window.hpp"
 
-Window::Window() : Window("") {}
-Window::Window(const char *title) : Window(title, 100, 100, 400, 400) {}
+Window::Window(const char *title) : Window(title, 0, 0) {}
+Window::Window(UINT16 x, UINT16 y) : Window("", x, y) {}
 Window::Window(UINT16 x, UINT16 y, UINT16 width, UINT16 height) : Window("", x, y, width, height) {}
+Window::Window(const char *title, UINT16 x, UINT16 y) : Window(title, x, y, 0, 0) {}
 Window::Window(const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height)
         : BaseWindow(title, x, y, width, height), canvas(this) {
     // todo: create methods that accept handles
@@ -86,7 +87,10 @@ Object *Window::addObject(Object &&object) {
 
 void Window::addLabel(Label *label) { addObject(label); }
 Label *Window::addLabel(Label &&label) { return (Label *) addObject(std::move(label)); }
-Label *Window::addLabel(long id, const char *text, int x, int y, int width, int height) {
+Label *Window::addLabel(long id, const char *text, UINT16 x, UINT16 y) {
+    return new Label(this, id, text, x, y);
+}
+Label *Window::addLabel(long id, const char *text, UINT16 x, UINT16 y, UINT16 width, UINT16 height) {
     return new Label(this, id, text, x, y, width, height);
 }
 
@@ -94,10 +98,16 @@ Label *Window::addLabel(long id, const char *text, int x, int y, int width, int 
 
 void Window::addEditText(EditText *editText) { addObject(editText); }
 EditText *Window::addEditText(EditText &&editText) { return (EditText *) addObject(std::move(editText)); }
-EditText *Window::addEditText(long id, int x, int y, int width, int height) {
+EditText *Window::addEditText(long id, UINT16 x, UINT16 y) {
+    return new EditText(this, id, x, y);
+}
+EditText *Window::addEditText(long id, const char *text, UINT16 x, UINT16 y) {
+    return new EditText(this, id, text, x, y);
+}
+EditText *Window::addEditText(long id, UINT16 x, UINT16 y, UINT16 width, UINT16 height) {
     return new EditText(this, id, x, y, width, height);
 }
-EditText *Window::addEditText(long id, const char *text, int x, int y, int width, int height) {
+EditText *Window::addEditText(long id, const char *text, UINT16 x, UINT16 y, UINT16 width, UINT16 height) {
     return new EditText(this, id, text, x, y, width, height);
 }
 
@@ -105,11 +115,12 @@ EditText *Window::addEditText(long id, const char *text, int x, int y, int width
 
 void Window::addButton(Button *button) { addObject(button); }
 Button *Window::addButton(Button &&button) { return (Button *) addObject(std::move(button)); }
-Button *Window::addButton(long id, const char *title, int x, int y, int width, int height) {
-    return new Button(this, id, title, x, y, width, height);
+Button *Window::addButton(long id, const char *title, UINT16 x, UINT16 y, OnClickHandle &&onClick) {
+    return new Button(this, id, title, x, y, std::move(onClick));
 }
 Button *
-Window::addButton(long id, const char *title, int x, int y, int width, int height, OnClickHandle onClick) {
+Window::addButton(long id, const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height,
+                  OnClickHandle &&onClick) {
     return new Button(this, id, title, x, y, width, height, std::move(onClick));
 }
 
@@ -118,11 +129,32 @@ void Window::createObjects() {
     for (auto objectKVP : objects) objectKVP.second->create();
 }
 
+void Window::computeSize() {
+    UINT16 computedWidth = 0, computedHeight = 0, newWidth, newHeight;
+    for (auto objectKVP : objects) {
+        objectKVP.second->computeSize();
+
+        newWidth = objectKVP.second->getX() + objectKVP.second->getWidth();
+        computedWidth = newWidth > computedWidth ? newWidth : computedWidth;
+
+        newHeight = objectKVP.second->getY() + objectKVP.second->getHeight();
+        computedHeight = newHeight > computedHeight ? newHeight : computedHeight;
+    }
+
+    if (computedWidth > getWidth()) setWidth(computedWidth);
+    if (computedHeight > getHeight()) setHeight(computedHeight);
+    setHeight(getHeight() + 50);
+}
+
 void Window::performClick(long id) {
     if (isCreated()) {
         auto button = find<Button>(id);
         if (button != nullptr) button->performClick();
     }
+}
+
+bool Window::showMessageDialog(const char *title, const char *message) const {
+    return isCreated() && MessageBox(getWindowHandle(), message, title, MB_OKCANCEL) == IDOK;
 }
 
 /* Canvas */
@@ -134,5 +166,7 @@ void Window::addOnDrawHandler(std::function<void(Gdiplus::Graphics *)> &&onDraw)
 }
 
 void Window::redraw() {
-    if (isCreated()) RedrawWindow(getWindowHandle(), nullptr, nullptr, RDW_INVALIDATE | RDW_UPDATENOW | RDW_ERASE);
+    if (isCreated())
+        RedrawWindow(getWindowHandle(), nullptr, nullptr,
+                     RDW_INVALIDATE | RDW_UPDATENOW | RDW_ERASE);
 }
