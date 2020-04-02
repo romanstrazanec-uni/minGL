@@ -1,24 +1,19 @@
 #include <mingl>
 
 #include <vector>
-#include <memory>
 
 using namespace std;
 using namespace Gdiplus;
 
 struct ColorPath {
     Color color{};
-    unique_ptr<vector<Point>> path{new vector<Point>};
+    vector<Point> path{};
 
     ColorPath() = default;
     ColorPath(const Color &c) : color(c) {}
     ColorPath(const Color &c, const POINT &p) : color(c) { addPoint(p); }
 
-    void addPoint(const POINT &p) { path->emplace_back(p.x, p.y); }
-
-    Point *points() const { return path->data(); }
-
-    ULONG size() const { return path->size(); }
+    void addPoint(const POINT &p) { path.emplace_back(p.x, p.y); }
 };
 
 int main() {
@@ -32,6 +27,7 @@ int main() {
 
     vector<ColorPath> paths;
 
+    // todo: mutable not required??
     w.addButton(1, "Red", 10, 10, 50, 20, [&c](Window *) {
         c = Color(255, 255, 0, 0);
     });
@@ -57,22 +53,22 @@ int main() {
         if (!lButtonDown)
             for (const auto &path : paths) {
                 pen.SetColor(path.color);
-                g->DrawLines(&pen, path.points(), path.size());
+                g->DrawLines(&pen, path.path.data(), path.path.size());
             }
     });
 
-    w.addOnLeftMouseButtonDownHandler([&](Window *, POINT p) {
+    w.addOnLeftMouseButtonDownHandler([&lButtonDown, &paths, &c](Window *, POINT p) {
         lButtonDown = true;
-        paths.emplace_back(c, p);
+        paths.emplace_back(c, p); // todo: segmentation fault
     });
 
-    w.addOnLeftMouseButtonUpHandler([&](Window *, POINT p) {
-        paths.end()->addPoint(p);
+    w.addOnLeftMouseButtonUpHandler([&lButtonDown, &paths](Window *, POINT p) {
+        if (!paths.empty()) paths.back().addPoint(p);
         lButtonDown = false;
     });
 
     w.addOnMouseMoveHandler([&](Window *, POINT p) {
-        if (lButtonDown) paths.end()->addPoint(p); // todo: segmentation fault
+        if (lButtonDown) paths.back().addPoint(p); // todo: segmentation fault
     });
 
     w.show();
