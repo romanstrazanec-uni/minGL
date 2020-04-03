@@ -69,7 +69,7 @@ void GUIObject::removeFromParent() { if (parent != nullptr) parent->remove(this)
 
 void GUIObject::setName(const char *n) { name = n; }
 
-std::string GUIObject::getText(UINT16 length) {
+std::string GUIObject::getText(UINT16 length) const {
     if (!isCreated()) return name;
 
     if (length == 0) {
@@ -93,6 +93,11 @@ std::string GUIObject::getText(UINT16 length) {
     GetWindowText(hwnd, text, ++length);
     std::string finalText = text;
     return finalText;
+}
+
+void GUIObject::setText(const char *text) {
+    if (isCreated()) SetWindowText(hwnd, text);
+    else name = text;
 }
 
 /* Comparision operators */
