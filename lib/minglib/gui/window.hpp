@@ -19,15 +19,6 @@ class Window : public BaseWindow<Window> {
     std::map<long, GUIObject *> objects{};
     Canvas canvas;
 
-    /**
-     * Allows addition of GUIObjects passed as rvalue. Template class Object should be subclass of GUIObject.
-     *
-     * @tparam Object
-     * @returns a pointer allocated for the passed object stored in the window
-     */
-    template<class Object>
-    Object *addObject(Object &&);
-
     void addOnMouseEventHandler(WindowMessage &&wm, MouseHandle);
 
 public:
@@ -57,6 +48,15 @@ public:
     void addOnRightMouseButtonUpHandler(MouseHandle);
 
     /* Object manipulation */
+
+    /**
+     * Allows addition of GUIObjects passed as rvalue. Template class Object should be subclass of GUIObject.
+     *
+     * @tparam Object
+     * @returns a pointer allocated for the passed object stored in the window
+     */
+    template<class Object>
+    Object *addObject(Object &&);
 
     /**
      * Adds an created object to window.
