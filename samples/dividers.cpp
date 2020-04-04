@@ -21,6 +21,7 @@ int main() {
     window.addButton(Button(4, "Vypocitaj", 190, 10, [&input, &output](Window *) {
         unsigned long number = input.getNumber();
 
+        /*
         std::string result = "1\r\n";
         for (int i = 2; i < number; ++i) {
             if (number % i == 0) {
@@ -29,6 +30,17 @@ int main() {
         }
         result += std::to_string(number);
         output.setText(result.c_str());
+        */
+
+        output.setText("");
+
+        output.writeLine("1");
+        for (int i = 2; i < number; ++i) {
+            if (number % i == 0) {
+                output.writeLine(std::to_string(i));
+            }
+        }
+        output.writeLine(std::to_string(number));
     }));
 
     window.show();

@@ -64,3 +64,7 @@ void TextInput::enableMultiLine() {
 void TextInput::readOnly() {
     addStyle(ES_READONLY);
 }
+
+void TextInput::writeLine(std::string newLine) {
+    setText((getText() + newLine + "\r\n").c_str());
+}

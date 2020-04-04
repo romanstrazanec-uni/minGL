@@ -25,6 +25,8 @@ public:
     void enableMultiLine();
     void readOnly();
 
+    void writeLine(std::string newLine);
+
 protected:
     void computeSize() override;
 };
