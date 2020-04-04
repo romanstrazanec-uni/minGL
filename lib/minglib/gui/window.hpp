@@ -3,7 +3,7 @@
 
 #include "basewindow.hpp"
 #include "button.hpp"
-#include "textinput.hpp"
+#include "numberinput.hpp"
 #include "label.hpp"
 
 #include "../messaging/messagehandler.hpp"
@@ -80,6 +80,15 @@ public:
     TextInput *addTextInput(long id, const char *text, UINT16 x, UINT16 y);
     TextInput *addTextInput(long id, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
     TextInput *addTextInput(long id, const char *text, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
+
+    /* NumberInput additions. */
+
+    void addNumberInput(NumberInput *);
+    NumberInput *addNumberInput(NumberInput &&);
+    NumberInput *addNumberInput(long id, UINT16 x, UINT16 y);
+    NumberInput *addNumberInput(long id, const char *text, UINT16 x, UINT16 y);
+    NumberInput *addNumberInput(long id, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
+    NumberInput *addNumberInput(long id, const char *text, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
 
     /* Button additions. */
 

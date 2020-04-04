@@ -111,6 +111,25 @@ TextInput *Window::addTextInput(long id, const char *text, UINT16 x, UINT16 y, U
     return new TextInput(this, id, text, x, y, width, height);
 }
 
+/* NumberInput additions. */
+
+void Window::addNumberInput(NumberInput *numberInput) { addObject(numberInput); }
+NumberInput *Window::addNumberInput(NumberInput &&numberInput) {
+    return (NumberInput *) addObject(std::move(numberInput));
+}
+NumberInput *Window::addNumberInput(long id, UINT16 x, UINT16 y) {
+    return new NumberInput(this, id, x, y);
+}
+NumberInput *Window::addNumberInput(long id, const char *text, UINT16 x, UINT16 y) {
+    return new NumberInput(this, id, text, x, y);
+}
+NumberInput *Window::addNumberInput(long id, UINT16 x, UINT16 y, UINT16 width, UINT16 height) {
+    return new NumberInput(this, id, x, y, width, height);
+}
+NumberInput *Window::addNumberInput(long id, const char *text, UINT16 x, UINT16 y, UINT16 width, UINT16 height) {
+    return new NumberInput(this, id, text, x, y, width, height);
+}
+
 /* Button additions */
 
 void Window::addButton(Button *button) { addObject(button); }
