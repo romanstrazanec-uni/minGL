@@ -1,7 +1,12 @@
 <component name="ProjectDictionaryState">
   <dictionary name="romanstrazanec">
     <words>
+      <w>adresu</w>
+      <w>adresy</w>
+      <w>alebo</w>
       <w>aplikáciu</w>
+      <w>bolo</w>
+      <w>budeme</w>
       <w>ccolors</w>
       <w>cgeometry</w>
       <w>cgraphics</w>
@@ -15,13 +20,16 @@
       <w>cstdint</w>
       <w>cstyles</w>
       <w>definovať</w>
+      <w>delení</w>
       <w>delitele</w>
+      <w>deliteľom</w>
       <w>dgraphics</w>
       <w>dgui</w>
       <w>dlzku</w>
       <w>dmessages</w>
       <w>dmessaging</w>
       <w>dmingl</w>
+      <w>druhý</w>
       <w>dstyles</w>
       <w>dátový</w>
       <w>dôležitý</w>
@@ -30,6 +38,8 @@
       <w>editovacie</w>
       <w>editovacieho</w>
       <w>edittext</w>
+      <w>efektívnejšie</w>
+      <w>ekvivalentá</w>
       <w>endl</w>
       <w>fileglob</w>
       <w>funkcia</w>
@@ -44,96 +54,192 @@
       <w>identifikátoru</w>
       <w>inicializujem</w>
       <w>inicializujeme</w>
+      <w>inicializácia</w>
       <w>jazyku</w>
       <w>jeho</w>
+      <w>kalkulácii</w>
+      <w>každého</w>
       <w>keďže</w>
       <w>knižnice</w>
       <w>kocka</w>
       <w>kocky</w>
+      <w>komponent</w>
+      <w>komponentov</w>
+      <w>komponentu</w>
+      <w>komponenty</w>
+      <w>koniec</w>
       <w>konverziu</w>
+      <w>ktorá</w>
       <w>ktorého</w>
       <w>ktorú</w>
       <w>ktorým</w>
       <w>messagehandler</w>
       <w>metóda</w>
+      <w>metódu</w>
       <w>metódy</w>
       <w>mieste</w>
       <w>mimo</w>
       <w>mingl</w>
       <w>minglib</w>
+      <w>mohli</w>
+      <w>mohol</w>
       <w>možné</w>
+      <w>môže</w>
+      <w>môžeme</w>
       <w>nahrádzali</w>
+      <w>nakoniec</w>
       <w>namiesto</w>
+      <w>nastavia</w>
+      <w>nastavíme</w>
+      <w>nemusíme</w>
+      <w>nepotrebujeme</w>
+      <w>nezáleží</w>
       <w>nové</w>
+      <w>nový</w>
       <w>numberinput</w>
+      <w>následne</w>
+      <w>názvom</w>
       <w>objekt</w>
       <w>objektov</w>
       <w>objektu</w>
+      <w>objekty</w>
       <w>objem</w>
       <w>objemu</w>
+      <w>okna</w>
       <w>okne</w>
       <w>okno</w>
+      <w>okraj</w>
+      <w>operačný</w>
+      <w>operácií</w>
+      <w>opäť</w>
       <w>otvorím</w>
       <w>otvoríme</w>
       <w>parametrom</w>
+      <w>pokračujeme</w>
       <w>pola</w>
       <w>pomocou</w>
+      <w>popis</w>
+      <w>poradí</w>
+      <w>posiela</w>
       <w>poskladať</w>
       <w>posledný</w>
+      <w>posúvať</w>
+      <w>potrebné</w>
+      <w>potrebuje</w>
       <w>potrebujeme</w>
       <w>použijeme</w>
       <w>použitie</w>
       <w>použíjeme</w>
       <w>povrch</w>
       <w>povrchu</w>
+      <w>počet</w>
+      <w>počtu</w>
+      <w>presahovať</w>
       <w>preto</w>
       <w>pretypujem</w>
       <w>pretypujeme</w>
+      <w>pridania</w>
+      <w>pridať</w>
+      <w>pridá</w>
       <w>pridám</w>
       <w>pridáme</w>
+      <w>pridávať</w>
+      <w>pristupovať</w>
+      <w>problémom</w>
       <w>prvý</w>
+      <w>prvým</w>
       <w>prípade</w>
+      <w>písma</w>
       <w>pýta</w>
+      <w>reťazca</w>
       <w>reťazce</w>
       <w>reťazcov</w>
       <w>reťazcový</w>
       <w>reťazcu</w>
+      <w>reťazec</w>
       <w>rgbcolor</w>
+      <w>riadkov</w>
+      <w>riadok</w>
+      <w>samotné</w>
+      <w>samé</w>
+      <w>slúži</w>
       <w>správu</w>
       <w>spustíme</w>
+      <w>spôsob</w>
+      <w>spôsobom</w>
       <w>stlačení</w>
       <w>strany</w>
+      <w>stred</w>
+      <w>systém</w>
+      <w>súradnice</w>
+      <w>takto</w>
+      <w>teda</w>
       <w>tejto</w>
       <w>tento</w>
+      <w>textom</w>
       <w>textu</w>
       <w>tlačidlo</w>
       <w>tomto</w>
+      <w>tomuto</w>
       <w>treba</w>
       <w>táto</w>
       <w>túto</w>
       <w>ukazovateľ</w>
+      <w>umožníme</w>
+      <w>veľkosti</w>
+      <w>viacero</w>
+      <w>vstup</w>
+      <w>vstupného</w>
+      <w>vstupný</w>
+      <w>vstupu</w>
       <w>vyhľadávaní</w>
+      <w>vykonaných</w>
       <w>vykoná</w>
       <w>vypocet</w>
       <w>vypocitaj</w>
+      <w>vypočíta</w>
       <w>vypočítaj</w>
       <w>vypočítam</w>
       <w>vypočítame</w>
+      <w>vypočítané</w>
+      <w>vytvorenie</w>
       <w>vytvorené</w>
+      <w>vytvorení</w>
+      <w>vytvoriť</w>
       <w>vytvorím</w>
       <w>vytvoríme</w>
+      <w>vyčistíme</w>
+      <w>výpis</w>
       <w>výpočet</w>
+      <w>výraze</w>
       <w>výrazu</w>
+      <w>výsledný</w>
+      <w>výšku</w>
+      <w>však</w>
       <w>wndclassex</w>
+      <w>zachytíme</w>
       <w>zadaj</w>
+      <w>zadanie</w>
+      <w>zadané</w>
+      <w>zadať</w>
       <w>zadávanie</w>
+      <w>zarovnáme</w>
+      <w>znakov</w>
+      <w>znaky</w>
       <w>zobrazím</w>
       <w>zobrazíme</w>
+      <w>zvyšok</w>
+      <w>základe</w>
       <w>získam</w>
       <w>získame</w>
       <w>získať</w>
+      <w>údaje</w>
+      <w>číselného</w>
+      <w>číselný</w>
       <w>čísla</w>
       <w>číslo</w>
+      <w>čítanie</w>
+      <w>ďalším</w>
       <w>štandardnej</w>
     </words>
   </dictionary>

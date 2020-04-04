@@ -4,10 +4,10 @@ int main() {
     // Inicializujeme nové okno.
     Window window{"Vypocet objemu a povrchu kocky", 100, 100, 250, 100};
 
-    // Pridáme text pre použitie editovacieho pola.
+    // Pridáme text pre použitie číselného vstupu pola.
     window.addLabel(1, "Zadaj dlzku hrany: ", 10, 20, 100, 20);
 
-    // Pridáme editovacie pole pre zadávanie dĺžky hrany.
+    // Pridáme pole pre zadávanie dĺžky hrany.
     // Prvý parameter tejto metódy je identifikátor objektu. Je dôležitý pri vyhľadávaní objektov v okne.
     window.addNumberInput(2, 140, 20, 50, 20);
 
@@ -19,7 +19,7 @@ int main() {
         // Získame objekt pomocou jeho identifikátoru.
         auto numberInput = w->find<NumberInput>(2);
 
-        // Pretypujeme text z objektu na číslo.
+        // Z objektu získame zadané číslo.
         unsigned long length = numberInput->getNumber();
 
         // Vypočítame objem a povrch.
