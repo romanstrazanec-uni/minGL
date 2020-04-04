@@ -29,6 +29,7 @@
       <w>dmessages</w>
       <w>dmessaging</w>
       <w>dmingl</w>
+      <w>doprava</w>
       <w>druhý</w>
       <w>dstyles</w>
       <w>dátový</w>
@@ -40,16 +41,21 @@
       <w>edittext</w>
       <w>efektívnejšie</w>
       <w>ekvivalentá</w>
+      <w>elipsy</w>
       <w>endl</w>
+      <w>farbu</w>
       <w>fileglob</w>
       <w>funkcia</w>
       <w>funkcie</w>
       <w>funkciu</w>
       <w>gdiplus</w>
       <w>guiobject</w>
+      <w>hodnota</w>
+      <w>hodnoty</w>
       <w>hranou</w>
       <w>hrany</w>
       <w>hslcolor</w>
+      <w>ideme</w>
       <w>identifikátor</w>
       <w>identifikátoru</w>
       <w>inicializujem</w>
@@ -59,8 +65,10 @@
       <w>jeho</w>
       <w>kalkulácii</w>
       <w>každého</w>
+      <w>každý</w>
       <w>keďže</w>
       <w>knižnice</w>
+      <w>knižnicu</w>
       <w>kocka</w>
       <w>kocky</w>
       <w>komponent</w>
@@ -69,10 +77,18 @@
       <w>komponenty</w>
       <w>koniec</w>
       <w>konverziu</w>
+      <w>kreslenie</w>
+      <w>kresliť</w>
+      <w>kruh</w>
+      <w>kruhu</w>
+      <w>kruhy</w>
+      <w>kružnicu</w>
       <w>ktorá</w>
       <w>ktorého</w>
+      <w>ktorému</w>
       <w>ktorú</w>
       <w>ktorým</w>
+      <w>menný</w>
       <w>messagehandler</w>
       <w>metóda</w>
       <w>metódu</w>
@@ -86,17 +102,25 @@
       <w>možné</w>
       <w>môže</w>
       <w>môžeme</w>
+      <w>nahodne</w>
       <w>nahrádzali</w>
       <w>nakoniec</w>
+      <w>nakreslíme</w>
       <w>namiesto</w>
+      <w>napíšeme</w>
+      <w>nastavená</w>
       <w>nastavia</w>
       <w>nastavíme</w>
+      <w>nemuseli</w>
       <w>nemusíme</w>
       <w>nepotrebujeme</w>
+      <w>nepretínal</w>
       <w>nezáleží</w>
       <w>nové</w>
       <w>nový</w>
       <w>numberinput</w>
+      <w>náhodne</w>
+      <w>náhodnú</w>
       <w>následne</w>
       <w>názvom</w>
       <w>objekt</w>
@@ -109,19 +133,24 @@
       <w>okne</w>
       <w>okno</w>
       <w>okraj</w>
+      <w>okraje</w>
       <w>operačný</w>
       <w>operácií</w>
       <w>opäť</w>
       <w>otvorím</w>
       <w>otvoríme</w>
       <w>parametrom</w>
+      <w>pero</w>
+      <w>pocet</w>
       <w>pokračujeme</w>
       <w>pola</w>
+      <w>polu</w>
       <w>pomocou</w>
       <w>popis</w>
       <w>poradí</w>
       <w>posiela</w>
       <w>poskladať</w>
+      <w>poskytuje</w>
       <w>posledný</w>
       <w>posúvať</w>
       <w>potrebné</w>
@@ -130,10 +159,14 @@
       <w>použijeme</w>
       <w>použitie</w>
       <w>použíjeme</w>
+      <w>používať</w>
       <w>povrch</w>
       <w>povrchu</w>
       <w>počet</w>
       <w>počtu</w>
+      <w>pracovať</w>
+      <w>prekreslíme</w>
+      <w>premennú</w>
       <w>presahovať</w>
       <w>preto</w>
       <w>pretypujem</w>
@@ -144,11 +177,15 @@
       <w>pridám</w>
       <w>pridáme</w>
       <w>pridávať</w>
+      <w>priemer</w>
+      <w>priestor</w>
       <w>pristupovať</w>
       <w>problémom</w>
+      <w>prostredia</w>
       <w>prvý</w>
       <w>prvým</w>
       <w>prípade</w>
+      <w>písať</w>
       <w>písma</w>
       <w>pýta</w>
       <w>reťazca</w>
@@ -160,6 +197,8 @@
       <w>rgbcolor</w>
       <w>riadkov</w>
       <w>riadok</w>
+      <w>rovnaký</w>
+      <w>rôzne</w>
       <w>samotné</w>
       <w>samé</w>
       <w>slúži</w>
@@ -172,6 +211,8 @@
       <w>stred</w>
       <w>systém</w>
       <w>súradnice</w>
+      <w>takisto</w>
+      <w>taktiež</w>
       <w>takto</w>
       <w>teda</w>
       <w>tejto</w>
@@ -184,17 +225,27 @@
       <w>treba</w>
       <w>táto</w>
       <w>túto</w>
+      <w>uchovávanie</w>
       <w>ukazovateľ</w>
       <w>umožníme</w>
       <w>veľkosti</w>
       <w>viacero</w>
+      <w>vieme</w>
+      <w>vonkajšieho</w>
+      <w>vráti</w>
       <w>vstup</w>
+      <w>vstupné</w>
       <w>vstupného</w>
+      <w>vstupnému</w>
       <w>vstupný</w>
       <w>vstupu</w>
+      <w>vyberieme</w>
       <w>vyhľadávaní</w>
       <w>vykonaných</w>
       <w>vykoná</w>
+      <w>vykreslenie</w>
+      <w>vykreslení</w>
+      <w>vykresli</w>
       <w>vypocet</w>
       <w>vypocitaj</w>
       <w>vypočíta</w>
@@ -205,9 +256,11 @@
       <w>vytvorenie</w>
       <w>vytvorené</w>
       <w>vytvorení</w>
+      <w>vytvorený</w>
       <w>vytvoriť</w>
       <w>vytvorím</w>
       <w>vytvoríme</w>
+      <w>využijeme</w>
       <w>vyčistíme</w>
       <w>výpis</w>
       <w>výpočet</w>
@@ -221,6 +274,7 @@
       <w>zadaj</w>
       <w>zadanie</w>
       <w>zadané</w>
+      <w>zadaného</w>
       <w>zadať</w>
       <w>zadávanie</w>
       <w>zarovnáme</w>
@@ -234,13 +288,18 @@
       <w>získame</w>
       <w>získať</w>
       <w>údaje</w>
+      <w>útvaru</w>
+      <w>útvary</w>
       <w>číselného</w>
       <w>číselný</w>
       <w>čísla</w>
       <w>číslo</w>
       <w>čítanie</w>
+      <w>ďalej</w>
       <w>ďalším</w>
       <w>štandardnej</w>
+      <w>štetec</w>
+      <w>šírku</w>
     </words>
   </dictionary>
 </component>
