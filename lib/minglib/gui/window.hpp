@@ -3,7 +3,7 @@
 
 #include "basewindow.hpp"
 #include "button.hpp"
-#include "edittext.hpp"
+#include "textinput.hpp"
 #include "label.hpp"
 
 #include "../messaging/messagehandler.hpp"
@@ -72,14 +72,14 @@ public:
     Label *addLabel(long id, const char *text, UINT16 x, UINT16 y);
     Label *addLabel(long id, const char *text, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
 
-    /* EditText additions. */
+    /* TextInput additions. */
 
-    void addEditText(EditText *);
-    EditText *addEditText(EditText &&);
-    EditText *addEditText(long id, UINT16 x, UINT16 y);
-    EditText *addEditText(long id, const char *text, UINT16 x, UINT16 y);
-    EditText *addEditText(long id, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
-    EditText *addEditText(long id, const char *text, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
+    void addTextInput(TextInput *);
+    TextInput *addTextInput(TextInput &&);
+    TextInput *addTextInput(long id, UINT16 x, UINT16 y);
+    TextInput *addTextInput(long id, const char *text, UINT16 x, UINT16 y);
+    TextInput *addTextInput(long id, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
+    TextInput *addTextInput(long id, const char *text, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
 
     /* Button additions. */
 

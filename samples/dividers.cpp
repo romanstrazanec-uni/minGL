@@ -7,11 +7,11 @@ int main() {
 
     window.addLabel(1, "Zadaj cislo: ", 10, 10);
 
-    EditText input(2, 130, 10, 50, 20);
-    window.addEditText(&input);
+    TextInput input(2, 130, 10, 50, 20);
+    window.addTextInput(&input);
     input.addStyle(WS_BORDER | ES_NUMBER | ES_CENTER);
 
-    EditText output(&window, 3, 10, 40, 250, 250);
+    TextInput output(&window, 3, 10, 40, 250, 250);
     output.addStyle(WS_BORDER | ES_AUTOVSCROLL | ES_MULTILINE);
 
     window.addButton(Button(4, "Vypocitaj", 190, 10, [&input, &output](Window *) {

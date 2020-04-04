@@ -35,7 +35,7 @@ int main() {
     // passing label as rvalue
     window.addLabel(Label(4, "rvalue label", 50, 0, 100, 50));
 
-    window.addEditText(5, "edit text", 50, 250, 100, 50);
+    window.addTextInput(5, "edit text", 50, 250, 100, 50);
 
     window.show();
     return 0;

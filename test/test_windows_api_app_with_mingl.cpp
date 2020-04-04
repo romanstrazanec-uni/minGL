@@ -8,9 +8,9 @@ using namespace std;
 int main() {
     Window w(100, 100, 500, 500);
 
-    EditText eName(1, 200, 50, 90, 38);
-    EditText eAge(2, 200, 90, 98, 38);
-    EditText eOut(3, 100, 200, 300, 200);
+    TextInput eName(1, 200, 50, 90, 38);
+    TextInput eAge(2, 200, 90, 98, 38);
+    TextInput eOut(3, 100, 200, 300, 200);
 
     eName.addStyle(WS_BORDER);
     eAge.addStyle(WS_BORDER);
@@ -20,9 +20,9 @@ int main() {
         cout << "Click" << endl;
         char name[30], age[10], out[50];
 
-        EditText *eName = w->find<EditText>(1);
-        EditText *eAge = w->find<EditText>(2);
-        EditText *eOut = w->find<EditText>(3);
+        TextInput *eName = w->find<TextInput>(1);
+        TextInput *eAge = w->find<TextInput>(2);
+        TextInput *eOut = w->find<TextInput>(3);
 
         /*HWND hName = eName->getWindowHandle();
         cout << "hName gets a handle" << endl;
@@ -52,9 +52,9 @@ int main() {
     w.addLabel(4, "Name: ", 100, 50, 98, 38);
     w.addLabel(&lAge);
 
-    w.addEditText(&eName);
-    w.addEditText(&eAge);
-    w.addEditText(&eOut);
+    w.addTextInput(&eName);
+    w.addTextInput(&eAge);
+    w.addTextInput(&eOut);
 
     w.show();
     return 0;

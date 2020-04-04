@@ -94,21 +94,21 @@ Label *Window::addLabel(long id, const char *text, UINT16 x, UINT16 y, UINT16 wi
     return new Label(this, id, text, x, y, width, height);
 }
 
-/* EditText additions. */
+/* TextInput additions. */
 
-void Window::addEditText(EditText *editText) { addObject(editText); }
-EditText *Window::addEditText(EditText &&editText) { return (EditText *) addObject(std::move(editText)); }
-EditText *Window::addEditText(long id, UINT16 x, UINT16 y) {
-    return new EditText(this, id, x, y);
+void Window::addTextInput(TextInput *textInput) { addObject(textInput); }
+TextInput *Window::addTextInput(TextInput &&textInput) { return (TextInput *) addObject(std::move(textInput)); }
+TextInput *Window::addTextInput(long id, UINT16 x, UINT16 y) {
+    return new TextInput(this, id, x, y);
 }
-EditText *Window::addEditText(long id, const char *text, UINT16 x, UINT16 y) {
-    return new EditText(this, id, text, x, y);
+TextInput *Window::addTextInput(long id, const char *text, UINT16 x, UINT16 y) {
+    return new TextInput(this, id, text, x, y);
 }
-EditText *Window::addEditText(long id, UINT16 x, UINT16 y, UINT16 width, UINT16 height) {
-    return new EditText(this, id, x, y, width, height);
+TextInput *Window::addTextInput(long id, UINT16 x, UINT16 y, UINT16 width, UINT16 height) {
+    return new TextInput(this, id, x, y, width, height);
 }
-EditText *Window::addEditText(long id, const char *text, UINT16 x, UINT16 y, UINT16 width, UINT16 height) {
-    return new EditText(this, id, text, x, y, width, height);
+TextInput *Window::addTextInput(long id, const char *text, UINT16 x, UINT16 y, UINT16 width, UINT16 height) {
+    return new TextInput(this, id, text, x, y, width, height);
 }
 
 /* Button additions */
