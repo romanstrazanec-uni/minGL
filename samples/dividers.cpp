@@ -1,5 +1,4 @@
 #include <mingl>
-#include <iostream>
 
 int main() {
     Window window;
