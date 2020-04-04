@@ -2,7 +2,7 @@
 #define MINGL_BASE_WINDOW_INCLUDED
 
 #include "guiobject.hpp"
-#include "../messaging/windowmessage.hpp"
+#include "../messages/windowmessage.hpp"
 
 #include <gdiplus.h>
 

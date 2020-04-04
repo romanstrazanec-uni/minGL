@@ -6,7 +6,7 @@
 #include "numberinput.hpp"
 #include "label.hpp"
 
-#include "../messaging/messagehandler.hpp"
+#include "../messages/messagehandler.hpp"
 #include "../graphics/canvas.hpp"
 
 #include <map>

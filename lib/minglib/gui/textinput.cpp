@@ -24,3 +24,7 @@ void TextInput::computeSize() {
     if (getWidth() < minWidth) setWidth(minWidth);
     if (getHeight() < FONT_HEIGHT) setHeight(FONT_HEIGHT);
 }
+
+void TextInput::addBorder() {
+    addStyle(WS_BORDER);
+}

@@ -8,11 +8,13 @@ int main() {
     window.addLabel(1, "Zadaj cislo: ", 10, 10);
 
     NumberInput input(2, 130, 10, 50, 20);
+    input.addBorder();
     window.addNumberInput(&input);
-    input.addStyle(WS_BORDER | ES_CENTER);
+    input.addStyle(ES_CENTER);
 
     TextInput output(&window, 3, 10, 40, 250, 250);
-    output.addStyle(WS_BORDER | ES_AUTOVSCROLL | ES_MULTILINE);
+    output.addBorder();
+    output.addStyle(ES_AUTOVSCROLL | ES_MULTILINE);
 
     window.addButton(Button(4, "Vypocitaj", 190, 10, [&input, &output](Window *) {
         unsigned long number = input.getNumber();

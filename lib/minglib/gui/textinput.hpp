@@ -14,6 +14,8 @@ public:
     TextInput(Window *parent, long id, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
     TextInput(Window *parent, long id, const char *text, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
 
+    void addBorder();
+
 protected:
     void computeSize() override;
 };
