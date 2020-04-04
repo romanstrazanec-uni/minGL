@@ -9,12 +9,14 @@ int main() {
 
     NumberInput input(2, 130, 10, 50, 20);
     input.addBorder();
+    input.alignCenter();
     window.addNumberInput(&input);
-    input.addStyle(ES_CENTER);
 
-    TextInput output(&window, 3, 10, 40, 250, 250);
+    TextInput output(&window, 3, 10, 40, 250, 100);
     output.addBorder();
-    output.addStyle(ES_AUTOVSCROLL | ES_MULTILINE);
+    output.enableVerticalScroll();
+    output.enableMultiLine();
+    output.readOnly();
 
     window.addButton(Button(4, "Vypocitaj", 190, 10, [&input, &output](Window *) {
         unsigned long number = input.getNumber();

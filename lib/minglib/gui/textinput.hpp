@@ -15,6 +15,15 @@ public:
     TextInput(Window *parent, long id, const char *text, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
 
     void addBorder();
+    void alignLeft();
+    void alignCenter();
+    void alignRight();
+    void enableVerticalScroll();
+    void enableHorizontalScroll();
+    void enableVerticalAutoScroll();
+    void enableHorizontalAutoScroll();
+    void enableMultiLine();
+    void readOnly();
 
 protected:
     void computeSize() override;

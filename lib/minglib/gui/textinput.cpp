@@ -28,3 +28,39 @@ void TextInput::computeSize() {
 void TextInput::addBorder() {
     addStyle(WS_BORDER);
 }
+
+void TextInput::alignLeft() {
+    addStyle(ES_LEFT);
+}
+
+void TextInput::alignCenter() {
+    addStyle(ES_CENTER);
+}
+
+void TextInput::alignRight() {
+    addStyle(ES_RIGHT);
+}
+
+void TextInput::enableVerticalScroll() {
+    addStyle(WS_VSCROLL);
+}
+
+void TextInput::enableHorizontalScroll() {
+    addStyle(WS_HSCROLL);
+}
+
+void TextInput::enableVerticalAutoScroll() {
+    addStyle(ES_AUTOVSCROLL);
+}
+
+void TextInput::enableHorizontalAutoScroll() {
+    addStyle(ES_AUTOHSCROLL);
+}
+
+void TextInput::enableMultiLine() {
+    addStyle(ES_MULTILINE);
+}
+
+void TextInput::readOnly() {
+    addStyle(ES_READONLY);
+}
