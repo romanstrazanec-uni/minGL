@@ -120,14 +120,14 @@ NumberInput *Window::addNumberInput(NumberInput &&numberInput) {
 NumberInput *Window::addNumberInput(long id, UINT16 x, UINT16 y) {
     return new NumberInput(this, id, x, y);
 }
-NumberInput *Window::addNumberInput(long id, const char *text, UINT16 x, UINT16 y) {
-    return new NumberInput(this, id, text, x, y);
+NumberInput *Window::addNumberInput(long id, UINT64 number, UINT16 x, UINT16 y) {
+    return new NumberInput(this, id, number, x, y);
 }
 NumberInput *Window::addNumberInput(long id, UINT16 x, UINT16 y, UINT16 width, UINT16 height) {
     return new NumberInput(this, id, x, y, width, height);
 }
-NumberInput *Window::addNumberInput(long id, const char *text, UINT16 x, UINT16 y, UINT16 width, UINT16 height) {
-    return new NumberInput(this, id, text, x, y, width, height);
+NumberInput *Window::addNumberInput(long id, UINT64 number, UINT16 x, UINT16 y, UINT16 width, UINT16 height) {
+    return new NumberInput(this, id, number, x, y, width, height);
 }
 
 /* Button additions */

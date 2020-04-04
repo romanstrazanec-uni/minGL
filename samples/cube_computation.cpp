@@ -9,7 +9,7 @@ int main() {
 
     // Pridáme editovacie pole pre zadávanie dĺžky hrany.
     // Prvý parameter tejto metódy je identifikátor objektu. Je dôležitý pri vyhľadávaní objektov v okne.
-    window.addNumberInput(2, "", 140, 20, 50, 20);
+    window.addNumberInput(2, 140, 20, 50, 20);
 
     // Pridáme tlačidlo pre výpočet.
     // Posledný parameter tejto metódy je funkcia, ktorú tlačidlo po jeho stlačení vykoná.
@@ -17,14 +17,14 @@ int main() {
     // na mieste pomocou výrazu lambda, ktorého parametrom je ukazovateľ na vytvorené okno.
     window.addButton(3, "Vypocitaj", 10, 40, 50, 20, [](Window *w) {
         // Získame objekt pomocou jeho identifikátoru.
-        auto textInput = w->find<NumberInput>(2);
+        auto numberInput = w->find<NumberInput>(2);
 
         // Pretypujeme text z objektu na číslo.
-        int length = std::stoi(textInput->getText());
+        unsigned long length = numberInput->getNumber();
 
         // Vypočítame objem a povrch.
-        int volume = length * length * length;
-        int surface = 6 * length * length;
+        unsigned long volume = length * length * length;
+        unsigned long surface = 6 * length * length;
 
         // Vytvoríme správu pre MessageDialog.
         // Keďže potrebujeme správu poskladať použíjeme reťazcový dátový typ string.

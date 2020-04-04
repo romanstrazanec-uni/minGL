@@ -15,7 +15,7 @@ int main() {
     output.addStyle(WS_BORDER | ES_AUTOVSCROLL | ES_MULTILINE);
 
     window.addButton(Button(4, "Vypocitaj", 190, 10, [&input, &output](Window *) {
-        int number = std::stoi(input.getText());
+        unsigned long number = input.getNumber();
 
         std::string result = "1\r\n";
         for (int i = 2; i < number; ++i) {

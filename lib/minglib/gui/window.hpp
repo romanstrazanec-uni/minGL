@@ -86,9 +86,9 @@ public:
     void addNumberInput(NumberInput *);
     NumberInput *addNumberInput(NumberInput &&);
     NumberInput *addNumberInput(long id, UINT16 x, UINT16 y);
-    NumberInput *addNumberInput(long id, const char *text, UINT16 x, UINT16 y);
+    NumberInput *addNumberInput(long id, UINT64 number, UINT16 x, UINT16 y);
     NumberInput *addNumberInput(long id, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
-    NumberInput *addNumberInput(long id, const char *text, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
+    NumberInput *addNumberInput(long id, UINT64 number, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
 
     /* Button additions. */
 
