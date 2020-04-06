@@ -13,8 +13,6 @@ target_link_libraries(test PRIVATE minGL)
 # Windows apps with win32api
 add_executable(test_windows_api test_windows_api.cpp)
 add_executable(test_windows_api_app test_windows_api_app.cpp)
-add_executable(test_windows_api_app_with_mingl test_windows_api_app_with_mingl.cpp)
-target_link_libraries(test_windows_api_app_with_mingl PRIVATE minGL)
 
 # Mouse interaction application test
 add_executable(test_mouse_interaction test_mouse_interaction.cpp)

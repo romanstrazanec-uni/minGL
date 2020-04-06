@@ -14,9 +14,9 @@ file(GLOB DCgui "${Dgui}/${fileglob}")
 file(GLOB DCmessages "${Dmessages}/${fileglob}")
 
 # add minGL library
-add_library(minGL mingl ${DCgui} ${DCgraphics} ${DCgeometry} ${DCcolors} ${DCmessages})
-target_link_libraries(minGL PRIVATE gdiplus)
-target_include_directories(minGL PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
+add_library(${PROJECT_NAME} mingl ${DCgui} ${DCgraphics} ${DCgeometry} ${DCcolors} ${DCmessages})
+target_link_libraries(${PROJECT_NAME} PRIVATE gdiplus)
+target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
 
 # remove unused variables
 unset(Dmingl)
