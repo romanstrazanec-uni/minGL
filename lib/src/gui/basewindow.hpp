@@ -61,8 +61,8 @@ private:
             return 0;
         }
 
-        if (pThis) return pThis->handleMessage(WindowMessage(msg, wParam, lParam));
-        else return DefWindowProc(hwnd, msg, wParam, lParam);
+        return pThis ? pThis->handleMessage(WindowMessage(msg, wParam, lParam))
+                     : DefWindowProc(hwnd, msg, wParam, lParam);
     }
 
 protected:
