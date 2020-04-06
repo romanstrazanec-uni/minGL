@@ -11,9 +11,9 @@ struct ColorPath {
 
     ColorPath() = default;
     ColorPath(const Color &c) : color(c) {}
-    ColorPath(const Color &c, const POINT &p) : color(c) { addPoint(p); }
+    ColorPath(const Color &c, const Point &p) : color(c) { addPoint(p); }
 
-    void addPoint(const POINT &p) { path.emplace_back(p.x, p.y); }
+    void addPoint(const Point &p) { path.emplace_back(p); }
 };
 
 int main() {
@@ -38,8 +38,8 @@ int main() {
         c = Color(255, 0, 0, 255);
     });
 
-    w.addOnRightMouseButtonDownHandler([&](Window *w, POINT point) {
-        points.emplace_back(point.x, point.y);
+    w.addOnRightMouseButtonDownHandler([&](Window *w, Point &&point) {
+        points.emplace_back(point);
         if (nPoints > 10) points.erase(points.begin());
         else ++nPoints;
 
@@ -57,17 +57,17 @@ int main() {
             }
     });
 
-    w.addOnLeftMouseButtonDownHandler([&lButtonDown, &paths, &c](Window *, POINT p) {
+    w.addOnLeftMouseButtonDownHandler([&lButtonDown, &paths, &c](Window *, Point &&p) {
         lButtonDown = true;
         paths.emplace_back(c, p); // todo: segmentation fault
     });
 
-    w.addOnLeftMouseButtonUpHandler([&lButtonDown, &paths](Window *, POINT p) {
+    w.addOnLeftMouseButtonUpHandler([&lButtonDown, &paths](Window *, Point &&p) {
         if (!paths.empty()) paths.back().addPoint(p);
         lButtonDown = false;
     });
 
-    w.addOnMouseMoveHandler([&](Window *, POINT p) {
+    w.addOnMouseMoveHandler([&](Window *, Point &&p) {
         if (lButtonDown) paths.back().addPoint(p); // todo: segmentation fault
     });
 

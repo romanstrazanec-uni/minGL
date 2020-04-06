@@ -32,6 +32,7 @@
       <w>dmessaging</w>
       <w>dmingl</w>
       <w>doprava</w>
+      <w>druhého</w>
       <w>druhý</w>
       <w>dstyles</w>
       <w>dátový</w>
@@ -54,6 +55,7 @@
       <w>gdiplus</w>
       <w>guiobject</w>
       <w>hodnota</w>
+      <w>hodnotu</w>
       <w>hodnoty</w>
       <w>hranou</w>
       <w>hrany</w>
@@ -70,6 +72,7 @@
       <w>každého</w>
       <w>každý</w>
       <w>keďže</w>
+      <w>kliknutia</w>
       <w>knižnice</w>
       <w>knižnicu</w>
       <w>kocka</w>
@@ -80,6 +83,7 @@
       <w>komponenty</w>
       <w>koniec</w>
       <w>konverziu</w>
+      <w>kopírovaniu</w>
       <w>kreslenie</w>
       <w>kresliť</w>
       <w>kruh</w>
@@ -140,6 +144,8 @@
       <w>objekty</w>
       <w>objem</w>
       <w>objemu</w>
+      <w>obsahuje</w>
+      <w>odkaz</w>
       <w>okna</w>
       <w>okne</w>
       <w>okno</w>
@@ -150,6 +156,7 @@
       <w>opäť</w>
       <w>otvorím</w>
       <w>otvoríme</w>
+      <w>označiť</w>
       <w>parametra</w>
       <w>parametrom</w>
       <w>pero</w>
@@ -175,10 +182,13 @@
       <w>používať</w>
       <w>povrch</w>
       <w>povrchu</w>
+      <w>pozíciu</w>
       <w>počet</w>
       <w>počtu</w>
       <w>pracovať</w>
       <w>pravého</w>
+      <w>predišli</w>
+      <w>preferovanou</w>
       <w>prekreslí</w>
       <w>prekreslíme</w>
       <w>premennú</w>
@@ -252,6 +262,7 @@
       <w>viacero</w>
       <w>vieme</w>
       <w>vonkajšieho</w>
+      <w>voľbou</w>
       <w>vráti</w>
       <w>vstup</w>
       <w>vstupné</w>
@@ -302,6 +313,7 @@
       <w>zadáme</w>
       <w>zadávanie</w>
       <w>zarovnáme</w>
+      <w>zbytočnému</w>
       <w>zmení</w>
       <w>zmeníme</w>
       <w>znakov</w>

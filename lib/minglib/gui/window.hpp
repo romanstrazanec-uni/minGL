@@ -11,7 +11,7 @@
 
 #include <map>
 
-typedef std::function<void(Window *, POINT)> &&MouseHandle;
+typedef std::function<void(Window *, Gdiplus::Point &&)> &&MouseHandle;
 
 /** Derived main Window to create and show window. */
 class Window : public BaseWindow<Window> {

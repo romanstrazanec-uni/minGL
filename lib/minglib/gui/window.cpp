@@ -43,7 +43,8 @@ void Window::addHandler(WindowMessage &&msg, Handle &&handler) {
 
 void Window::addOnMouseEventHandler(WindowMessage &&wm, MouseHandle onMouseEvent) {
     addHandler(std::move(wm), [&onMouseEvent](Window *w, WindowMessage wm) {
-        onMouseEvent(w, wm.getMousePosition());
+        POINT mousePosition = wm.getMousePosition();
+        onMouseEvent(w, Gdiplus::Point(mousePosition.x, mousePosition.y));
     });
 }
 
