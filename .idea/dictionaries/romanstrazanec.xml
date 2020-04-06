@@ -5,6 +5,8 @@
       <w>adresy</w>
       <w>alebo</w>
       <w>aplikáciu</w>
+      <w>bodmi</w>
+      <w>bodov</w>
       <w>bolo</w>
       <w>budeme</w>
       <w>ccolors</w>
@@ -43,6 +45,7 @@
       <w>ekvivalentá</w>
       <w>elipsy</w>
       <w>endl</w>
+      <w>farbou</w>
       <w>farbu</w>
       <w>fileglob</w>
       <w>funkcia</w>
@@ -84,13 +87,16 @@
       <w>kruhy</w>
       <w>kružnicu</w>
       <w>ktorá</w>
+      <w>ktoré</w>
       <w>ktorého</w>
       <w>ktorému</w>
       <w>ktorú</w>
       <w>ktorým</w>
+      <w>medzi</w>
       <w>menný</w>
       <w>messagehandler</w>
       <w>metóda</w>
+      <w>metódou</w>
       <w>metódu</w>
       <w>metódy</w>
       <w>mieste</w>
@@ -100,14 +106,18 @@
       <w>mohli</w>
       <w>mohol</w>
       <w>možné</w>
+      <w>myši</w>
       <w>môže</w>
       <w>môžeme</w>
       <w>nahodne</w>
       <w>nahrádzali</w>
       <w>nakoniec</w>
+      <w>nakreslenému</w>
+      <w>nakreslí</w>
       <w>nakreslíme</w>
       <w>namiesto</w>
       <w>napíšeme</w>
+      <w>nastavenou</w>
       <w>nastavená</w>
       <w>nastavia</w>
       <w>nastavíme</w>
@@ -139,6 +149,7 @@
       <w>opäť</w>
       <w>otvorím</w>
       <w>otvoríme</w>
+      <w>parametra</w>
       <w>parametrom</w>
       <w>pero</w>
       <w>platno</w>
@@ -166,6 +177,8 @@
       <w>počet</w>
       <w>počtu</w>
       <w>pracovať</w>
+      <w>pravého</w>
+      <w>prekreslí</w>
       <w>prekreslíme</w>
       <w>premennú</w>
       <w>presahovať</w>
@@ -186,6 +199,7 @@
       <w>prvý</w>
       <w>prvým</w>
       <w>prípade</w>
+      <w>pádom</w>
       <w>písať</w>
       <w>písma</w>
       <w>pýta</w>
@@ -220,15 +234,18 @@
       <w>tento</w>
       <w>textom</w>
       <w>textu</w>
+      <w>tlačidla</w>
       <w>tlačidlo</w>
       <w>tomto</w>
       <w>tomuto</w>
       <w>treba</w>
+      <w>tretieho</w>
       <w>táto</w>
       <w>túto</w>
       <w>uchovávanie</w>
       <w>ukazovateľ</w>
       <w>umožníme</w>
+      <w>vectoru</w>
       <w>veľkosti</w>
       <w>viacero</w>
       <w>vieme</w>
@@ -244,9 +261,12 @@
       <w>vyhľadávaní</w>
       <w>vykonaných</w>
       <w>vykoná</w>
+      <w>vykonávanú</w>
       <w>vykreslenie</w>
       <w>vykreslení</w>
       <w>vykresli</w>
+      <w>vykreslovanie</w>
+      <w>vykreslovaného</w>
       <w>vypocet</w>
       <w>vypocitaj</w>
       <w>vypočíta</w>
@@ -277,8 +297,11 @@
       <w>zadané</w>
       <w>zadaného</w>
       <w>zadať</w>
+      <w>zadáme</w>
       <w>zadávanie</w>
       <w>zarovnáme</w>
+      <w>zmení</w>
+      <w>zmeníme</w>
       <w>znakov</w>
       <w>znaky</w>
       <w>zobrazím</w>
@@ -288,7 +311,10 @@
       <w>získam</w>
       <w>získame</w>
       <w>získať</w>
+      <w>údaj</w>
       <w>údaje</w>
+      <w>úsečky</w>
+      <w>útvar</w>
       <w>útvaru</w>
       <w>útvary</w>
       <w>číselného</w>
@@ -298,6 +324,7 @@
       <w>čítanie</w>
       <w>ďalej</w>
       <w>ďalším</w>
+      <w>ľavého</w>
       <w>štandardnej</w>
       <w>štetec</w>
       <w>šírku</w>
