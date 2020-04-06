@@ -1,8 +1,7 @@
 #include <mingl>
-#include <cstdlib>
-#include <vector>
+#include <cstdlib> // rand()
+#include <vector> // std::vector
 
-using namespace std;
 using namespace Gdiplus;
 
 int main() {
@@ -10,7 +9,7 @@ int main() {
     Window window("Platno", 100, 100, 600, 600);
 
     // Vytvoríme vector pre uchovávanie bodov.
-    vector<Point> points;
+    std::vector<Point> points;
 
     // Vytvoríme farbu.
     Color color(0, 0, 0);

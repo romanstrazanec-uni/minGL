@@ -1,5 +1,5 @@
 #include <mingl>
-#include <cstdlib>
+#include <cstdlib> // rand()
 
 int main() {
     // Inicializujeme okno.
