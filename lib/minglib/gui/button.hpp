@@ -5,7 +5,7 @@
 
 #include <functional>
 
-typedef std::function<void(Window *)> OnClickHandle;
+typedef std::function<void()> OnClickHandle;
 
 class Button : public GUIObject {
     OnClickHandle onClick{};

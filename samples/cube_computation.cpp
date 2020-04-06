@@ -14,10 +14,10 @@ int main() {
     // Pridáme tlačidlo pre výpočet.
     // Posledný parameter tejto metódy je funkcia, ktorú tlačidlo po jeho stlačení vykoná.
     // Túto funkciu je možné definovať mimo funkcie main, ale v tomto prípade ju vytvoríme
-    // na mieste pomocou výrazu lambda, ktorého parametrom je ukazovateľ na vytvorené okno.
-    window.addButton(3, "Vypocitaj", 10, 40, 50, 20, [](Window *w) {
+    // na mieste pomocou výrazu lambda a zachytíme okno z vonkajšieho prostredia.
+    window.addButton(3, "Vypocitaj", 10, 40, 50, 20, [&window] {
         // Získame objekt pomocou jeho identifikátoru.
-        auto numberInput = w->find<NumberInput>(2);
+        auto numberInput = window.find<NumberInput>(2);
 
         // Z objektu získame zadané číslo.
         unsigned long length = numberInput->getNumber();
@@ -34,7 +34,7 @@ int main() {
         // Zobrazíme MessageDialog.
         // Táto metóda si namiesto reťazcov pýta ukazovateľ na typ char, ktorým sa v jazyku C reťazce nahrádzali.
         // Preto treba pomocou metódy c_str() tento ukazovateľ získať.
-        w->showMessageDialog("Vypocet", message.c_str());
+        window.showMessageDialog("Vypocet", message.c_str());
     });
 
     // Otvoríme okno a tým spustíme aplikáciu.

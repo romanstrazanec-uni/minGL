@@ -22,12 +22,13 @@ int main() {
     Button button(3, "Vykresli", 170, 450);
 
     // Funkciu tlačidlu môžeme pridať neskôr.
-    button.addOnClickListener([&numberInput, &number, &window](Window *) {
+    button.addOnClickListener([&numberInput, &number, &window] {
         number = numberInput->getNumber();
         window.redraw();
     });
 
-    // Tlačidlo pridáme do okna.
+    // Tlačidlo pridáme do okna tak, že tlačidlu nastavíme rodiča adresu okna.
+    // Každý objekt si uchováva informáciu o rodičovi.
     button.setParent(&window);
 
     // Pre kreslenie využijeme knižnicu Gdiplus a aby sme nemuseli pred každý jej objekt písať menný priestor,

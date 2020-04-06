@@ -1,5 +1,5 @@
-#ifndef MINGL_EDITTEXT_INCLUDED
-#define MINGL_EDITTEXT_INCLUDED
+#ifndef MINGL_TEXT_INPUT_INCLUDED
+#define MINGL_TEXT_INPUT_INCLUDED
 
 #include "guiobject.hpp"
 
@@ -24,8 +24,6 @@ public:
     void enableHorizontalAutoScroll();
     void enableMultiLine();
     void readOnly();
-
-    void writeLine(std::string newLine);
 
 protected:
     void computeSize() override;

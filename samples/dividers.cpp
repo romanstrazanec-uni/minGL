@@ -37,7 +37,7 @@ int main() {
 
     // Ďalším spôsobom pridania objektu do okna je vytvoriť objekt na mieste, kde sa posiela do metódy addObject() alebo
     // metódy s názvom objektu tzn. v tomto prípade addButton().
-    window.addObject(Button(4, "Vypocitaj", 190, 10, [&input, &output](Window *) {
+    window.addObject(Button(4, "Vypocitaj", 190, 10, [&input, &output] {
 
         // Objekty z okna nepotrebujeme získať z metódy find(). Zachytíme potrebné komponenty v lambda výraze a môžeme
         // k nim pristupovať.
@@ -45,38 +45,20 @@ int main() {
         // Získame číslo zo vstupného pola.
         unsigned long number = input.getNumber();
 
-        /*
-        // Prvým spôsobom by bolo vytvorenie reťazca do ktorého následne budeme pridávať delitele čísla.
-        // Problémom je však vytvoriť nový riadok. Operačný systém Windows potrebuje na to dva znaky
-        // a teda reťazec "\r\n". Výsledný text po kalkulácii nastavíme do objektu. Je to efektívnejšie ako druhý spôsob.
-
+        // Číslo 1 je deliteľom každého čísla. Nový riadok v operačnom systéme Windows obsahuje dva znaky '\r' a '\n'.
         std::string result = "1\r\n";
+
+        // Pokračujeme od čísla 2.
         for (int i = 2; i < number; ++i) {
+            // Ak je zvyšok po delení 0, tak je deliteľom.
             if (number % i == 0) {
                 result += std::to_string(i) + "\r\n";
             }
         }
+
+        // Samotné číslo je deliteľom.
         result += std::to_string(number);
         output.setText(result.c_str());
-        */
-
-        // Vyčistíme text.
-        output.setText("");
-
-        // Použijeme metódu writeLine(), ktorá nám na koniec reťazca pridá nový riadok.
-
-        // Číslo 1 je deliteľom každého čísla.
-        output.writeLine("1");
-
-        // Pokračujeme od čísla 2.
-        for (int i = 2; i < number; ++i) {
-            // Ak zvyšok po delení 0, tak je deliteľom.
-            if (number % i == 0) {
-                output.writeLine(std::to_string(i));
-            }
-        }
-        // Samotné číslo je deliteľom.
-        output.writeLine(std::to_string(number));
     }));
 
     // Zobrazíme okno.

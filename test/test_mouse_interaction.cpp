@@ -28,13 +28,13 @@ int main() {
     vector<ColorPath> paths;
 
     // todo: mutable not required??
-    w.addButton(1, "Red", 10, 10, 50, 20, [&c](Window *) {
+    w.addButton(1, "Red", 10, 10, 50, 20, [&c] {
         c = Color(255, 255, 0, 0);
     });
-    w.addButton(2, "Green", 10, 40, 50, 20, [&c](Window *) {
+    w.addButton(2, "Green", 10, 40, 50, 20, [&c] {
         c = Color(255, 0, 255, 0);
     });
-    w.addButton(3, "Blue", 10, 70, 50, 20, [&c](Window *) {
+    w.addButton(3, "Blue", 10, 70, 50, 20, [&c] {
         c = Color(255, 0, 0, 255);
     });
 

@@ -23,7 +23,7 @@ void Button::removeOnClickListener() {
 }
 
 void Button::performClick() {
-    if (isCreated() && onClick != nullptr) onClick(parent);
+    if (isCreated() && onClick != nullptr) onClick();
 }
 
 const char *Button::getTitle() const {
