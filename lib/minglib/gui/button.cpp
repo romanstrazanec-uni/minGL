@@ -14,8 +14,8 @@ Button::Button(Window *window, long id, const char *title, UINT16 x, UINT16 y, U
     hMenu = (HMENU) id;
 }
 
-void Button::addOnClickListener(void (*onClickListener)(Window *)) {
-    onClick = onClickListener;
+void Button::addOnClickListener(OnClickHandle onClickListener) {
+    onClick = std::move(onClickListener);
 }
 
 void Button::removeOnClickListener() {

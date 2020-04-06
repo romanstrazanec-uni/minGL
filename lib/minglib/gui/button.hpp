@@ -18,7 +18,7 @@ public:
     Button(Window *window, long id, const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height,
            OnClickHandle= nullptr);
 
-    void addOnClickListener(void (*)(Window *));
+    void addOnClickListener(OnClickHandle);
 
     void removeOnClickListener();
 

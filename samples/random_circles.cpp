@@ -19,9 +19,11 @@ int main() {
     int number = 0;
 
     // Vytvoríme tlačidlo, ktorým získame číslo zo vstupného pola a prekreslíme okno.
-    Button button(3, "Vykresli", 170, 450, [&numberInput, &number, &window](Window *) {
-        number = numberInput->getNumber();
+    Button button(3, "Vykresli", 170, 450);
 
+    // Funkciu tlačidlu môžeme pridať neskôr.
+    button.addOnClickListener([&numberInput, &number, &window](Window *) {
+        number = numberInput->getNumber();
         window.redraw();
     });
 
