@@ -1,10 +1,9 @@
 # lib/CMakeLists.txt
 
 set(fileglob *.*)
-set(src "${CMAKE_CURRENT_SOURCE_DIR}/src")
-set(graphics "${src}/graphics")
-set(gui "${src}/gui")
-set(messages "${src}/messages")
+set(graphics "${CMAKE_CURRENT_SOURCE_DIR}/graphics")
+set(gui "${CMAKE_CURRENT_SOURCE_DIR}/gui")
+set(messages "${CMAKE_CURRENT_SOURCE_DIR}/messages")
 
 # get all source files
 file(GLOB graphics_sources "${graphics}/${fileglob}")
@@ -19,7 +18,6 @@ target_link_libraries(${PROJECT_NAME} PRIVATE gdiplus)
 target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
 
 # remove unused variables
-unset(src)
 unset(graphics)
 unset(gui)
 unset(messages)

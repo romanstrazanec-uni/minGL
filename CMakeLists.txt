@@ -6,6 +6,6 @@ project(minGL
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_subdirectory(lib)
+add_subdirectory(src)
 add_subdirectory(test)
 add_subdirectory(samples)

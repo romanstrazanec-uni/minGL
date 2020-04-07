@@ -26,7 +26,7 @@ def collect_headers(file: str) -> Set[str]:
 
 
 if __name__ == '__main__':
-    for header in reversed(sorted(collect_headers(f'lib{sep}mingl'))):
-        dst = f'includes{sep}{header}'
+    for header in reversed(sorted(collect_headers(f'src{sep}mingl'))):
+        dst = f'include{sep}minGL{header.replace("src", "")}'
         mkdir(dst.split(sep))
         os.system(f'cp {header} {dst}')

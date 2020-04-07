@@ -1,7 +1,7 @@
 #ifndef MINGL_INCLUDED
 #define MINGL_INCLUDED
 
-#include "src/gui/window.hpp"
+#include "gui/window.hpp"
 
 #define main() WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR lpCmdLine, int nCmdShow)
 

@@ -1,9 +1,9 @@
 #include "circle.hpp"
 
 Circle::Circle() = default;
-Circle::Circle(unsigned int r): r(r) {}
-Circle::Circle(const Point &c, unsigned int r): c(c), r(r) {}
-Circle::Circle(int x, int y, unsigned int r): c(Point(x, y)), r(r) {}
+Circle::Circle(unsigned int r) : r(r) {}
+Circle::Circle(const Point &c, unsigned int r) : c(c), r(r) {}
+Circle::Circle(int x, int y, unsigned int r) : c(Point(x, y)), r(r) {}
 Circle::~Circle() = default;
 
 bool Circle::is_point() { return r == 0; }
