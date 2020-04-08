@@ -14,7 +14,7 @@ file(GLOB messages_sources "${messages}/${fileglob}")
 
 # add minGL library
 add_library(${PROJECT_NAME} mingl ${gui_sources} ${graphics_sources} ${geometry_sources} ${colors_sources} ${messages_sources})
-target_link_libraries(${PROJECT_NAME} PRIVATE gdiplus)
+target_link_libraries(${PROJECT_NAME} gdiplus)
 target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
 
 # remove unused variables
