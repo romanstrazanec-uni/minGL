@@ -16,6 +16,7 @@ target_link_libraries(test PRIVATE "${PROJECT_NAME}")
 
 # Windows apps with win32api
 add_executable(test_windows_api test_windows_api.cpp)
+add_executable(test_winapi_components test_winapi_objects.cpp)
 add_executable(test_windows_api_app test_windows_api_app.cpp)
 
 # Mouse interaction application test

@@ -3,7 +3,7 @@
 
 LRESULT CALLBACK WindowProcessMessages(HWND, UINT, WPARAM, LPARAM);
 
-int WINAPI WinMain(HINSTANCE currentInstance, HINSTANCE previousInstance, PSTR cmdLine, INT cmdCount) {
+int WINAPI WinMain(HINSTANCE currentInstance, HINSTANCE, PSTR, INT) {
     Gdiplus::GdiplusStartupInput gdiplusStartupInput;
     ULONG_PTR gdiplusToken;
     Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, nullptr);
@@ -23,7 +23,6 @@ int WINAPI WinMain(HINSTANCE currentInstance, HINSTANCE previousInstance, PSTR c
 
     MSG msg{};
     while (GetMessage(&msg, nullptr, NULL, NULL) > 0) {
-        TranslateMessage(&msg);
         DispatchMessage(&msg);
     }
 
