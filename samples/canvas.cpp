@@ -20,7 +20,7 @@ int main() {
     // Aby sme predišli zbytočnému kopírovaniu objektu, môžeme ho označiť ako odkaz na L-hodnotu (const Point &) alebo
     // odkaz na R-hodnotu (Point &&). Preferovanou voľbou je odkaz na R-hodnotu keďže je objekt vytvorený na mieste.
     window.addOnLeftMouseButtonDownHandler([&points, &window](Point &&point) {
-        points.emplace_back(point);
+        points.emplace_back(point); // todo: SIGSEGV
         window.redraw();
     });
 
