@@ -13,15 +13,8 @@ GUIObject::~GUIObject() { removeFromParent(); }
 
 bool GUIObject::create() {
     if (isCreated()) return true;
-    hwnd =
-#ifdef USE_WNDCLASSEX
-            CreateWindowEx(extendedStyle,
-#else
-            CreateWindow(
-#endif
-                    className, name, style,
-x, y, width, height, parent != nullptr ? parent->getWindowHandle() : nullptr,
-hMenu, hinstance, additionalData);
+    hwnd = CreateWindowEx(extendedStyle, className, name, style, x, y, width, height,
+                          parent != nullptr ? parent->getWindowHandle() : nullptr, hMenu, hinstance, additionalData);
     return isCreated();
 }
 

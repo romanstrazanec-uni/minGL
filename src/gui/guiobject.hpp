@@ -13,10 +13,8 @@ class GUIObject {
     const char *className{};
     const char *name{};
     UINT style{WS_VISIBLE};
-#ifdef USE_WNDCLASSEX
-    DWORD extendedStyle;
-#endif
-    UINT16 x{}, y{}, width{0}, height{0}; // todo: #include <cstdint> uint16_t
+    DWORD extendedStyle{0};
+    UINT16 x{}, y{}, width{0}, height{0};
     long id{0x00FFFFFFL};
     HINSTANCE hinstance{nullptr};
     LPVOID additionalData{nullptr};

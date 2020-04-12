@@ -13,11 +13,6 @@
  * <li>initialize()</li>
  * <li>show()</li>
  * </ol>
- *
- * Define USE_WNDCLASSEX macro to allow BaseWindow class to store WNDCLASSEX instead of WNDCLASS.
- * WNDCLASSEX (extended window class) has extra variable hIconSm and cbSize which needs to be 'size(WNDCLASSEX)'.
- * To create WNDCLASSEX use method CreateWindowEx instead of CreateWindow,
- * which needs optional window styles argument passed.
  */
 template<class DerivedWindow>
 class BaseWindow : public GUIObject {
@@ -25,12 +20,7 @@ private:
     /** Backing property for initializing window. */
     bool initialized{false};
 
-#ifdef USE_WNDCLASSEX
-    WNDCLASSEX
-#else
-    WNDCLASS
-#endif
-            wc{};
+    WNDCLASSEX wc{};
 
     Gdiplus::GdiplusStartupInput gdiplusStartupInput{};
     ULONG_PTR gdiplusToken{};
@@ -83,13 +73,8 @@ public:
         wc.hInstance = getHinstance();
         wc.lpfnWndProc = DerivedWindow::wndProc;
         setDefaultWindowAttributes();
-#ifdef USE_WNDCLASSEX
         wc.cbSize = sizeof(WNDCLASSEX);
-        if(RegisterClassEx(&wc))
-#else
-        if (RegisterClass(&wc))
-#endif
-            initialized = true;
+        if (RegisterClassEx(&wc)) initialized = true;
     }
 
     /**
@@ -97,9 +82,7 @@ public:
      */
     virtual void setDefaultWindowAttributes() {
         setIcon(nullptr, IDI_APPLICATION);
-#ifdef USE_WNDCLASSEX
         setSmallIcon(nullptr, IDI_APPLICATION);
-#endif
         setCursor(nullptr, IDI_APPLICATION);
         setBackground((HBRUSH) COLOR_WINDOW);
         setMenuName(nullptr);
@@ -127,14 +110,7 @@ public:
 
     /* GETTERS */
 
-    /** @returns window class of type either WNDCLASS or WNDCLASSEX if USE_WNDCLASSEX defined. */
-    virtual
-#ifdef USE_WNDCLASSEX
-    WNDCLASSEX
-#else
-    WNDCLASS
-#endif
-    getWindowClass() const final { return wc; }
+    virtual WNDCLASSEX getWindowClass() const final { return wc; }
     virtual const char *getTitle() const final { return getName(); }
 
     /* SETTERS */
@@ -143,11 +119,9 @@ public:
     virtual void setIcon(HINSTANCE hinstance, LPCSTR icon_name) final {
         if (!initialized) wc.hIcon = LoadIcon(hinstance, icon_name);
     }
-#ifdef USE_WNDCLASSEX
     virtual void setSmallIcon(HINSTANCE hinstance, LPCSTR icon_name) final {
         if (!initialized) wc.hIconSm = LoadIcon(hinstance, icon_name);
     }
-#endif
     virtual void setCursor(HINSTANCE hinstance, LPCSTR cursor_name) final {
         if (!initialized) wc.hCursor = LoadCursor(hinstance, cursor_name);
     }
