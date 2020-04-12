@@ -33,7 +33,7 @@ const char *Button::getTitle() const {
 void Button::computeSize() {
     unsigned long length = getText().length();
     if (length > 0) {
-        unsigned short minWidth = FONT_WIDTH * length;
+        auto minWidth = static_cast<unsigned short>(FONT_WIDTH * length);
         if (getWidth() < minWidth) setWidth(minWidth);
         if (getHeight() < FONT_HEIGHT) setHeight(FONT_HEIGHT);
     }
