@@ -38,5 +38,5 @@ int main() {
     });
 
     // Otvoríme okno a tým spustíme aplikáciu.
-    window.show();
+    return window.show();
 }

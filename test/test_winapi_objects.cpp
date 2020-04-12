@@ -66,4 +66,5 @@ LRESULT CALLBACK WindowProcedure(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
         default:
             return DefWindowProc(hwnd, msg, wp, lp);
     }
+    return 0;
 }

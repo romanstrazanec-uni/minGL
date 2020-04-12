@@ -43,5 +43,5 @@ int main() {
     });
 
     // Zobrazíme nové okno.
-    window.show();
+    return window.show();
 }

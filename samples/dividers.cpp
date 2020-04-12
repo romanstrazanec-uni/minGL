@@ -62,5 +62,5 @@ int main() {
     }));
 
     // Zobrazíme okno.
-    window.show();
+    return window.show();
 }

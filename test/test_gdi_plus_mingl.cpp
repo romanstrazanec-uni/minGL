@@ -12,5 +12,5 @@ int main() {
         graphics->DrawRectangle(&pen, 450, 400, 100, 150);
     });
 
-    window.show();
+    return window.show();
 }

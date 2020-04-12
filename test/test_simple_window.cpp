@@ -37,6 +37,5 @@ int main() {
 
     window.addTextInput(5, "edit text", 50, 250, 100, 50);
 
-    window.show();
-    return 0;
+    return window.show();
 }

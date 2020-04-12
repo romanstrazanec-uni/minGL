@@ -57,5 +57,5 @@ int main() {
     });
 
     // Nakoniec zobrazíme okno.
-    window.show();
+    return window.show();
 }

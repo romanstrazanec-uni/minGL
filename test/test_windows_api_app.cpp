@@ -72,6 +72,7 @@ LRESULT CALLBACK WindowProcedure(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
         default:
             return DefWindowProcW(hwnd, msg, wp, lp);
     }
+    return 0;
 }
 
 void addMenus(HWND hwnd) {

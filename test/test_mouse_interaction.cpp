@@ -71,6 +71,5 @@ int main() {
         if (lButtonDown) paths.back().addPoint(p); // todo: segmentation fault
     });
 
-    w.show();
-    return 0;
+    return w.show();
 }
