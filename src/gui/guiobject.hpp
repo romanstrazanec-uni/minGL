@@ -99,7 +99,7 @@ public:
      * Get text from created object by GetWindowText(HWND, LPSTR, UINT) with specified length.
      * If length is 0, whole text is returned.
      */
-    virtual std::string getText(UINT16 length = 0) const final;
+    virtual std::string getText(UINT16 length = 0) final;
 
     virtual void setText(const char *) final;
 

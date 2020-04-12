@@ -14,7 +14,7 @@ public:
     NumberInput(Window *parent, long id, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
     NumberInput(Window *parent, long id, UINT64 number, UINT16 x, UINT16 y, UINT16 width, UINT16 height);
 
-    UINT64 getNumber() const;
+    UINT64 getNumber();
     void setNumber(UINT64);
 };
 

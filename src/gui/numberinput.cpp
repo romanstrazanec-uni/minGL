@@ -21,7 +21,7 @@ NumberInput::NumberInput(Window *parent, long id, UINT64 number, UINT16 x, UINT1
     addStyle(ES_NUMBER);
 }
 
-UINT64 NumberInput::getNumber() const {
+UINT64 NumberInput::getNumber() {
     std::string text = getText();
     return text.empty() ? 0 : std::stoul(text);
 }
