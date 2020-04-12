@@ -55,8 +55,12 @@ public:
      * @tparam Object
      * @returns a pointer allocated for the passed object stored in the window
      */
-    template<class Object>
-    Object *addObject(Object &&);
+    template<class Object, typename = std::enable_if<std::is_base_of<GUIObject, Object>::value>>
+    Object *addObject(Object &&object) {
+        auto newObject = new Object(object);
+        addObject(newObject);
+        return newObject;
+    }
 
     /**
      * Adds an created object to window.

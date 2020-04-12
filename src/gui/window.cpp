@@ -77,13 +77,6 @@ void Window::addObject(GUIObject *object, bool onlyAdd) {
     objects.insert(std::make_pair(object->getId(), object));
 }
 
-template<class Object>
-Object *Window::addObject(Object &&object) {
-    auto newObject = new Object(object);
-    addObject(newObject);
-    return newObject;
-}
-
 /* Label additions. */
 
 void Window::addLabel(Label *label) { addObject(label); }
