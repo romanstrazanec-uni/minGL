@@ -28,7 +28,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int nCmdSho
                   100, 100, 500, 500, nullptr, nullptr, nullptr, nullptr);
 
     MSG msg{};
-    while (GetMessage(&msg, nullptr, NULL, NULL) > 0) {
+    while (GetMessage(&msg, nullptr, 0, 0) > 0) {
         TranslateMessage(&msg);
         DispatchMessage(&msg);
     }
@@ -76,11 +76,11 @@ void addMenus(HWND hwnd) {
 
     AppendMenu(hFileMenu, MF_STRING, FILE_MENU_NEW, "New");
     AppendMenu(hFileMenu, MF_POPUP, (UINT_PTR) hSubMenu, "Open SubMenu");
-    AppendMenu(hFileMenu, MF_SEPARATOR, NULL, nullptr);
+    AppendMenu(hFileMenu, MF_SEPARATOR, 0, nullptr);
     AppendMenu(hFileMenu, MF_STRING, FILE_MENU_EXIT, "Exit");
 
     AppendMenu(hMenu, MF_POPUP, (UINT_PTR) hFileMenu, "File");
-    AppendMenu(hMenu, MF_STRING, NULL, "Help");
+    AppendMenu(hMenu, MF_STRING, 0, "Help");
 
     SetMenu(hwnd, hMenu);
 }

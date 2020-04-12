@@ -22,7 +22,7 @@ int WINAPI WinMain(HINSTANCE currentInstance, HINSTANCE, PSTR, INT) {
                  800, 600, nullptr, nullptr, nullptr, nullptr);
 
     MSG msg{};
-    while (GetMessage(&msg, nullptr, NULL, NULL) > 0) {
+    while (GetMessage(&msg, nullptr, 0, 0) > 0) {
         DispatchMessage(&msg);
     }
 

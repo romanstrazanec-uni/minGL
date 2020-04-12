@@ -19,7 +19,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int) {
                  100, 100, 500, 500, nullptr, nullptr, nullptr, nullptr);
 
     MSG msg{};
-    while (GetMessage(&msg, nullptr, NULL, NULL) > 0) {
+    while (GetMessage(&msg, nullptr, 0, 0) > 0) {
         TranslateMessage(&msg);
         DispatchMessage(&msg);
     }
