@@ -24,6 +24,7 @@ public:
         UINT msgs[] = {WM_MOUSEMOVE, WM_LBUTTONDOWN, WM_LBUTTONUP, WM_MBUTTONDOWN, WM_MBUTTONUP, WM_RBUTTONDOWN,
                        WM_RBUTTONUP};
         if (in(msgs, 7)) return {GET_X_LPARAM(lparam), GET_Y_LPARAM(lparam)};
+        return {0, 0};
     }
 
     /* UINT code comparators */
