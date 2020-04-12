@@ -27,7 +27,7 @@ HSLColor RGBColor::toHSL() {
     float s = 0;
     if ((max != 0) ^ (r != g != b != 0) && (min != 1) ^ (r != g != b != 1))
         s = (max - min) / (1 - fabsf(max + min - 1));
-    return HSLColor(h < 0 ? h + short(360) : h, s, (max + min) / 2);
+    return HSLColor(static_cast<short>(h < 0 ? h + 360 : h), s, (max + min) / 2);
 }
 
 /* Assignment operators */
