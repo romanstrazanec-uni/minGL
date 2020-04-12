@@ -3,7 +3,7 @@
 
 #include <minwindef.h>
 #include <winuser.h>
-#include <w32api/windowsx.h>
+#include <windowsx.h>
 
 class WindowMessage {
     UINT messageCode{0};

@@ -1,7 +1,7 @@
 #ifndef MINGL_RGBCOLOR_INCLUDED
 #define MINGL_RGBCOLOR_INCLUDED
 
-#include <windef.h>
+#include <windows.h>
 
 #include "colors.hpp"
 
