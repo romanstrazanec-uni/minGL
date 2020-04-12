@@ -65,26 +65,25 @@ void GUIObject::setName(const char *n) { name = n; }
 std::string GUIObject::getText(UINT16 length) {
     if (!isCreated()) return name;
 
-    if (length == 0) {
-        length = 1;
+    if (++length == 1) {
         char *text;
         while (true) {
-            text = new char[length];
-            GetWindowText(hwnd, text, length + 1);
+            text = new char[++length];
+            GetWindowText(hwnd, text, length);
 
-            if (text[length - 1] == '\0') {
+            if (text[length - 2] == '\0') {
                 std::string finalText = text;
                 delete[] text;
                 return finalText;
             }
             delete[] text;
-            ++length;
         }
     }
 
-    char text[length];
-    GetWindowText(hwnd, text, ++length);
+    char *text = new char[length];
+    GetWindowText(hwnd, text, length);
     std::string finalText = text;
+    delete[] text;
     return finalText;
 }
 
