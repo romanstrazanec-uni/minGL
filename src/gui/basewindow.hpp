@@ -92,9 +92,7 @@ public:
     }
 
     /**
-     * Shows the window and creates a loop to fetch messages. After window destruction, shuts down gdiplus if enabled.
-     *
-     * @returns false when not created otherwise true after the window was destroyed.
+     * Shows the window and creates an event loop. After window destruction, shuts down gdiplus if enabled.
      */
     virtual bool show() final {
         if (!isCreated()) computeSize();
