@@ -1,10 +1,8 @@
 #include <mingl>
-#include <graphics/bitmap.hpp>
 
 int main() {
     const unsigned short width = 500;
     const unsigned short height = 500;
-    BitMap bitmap(width, height);
 
     const unsigned char number_of_iterations = 80;
     const double infinity = 4.;
@@ -46,15 +44,13 @@ int main() {
                 }
 
                 if (iteration == number_of_iterations) {
-                    bitmap.setPixel(x, y, 0, 0, 0);
+                    window.getCanvas().setPixel(x, y, 0, 0, 0);
                 } else {
                     color = static_cast<unsigned char>(255. * iteration / number_of_iterations);
-                    bitmap.setPixel(x, y, 0, color, 0);
+                    window.getCanvas().setPixel(x, y, 0, color, 0);
                 }
             }
         }
-        Bitmap bitmap2(width, height, width * 3, PixelFormat24bppRGB, bitmap.getData());
-        graphics->DrawImage(&bitmap2, 0, 0);
     });
 
     window.addOnLeftMouseButtonDownHandler([&mousePosition, &window](Point &&point) {
