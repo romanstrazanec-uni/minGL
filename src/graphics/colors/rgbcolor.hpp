@@ -1,18 +1,18 @@
 #ifndef MINGL_RGBCOLOR_INCLUDED
 #define MINGL_RGBCOLOR_INCLUDED
 
-#include <windows.h>
+#include <cstdint>
 
 #include "colors.hpp"
 
 struct RGBColor {
-    UINT8 red{0}, green{0}, blue{0};
+    uint8_t red{0}, green{0}, blue{0};
 
-    RGBColor(UINT8 red, UINT8 green, UINT8 blue);
+    RGBColor(uint8_t red, uint8_t green, uint8_t blue);
     RGBColor(const RGBColor &);
     virtual ~RGBColor();
 
-    void setColor(UINT8 red, UINT8 green, UINT8 blue);
+    void setColor(uint8_t red, uint8_t green, uint8_t blue);
     void inverse();
     HSLColor toHSL();
 
@@ -22,24 +22,24 @@ struct RGBColor {
     RGBColor &operator-=(const RGBColor &);
     RGBColor &operator*=(const RGBColor &);
     RGBColor &operator/=(const RGBColor &);
-    RGBColor &operator+=(UINT8);
-    RGBColor &operator-=(UINT8);
-    RGBColor &operator*=(UINT8);
-    RGBColor &operator/=(UINT8);
+    RGBColor &operator+=(uint8_t);
+    RGBColor &operator-=(uint8_t);
+    RGBColor &operator*=(uint8_t);
+    RGBColor &operator/=(uint8_t);
 
     /* Arithmetic operators */
     RGBColor operator+(const RGBColor &) const;
     RGBColor operator-(const RGBColor &) const;
     RGBColor operator*(const RGBColor &) const;
     RGBColor operator/(const RGBColor &) const;
-    friend RGBColor operator+(RGBColor, UINT8);
-    friend RGBColor operator-(RGBColor, UINT8);
-    friend RGBColor operator*(RGBColor, UINT8);
-    friend RGBColor operator/(RGBColor, UINT8);
-    friend RGBColor operator+(UINT8, RGBColor);
-    friend RGBColor operator-(UINT8, RGBColor);
-    friend RGBColor operator*(UINT8, RGBColor);
-    friend RGBColor operator/(UINT8, RGBColor);
+    friend RGBColor operator+(RGBColor, uint8_t);
+    friend RGBColor operator-(RGBColor, uint8_t);
+    friend RGBColor operator*(RGBColor, uint8_t);
+    friend RGBColor operator/(RGBColor, uint8_t);
+    friend RGBColor operator+(uint8_t, RGBColor);
+    friend RGBColor operator-(uint8_t, RGBColor);
+    friend RGBColor operator*(uint8_t, RGBColor);
+    friend RGBColor operator/(uint8_t, RGBColor);
 
     RGBColor operator-() const;
 
