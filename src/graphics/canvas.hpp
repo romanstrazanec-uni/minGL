@@ -1,6 +1,8 @@
 #ifndef MINGL_CANVAS_INCLUDED
 #define MINGL_CANVAS_INCLUDED
 
+#include "bitmap.hpp"
+
 #include <windows.h>
 #include <gdiplus.h>
 
@@ -10,6 +12,7 @@ class Window;
 
 class Canvas {
     Window *window;
+    BitMap bitmap;
 
     HDC deviceContext{};
     PAINTSTRUCT paintStruct{};

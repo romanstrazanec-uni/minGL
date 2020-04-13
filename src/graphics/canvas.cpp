@@ -3,7 +3,7 @@
 
 #include <gdiplus.h>
 
-Canvas::Canvas(Window *w) : window(w) {
+Canvas::Canvas(Window *w) : window(w), bitmap(w->getWidth(), w->getHeight()) {
     w->addHandler(MessageHandler::onPaint([this](Window *w, WindowMessage) {
         HWND windowHandle = w->getWindowHandle();
         deviceContext = BeginPaint(windowHandle, &paintStruct);
