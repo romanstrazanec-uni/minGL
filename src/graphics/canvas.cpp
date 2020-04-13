@@ -74,14 +74,14 @@ void Canvas::removeOnDrawListener() {
     onDraw = [](Gdiplus::Graphics *) {};
 }
 
-void Canvas::setPixel(uint32_t x, uint32_t y, uint8_t red, uint8_t green, uint8_t blue) {
+void Canvas::setPixel(uint32_t x, uint32_t y, const RGBColor &color) {
     uint8_t *pData = data.get();
 
     pData += dataOffset + (y * 3) * width + (x * 3);
 
-    pData[0] = blue;
-    pData[1] = green;
-    pData[2] = red;
+    pData[0] = color.blue;
+    pData[1] = color.green;
+    pData[2] = color.red;
 }
 
 bool Canvas::write(const char *filename) const {

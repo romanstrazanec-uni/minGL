@@ -44,10 +44,10 @@ int main() {
                 }
 
                 if (iteration == number_of_iterations) {
-                    window.getCanvas().setPixel(x, y, 0, 0, 0);
+                    window.getCanvas().setPixel(x, y, RGBColor(0, 0, 0));
                 } else {
                     color = static_cast<unsigned char>(255. * iteration / number_of_iterations);
-                    window.getCanvas().setPixel(x, y, 0, color, 0);
+                    window.getCanvas().setPixel(x, y, RGBColor(0, color, 0));
                 }
             }
         }

@@ -1,7 +1,8 @@
 #ifndef MINGL_CANVAS_INCLUDED
 #define MINGL_CANVAS_INCLUDED
 
-#include <windows.h>
+#include "colors/colors.hpp"
+
 #include <gdiplus.h>
 
 #include <functional>
@@ -24,7 +25,7 @@ public:
     void addOnDrawListener(std::function<void(Gdiplus::Graphics *)> &&);
     void removeOnDrawListener();
 
-    void setPixel(uint32_t x, uint32_t y, uint8_t red, uint8_t green, uint8_t blue);
+    void setPixel(uint32_t x, uint32_t y, const RGBColor &);
     bool write(const char *filename) const;
     uint8_t *getData() const;
     uint8_t *getPixels() const;
