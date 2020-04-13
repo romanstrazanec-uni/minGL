@@ -13,3 +13,7 @@ target_link_libraries(circles ${PROJECT_NAME})
 # Left or right mouse click on canvas - handle information of the click - draw some 2D shape
 add_executable(canvas WIN32 canvas.cpp)
 target_link_libraries(canvas ${PROJECT_NAME})
+
+# Left or right mouse click on canvas - handle information of the click - draw some 2D shape
+add_executable(julia WIN32 julia.cpp)
+target_link_libraries(julia ${PROJECT_NAME})
