@@ -1,4 +1,5 @@
 #include <fstream>
+#include <cstring>
 #include "bitmap.hpp"
 
 #pragma clang diagnostic push
@@ -10,40 +11,50 @@
 
 #include "bitmap_info_header.h"
 
-Bitmap::Bitmap(int width, int height) : width(width), height(height),
-                                        pixels(new uint8_t[width * height * 3]{}) {}
+const size_t fileHeaderSize = sizeof(BitmapFileHeader);
+const size_t infoHeaderSize = sizeof(BitmapInfoHeader);
+const size_t dataOffset = fileHeaderSize + infoHeaderSize;
 
-void Bitmap::setPixel(int x, int y, uint8_t red, uint8_t green, uint8_t blue) {
-    uint8_t *pPixel = pixels.get();
-
-    pPixel += (y * 3) * width + (x * 3);
-
-    pPixel[0] = blue;
-    pPixel[1] = green;
-    pPixel[2] = red;
-}
-
-bool Bitmap::write(const char *filename) {
+BitMap::BitMap(uint32_t width, uint32_t height) : width(width), height(height),
+                                                  data(new uint8_t[dataOffset + width * height * 3]{}) {
     BitmapFileHeader fileHeader;
     BitmapInfoHeader infoHeader;
 
-    fileHeader.fileSize = sizeof(BitmapFileHeader) + sizeof(BitmapInfoHeader) + width * height * 3;
-    fileHeader.dataOffset = sizeof(BitmapFileHeader) + sizeof(BitmapInfoHeader);
+    fileHeader.dataOffset = dataOffset;
+    fileHeader.fileSize = dataOffset + width * height * 3;
 
     infoHeader.width = width;
     infoHeader.height = height;
 
+    uint8_t *pData = data.get();
+    memcpy(pData, (uint8_t *) &fileHeader, fileHeaderSize);
+    memcpy(pData + fileHeaderSize, (uint8_t *) &infoHeader, infoHeaderSize);
+}
+
+void BitMap::setPixel(uint32_t x, uint32_t y, uint8_t red, uint8_t green, uint8_t blue) {
+    uint8_t *pData = data.get();
+
+    pData += dataOffset + (y * 3) * width + (x * 3);
+
+    pData[0] = blue;
+    pData[1] = green;
+    pData[2] = red;
+}
+
+bool BitMap::write(const char *filename) {
     std::ofstream file;
     file.open(filename, std::ios::out | std::ios::binary);
 
     if (!file) return false;
 
-    file.write((char *) &fileHeader, sizeof(fileHeader));
-    file.write((char *) &infoHeader, sizeof(infoHeader));
-    file.write((char *) pixels.get(), width * height * 3);
+    file.write((char *) data.get(), dataOffset + width * height * 3);
 
     file.close();
     return !!file;
 }
 
-Bitmap::~Bitmap() = default;
+uint8_t *BitMap::getData() {
+    return data.get();
+}
+
+BitMap::~BitMap() = default;
