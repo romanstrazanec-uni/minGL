@@ -53,7 +53,7 @@ int main() {
         }
     });
 
-    window.addOnLeftMouseButtonDownHandler([&mousePosition, &window](Point &&point) {
+    window.addOnMouseMoveHandler([&mousePosition, &window](Point &&point) {
         mousePosition.X = point.X;
         mousePosition.Y = point.Y;
         window.redraw();
