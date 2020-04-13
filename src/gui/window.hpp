@@ -115,7 +115,7 @@ public:
         return false;
     }
 
-    template<class Object>
+    template<class Object, typename = std::enable_if<std::is_base_of<GUIObject, Object>::value>>
     Object *find(long id) {
         std::map<long, GUIObject *>::const_iterator it = objects.find(id);
         return it != objects.end() ? dynamic_cast<Object *>(it->second) : nullptr;
