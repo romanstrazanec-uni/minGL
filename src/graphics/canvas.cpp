@@ -49,6 +49,8 @@ Canvas::Canvas(Window *w) : window(w), width(w->getWidth()), height(w->getHeight
     memcpy(pData, (uint8_t *) &fileHeader, fileHeaderSize);
     memcpy(pData + fileHeaderSize, (uint8_t *) &infoHeader, infoHeaderSize);
 
+    drawArea(0, 0, width, height, RGBColor(255, 255, 255));
+
     w->addHandler(MessageHandler::onPaint([this](Window *w, WindowMessage) {
         HWND windowHandle = w->getWindowHandle();
 
@@ -75,13 +77,21 @@ void Canvas::removeOnDrawListener() {
 }
 
 void Canvas::setPixel(uint32_t x, uint32_t y, const RGBColor &color) {
-    uint8_t *pData = data.get();
-
-    pData += dataOffset + (y * 3) * width + (x * 3);
-
+    uint8_t *pData = data.get() + dataOffset + y * 3 * width + x * 3;
     pData[0] = color.blue;
     pData[1] = color.green;
     pData[2] = color.red;
+}
+
+void Canvas::drawArea(uint32_t x, uint32_t y, uint32_t w, uint32_t h, const RGBColor &color) {
+    uint8_t *pData = data.get() + dataOffset + y * 3 * width + x * 3;
+
+    for (y = 0; y < h; ++y)
+        for (x = 0; x < w; ++x) {
+            pData[x * 3 + y * 3 * width] = color.blue;
+            pData[1 + x * 3 + y * 3 * width] = color.green;
+            pData[2 + x * 3 + y * 3 * width] = color.red;
+        }
 }
 
 bool Canvas::write(const char *filename) const {
