@@ -62,7 +62,7 @@ protected:
 public:
     BaseWindow(const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height)
             : GUIObject("CustomWindowClass", title, x, y, width, height, GetModuleHandle(nullptr), this) {
-        addStyle(WS_OVERLAPPEDWINDOW);
+        addStyle(WS_OVERLAPPEDWINDOW ^ WS_THICKFRAME);
     }
 
     virtual void initialize() final {
