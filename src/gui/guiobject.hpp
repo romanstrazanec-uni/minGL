@@ -53,7 +53,9 @@ public:
      */
     virtual bool create() final;
 
-    virtual void addStyle(UINT style) final;
+    virtual void addStyle(UINT) final;
+
+    virtual void removeStyle(UINT) final;
 
     virtual const char *getName() const final;
 

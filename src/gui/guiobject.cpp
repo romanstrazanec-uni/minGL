@@ -19,6 +19,7 @@ bool GUIObject::create() {
 }
 
 void GUIObject::addStyle(UINT s) { style |= s; }
+void GUIObject::removeStyle(UINT s) { style ^= s; }
 
 const char *GUIObject::getClassName() const { return className; }
 const char *GUIObject::getName() const { return name; }
