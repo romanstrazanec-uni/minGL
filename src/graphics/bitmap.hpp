@@ -1,5 +1,5 @@
-#ifndef BITMAP_INCLUDED
-#define BITMAP_INCLUDED
+#ifndef MINGL_BITMAP_INCLUDED
+#define MINGL_BITMAP_INCLUDED
 
 #include <string>
 #include <cstdint>
