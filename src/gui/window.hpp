@@ -133,7 +133,7 @@ public:
 
     /* Canvas */
 
-    const Canvas &getCanvas() const;
+    Canvas &getCanvas();
 
     void addOnDrawHandler(std::function<void(Gdiplus::Graphics *)> &&);
 
