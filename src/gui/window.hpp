@@ -135,7 +135,7 @@ public:
 
     Canvas &getCanvas();
 
-    void addOnDrawHandler(std::function<void(Gdiplus::Graphics *)> &&);
+    void addOnDrawHandler(OnDrawHandle &&);
 
     void redraw();
 };

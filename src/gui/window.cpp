@@ -175,7 +175,7 @@ bool Window::showMessageDialog(const char *title, const char *message) const {
 
 Canvas &Window::getCanvas() { return canvas; }
 
-void Window::addOnDrawHandler(std::function<void(Gdiplus::Graphics *)> &&onDraw) {
+void Window::addOnDrawHandler(OnDrawHandle &&onDraw) {
     canvas.addOnDrawListener(std::move(onDraw));
 }
 

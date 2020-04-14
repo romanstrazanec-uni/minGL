@@ -68,7 +68,7 @@ Canvas::Canvas(Window *w) : window(w), width(w->getWidth()), height(w->getHeight
 
 Canvas::~Canvas() = default;
 
-void Canvas::addOnDrawListener(std::function<void(Gdiplus::Graphics *)> &&onDrawListener) {
+void Canvas::addOnDrawListener(OnDrawHandle &&onDrawListener) {
     onDraw = onDrawListener != nullptr ? onDrawListener : [](Gdiplus::Graphics *) {};
 }
 
