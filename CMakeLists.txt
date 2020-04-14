@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.12)
 project(minGL
-        VERSION 1.1.0
+        VERSION 1.2.0
         DESCRIPTION "Simple C++ graphics library for Windows."
         HOMEPAGE_URL https://github.com/romanstrazanec/minGL)
 
