@@ -81,9 +81,9 @@ public:
      * Override this method to manage window attributes.
      */
     virtual void setDefaultWindowAttributes() {
-        setIcon(nullptr, IDI_APPLICATION);
-        setSmallIcon(nullptr, IDI_APPLICATION);
-        setCursor(nullptr, IDI_APPLICATION);
+        setIcon(IDI_APPLICATION);
+        setSmallIcon(IDI_APPLICATION);
+        setCursor(IDI_APPLICATION);
         setBackground((HBRUSH) COLOR_WINDOW);
         setMenuName(nullptr);
         setStyle(0);
@@ -114,20 +114,20 @@ public:
     /* SETTERS */
 
     virtual void setTitle(char const *title) final { setName(title); }
-    virtual void setIcon(HINSTANCE hinstance, LPCSTR icon_name) final {
-        if (!initialized) wc.hIcon = LoadIcon(hinstance, icon_name);
+    virtual void setIcon(LPCTSTR iconName) final {
+        if (!initialized) wc.hIcon = LoadIcon(wc.hInstance, iconName);
     }
-    virtual void setSmallIcon(HINSTANCE hinstance, LPCSTR icon_name) final {
-        if (!initialized) wc.hIconSm = LoadIcon(hinstance, icon_name);
+    virtual void setSmallIcon(LPCTSTR iconName) final {
+        if (!initialized) wc.hIconSm = LoadIcon(wc.hInstance, iconName);
     }
-    virtual void setCursor(HINSTANCE hinstance, LPCSTR cursor_name) final {
-        if (!initialized) wc.hCursor = LoadCursor(hinstance, cursor_name);
+    virtual void setCursor(LPCTSTR cursorName) final {
+        if (!initialized) wc.hCursor = LoadCursor(wc.hInstance, cursorName);
     }
-    virtual void setMenuName(LPCSTR menu_name) final { if (!initialized) wc.lpszMenuName = menu_name; }
+    virtual void setMenuName(LPCSTR menuName) final { if (!initialized) wc.lpszMenuName = menuName; }
     virtual void setBackground(HBRUSH color) final { if (!initialized) wc.hbrBackground = color; }
     virtual void setStyle(UINT style) final { if (!initialized) wc.style = style; }
-    virtual void setWindowExtraBytes(int n_bytes) final { if (!initialized) wc.cbWndExtra = n_bytes; }
-    virtual void setClassExtraBytes(int n_bytes) final { if (!initialized) wc.cbClsExtra = n_bytes; }
+    virtual void setWindowExtraBytes(int nBytes) final { if (!initialized) wc.cbWndExtra = nBytes; }
+    virtual void setClassExtraBytes(int nBytes) final { if (!initialized) wc.cbClsExtra = nBytes; }
 };
 
 #endif
