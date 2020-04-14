@@ -155,9 +155,9 @@ void Window::computeSize() {
         computedHeight = newHeight > computedHeight ? newHeight : computedHeight;
     }
 
-    if (computedWidth > getWidth()) setWidth(computedWidth);
-    if (computedHeight > getHeight()) setHeight(computedHeight);
-    setHeight(getHeight() + 50);
+    if (computedWidth + 10 > getWidth()) setWidth(computedWidth + 10);
+    if (computedHeight + 10 > getHeight()) setHeight(computedHeight + 10);
+    setHeight(getHeight() + 25);
 }
 
 void Window::performClick(long id) {
