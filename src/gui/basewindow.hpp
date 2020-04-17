@@ -70,7 +70,7 @@ public:
         Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, nullptr);
 
         wc.lpszClassName = getClassName();
-        wc.hInstance = getHinstance();
+        wc.hInstance = getInstance();
         wc.lpfnWndProc = DerivedWindow::wndProc;
         setDefaultWindowAttributes();
         wc.cbSize = sizeof(WNDCLASSEX);

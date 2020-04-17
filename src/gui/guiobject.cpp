@@ -1,20 +1,60 @@
 #include "guiobject.hpp"
 #include "window.hpp"
 
-GUIObject::GUIObject(const char *className, const char *name, UINT16 x, UINT16 y, UINT16 width, UINT16 height,
-                     HINSTANCE hinstance, LPVOID additionalData) : className(className), name(name), x(x), y(y),
-                                                                   width(width), height(height), hinstance(hinstance),
-                                                                   additionalData(additionalData) {}
-GUIObject::GUIObject(Window *parent, const char *className, long id, const char *name, UINT16 x, UINT16 y, UINT16 width,
-                     UINT16 height) : parent(parent), className(className), id(id), name(name), x(x), y(y),
-                                      width(width),
-                                      height(height) { addToParent(); }
+GUIObject::GUIObject(const char *className,
+                     const char *name,
+                     UINT16 x,
+                     UINT16 y,
+                     UINT16 width,
+                     UINT16 height,
+                     HINSTANCE hInstance,
+                     LPVOID additionalData)
+        : className(className),
+          name(name),
+          x(x),
+          y(y),
+          width(width),
+          height(height),
+          hInstance(hInstance),
+          additionalData(additionalData) {}
+
+GUIObject::GUIObject(Window *parent,
+                     const char *className,
+                     long id,
+                     const char *name,
+                     UINT16 x,
+                     UINT16 y,
+                     UINT16 width,
+                     UINT16 height)
+        : className(className),
+          name(name),
+          x(x),
+          y(y),
+          width(width),
+          height(height),
+          id(id),
+          parent(parent) {
+    addToParent();
+}
+
 GUIObject::~GUIObject() { removeFromParent(); }
 
 bool GUIObject::create() {
     if (isCreated()) return true;
-    hwnd = CreateWindowEx(extendedStyle, className, name, style, x, y, width, height,
-                          parent != nullptr ? parent->getWindowHandle() : nullptr, hMenu, hinstance, additionalData);
+    hWnd = CreateWindowEx(
+            extendedStyle,
+            className,
+            name,
+            style,
+            x,
+            y,
+            width,
+            height,
+            parent != nullptr ? parent->getWindowHandle() : nullptr,
+            hMenu,
+            hInstance,
+            additionalData
+    );
     return isCreated();
 }
 
@@ -23,28 +63,19 @@ void GUIObject::removeStyle(UINT s) { style ^= s; }
 
 const char *GUIObject::getClassName() const { return className; }
 const char *GUIObject::getName() const { return name; }
-HINSTANCE GUIObject::getHinstance() const { return hinstance; }
-LPVOID GUIObject::getAdditionalData() const { return additionalData; }
+HINSTANCE GUIObject::getInstance() const { return hInstance; }
 
 UINT16 GUIObject::getX() const { return x; }
 UINT16 GUIObject::getY() const { return y; }
 UINT16 GUIObject::getWidth() const { return width; }
 UINT16 GUIObject::getHeight() const { return height; }
+void GUIObject::setWidth(UINT16 w) { width = w; }
+void GUIObject::setHeight(UINT16 h) { height = h; }
 
 long GUIObject::getId() const { return id; }
-HWND GUIObject::getWindowHandle() const { return hwnd; }
+HWND GUIObject::getWindowHandle() const { return hWnd; }
 
-bool GUIObject::isCreated() const { return hwnd != nullptr; }
-
-void GUIObject::setWindowHandle(HWND h) { hwnd = h; }
-
-void GUIObject::setWidth(UINT16 w) {
-    width = w;
-}
-
-void GUIObject::setHeight(UINT16 h) {
-    height = h;
-}
+bool GUIObject::isCreated() const { return hWnd != nullptr; }
 
 void GUIObject::setParent(Window *window, bool onlySet) {
     if (!onlySet) removeFromParent();
@@ -67,12 +98,12 @@ std::string GUIObject::getText(UINT16 length) {
     if (!isCreated()) return name;
 
     if (++length == 1) {
-        char *text;
+        char *text = nullptr;
         while (true) {
             text = new char[++length];
-            GetWindowText(hwnd, text, length);
+            GetWindowText(hWnd, text, length);
 
-            if (text[length - 2] == '\0') {
+            if (text[length - 2] == 0) {
                 std::string finalText = text;
                 delete[] text;
                 return finalText;
@@ -82,15 +113,15 @@ std::string GUIObject::getText(UINT16 length) {
     }
 
     char *text = new char[length];
-    GetWindowText(hwnd, text, length);
+    GetWindowText(hWnd, text, length);
     std::string finalText = text;
     delete[] text;
     return finalText;
 }
 
 void GUIObject::setText(const char *text) {
-    if (isCreated()) SetWindowText(hwnd, text);
-    else name = text;
+    if (isCreated()) SetWindowText(hWnd, text);
+    name = text;
 }
 
 /* Comparision operators */
