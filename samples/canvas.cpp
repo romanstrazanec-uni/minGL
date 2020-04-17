@@ -19,14 +19,14 @@ int main() {
     // Typ druhého parametra je bod z knižnice Gdiplus. Obsahuje pozíciu kliknutia myši teda jeho súradnice x a y.
     // Aby sme predišli zbytočnému kopírovaniu objektu, môžeme ho označiť ako odkaz na L-hodnotu (const Point &) alebo
     // odkaz na R-hodnotu (Point &&). Preferovanou voľbou je odkaz na R-hodnotu keďže je objekt vytvorený na mieste.
-    window.addOnLeftMouseHandler([&points, &window](Point &&point) {
+    window.addOnLeftMouseHandler([&points, &window](const Point &point) {
         points.emplace_back(point); // todo: SIGSEGV
         window.redraw();
     });
 
     // Pridáme funkciu vykonávanú po stlačení pravého tlačidla myši.
     // Táto funkcia zmení farbu na náhodnú a prekreslí okno.
-    window.addOnRightMouseHandler([&color, &window](Point &&) {
+    window.addOnRightMouseHandler([&color, &window](const Point &) {
         color = Color(rand() % 256, rand() % 256, rand() % 256);
         window.redraw();
     });

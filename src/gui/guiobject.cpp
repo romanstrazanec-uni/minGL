@@ -74,6 +74,7 @@ void GUIObject::setHeight(UINT16 h) { height = h; }
 
 long GUIObject::getId() const { return id; }
 HWND GUIObject::getWindowHandle() const { return hWnd; }
+void GUIObject::setWindowHandle(HWND handle) { hWnd = handle; }
 
 bool GUIObject::isCreated() const { return hWnd != nullptr; }
 

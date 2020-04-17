@@ -38,7 +38,7 @@ int main() {
         c = Color(255, 0, 0, 255);
     });
 
-    w.addOnRightMouseHandler([&](Point &&point) {
+    w.addOnRightMouseHandler([&](const Point &point) {
         points.emplace_back(point);
         if (nPoints > 10) points.erase(points.begin());
         else ++nPoints;
@@ -57,17 +57,17 @@ int main() {
             }
     });
 
-    w.addOnLeftMouseHandler([&lButtonDown, &paths, &c](Point &&p) {
+    w.addOnLeftMouseHandler([&lButtonDown, &paths, &c](const Point &p) {
         lButtonDown = true;
         paths.emplace_back(c, p); // todo: segmentation fault
     });
 
-    w.addOnLeftMouseUpHandler([&lButtonDown, &paths](Point &&p) {
+    w.addOnLeftMouseUpHandler([&lButtonDown, &paths](const Point &p) {
         if (!paths.empty()) paths.back().addPoint(p);
         lButtonDown = false;
     });
 
-    w.addOnMouseMoveHandler([&](Point &&p) {
+    w.addOnMouseMoveHandler([&](const Point &p) {
         if (lButtonDown) paths.back().addPoint(p); // todo: segmentation fault
     });
 

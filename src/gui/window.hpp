@@ -44,12 +44,20 @@ class Window final : public BaseWindow<Window> {
      */
     void setWindowAttributes() override;
 
-    LRESULT handleMessage(WindowMessage &&) override;
-
     /**
      * Compute size before creation according to the child objects.
      */
     void computeSize() override;
+
+    /**
+     * Creates objects when window is created.
+     */
+    void createObjects();
+
+    /**
+     * Performs click on a button found by id. If not found, nothing happens.
+     */
+    void performClick(long id);
 
 public:
     /**
@@ -86,6 +94,8 @@ public:
     ~Window() override;
 
     /* Message handling */
+
+    LRESULT handleMessage(WindowMessage &&) override;
 
     /**
      * Adds a message handler to respond to specified message with handle function.
@@ -178,16 +188,6 @@ public:
         std::map<long, GUIObject *>::const_iterator it = objects.find(id);
         return it != objects.end() ? dynamic_cast<Object *>(it->second) : nullptr;
     }
-
-    /**
-     * Creates objects when window is created.
-     */
-    void createObjects();
-
-    /**
-     * Performs click on a button found by id. If not found, nothing happens.
-     */
-    void performClick(long id);
 
     /**
      * Shows confirm dialog box with the title and the message.

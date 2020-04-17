@@ -7,13 +7,13 @@ Window::Window(const char *title, UINT16 x, UINT16 y) : Window(title, x, y, 0, 0
 Window::Window(const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height)
         : BaseWindow(title, x, y, width, height), canvas(this) {
     // Create objects on window creation.
-    addHandler(WindowMessage::onCreate(), [](Window *window, const WindowMessage &) {
-        window->createObjects();
+    addHandler(WindowMessage::onCreate(), [this](Window *, const WindowMessage &) {
+        createObjects();
     });
 
     // Perform click on specified button.
-    addHandler(WindowMessage(WM_COMMAND), [](Window *window, const WindowMessage &msg) {
-        window->performClick(msg.getWparam());
+    addHandler(WindowMessage(WM_COMMAND), [this](Window *, const WindowMessage &msg) {
+        performClick(msg.getWparam());
     });
 
     initialize();

@@ -136,6 +136,7 @@ public:
     virtual long getId() const final;
 
     virtual HWND getWindowHandle() const final;
+    virtual void setWindowHandle(HWND) final;
 
     /**
      * @returns true after create() method returned true (Window handle is not nullptr).
