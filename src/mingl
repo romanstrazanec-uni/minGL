@@ -1,8 +1,12 @@
+/*
+ * Include this file into your executable to import all necessary headers.
+ */
+
 #ifndef MINGL_INCLUDED
 #define MINGL_INCLUDED
 
 #include "gui/window.hpp"
 
-#define main() APIENTRY WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
+#include "main"
 
 #endif

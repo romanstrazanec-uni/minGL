@@ -1,0 +1,8 @@
+/*
+ * This file redefines WinMain entry point to classic C++ style main function.
+ */
+
+#ifndef MINGL_MAIN
+#define MINGL_MAIN
+#define main() APIENTRY WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
+#endif
