@@ -27,10 +27,6 @@ private:
     Gdiplus::GdiplusStartupInput gdiplusStartupInput{};
     ULONG_PTR gdiplusToken{};
 
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "UnusedGlobalDeclarationInspection"
-    // Used when BaseWindow::show() -> DispatchMessage(MSG) is called.
-
     /**
      * Window procedure. Windows OS callback function. Windows OS sends messages to be handled by
      * DerivedWindow::handleMessage(WindowMessage).
@@ -62,7 +58,6 @@ protected:
      * This method needs to be derived by subclass window.
      */
     virtual LRESULT handleMessage(WindowMessage &&) = 0;
-#pragma clang diagnostic pop
 
     /**
      * Override this method to manage window attributes.

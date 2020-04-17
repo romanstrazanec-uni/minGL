@@ -13,7 +13,7 @@ Window::Window(const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 heigh
 
     // Perform click on specified button.
     addHandler(WindowMessage(WM_COMMAND), [this](const WindowMessage &msg) {
-        performClick(msg.getWparam());
+        performClick(static_cast<long>(msg.getWparam()));
     });
 
     initialize();

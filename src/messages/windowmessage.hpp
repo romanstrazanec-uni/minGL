@@ -1,7 +1,7 @@
 #ifndef MINGL_WINDOW_MESSAGE_INCLUDED
 #define MINGL_WINDOW_MESSAGE_INCLUDED
 
-#include <windef.h>
+#include <windows.h>
 
 /**
  * Stores Windows message code with its WPARAM and LPARAM.

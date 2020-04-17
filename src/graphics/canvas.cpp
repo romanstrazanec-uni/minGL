@@ -3,9 +3,6 @@
 
 #include <fstream>
 
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "UnusedGlobalDeclarationInspection"
-
 #pragma pack(2)
 struct BitmapFileHeader {
     char header[2]{'B', 'M'};
@@ -32,8 +29,6 @@ struct BitmapInfoHeader {
     int32_t colors{0};
     int32_t importantColors{0};
 };
-
-#pragma clang diagnostic pop
 
 static const size_t fileHeaderSize = sizeof(BitmapFileHeader);
 static const size_t infoHeaderSize = sizeof(BitmapInfoHeader);
