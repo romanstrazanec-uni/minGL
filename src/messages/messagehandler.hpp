@@ -7,20 +7,13 @@
 
 class Window;
 
-typedef std::function<void(Window *, const WindowMessage &)> Handle;
+typedef std::function<void(const WindowMessage &)> Handle;
 
 /**
  * Handles certain message with handle.
  */
 class MessageHandler {
-    /**
-     * Message handler handles
-     */
     WindowMessage message;
-
-    /**
-     * Function
-     */
     Handle handle;
 
 public:
@@ -39,7 +32,7 @@ public:
     /**
      * Handles WindowMessage if it equals to the specified.
      */
-    void handleMessage(Window *, const WindowMessage &);
+    void handleMessage(const WindowMessage &);
 
     /**
      * Gets the message, which also stores WPARAM and LPARAM.

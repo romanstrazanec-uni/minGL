@@ -3,12 +3,12 @@
 MessageHandler::MessageHandler(WindowMessage &&msg, const Handle &handle)
         : message(msg), handle(handle) {}
 
-void MessageHandler::handleMessage(Window *window, const WindowMessage &msg) {
+void MessageHandler::handleMessage(const WindowMessage &msg) {
     // Handle only if message codes are equal.
     if (message == msg) {
         // Store the params.
         message = msg;
-        handle(window, message);
+        handle(message);
     }
 }
 

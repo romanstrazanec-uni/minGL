@@ -5,8 +5,8 @@
 int main() {
     Window window;
     window.setTitle("title");
-    window.addHandler(WindowMessage::onClose(), [](Window *w, WindowMessage) {
-        if (w->showConfirmDialog("Really quit?", "My application")) DestroyWindow(w->getWindowHandle());
+    window.addHandler(WindowMessage::onClose(), [&window](const WindowMessage &) {
+        if (window.showConfirmDialog("Really quit?", "My application")) DestroyWindow(window.getWindowHandle());
     });
 
     // constructing a button and assigning it to window

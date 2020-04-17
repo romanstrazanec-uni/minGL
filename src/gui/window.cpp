@@ -7,12 +7,12 @@ Window::Window(const char *title, UINT16 x, UINT16 y) : Window(title, x, y, 0, 0
 Window::Window(const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height)
         : BaseWindow(title, x, y, width, height), canvas(this) {
     // Create objects on window creation.
-    addHandler(WindowMessage::onCreate(), [this](Window *, const WindowMessage &) {
+    addHandler(WindowMessage::onCreate(), [this](const WindowMessage &) {
         createObjects();
     });
 
     // Perform click on specified button.
-    addHandler(WindowMessage(WM_COMMAND), [this](Window *, const WindowMessage &msg) {
+    addHandler(WindowMessage(WM_COMMAND), [this](const WindowMessage &msg) {
         performClick(msg.getWparam());
     });
 
@@ -47,7 +47,7 @@ LRESULT Window::handleMessage(WindowMessage &&msg) {
     auto mh = messageHandlers.find(msg.getCode());
     if (mh == messageHandlers.end())
         return DefWindowProc(getWindowHandle(), msg.getCode(), msg.getWparam(), msg.getLparam());
-    mh->second->handleMessage(this, msg);
+    mh->second->handleMessage(msg);
     return 0;
 }
 
@@ -57,7 +57,7 @@ void Window::addHandler(WindowMessage &&msg, Handle &&handle) {
 }
 
 void Window::addOnMouseEventHandler(WindowMessage &&wm, MouseHandle &&handle) {
-    addHandler(std::move(wm), [handle](Window *, const WindowMessage &wm) {
+    addHandler(std::move(wm), [handle](const WindowMessage &wm) {
         POINT mousePosition = wm.getMousePosition();
         handle(Gdiplus::Point(mousePosition.x, mousePosition.y));
     });

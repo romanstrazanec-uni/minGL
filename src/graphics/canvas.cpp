@@ -3,6 +3,9 @@
 
 #include <fstream>
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "UnusedGlobalDeclarationInspection"
+
 #pragma pack(2)
 struct BitmapFileHeader {
     char header[2]{'B', 'M'};
@@ -30,6 +33,8 @@ struct BitmapInfoHeader {
     int32_t importantColors{0};
 };
 
+#pragma clang diagnostic pop
+
 static const size_t fileHeaderSize = sizeof(BitmapFileHeader);
 static const size_t infoHeaderSize = sizeof(BitmapInfoHeader);
 static const size_t dataOffset = fileHeaderSize + infoHeaderSize;
@@ -54,8 +59,8 @@ Canvas::Canvas(Window *w)
 
     drawArea(0, 0, width, height, RGBColor(255, 255, 255));
 
-    w->addHandler(WindowMessage::onPaint(), [this](Window *w, WindowMessage) {
-        HWND windowHandle = w->getWindowHandle();
+    w->addHandler(WindowMessage::onPaint(), [this](const WindowMessage &) {
+        HWND windowHandle = window->getWindowHandle();
 
         PAINTSTRUCT paintStruct;
         Gdiplus::Graphics graphics{BeginPaint(windowHandle, &paintStruct)};

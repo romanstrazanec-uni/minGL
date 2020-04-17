@@ -56,13 +56,13 @@ private:
         return pThis ? pThis->handleMessage(WindowMessage(msg, wParam, lParam))
                      : DefWindowProc(hwnd, msg, wParam, lParam);
     }
-#pragma clang diagnostic pop
 
 protected:
     /**
      * This method needs to be derived by subclass window.
      */
     virtual LRESULT handleMessage(WindowMessage &&) = 0;
+#pragma clang diagnostic pop
 
     /**
      * Override this method to manage window attributes.
