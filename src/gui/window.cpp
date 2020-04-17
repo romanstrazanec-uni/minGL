@@ -15,6 +15,17 @@ Window::Window(const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 heigh
     initialize();
 }
 
+void Window::setWindowAttributes() {
+    setIcon(IDI_APPLICATION);
+    setSmallIcon(IDI_APPLICATION);
+    setCursor(IDI_APPLICATION);
+    setBackground((HBRUSH) COLOR_WINDOW);
+    setMenuName(nullptr);
+    setStyle(0);
+    setWindowExtraBytes(0);
+    setClassExtraBytes(0);
+}
+
 Window::~Window() {
     for (auto it = objects.begin(); it != objects.end(); it = objects.begin()) {
         GUIObject *o = it->second;

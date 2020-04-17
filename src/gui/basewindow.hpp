@@ -27,6 +27,10 @@ private:
     Gdiplus::GdiplusStartupInput gdiplusStartupInput{};
     ULONG_PTR gdiplusToken{};
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "UnusedGlobalDeclarationInspection"
+    // Used when BaseWindow::show() -> DispatchMessage(MSG) is called.
+
     /**
      * Window procedure. Windows OS callback function. Windows OS sends messages to be handled by
      * DerivedWindow::handleMessage(WindowMessage).
@@ -52,12 +56,18 @@ private:
         return pThis ? pThis->handleMessage(WindowMessage(msg, wParam, lParam))
                      : DefWindowProc(hwnd, msg, wParam, lParam);
     }
+#pragma clang diagnostic pop
 
 protected:
     /**
      * This method needs to be derived by subclass window.
      */
     virtual LRESULT handleMessage(WindowMessage &&) = 0;
+
+    /**
+     * Override this method to manage window attributes.
+     */
+    virtual void setWindowAttributes() = 0;
 
 public:
     BaseWindow(const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height)
@@ -73,23 +83,9 @@ public:
         wc.lpszClassName = getClassName();
         wc.hInstance = getInstance();
         wc.lpfnWndProc = DerivedWindow::wndProc;
-        setDefaultWindowAttributes();
+        setWindowAttributes();
         wc.cbSize = sizeof(WNDCLASSEX);
         if (RegisterClassEx(&wc)) initialized = true;
-    }
-
-    /**
-     * Override this method to manage window attributes.
-     */
-    virtual void setDefaultWindowAttributes() {
-        setIcon(IDI_APPLICATION);
-        setSmallIcon(IDI_APPLICATION);
-        setCursor(IDI_APPLICATION);
-        setBackground((HBRUSH) COLOR_WINDOW);
-        setMenuName(nullptr);
-        setStyle(0);
-        setWindowExtraBytes(0);
-        setClassExtraBytes(0);
     }
 
     /**

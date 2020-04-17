@@ -19,7 +19,9 @@ class Window : public BaseWindow<Window> {
     std::map<long, GUIObject *> objects{};
     Canvas canvas;
 
-    void addOnMouseEventHandler(WindowMessage &&wm, MouseHandle);
+    void addOnMouseEventHandler(WindowMessage &&, MouseHandle &&);
+
+    void setWindowAttributes() override;
 
 public:
     explicit Window(const char *title = "");
