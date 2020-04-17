@@ -17,7 +17,9 @@
 template<class DerivedWindow>
 class BaseWindow : public GUIObject {
 private:
-    /** Backing property for initializing window. */
+    /**
+     * Backing property for initializing window.
+     */
     bool initialized{false};
 
     WNDCLASSEX wc{};
@@ -29,17 +31,13 @@ private:
      * Window procedure. Windows OS callback function. Windows OS sends messages to be handled by
      * DerivedWindow::handleMessage(WindowMessage).
      *
-     * @param hwnd
-     * @param msg
-     * @param wParam
-     * @param lParam
      * @returns result of handled message.
      */
     static LRESULT CALLBACK wndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
-        DerivedWindow *pThis = nullptr;
+        DerivedWindow *pThis;
 
         if (msg == WM_NCCREATE) {
-            auto pCreate = (CREATESTRUCT *) lParam;
+            auto *pCreate = (CREATESTRUCT *) lParam;
             pThis = (DerivedWindow *) pCreate->lpCreateParams;
             SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR) pThis);
 
@@ -56,12 +54,15 @@ private:
     }
 
 protected:
-    /** This method needs to be derived by subclass window. */
+    /**
+     * This method needs to be derived by subclass window.
+     */
     virtual LRESULT handleMessage(WindowMessage &&) = 0;
 
 public:
     BaseWindow(const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height)
             : GUIObject("CustomWindowClass", title, x, y, width, height, GetModuleHandle(nullptr), this) {
+        // ^ WS_THICKFRAME to disable resizing of the window.
         addStyle(WS_OVERLAPPEDWINDOW ^ WS_THICKFRAME);
     }
 
@@ -92,7 +93,8 @@ public:
     }
 
     /**
-     * Shows the window and creates an event loop. After window destruction, shuts down gdiplus if enabled.
+     * Shows the window and creates an event loop.
+     * After window destruction, shuts down gdiplus if enabled.
      */
     virtual bool show() final {
         if (!isCreated()) computeSize();
