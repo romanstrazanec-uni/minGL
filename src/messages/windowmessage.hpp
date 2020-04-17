@@ -1,63 +1,65 @@
 #ifndef MINGL_WINDOW_MESSAGE_INCLUDED
 #define MINGL_WINDOW_MESSAGE_INCLUDED
 
-#include <minwindef.h>
-#include <winuser.h>
-#include <windowsx.h>
+#include <windef.h>
 
+/**
+ * Stores Windows message code with its WPARAM and LPARAM.
+ *
+ * Can be created only with the code.
+ */
 class WindowMessage {
-    UINT messageCode{0};
-    WPARAM wparam{0};
-    LPARAM lparam{0};
+    UINT code;
+    WPARAM wParam{0};
+    LPARAM lParam{0};
 
 public:
-    WindowMessage() = default;
-    WindowMessage(const WindowMessage &) = default;
-    WindowMessage(UINT code) : messageCode(code) {}
-    WindowMessage(UINT code, WPARAM wparam, LPARAM lparam) : messageCode(code), wparam(wparam), lparam(lparam) {}
+    /**
+     * Cannot create empty message. Every message should have a code.
+     */
+    WindowMessage() = delete;
+    WindowMessage(const WindowMessage &);
 
-    WPARAM getWparam() const { return wparam; }
-    LPARAM getLparam() const { return lparam; }
-    UINT getMsg() const { return messageCode; }
+    /**
+     * UINT code can be implicitly converted to the WindowMessage.
+     */
+    WindowMessage(UINT code);
+    WindowMessage(UINT code, WPARAM, LPARAM);
 
-    POINT getMousePosition() const {
-        UINT msgs[] = {WM_MOUSEMOVE, WM_LBUTTONDOWN, WM_LBUTTONUP, WM_MBUTTONDOWN, WM_MBUTTONUP, WM_RBUTTONDOWN,
-                       WM_RBUTTONUP};
-        if (in(msgs, 7)) return {GET_X_LPARAM(lparam), GET_Y_LPARAM(lparam)};
-        return {0, 0};
-    }
+    /* Getters */
 
-    /* UINT code comparators */
+    UINT getCode() const;
+    WPARAM getWparam() const;
+    LPARAM getLparam() const;
 
-    bool in(UINT *msgs, UINT size) const {
-        for (UINT i = 0; i < size; ++i) if (messageCode == msgs[i]) return true;
-        return false;
-    }
+    /**
+     * Gets mouse position if the code relates to mouse action.
+     *
+     * @returns structure POINT with {x, y} coordinates of mouse action or {0, 0} if it is not mouse action.
+     */
+    POINT getMousePosition() const;
 
-    friend bool operator==(const WindowMessage &msg, UINT code) { return msg.messageCode == code; }
-    friend bool operator!=(const WindowMessage &msg, UINT code) { return !(msg == code); }
-    friend bool operator==(UINT code, const WindowMessage &msg) { return msg == code; }
-    friend bool operator!=(UINT code, const WindowMessage &msg) { return msg != code; }
+    /* Comparators */
 
-    /* WindowMessage comparators */
-    friend bool operator==(const WindowMessage &msg1, const WindowMessage &msg2) {
-        return msg1.messageCode == msg2.messageCode;
-    }
-    friend bool operator!=(const WindowMessage &msg1, const WindowMessage &msg2) {
-        return !(msg1 == msg2);
-    }
+    friend bool operator==(const WindowMessage &, UINT);
+    friend bool operator!=(const WindowMessage &, UINT);
+    friend bool operator==(UINT, const WindowMessage &);
+    friend bool operator!=(UINT, const WindowMessage &);
+    friend bool operator==(const WindowMessage &msg1, const WindowMessage &msg2);
+    friend bool operator!=(const WindowMessage &msg1, const WindowMessage &msg2);
 
     /* Static Constructors */
-    static WindowMessage onCreate() { return {WM_CREATE}; }
-    static WindowMessage onPaint() { return {WM_PAINT}; }
-    static WindowMessage onClose() { return {WM_CLOSE}; }
-    static WindowMessage onMouseMove() { return {WM_MOUSEMOVE}; }
-    static WindowMessage onLeftMouseButtonDown() { return {WM_LBUTTONDOWN}; }
-    static WindowMessage onLeftMouseButtonUp() { return {WM_LBUTTONUP}; }
-    static WindowMessage onMiddleMouseButtonDown() { return {WM_MBUTTONDOWN}; }
-    static WindowMessage onMiddleMouseButtonUp() { return {WM_MBUTTONUP}; }
-    static WindowMessage onRightMouseButtonDown() { return {WM_RBUTTONDOWN}; }
-    static WindowMessage onRightMouseButtonUp() { return {WM_RBUTTONUP}; }
+
+    static WindowMessage onCreate();
+    static WindowMessage onPaint();
+    static WindowMessage onClose();
+    static WindowMessage onMouseMove();
+    static WindowMessage onLeftMouseButtonDown();
+    static WindowMessage onLeftMouseButtonUp();
+    static WindowMessage onMiddleMouseButtonDown();
+    static WindowMessage onMiddleMouseButtonUp();
+    static WindowMessage onRightMouseButtonDown();
+    static WindowMessage onRightMouseButtonUp();
 };
 
 #endif
