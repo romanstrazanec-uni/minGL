@@ -34,7 +34,7 @@ int main() {
         // Zobrazíme MessageDialog.
         // Táto metóda si namiesto reťazcov pýta ukazovateľ na typ char, ktorým sa v jazyku C reťazce nahrádzali.
         // Preto treba pomocou metódy c_str() tento ukazovateľ získať.
-        window.showMessageDialog("Vypocet", message.c_str());
+        window.showConfirmDialog("Vypocet", message.c_str());
     });
 
     // Otvoríme okno a tým spustíme aplikáciu.

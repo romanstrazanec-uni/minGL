@@ -30,12 +30,15 @@ struct BitmapInfoHeader {
     int32_t importantColors{0};
 };
 
-const size_t fileHeaderSize = sizeof(BitmapFileHeader);
-const size_t infoHeaderSize = sizeof(BitmapInfoHeader);
-const size_t dataOffset = fileHeaderSize + infoHeaderSize;
+static const size_t fileHeaderSize = sizeof(BitmapFileHeader);
+static const size_t infoHeaderSize = sizeof(BitmapInfoHeader);
+static const size_t dataOffset = fileHeaderSize + infoHeaderSize;
 
-Canvas::Canvas(Window *w) : window(w), width(w->getWidth()), height(w->getHeight()),
-                            data(new uint8_t[dataOffset + w->getWidth() * w->getHeight() * 3]{}) {
+Canvas::Canvas(Window *w)
+        : window(w),
+          width(w->getWidth()),
+          height(w->getHeight()),
+          data(new uint8_t[dataOffset + w->getWidth() * w->getHeight() * 3]{}) {
     BitmapFileHeader fileHeader;
     BitmapInfoHeader infoHeader;
 
@@ -51,19 +54,25 @@ Canvas::Canvas(Window *w) : window(w), width(w->getWidth()), height(w->getHeight
 
     drawArea(0, 0, width, height, RGBColor(255, 255, 255));
 
-    w->addHandler(MessageHandler::onPaint([this](Window *w, WindowMessage) {
+    w->addHandler(WindowMessage::onPaint(), [this](Window *w, WindowMessage) {
         HWND windowHandle = w->getWindowHandle();
 
         PAINTSTRUCT paintStruct;
         Gdiplus::Graphics graphics{BeginPaint(windowHandle, &paintStruct)};
 
-        Gdiplus::Bitmap bitmap(width, height, width * 3, PixelFormat24bppRGB, data.get());
+        Gdiplus::Bitmap bitmap(
+                width,
+                height,
+                width * 3,
+                PixelFormat24bppRGB,
+                data.get()
+        );
         graphics.DrawImage(&bitmap, 0, 0);
 
         onDraw(&graphics);
 
         EndPaint(windowHandle, &paintStruct);
-    }));
+    });
 }
 
 Canvas::~Canvas() = default;
@@ -71,19 +80,18 @@ Canvas::~Canvas() = default;
 void Canvas::addOnDrawListener(OnDrawHandle &&onDrawListener) {
     onDraw = onDrawListener != nullptr ? onDrawListener : [](Gdiplus::Graphics *) {};
 }
-
 void Canvas::removeOnDrawListener() {
     onDraw = [](Gdiplus::Graphics *) {};
 }
 
-void Canvas::setPixel(uint32_t x, uint32_t y, const RGBColor &color) {
+void Canvas::setPixel(UINT16 x, UINT16 y, const RGBColor &color) {
     uint8_t *pData = data.get() + dataOffset + y * 3 * width + x * 3;
     pData[0] = color.blue;
     pData[1] = color.green;
     pData[2] = color.red;
 }
 
-void Canvas::drawArea(uint32_t x, uint32_t y, uint32_t w, uint32_t h, const RGBColor &color) {
+void Canvas::drawArea(UINT16 x, UINT16 y, UINT16 w, UINT16 h, const RGBColor &color) {
     uint8_t *pData = data.get() + dataOffset + y * 3 * width + x * 3;
 
     for (y = 0; y < h; ++y)

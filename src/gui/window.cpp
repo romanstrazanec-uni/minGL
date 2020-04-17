@@ -6,9 +6,13 @@ Window::Window(UINT16 x, UINT16 y, UINT16 width, UINT16 height) : Window("", x, 
 Window::Window(const char *title, UINT16 x, UINT16 y) : Window(title, x, y, 0, 0) {}
 Window::Window(const char *title, UINT16 x, UINT16 y, UINT16 width, UINT16 height)
         : BaseWindow(title, x, y, width, height), canvas(this) {
-    // todo: create methods that accept handles
-    addHandler(MessageHandler::onCreate([](Window *window, WindowMessage msg) { window->createObjects(); }));
-    addHandler(WindowMessage(WM_COMMAND), [](Window *window, WindowMessage msg) {
+    // Create objects on window creation.
+    addHandler(WindowMessage::onCreate(), [](Window *window, const WindowMessage &) {
+        window->createObjects();
+    });
+
+    // Perform click on specified button.
+    addHandler(WindowMessage(WM_COMMAND), [](Window *window, const WindowMessage &msg) {
         window->performClick(msg.getWparam());
     });
 
@@ -33,58 +37,58 @@ Window::~Window() {
         objects.erase(it);
         delete o;
     }
+
+    for (auto mh : messageHandlers) delete mh.second;
 }
 
 /* Message handling */
 
 LRESULT Window::handleMessage(WindowMessage &&msg) {
-    auto mh = messageHandlers.find(msg.getMsg());
+    auto mh = messageHandlers.find(msg.getCode());
     if (mh == messageHandlers.end())
-        return DefWindowProc(getWindowHandle(), msg.getMsg(), msg.getWparam(), msg.getLparam());
-    messageHandlers[msg.getMsg()].handleMessage(this, msg);
+        return DefWindowProc(getWindowHandle(), msg.getCode(), msg.getWparam(), msg.getLparam());
+    mh->second->handleMessage(this, msg);
     return 0;
 }
 
-void Window::addHandler(MessageHandler &&msgHandler) {
-    messageHandlers[msgHandler.getMessage().getMsg()] = msgHandler;
+void Window::addHandler(WindowMessage &&msg, Handle &&handle) {
+    // todo: remove existing handler
+    messageHandlers[msg.getCode()] = new MessageHandler(std::move(msg), std::move(handle));
 }
 
-void Window::addHandler(WindowMessage &&msg, Handle &&handler) {
-    addHandler(MessageHandler(std::move(msg), handler)); // todo: trivially copyable
-}
-
-void Window::addOnMouseEventHandler(WindowMessage &&wm, MouseHandle onMouseEvent) {
-    addHandler(std::move(wm), [&onMouseEvent](Window *, WindowMessage wm) {
+void Window::addOnMouseEventHandler(WindowMessage &&wm, MouseHandle &&handle) {
+    addHandler(std::move(wm), [handle](Window *, const WindowMessage &wm) {
         POINT mousePosition = wm.getMousePosition();
-        onMouseEvent(Gdiplus::Point(mousePosition.x, mousePosition.y));
+        handle(Gdiplus::Point(mousePosition.x, mousePosition.y));
     });
 }
 
-void Window::addOnMouseMoveHandler(MouseHandle handle) {
+void Window::addOnMouseMoveHandler(MouseHandle &&handle) {
     addOnMouseEventHandler(WindowMessage::onMouseMove(), std::move(handle));
 }
-void Window::addOnLeftMouseButtonDownHandler(MouseHandle handle) {
+void Window::addOnLeftMouseHandler(MouseHandle &&handle) {
     addOnMouseEventHandler(WindowMessage::onLeftMouseButtonDown(), std::move(handle));
 }
-void Window::addOnLeftMouseButtonUpHandler(MouseHandle handle) {
+void Window::addOnLeftMouseUpHandler(MouseHandle &&handle) {
     addOnMouseEventHandler(WindowMessage::onLeftMouseButtonUp(), std::move(handle));
 }
-void Window::addOnMiddleMouseButtonDownHandler(MouseHandle handle) {
+void Window::addOnMiddleMouseHandler(MouseHandle &&handle) {
     addOnMouseEventHandler(WindowMessage::onMiddleMouseButtonDown(), std::move(handle));
 }
-void Window::addOnMiddleMouseButtonUpHandler(MouseHandle handle) {
+void Window::addOnMiddleMouseUpHandler(MouseHandle &&handle) {
     addOnMouseEventHandler(WindowMessage::onMiddleMouseButtonUp(), std::move(handle));
 }
-void Window::addOnRightMouseButtonDownHandler(MouseHandle handle) {
+void Window::addOnRightMouseHandler(MouseHandle &&handle) {
     addOnMouseEventHandler(WindowMessage::onRightMouseButtonDown(), std::move(handle));
 }
-void Window::addOnRightMouseButtonUpHandler(MouseHandle handle) {
+void Window::addOnRightMouseUpHandler(MouseHandle &&handle) {
     addOnMouseEventHandler(WindowMessage::onRightMouseButtonUp(), std::move(handle));
 }
 
 /* Object manipulation */
 
 void Window::addObject(GUIObject *object, bool onlyAdd) {
+    // todo: remove existing object.
     if (!onlyAdd) object->setParent(this);
     objects.insert(std::make_pair(object->getId(), object));
 }
@@ -92,7 +96,6 @@ void Window::addObject(GUIObject *object, bool onlyAdd) {
 /* Label additions. */
 
 void Window::addLabel(Label *label) { addObject(label); }
-Label *Window::addLabel(Label &&label) { return (Label *) addObject(std::move(label)); }
 Label *Window::addLabel(long id, const char *text, UINT16 x, UINT16 y) {
     return new Label(this, id, text, x, y);
 }
@@ -103,7 +106,6 @@ Label *Window::addLabel(long id, const char *text, UINT16 x, UINT16 y, UINT16 wi
 /* TextInput additions. */
 
 void Window::addTextInput(TextInput *textInput) { addObject(textInput); }
-TextInput *Window::addTextInput(TextInput &&textInput) { return (TextInput *) addObject(std::move(textInput)); }
 TextInput *Window::addTextInput(long id, UINT16 x, UINT16 y) {
     return new TextInput(this, id, x, y);
 }
@@ -120,9 +122,6 @@ TextInput *Window::addTextInput(long id, const char *text, UINT16 x, UINT16 y, U
 /* NumberInput additions. */
 
 void Window::addNumberInput(NumberInput *numberInput) { addObject(numberInput); }
-NumberInput *Window::addNumberInput(NumberInput &&numberInput) {
-    return (NumberInput *) addObject(std::move(numberInput));
-}
 NumberInput *Window::addNumberInput(long id, UINT16 x, UINT16 y) {
     return new NumberInput(this, id, x, y);
 }
@@ -139,7 +138,6 @@ NumberInput *Window::addNumberInput(long id, UINT64 number, UINT16 x, UINT16 y, 
 /* Button additions */
 
 void Window::addButton(Button *button) { addObject(button); }
-Button *Window::addButton(Button &&button) { return (Button *) addObject(std::move(button)); }
 Button *Window::addButton(long id, const char *title, UINT16 x, UINT16 y, OnClickHandle &&onClick) {
     return new Button(this, id, title, x, y, std::move(onClick));
 }
@@ -155,7 +153,7 @@ void Window::createObjects() {
 }
 
 void Window::computeSize() {
-    UINT16 computedWidth = 0, computedHeight = 0, newWidth, newHeight;
+    UINT16 computedWidth = 0, computedHeight = 0, newWidth = 0, newHeight = 0;
     for (auto objectKVP : objects) {
         objectKVP.second->computeSize();
 
@@ -173,12 +171,12 @@ void Window::computeSize() {
 
 void Window::performClick(long id) {
     if (isCreated()) {
-        auto button = find<Button>(id);
+        auto *button = find<Button>(id);
         if (button != nullptr) button->performClick();
     }
 }
 
-bool Window::showMessageDialog(const char *title, const char *message) const {
+bool Window::showConfirmDialog(const char *title, const char *message) const {
     return isCreated() && MessageBox(getWindowHandle(), message, title, MB_OKCANCEL) == IDOK;
 }
 
@@ -192,6 +190,10 @@ void Window::addOnDrawHandler(OnDrawHandle &&onDraw) {
 
 void Window::redraw() {
     if (isCreated())
-        RedrawWindow(getWindowHandle(), nullptr, nullptr,
-                     RDW_INVALIDATE | RDW_UPDATENOW | RDW_ERASE);
+        RedrawWindow(
+                getWindowHandle(),
+                nullptr,
+                nullptr,
+                RDW_INVALIDATE | RDW_UPDATENOW
+        );
 }
