@@ -59,7 +59,7 @@ int main() {
 
     w.addOnLeftMouseHandler([&lButtonDown, &paths, &c](const Point &p) {
         lButtonDown = true;
-        paths.emplace_back(c, p); // todo: segmentation fault
+        paths.emplace_back(c, p);
     });
 
     w.addOnLeftMouseUpHandler([&lButtonDown, &paths](const Point &p) {
@@ -68,7 +68,7 @@ int main() {
     });
 
     w.addOnMouseMoveHandler([&](const Point &p) {
-        if (lButtonDown) paths.back().addPoint(p); // todo: segmentation fault
+        if (lButtonDown) paths.back().addPoint(p);
     });
 
     return w.show();

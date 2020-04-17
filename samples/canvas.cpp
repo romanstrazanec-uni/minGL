@@ -17,10 +17,9 @@ int main() {
     // Pridáme funkciu vykonávanú po stlačení ľavého tlačidla myši.
     // Pridáme ňou nový bod do vykreslovaného útvaru.
     // Typ druhého parametra je bod z knižnice Gdiplus. Obsahuje pozíciu kliknutia myši teda jeho súradnice x a y.
-    // Aby sme predišli zbytočnému kopírovaniu objektu, môžeme ho označiť ako odkaz na L-hodnotu (const Point &) alebo
-    // odkaz na R-hodnotu (Point &&). Preferovanou voľbou je odkaz na R-hodnotu keďže je objekt vytvorený na mieste.
+    // Aby sme predišli zbytočnému kopírovaniu objektu, môžeme ho označiť ako odkaz.
     window.addOnLeftMouseHandler([&points, &window](const Point &point) {
-        points.emplace_back(point); // todo: SIGSEGV
+        points.emplace_back(point);
         window.redraw();
     });
 
