@@ -38,7 +38,7 @@ int main() {
     // Do okna pridáme funkciu, ktorá sa vykoná pri vykreslení. Tá nám poskytuje ukazovateľ na objekt Graphics,
     // ktorým vieme kresliť rôzne útvary. Taktiež zachytíme číslo zo vstupného pola z vonkajšieho prostredia.
     window.addOnDrawHandler([&number](Graphics *graphics) {
-        for (int i = 0; i < number; ++i) {
+        while (number--) {
             // Pre vykreslenie kruhu potrebujeme priemer. Ten použijeme ako šírku aj výšku elipsy a keďže je rovnaký
             // pre obe hodnoty, vytvoríme tak kruh. Hodnota je nastavená od 20 po 80.
             int diameter = rand() % 61 + 20;
