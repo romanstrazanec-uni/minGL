@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="build all for all" type="CompoundRunConfigurationType">
+    <toRun name="build all" targetId="CMakeBuildProfile:VC-Debug" type="CMakeRunConfiguration" />
+    <method v="2" />
+  </configuration>
+</component>
