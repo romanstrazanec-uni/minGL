@@ -1,3 +1,4 @@
+/.vs/*
 /cmake-build-*/*
 /.idea/workspace.xml
 /.vscode/*
