@@ -1,6 +1,6 @@
 import os
 import re
-from typing import Set, List
+from typing import List
 
 sep = '/'
 
@@ -9,24 +9,59 @@ def mkdir(path: List[str]):
     [os.mkdir(np) for np in (sep.join(path[:i]) for i in range(1, len(path))) if not os.path.exists(np)]
 
 
-def collect_includes(file: str) -> Set[str]:
-    with open(file) as f:
-        return set(m.group(1) for m in (re.match(r'#include "(.*?)"', line) for line in f.readlines()) if m)
+class HeaderFile:
+    _pool = []
 
+    def __init__(self, file: str):
+        try:
+            hf = next(h for h in HeaderFile._pool if h.file == file)
+            self.file = hf.file
+            self.includes = hf.includes
+            self.__collected = hf.collected
+            self.dependencies = hf.dependencies
+        except StopIteration:
+            self.file = file
+            self.includes = set()
+            self.__collected = False
+            self.dependencies = []
+            HeaderFile._pool.append(self)
 
-def collect_headers(file: str) -> Set[str]:
-    result = {file}
-    file_path = file.split(sep)
-    for include in collect_includes(file):
-        include_path = include.split(sep)
-        path_without_back = [p for p in include_path if p != '..']
-        step_back = len(path_without_back) - len(include_path) - 1
-        result.update(collect_headers(sep.join(file_path[:step_back] + path_without_back)))
-    return result
+    @property
+    def collected(self) -> bool:
+        return self.__collected
+
+    def collect_includes(self):
+        """Collects files from: #include "../relative/path/to/file\"."""
+        if not self.collected:
+            with open(self.file) as f:
+                self.includes = set(m.group(1) for m in (re.match(r'#include "(.*?)"', i) for i in f.readlines()) if m)
+                self.__collected = True
+
+    def collect_dependencies(self):
+        """Collects all includes recursively."""
+        if not self.collected:
+            self.dependencies.append(self)
+            file_path = self.file.split(sep)
+            self.collect_includes()
+            for include in self.includes:
+                include_path = include.split(sep)
+                path_without_back = [p for p in include_path if p != '..']
+                step_back = len(path_without_back) - len(include_path) - 1
+                hf = HeaderFile(sep.join(file_path[:step_back] + path_without_back))
+                hf.collect_dependencies()
+                self.dependencies.extend(hf.dependencies)
+
+    def __eq__(self, other):
+        return self.file.__eq__(other.file)
+
+    def __lt__(self, other):
+        return self.file.__lt__(other.file)
 
 
 if __name__ == '__main__':
-    for header in reversed(sorted(collect_headers(f'src{sep}mingl'))):
-        dst = f'include{sep}minGL{header.replace("src", "")}'
+    mingl = HeaderFile(f'src{sep}mingl')
+    mingl.collect_dependencies()
+    for dependency in reversed(sorted(map(lambda d: d.file, mingl.dependencies))):
+        dst = f'include{sep}minGL{dependency.replace("src", "")}'
         mkdir(dst.split(sep))
-        os.system(f'cp {header} {dst}')
+        os.system(f'cp {dependency} {dst}')
